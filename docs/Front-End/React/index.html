@@ -230,6 +230,208 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="react">React</h1>
+<h2 id="ui--renderdata">UI = render(data)</h2>
+<h3 id="prop">prop</h3>
+<p><strong><em>prop(property&#x7684;&#x7B80;&#x5199;)&#x662F;&#x4ECE;&#x5916;&#x90E8;&#x4F20;&#x9012;&#x7ED9;&#x7EC4;&#x4EF6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E00;&#x4E2A;React&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x7684;prop&#x5C31;&#x5B9A;&#x4E49;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x5BF9;&#x5916;&#x516C;&#x5171;&#x63A5;&#x53E3;&#x3002;</em></strong></p>
+<p>&#x5F53;&#x5916;&#x90E8;&#x4E16;&#x754C;&#x8981;&#x4F20;&#x9012;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x7ED9;React&#x7EC4;&#x4EF6;&#xFF0C;&#x4E00;&#x4E2A;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x901A;&#x8FC7;prop&#xFF1B;&#x540C;&#x6837;&#xFF0C;React&#x7EC4;&#x4EF6;&#x8981;&#x53CD;&#x9988;&#x6570;&#x636E;&#x7ED9;&#x5916;&#x90E8;&#x4E16;&#x754C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;prop&#xFF0C;&#x56E0;&#x4E3A;prop&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x9650;&#x4E8E;&#x7EAF;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x7684;prop&#x7B49;&#x4E8E;&#x8BA9;&#x7236;&#x7EC4;&#x4EF6;&#x4EA4;&#x7ED9;&#x4E86;&#x5B50;&#x7EC4;&#x4EF6;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x5728;&#x6070;&#x5F53;&#x7684;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x7684;prop&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x4E0A;&#x5FC5;&#x8981;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x53CD;&#x8FC7;&#x6765;&#x628A;&#x4FE1;&#x606F;&#x4F20;&#x9012;&#x7ED9;&#x5916;&#x90E8;&#x4E16;&#x754C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-comment">// &#x5728;&#x4F7F;&#x7528;JSX&#x7684;&#x8303;&#x56F4;&#x5185;&#x5FC5;&#x987B;&#x8981;&#x6709;React</span>
+<span class="hljs-comment">// &#x5373;&#x4F7F;&#x4EE3;&#x7801;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x4F7F;&#x7528;React</span>
+<span class="hljs-comment">// &#x56E0;&#x4E3A;JSX&#x6700;&#x7EC8;&#x4F1A;&#x88AB;&#x8F6C;&#x8BD1;&#x6210;&#x4F9D;&#x8D56;&#x4E8E;React&#x7684;&#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;prop-types&apos;</span>;
+<span class="hljs-comment">// prop&#x662F;&#x7EC4;&#x4EF6;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#xFF0C;&#x4F7F;&#x7528;propTypes&#x8BA9;&#x7EC4;&#x4EF6;&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x7684;&#x63A5;&#x53E3;&#x89C4;&#x8303;</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>{
+    <span class="hljs-keyword">constructor</span>(props){
+        <span class="hljs-keyword">super</span>(props);
+
+        <span class="hljs-keyword">this</span>.onClickIncrementButton = <span class="hljs-keyword">this</span>.onClickIncrementButton.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.onClickDecrementButton = <span class="hljs-keyword">this</span>.onClickDecrementButton.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-comment">// &#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7ED9;&#x6210;&#x5458;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#x4E86;&#x5F53;&#x524D;this&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;</span>
+        <span class="hljs-comment">// &#x56E0;&#x4E3A;ES6&#x65B9;&#x6CD5;&#x521B;&#x9020;&#x7684;React&#x7EC4;&#x4EF6;&#x7C7B;&#x5E76;&#x4E0D;&#x81EA;&#x52A8;&#x7ED9;&#x6211;&#x4EEC;&#x7ED1;&#x5B9A;this&#x5230;&#x5F53;&#x524D;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</span>
+
+        <span class="hljs-keyword">this</span>.state = {
+            count: props.initValue
+        }
+        <span class="hljs-comment">// &#x901A;&#x5E38;&#x5728;&#x7EC4;&#x4EF6;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x5C3E;&#x5904;&#x521D;&#x59CB;&#x5316;state</span>
+        <span class="hljs-comment">// &#x7EC4;&#x4EF6;&#x7684;state&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;JavaScript&#x5BF9;&#x8C61;</span>
+        <span class="hljs-comment">// &#x4E0D;&#x80FD;&#x662F;string&#x6216;&#x8005;number&#x8FD9;&#x6837;&#x7684;&#x7B80;&#x5355;&#x6570;&#x636E;&#x7C7B;&#x578B;</span>
+        <span class="hljs-comment">// &#x5373;&#x4F7F;&#x8981;&#x5B58;&#x50A8;&#x7684;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EA;&#x80FD;&#x628A;&#x5B83;&#x5B58;&#x4F5C;state&#x67D0;&#x4E2A;&#x5B57;&#x6BB5;&#x5BF9;&#x5E94;&#x7684;&#x503C;</span>
+    }
+
+    onClickIncrementButton(){
+        <span class="hljs-keyword">this</span>.setState({count: <span class="hljs-keyword">this</span>.state.count + <span class="hljs-number">1</span>});
+    }
+    onClickDecrementButton(){
+        <span class="hljs-keyword">this</span>.setState({count: <span class="hljs-keyword">this</span>.state.count - <span class="hljs-number">1</span>});
+    }
+    <span class="hljs-comment">// &#x6539;&#x53D8;&#x7EC4;&#x4EF6;state&#x5FC5;&#x987B;&#x4F7F;&#x7528;this.setState&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4FEE;&#x6539;this.state</span>
+    <span class="hljs-comment">// &#x76F4;&#x63A5;&#x4FEE;&#x6539;this.state&#x7684;&#x503C;&#xFF0C;&#x867D;&#x7136;&#x4E8B;&#x5B9E;&#x4E0A;&#x6539;&#x53D8;&#x4E86;&#x7EC4;&#x4EF6;&#x7684;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x9A71;&#x52A8;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</span>
+    <span class="hljs-comment">// this.setState()&#x9996;&#x5148;&#x6539;&#x53D8;this.state&#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x9A71;&#x52A8;&#x7EC4;&#x4EF6;&#x7ECF;&#x5386;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x6709;&#x673A;&#x4F1A;&#x8BA9;this.state&#x91CC;&#x65B0;&#x7684;&#x503C;&#x51FA;&#x73B0;&#x5728;&#x754C;&#x9762;&#x4E0A;</span>
+
+    render(){
+        <span class="hljs-keyword">const</span> {caption} = <span class="hljs-keyword">this</span>.props;
+        <span class="hljs-comment">// ES6&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#xFF08;destructuring assignment&#xFF09;&#x8BED;&#x6CD5;&#x4ECE;this.props&#x4E2D;&#x83B7;&#x5F97;&#x4E86;&#x540D;&#x4E3A;caption&#x7684;prop&#x503C;</span>
+
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{buttonStyle}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.onClickIncrementButton}</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{buttonStyle}</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.onClickDecrementButton}</span>&gt;</span>-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+
+Counter.propTypes = {
+    caption: PropTypes.string.isReauired,
+    initValue: PropTypes.number
+};
+<span class="hljs-comment">// &#x8FD9;&#x4E0D;&#x53EA;&#x662F;&#x58F0;&#x660E;&#xFF0C;&#x800C;&#x4E14;&#x662F;&#x4E00;&#x79CD;&#x9650;&#x5236;</span>
+<span class="hljs-comment">// &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x548C;&#x9759;&#x6001;&#x4EE3;&#x7801;&#x68C0;&#x67E5;&#x65F6;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x6839;&#x636E;propTypes&#x5224;&#x65AD;&#x5916;&#x90E8;&#x4E16;&#x754C;&#x662F;&#x5426;&#x6B63;&#x786E;&#x5730;&#x4F7F;&#x7528;&#x4E86;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;</span>
+<span class="hljs-comment">// propTypes&#x68C0;&#x67E5;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x8F85;&#x52A9;&#x5F00;&#x53D1;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x7EC4;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</span>
+<span class="hljs-comment">// &#x6CA1;&#x6709;propTypes&#x5B9A;&#x4E49;&#xFF0C;&#x7EC4;&#x4EF6;&#x4F9D;&#x7136;&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;</span>
+<span class="hljs-comment">// &#x5373;&#x4F7F;&#x5728;&#x4E0A;&#x9762;propTypes&#x68C0;&#x67E5;&#x51FA;&#x9519;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7EC4;&#x4EF6;&#x4F9D;&#x65E7;&#x80FD;&#x5DE5;&#x4F5C;</span>
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x7C7B;&#x7684;propTypes&#x8981;&#x5360;&#x7528;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#x7A7A;&#x95F4;</span>
+<span class="hljs-comment">// propTypes&#x68C0;&#x67E5;&#x8981;&#x6D88;&#x8017;CPU&#x8BA1;&#x7B97;&#x8D44;&#x6E90;</span>
+<span class="hljs-comment">// &#x5728;&#x4EA7;&#x54C1;&#x73AF;&#x5883;&#x4E0B;&#x505A;propTypes&#x68C0;&#x67E5;&#x5728;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x7684;&#x6D4F;&#x89C8;&#x5668;Console&#x4E2D;&#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x6CA1;&#x4EC0;&#x4E48;&#x610F;&#x4E49;</span>
+<span class="hljs-comment">// &#x6240;&#x4EE5;&#x6700;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5B9A;&#x4E49;propTypes&#xFF0C;&#x907F;&#x514D;&#x5728;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x72AF;&#x9519;&#xFF0C;&#x4F46;&#x5728;&#x53D1;&#x5E03;&#x4EA7;&#x54C1;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x53BB;&#x6389;propTypes&#xFF0C;&#x8FD9;&#x6837;&#x6700;&#x7EC8;&#x90E8;&#x7F72;&#x5230;&#x4EA7;&#x54C1;&#x73AF;&#x5883;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x4F1A;&#x66F4;&#x4F18;</span>
+<span class="hljs-comment">// babel-react-optimize&#x5177;&#x6709;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x5E94;&#x8BE5;&#x786E;&#x4FDD;&#x53EA;&#x5728;&#x53D1;&#x5E03;&#x4EA7;&#x54C1;&#x4EE3;&#x7801;&#x65F6;&#x4F7F;&#x7528;&#x5B83;</span>
+
+Counter.defaultProps = {
+    initValue: <span class="hljs-number">0</span>
+};
+<span class="hljs-comment">// propTypes&#x58F0;&#x660E;&#x4E2D;initValue&#x6CA1;&#x6709;&#x7528;isRequired&#x8981;&#x6C42;&#x5FC5;&#x987B;&#x6709;&#x503C;</span>
+<span class="hljs-comment">// &#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5224;&#x65AD;&#x6240;&#x7ED9;initValue&#x503C;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x7ED9;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x521D;&#x59CB;&#x503C;</span>
+<span class="hljs-comment">// this.state = {</span>
+<span class="hljs-comment">//     count: props.initValue || 0</span>
+<span class="hljs-comment">// }</span>
+<span class="hljs-comment">// &#x8FD9;&#x6837;&#x7684;&#x5224;&#x65AD;&#x903B;&#x8F91;&#x5145;&#x65A5;&#x5728;&#x6211;&#x4EEC;&#x7EC4;&#x4EF6;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5E76;&#x4E0D;&#x7F8E;&#x89C2;&#x4E14;&#x5BB9;&#x6613;&#x9057;&#x6F0F;</span>
+<span class="hljs-comment">// &#x53EF;&#x4EE5;&#x7528;React&#x7684;defaultProps&#x529F;&#x80FD;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x6613;&#x61C2;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Counter;
+</code></pre>
+<p><strong><em>&#x7ED9;this.props&#x8D4B;&#x503C;&#x662F;React.Component&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5DE5;&#x4F5C;&#x4E4B;&#x4E00;</em></strong></p>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x8BB0;&#x5F97;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x901A;&#x8FC7;super&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x4E5F;&#x5C31;&#x662F;React.Component&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x6CA1;&#x6709;&#x8C03;&#x7528;super(props)&#xFF0C;&#x90A3;&#x4E48;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x88AB;&#x6784;&#x9020;&#x4E4B;&#x540E;&#xFF0C;&#x7C7B;&#x5B9E;&#x4F8B;&#x7684;&#x6240;&#x6709;&#x6210;&#x5458;&#x51FD;&#x6570;&#x5C31;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;this.props&#x8BBF;&#x95EE;&#x5230;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;props&#x503C;&#x3002;</p>
+<h3 id="state">state</h3>
+<p><strong><em>state&#x4EE3;&#x8868;&#x7EC4;&#x4EF6;&#x7684;&#x5185;&#x90E8;&#x72B6;&#x6001;&#x3002;&#x7531;&#x4E8E;React&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x4F20;&#x5165;&#x7684;prop&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x81EA;&#x8EAB;&#x6570;&#x636E;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x8981;&#x4F7F;&#x7528;state&#x3002;</em></strong></p>
+<h3 id="prop&#x4E0E;state&#x7684;&#x5BF9;&#x6BD4;">prop&#x4E0E;state&#x7684;&#x5BF9;&#x6BD4;</h3>
+<ul>
+<li>prop&#x5B9A;&#x4E49;&#x5916;&#x90E8;&#x63A5;&#x53E3;&#xFF0C;state&#x8BB0;&#x5F55;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF1B;</li>
+<li>prop&#x7684;&#x8D4B;&#x503C;&#x5728;&#x5916;&#x90E8;&#x4E16;&#x754C;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;state&#x7684;&#x8D4B;&#x503C;&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#xFF1B;</li>
+<li>&#x7EC4;&#x4EF6;&#x4E0D;&#x5E94;&#x8BE5;&#x6539;&#x53D8;prop&#x7684;&#x503C;&#xFF0C;&#x800C;state&#x5B58;&#x5728;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x8BA9;&#x7EC4;&#x4EF6;&#x6765;&#x6539;&#x53D8;&#x7684;&#x3002;</li>
+</ul>
+<h3 id="&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;">&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<ul>
+<li><p><strong>&#x88C5;&#x8F7D;&#x8FC7;&#x7A0B;&#xFF08;Mount&#xFF09;</strong>&#xFF0C;&#x7EC4;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x5728;DOM&#x6811;&#x4E2D;&#x6E32;&#x67D3;&#x7684;&#x8FC7;&#x7A0B;</p>
+<ul>
+<li>constructor<ul>
+<li>&#x5E76;&#x4E0D;&#x662F;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+<li>&#x65E0;&#x72B6;&#x6001;&#x7684;React&#x7EC4;&#x4EF6;&#x5F80;&#x5F80;&#x4E0D;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+<li>&#x4E00;&#x4E2A;React&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5F80;&#x5F80;&#x662F;&#x4E3A;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x76EE;&#x7684;&#xFF1A;<ol>
+<li>&#x521D;&#x59CB;&#x5316;state</li>
+<li>&#x7ED1;&#x5B9A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x7684;this&#x73AF;&#x5883;</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><del>getlnitialState</del></li>
+<li><p><del>getDefaultProps</del></p>
+<pre><code class="lang-js">  <span class="hljs-keyword">const</span> Sample = React.createClass({
+      getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="hljs-keyword">return</span> {foo: <span class="hljs-string">&apos;bar&apos;</span>};
+      },
+      getDefaultProps: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="hljs-keyword">return</span> {sampleProp: <span class="hljs-number">0</span>};
+      }
+  });
+</code></pre>
+<blockquote>
+<p>getlnitialState&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;&#x7EC4;&#x4EF6;&#x7684;this.state&#xFF0C;getDefaultProps&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;props&#x7684;&#x521D;&#x59CB;&#x503C;&#x3002;</p>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x5728;React.createClass&#x65B9;&#x6CD5;&#x521B;&#x9020;&#x7684;&#x7EC4;&#x4EF6;&#x7C7B;&#x4E2D;&#x624D;&#x4F1A;&#x7528;&#x5230;&#xFF0C;&#x5728;ES6&#x7684;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x7684;React&#x7EC4;&#x4EF6;&#x4E2D;&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x7528;&#x5230;&#x3002;</p>
+<p>React.createClass&#x5DF2;&#x7ECF;&#x88AB;Facebook&#x5B98;&#x65B9;&#x9010;&#x6E10;&#x5E9F;&#x5F03;&#xFF0C;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4E0D;&#x518D;&#x8981;&#x4F7F;&#x7528;React.createClass&#x3002;</p>
+<p>getlnitialState&#x53EA;&#x51FA;&#x73B0;&#x5728;&#x88C5;&#x8F7D;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x6574;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EA;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x4E0D;&#x8981;&#x5728;&#x91CC;&#x9762;&#x653E;&#x7F6E;&#x9884;&#x671F;&#x4F1A;&#x88AB;&#x591A;&#x6B21;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>componentWillMount</p>
+<ul>
+<li><p>&#x901A;&#x5E38;&#x4E0D;&#x7528;&#x5B9A;&#x4E49;componentWillMount&#x51FD;&#x6570;</p>
+<blockquote>
+<p>componentWilJMount&#x53D1;&#x751F;&#x5728;&#x201C;&#x5C06;&#x8981;&#x88C5;&#x8F7D;&#x201D;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5373;&#x4F7F;&#x8C03;&#x7528;this.setState&#x4FEE;&#x6539;&#x72B6;&#x6001;&#x4E5F;&#x4E0D;&#x4F1A;&#x5F15;&#x53D1;&#x91CD;&#x65B0;&#x7ED8;&#x5236;&#x3002;</p>
+<p>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x6240;&#x6709;&#x53EF;&#x4EE5;&#x5728;componentWillMount &#x4E2D;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x63D0;&#x524D;&#x5230;constructor&#x4E2D;&#x505A;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5B58;&#x5728;&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x548C;componentDidMount&#x5BF9;&#x79F0;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>render</p>
+<ul>
+<li><p>render&#x51FD;&#x6570;&#x662F;React&#x7EC4;&#x4EF6;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x51FD;&#x6570;</p>
+<blockquote>
+<p>&#x4E00;&#x4E2A;React&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x51FD;&#x6570;&#x90FD;&#x4E0D;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x5B9A;&#x8981;&#x5B9E;&#x73B0; render &#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x6240;&#x6709; React &#x7EC4;&#x4EF6;&#x7684;&#x7236;&#x7C7B; React.Component&#x7C7B;&#x5BF9;&#x9664;render&#x4E4B;&#x5916;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>render&#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x505A;&#x5B9E;&#x9645;&#x7684;&#x8C0A;&#x67D3;&#x52A8;&#x4F5C;</p>
+<blockquote>
+<p>&#x5B83;&#x53EA;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;JSX&#x63CF;&#x8FF0;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6700;&#x7EC8;&#x7531;React&#x6765;&#x64CD;&#x4F5C;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x7EC4;&#x4EF6;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x9009;&#x62E9;&#x6CA1;&#x6709;&#x4E1C;&#x897F;&#x53EF;&#x753B;</p>
+<blockquote>
+<p>&#x90A3;&#x5C31;&#x8BA9;render&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;null&#x6216;&#x8005;false&#xFF0C;&#x7B49;&#x4E8E;&#x544A;&#x8BC9;React&#xFF0C;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x8FD9;&#x6B21;&#x4E0D;&#x9700;&#x8981;&#x6E32;&#x67D3;&#x4EFB;&#x4F55;DOM&#x5143;&#x7D20;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>componentDidMount</p>
+<ul>
+<li><p>render&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;componentDidMount&#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x662F;&#x4F1A;&#x88AB;&#x7ACB;&#x523B;&#x8C03;&#x7528;</p>
+<blockquote>
+<p>componentDidMount&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;render&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x4E1C;&#x897F;&#x5DF2;&#x7ECF;&#x5F15;&#x53D1;&#x4E86;&#x6E32;&#x67D3;&#xFF0C;&#x7EC4;&#x4EF6;&#x5DF2;&#x7ECF;&#x88AB;&#x201C;&#x88C5;&#x8F7D;&#x201D;&#x5230;&#x4E86;DOM&#x6811;&#x4E0A;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-nohighlight">enter constructor: First
+enter componentWillMount First
+enter render First
+enter constructor: Second
+enter componentWillMount Second
+enter render Second
+enter constructor: Third
+enter componentWillMount Third
+enter render Third
+enter componentDidMount First
+enter componentDidMount Second
+enter componentDidMount Third
+</code></pre>
+<blockquote>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x4F1A;&#x6709;&#x4E0A;&#x9762;&#x7684;&#x73B0;&#x8C61;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;render&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x5F80;DOM&#x6811;&#x4E0A;&#x6E32;&#x67D3;&#x6216;&#x8005;&#x88C5;&#x8F7D;&#x5185;&#x5BB9;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;JSX&#x8868;&#x793A;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x7531;React&#x5E93;&#x6765;&#x6839;&#x636E;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x51B3;&#x5B9A;&#x5982;&#x4F55;&#x6E32;&#x67D3;&#x3002;</p>
+<p>&#x800C;React&#x5E93;&#x80AF;&#x5B9A;&#x662F;&#x8981;&#x628A;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x7EFC;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x8BE5;&#x5982;&#x4F55;&#x4EA7;&#x751F;&#x5BF9;&#x5E94;&#x7684;DOM&#x4FEE;&#x6539;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x53EA;&#x6709;React&#x5E93;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x7684;render&#x51FD;&#x6570;&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x6709;&#x53EF;&#x80FD;&#x5B8C;&#x6210;&#x88C5;&#x8F7D;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x4F9D;&#x6B21;&#x8C03;&#x7528;&#x5404;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;componentDidMount&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x88C5;&#x8F7D;&#x8FC7;&#x7A0B;&#x7684;&#x6536;&#x5C3E;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>componentWillMount&#x53EF;&#x4EE5;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x88AB;&#x8C03;&#x7528;&#xFF1B;&#x800C;componentDidMount&#x53EA;&#x80FD;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;React&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+</li>
+<li>componentDidMount&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7EC4;&#x4EF6;&#x5DF2;&#x7ECF;&#x88AB;&#x88C5;&#x8F7D;&#x5230;DOM&#x6811;&#x4E0A;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x653E;&#x5FC3;&#x83B7;&#x53D6;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#x7684;&#x4EFB;&#x4F55;DOM&#x3002;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#xFF08;Update&#xFF09;</strong>&#xFF0C;&#x5F53;&#x7EC4;&#x4EF6;&#x88AB;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x7684;&#x8FC7;&#x7A0B;</p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x88AB;&#x88C5;&#x8F7D;&#x5230;DOM&#x6811;&#x4E0A;&#x4E4B;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x5728;&#x7F51;&#x9875;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7EC4;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x5370;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x63D0;&#x4F9B;&#x66F4;&#x597D;&#x7684;&#x4EA4;&#x4E92;&#x4F53;&#x9A8C;&#xFF0C;&#x5C31;&#x8981;&#x8BA9;&#x8BE5;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x968F;&#x7740;&#x7528;&#x6237;&#x64CD;&#x4F5C;&#x6539;&#x53D8;&#x5C55;&#x73B0;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5F53;props&#x6216;&#x8005;state&#x88AB;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5F15;&#x53D1;&#x7EC4;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p>componentWillReceiveProps</p>
+<blockquote>
+<p>&#x53EA;&#x8981;&#x662F;&#x7236;&#x7EC4;&#x4EF6;&#x7684;render&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5728;render&#x51FD;&#x6570;&#x91CC;&#x9762;&#x88AB;&#x8C0A;&#x67D3;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x5C31;&#x4F1A;&#x7ECF;&#x5386;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0D;&#x7BA1;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x7ED9;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;props&#x6709;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;componentWillReceiveProps&#x51FD;&#x6570;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>shouldComponentUpdate</p>
+</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ul>
+</li>
+<li><strong>&#x5378;&#x8F7D;&#x8FC7;&#x7A0B;&#xFF08;Unmount&#xFF09;</strong>&#xFF0C;&#x7EC4;&#x4EF6;&#x4ECE;DOM&#x4E2D;&#x5220;&#x9664;&#x7684;&#x8FC7;&#x7A0B;</li>
+</ul>
 
                                 
                                 </section>
@@ -269,7 +471,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React","level":"1.6.1","depth":2,"previous":{"title":"Front-End","level":"1.6","depth":1,"path":"Front-End/README.md","ref":"Front-End/README.md","articles":[{"title":"React","level":"1.6.1","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/React/README.md","mtime":"2018-05-23T01:31:12.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-23T01:48:05.019Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React","level":"1.6.1","depth":2,"previous":{"title":"Front-End","level":"1.6","depth":1,"path":"Front-End/README.md","ref":"Front-End/README.md","articles":[{"title":"React","level":"1.6.1","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/React/README.md","mtime":"2018-05-23T02:37:49.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-23T08:07:12.086Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
