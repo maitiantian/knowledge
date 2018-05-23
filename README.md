@@ -1,2 +1,1 @@
-
-# go visit [https://maitiantian.github.io/knowledge/](https://maitiantian.github.io/knowledge/)
+# go to visit [https://maitiantian.github.io/knowledge/](https://maitiantian.github.io/knowledge/)

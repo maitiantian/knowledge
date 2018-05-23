@@ -8,14 +8,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gitbook build ./content ./docs"
+    "build": "gitbook build ./content ./docs",
+    "serve": "gitbook serve ./content"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maitiantian/knowledge.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "maitiantian",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maitiantian/knowledge/issues"
