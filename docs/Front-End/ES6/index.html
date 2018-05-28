@@ -1,0 +1,531 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ES6 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../React/" />
+    
+    
+    <link rel="prev" href="../JavaScript/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../CS基础/">
+            
+                <a href="../../CS基础/">
+            
+                    
+                    CS基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../Linux/">
+            
+                <a href="../../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Python/">
+            
+                <a href="../../Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Front-End
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../JavaScript/">
+            
+                <a href="../JavaScript/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../React/">
+            
+                <a href="../React/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ES6</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="es6">ES6</h1>
+<h2 id="objectassigntarget-sources"><strong><em>Object.assign(target, ...sources)</em></strong></h2>
+<ul>
+<li>&#x7528;&#x4E8E;&#x5C06;&#x6240;&#x6709;<strong><em>&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;</em></strong>&#x7684;&#x503C;&#x4ECE;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;sources&#x590D;&#x5236;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61;target</li>
+<li>&#x5B83;&#x5C06;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;target
+```js
+const object1 = {
+  a: 1,
+  b: 2,
+  c: 3
+};</li>
+</ul>
+<p>const object2 = Object.assign({c: 4, d: 5}, object1);</p>
+<p>console.log(object2.c, object2.d);
+// expected output: 3 5</p>
+<p>// &#x5408;&#x5E76;&#x5BF9;&#x8C61;
+var o1 = { a: 1 };
+var o2 = { b: 2 };
+var o3 = { c: 3 };
+var obj = Object.assign(o1, o2, o3);
+console.log(obj);
+// { a: 1, b: 2, c: 3 }
+console.log(o1);<br>// { a: 1, b: 2, c: 3 }, &#x6CE8;&#x610F;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x4E5F;&#x4F1A;&#x6539;&#x53D8;&#x3002;</p>
+<pre><code>
+---
+
+&gt; &#x5982;&#x679C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x952E;&#xFF0C;&#x5219;&#x5C5E;&#x6027;&#x5C06;&#x88AB;&#x6E90;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8986;&#x76D6;&#x3002;&#x540E;&#x6765;&#x7684;&#x6E90;&#x7684;&#x5C5E;&#x6027;&#x5C06;&#x7C7B;&#x4F3C;&#x5730;&#x8986;&#x76D6;&#x65E9;&#x5148;&#x7684;&#x5C5E;&#x6027;&#x3002;
+```js
+var o1 = { a: 1, b: 1, c: 1 };
+var o2 = { b: 2, c: 2 };
+var o3 = { c: 3 };
+
+var obj = Object.assign({}, o1, o2, o3);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+</code></pre><hr>
+<blockquote>
+<p>Object.assign()&#x62F7;&#x8D1D;&#x7684;&#x662F;&#x5C5E;&#x6027;&#x503C;&#x3002;&#x5047;&#x5982;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x4E5F;&#x53EA;&#x62F7;&#x8D1D;&#x90A3;&#x4E2A;&#x5F15;&#x7528;&#x503C;&#x3002;
+```js
+function test() {
+    &apos;use strict&apos;;</p>
+</blockquote>
+<pre><code>let obj1 = { a: 0 , b: { c: 0}};
+let obj2 = Object.assign({}, obj1);
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
+
+obj1.a = 1;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}}
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
+
+obj2.a = 2;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}}
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 0}}
+
+obj2.b.c = 3;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 3}}
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 3}}
+
+// Deep Clone
+obj1 = { a: 0 , b: { c: 0}};
+let obj3 = JSON.parse(JSON.stringify(obj1));
+obj1.a = 4;
+obj1.b.c = 4;
+console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
+</code></pre><p>}</p>
+<p>test();</p>
+<pre><code>---
+* &#x62F7;&#x8D1D;symbol&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;
+```js
+var o1 = { a: 1 };
+var o2 = { [Symbol(&apos;foo&apos;)]: 2 };
+
+var obj = Object.assign({}, o1, o2);
+console.log(obj);
+// { a : 1, [Symbol(&quot;foo&quot;)]: 2 } (cf. bug 1207182 on Firefox)
+Object.getOwnPropertySymbols(obj);
+// [Symbol(foo)]
+</code></pre><hr>
+<ul>
+<li>&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#x548C;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x662F;&#x4E0D;&#x80FD;&#x62F7;&#x8D1D;&#x7684;
+```js
+var obj = Object.create({foo: 1}, { // foo &#x662F;&#x4E2A;&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#x3002;
+  bar: {<pre><code>  value: 2  // bar &#x662F;&#x4E2A;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x3002;
+</code></pre>  },
+  baz: {<pre><code>  value: 3,
+  enumerable: true  // baz &#x662F;&#x4E2A;&#x81EA;&#x8EAB;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x3002;
+</code></pre>  }
+});</li>
+</ul>
+<p>var copy = Object.assign({}, obj);
+console.log(copy); // { baz: 3 }</p>
+<pre><code>
+---
+
+* &#x5F02;&#x5E38;&#x4F1A;&#x6253;&#x65AD;&#x540E;&#x7EED;&#x62F7;&#x8D1D;&#x4EFB;&#x52A1;
+```js
+var target = Object.defineProperty({}, &quot;foo&quot;, {
+    value: 1,
+    writable: false
+}); // target &#x7684; foo &#x5C5E;&#x6027;&#x662F;&#x4E2A;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x3002;
+
+Object.assign(target, {bar: 2}, {foo2: 3, foo: 3, foo3: 3}, {baz: 4});
+// TypeError: &quot;foo&quot; is read-only
+// &#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#x662F;&#x5728;&#x62F7;&#x8D1D;&#x7B2C;&#x4E8C;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x3002;
+
+console.log(target.bar);
+// 2&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;&#x4E00;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x62F7;&#x8D1D;&#x6210;&#x529F;&#x4E86;&#x3002;
+console.log(target.foo2);
+// 3&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;&#x4E8C;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x4E5F;&#x62F7;&#x8D1D;&#x6210;&#x529F;&#x4E86;&#x3002;
+console.log(target.foo);
+// 1&#xFF0C;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x4E0D;&#x80FD;&#x88AB;&#x8986;&#x76D6;&#xFF0C;&#x6240;&#x4EE5;&#x7B2C;&#x4E8C;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x5C5E;&#x6027;&#x62F7;&#x8D1D;&#x5931;&#x8D25;&#x4E86;&#x3002;
+console.log(target.foo3);
+// undefined&#xFF0C;&#x5F02;&#x5E38;&#x4E4B;&#x540E; assign &#x65B9;&#x6CD5;&#x5C31;&#x9000;&#x51FA;&#x4E86;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x4E0D;&#x4F1A;&#x88AB;&#x62F7;&#x8D1D;&#x5230;&#x7684;&#x3002;
+console.log(target.baz);
+// undefined&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;&#x66F4;&#x662F;&#x4E0D;&#x4F1A;&#x88AB;&#x62F7;&#x8D1D;&#x5230;&#x7684;&#x3002;
+</code></pre><hr>
+<ul>
+<li>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x5305;&#x88C5;&#x4E3A;&#x5BF9;&#x8C61;
+```js
+var v1 = &quot;abc&quot;;
+var v2 = true;
+var v3 = 10;
+var v4 = Symbol(&quot;foo&quot;);</li>
+</ul>
+<p>var obj = Object.assign({}, v1, null, v2, undefined, v3, v4); 
+// &#x539F;&#x59CB;&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x5305;&#x88C5;&#xFF0C;null &#x548C; undefined &#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+// &#x6CE8;&#x610F;&#xFF0C;&#x53EA;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#x624D;&#x53EF;&#x80FD;&#x6709;&#x81EA;&#x8EAB;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x3002;
+console.log(obj);
+// { &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; }</p>
+<pre><code>
+---
+
+* &#x62F7;&#x8D1D;&#x8BBF;&#x95EE;&#x5668;
+```js
+var obj = {
+    foo: 1,
+    get bar() {
+        return 2;
+    }
+};
+
+var copy = Object.assign({}, obj); 
+// { foo: 1, bar: 2 }
+// copy.bar&#x7684;&#x503C;&#x6765;&#x81EA;obj.bar&#x7684;getter&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C; 
+console.log(copy); 
+
+// &#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x62F7;&#x8D1D;&#x6240;&#x6709;&#x81EA;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;
+function completeAssign(target, ...sources) {
+    sources.forEach(source =&gt; {
+        let descriptors = Object.keys(source).reduce((descriptors, key) =&gt; {
+            descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+            return descriptors;
+        }, {});
+
+        // Object.assign &#x9ED8;&#x8BA4;&#x4E5F;&#x4F1A;&#x62F7;&#x8D1D;&#x53EF;&#x679A;&#x4E3E;&#x7684;Symbols
+        Object.getOwnPropertySymbols(source).forEach(sym =&gt; {
+            let descriptor = Object.getOwnPropertyDescriptor(source, sym);
+            if (descriptor.enumerable) {
+                descriptors[sym] = descriptor;
+            }
+        });
+        Object.defineProperties(target, descriptors);
+    });
+    return target;
+}
+
+var copy = completeAssign({}, obj);
+console.log(copy);
+// { foo: 1, get bar() { return 2 } }
+</code></pre><h2 id="symbol"><strong><em>Symbol</em></strong></h2>
+<p>&#x6700;&#x521D;JS&#x5B9A;&#x4E49;&#x4E86;6&#x79CD;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ul>
+<li>null</li>
+<li>undefined</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>object&#xFF08;array&#x548C;function&#x90FD;&#x662F;&#x5C5E;&#x4E8E;object&#x7684;&#x5B50;&#x7C7B;&#xFF09;</li>
+</ul>
+<h3 id="&#x524D;&#x4E94;&#x4E2A;&#x90FD;&#x662F;&#x6709;&#x9650;&#x96C6;&#xFF0C;object&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x96C6;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;object&#x90FD;&#x662F;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x3002;"><strong><em>&#x524D;&#x4E94;&#x4E2A;&#x90FD;&#x662F;&#x6709;&#x9650;&#x96C6;&#xFF0C;Object&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x96C6;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;Object&#x90FD;&#x662F;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x3002;</em></strong></h3>
+<p>ES6&#x4E2D;&#xFF0C;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;symbol&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5224;&#x65AD;</span>
+<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Symbol</span>() == <span class="hljs-string">&apos;symbol&apos;</span> <span class="hljs-comment">//true</span>
+
+<span class="hljs-comment">// &#x7279;&#x70B9;</span>
+<span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;key&apos;</span>) != <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;key&apos;</span>) <span class="hljs-comment">//true</span>
+</code></pre>
+<h3 id="symbol&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x6C38;&#x8FDC;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x5373;&#x4FBF;&#x521B;&#x5EFA;&#x5B83;&#x4EEC;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x5165;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x503C;&#x3002;"><strong><em>symbol&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x6C38;&#x8FDC;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x5373;&#x4FBF;&#x521B;&#x5EFA;&#x5B83;&#x4EEC;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x5165;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x503C;&#x3002;</em></strong></h3>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x53EF;&#x501F;&#x52A9;&#x6B64;&#x7279;&#x6027;&#x89E3;&#x51B3;&#x5C5E;&#x6027;&#x540D;&#x7684;&#x51B2;&#x7A81;&#x95EE;&#x9898;&#xFF08;&#x6BD4;&#x5982;&#x9002;&#x7528;&#x4E8E;&#x591A;&#x4EBA;&#x7F16;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF09;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x8BE5;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5B58;&#x5728;&#x7684;&#x4E3B;&#x8981;&#x7528;&#x9014;&#xFF0C;&#x610F;&#x4E3A;&#x6807;&#x8BB0;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> sym = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;foo&apos;</span>);
+<span class="hljs-keyword">var</span> obj = {[sym] : <span class="hljs-number">1</span>};
+obj[sym] === <span class="hljs-number">1</span> <span class="hljs-comment">//true</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../JavaScript/" class="navigation navigation-prev " aria-label="Previous page: JavaScript">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../React/" class="navigation navigation-next " aria-label="Next page: React">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ES6","level":"1.6.2","depth":2,"next":{"title":"React","level":"1.6.3","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6.1","depth":2,"path":"Front-End/JavaScript/README.md","ref":"Front-End/JavaScript/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/ES6/README.md","mtime":"2018-05-28T02:47:28.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-28T09:14:08.816Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

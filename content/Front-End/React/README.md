@@ -284,6 +284,7 @@ export default new Dispatcher();
 ```
 2. Action
 > action代表一个“动作”，是一个普通的JavaScript对象，代表一个动作的纯数据。action对象不自带方法，就是纯粹的数据。
+
 ```js
 // 定义action通常需要两个文件，
 // ActionTypes定义action的类型，
@@ -320,8 +321,10 @@ export const decrement = (counterCaption) => {
 // 当这两个函数被调用的时候，创造了对应的action对象，
 // 并立即通过AppDispatcher.dispatch函数派发出去。
 ```
+
 3. Store
 > Store是一个对象，存储应用状态，同时还要接受Dispatcher派发的动作，根据动作来决定是否要更新应用状态。
+
 ```js
 // src/stores/CounterStore.js
 import AppDispatcher from '../AppDispatcher.js';
