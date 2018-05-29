@@ -11,7 +11,7 @@ python *.py
 ### Python交互模式
 在系统提示环境（命令行、Win+R）下输入“python”即可开启一个交互的Python会话
 
-**++输入一行，执行一行++**
+**输入一行，执行一行**
 
 * 优点：适合实验语法和测试已写入文件的代码
 * 缺点：输入的代码不会保存，要重新执行必须重新输入
@@ -33,10 +33,10 @@ python *.py
 **id()方法：**
 > Return the “identity” of an object. This is an integer (or long integer) which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same id()value.
 
-**++Python 对每个一个对象都提供一个唯一的 id 值++**
+**Python对每个一个对象都提供一个唯一的id值**
 
 * 交互模式下：
-    - Python **在一个语句中**对值相同的不可变对象（tuple除外）都解释为了同一个对象
+    - Python**在一个语句中**对值相同的不可变对象（tuple除外）都解释为了同一个对象
     ```python
     >>> id(1) == id(1)
     True
@@ -45,7 +45,7 @@ python *.py
     >>> id(10000) == id(10000)
     True
     ```
-    - Python 对**整型 -5 ~ 256** 都提前构造好了对象，后续所有值在这个范围内的整型都是指向唯一的对象。目的是为了防止经常使用的数字不断的被创建和销毁
+    - Python对**整型-5~256**都提前构造好了对象，后续所有值在这个范围内的整型都是指向唯一的对象。目的是为了防止经常使用的数字不断的被创建和销毁
     ```python
     >>> a = 1
     >>> b = 1
@@ -65,7 +65,7 @@ python *.py
     False
     ```
 * 命令行模式下：
-    - Python **在一个文件中**对值相同的不可变对象（tuple除外）都解释为同一个对象
+    - Python**在一个文件中**对值相同的不可变对象（tuple除外）都解释为同一个对象
     ```python
     a = 257
     b = 257

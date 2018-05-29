@@ -4,6 +4,7 @@
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
 * 它将返回目标对象target
+
 ```js
 const object1 = {
     a: 1,
@@ -30,6 +31,7 @@ console.log(o1);
 ---
 
 > 如果目标对象中的属性具有相同的键，则属性将被源中的属性覆盖。后来的源的属性将类似地覆盖早先的属性。
+
 ```js
 var o1 = { a: 1, b: 1, c: 1 };
 var o2 = { b: 2, c: 2 };
@@ -42,6 +44,7 @@ console.log(obj); // { a: 1, b: 2, c: 3 }
 ---
 
 > Object.assign()拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。
+
 ```js
 function test() {
     'use strict';
@@ -72,8 +75,11 @@ function test() {
 
 test();
 ```
+
 ---
+
 * 拷贝symbol类型的属性
+
 ```js
 var o1 = { a: 1 };
 var o2 = { [Symbol('foo')]: 2 };
@@ -88,6 +94,7 @@ Object.getOwnPropertySymbols(obj);
 ---
 
 * 继承属性和不可枚举属性是不能拷贝的
+
 ```js
 var obj = Object.create({foo: 1}, { // foo 是个继承属性。
     bar: {
@@ -106,6 +113,7 @@ console.log(copy); // { baz: 3 }
 ---
 
 * 异常会打断后续拷贝任务
+
 ```js
 var target = Object.defineProperty({}, "foo", {
     value: 1,
@@ -131,6 +139,7 @@ console.log(target.baz);
 ---
 
 * 原始类型会被包装为对象
+
 ```js
 var v1 = "abc";
 var v2 = true;
@@ -147,6 +156,7 @@ console.log(obj);
 ---
 
 * 拷贝访问器
+
 ```js
 var obj = {
     foo: 1,
@@ -199,10 +209,10 @@ console.log(copy);
 ES6中，新增了一种数据类型symbol：
 ```js
 // 判断
-typeof Symbol() == 'symbol' //true
+typeof Symbol() === 'symbol' //true
 
 // 特点
-Symbol('key') != Symbol('key') //true
+Symbol('key') !== Symbol('key') //true
 ```
 
 ### ***symbol类型的对象永远不相等，即便创建它们的时候传入了相同的值。***
