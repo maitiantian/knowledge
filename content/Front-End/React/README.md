@@ -282,7 +282,7 @@ import {Dispatcher} from 'flux';
 export default new Dispatcher();
 // Dispatcher存在的作用是用来派发action
 ```
-**2、Action**
+**2、action**
 > action代表一个“动作”，是一个普通的JavaScript对象，代表一个动作的纯数据。action对象不自带方法，就是纯粹的数据。
 
 ```js
@@ -306,6 +306,7 @@ import AppDispatcher from './AppDispatcher.js';
 
 export const increment = (counterCaption) => {
     AppDispatcher.dispatch({
+        // action对象必须有一个字符串类型的type字段，代表这个action对象的类型。
         type: ActionTypes.INCREMENT,
         counterCaption: counterCaption
     });
@@ -643,6 +644,7 @@ export default Summary;
     * 要修改Store的状态，必须要通过派发一个action对象完成，这点和Flux没什么区别；
     * 要驱动用户界面渲染，就要改变应用的状态，但是改变状态的方法不是去修改状态上值，而是创建一个新的状态对象返回给Redux，由Redux完成新的状态的组装。
 3. 数据改变只能通过纯函数完成（Changes are made with pure functions）
+    
     __Redux=Reducer+Flux__
     
     在Redux中，每个reducer的函数签名如下所示：
