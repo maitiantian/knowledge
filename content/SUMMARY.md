@@ -12,4 +12,6 @@
     * [JavaScript](Front-End/JavaScript/README.md)
     * [ES6](Front-End/ES6/README.md)
     * [React](Front-End/React/README.md)
+* [健身](健身/README.md)
+* [摄影](摄影/README.md)
 
