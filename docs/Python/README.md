@@ -1,19 +1,19 @@
 # 目录
-* [IDLE](#IDLE)
-* [运行Python](#运行Python)
-* [Python标准文档模板](#Python标准文档模板)
+* [IDLE](#idle)
+* [运行Python](#运行python)
+* [Python标准文档模板](#python标准文档模板)
 * [可变、不可变数据类型](#可变、不可变数据类型)
 * [变量、函数命名](#变量、函数命名)
 * [模块](#模块)
 * [函数参数](#函数参数)
-* [装饰器（Decorator）](#装饰器（Decorator）)
+* [装饰器](#装饰器（decorator）)
 
-# IDLE
+# **IDLE**
 IDLE是Python自带的简单的**集成开发环境**（**IDE**, Integrated Development Environment），是一个可以用来编辑、运行、浏览和调试Python程序的GUI。
 
 > IDLE是IDE的一个官方变形，是为了纪念Monty Python成员Eirc Idle而命名的。
 
-# 运行Python
+# **运行Python**
 ## 命令行模式
 python *.py
 ## Python交互模式
@@ -28,7 +28,7 @@ python *.py
 
 
 
-# Python标准文档模板
+# **Python标准文档模板**
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -49,7 +49,7 @@ __author__ = 'Michael Liao'
 
 
 
-# 可变、不可变数据类型
+# **可变、不可变数据类型**
 ***Python，一切皆为对象，一切皆为对象的引用***
 * ***可变数据类型：*** list、dict、set
 * ***不可变数据类型：*** int、float、string、tuple
@@ -164,7 +164,9 @@ abc、x123、PI
 \_xxx , \_\_xxx
 不应该被直接引用(“不应该”但不是“不能”)
 
-# 模块
+
+
+# **模块**
 ## 模块导入
 ```python
 try:
@@ -173,8 +175,123 @@ except ImportError:
     import StringIO
 ```
 
+模块的三个角色：
+* 代码重用
+    * 模块可以在文件中永久保存代码，可以按照需要任意次数地重新载入和重新运行模块；
+    * 模块是定义变量名的空间，被认作是属性，可以被多个外部的客户端引用。
+* 系统命名空间的划分
+    * 模块是Python中最高级别的程序组织单元；
+    * 模块将变量名封装进了自包含的软件包，这点对避免变量名的冲突很有帮助；
+    * 模块是组织系统组件的天然工具。
+* 实现共享服务和数据
+    * 模块对实现跨系统共享的组件是很方便的，仅需要一个拷贝即可；
+    * 如果需要一个全局对象，这个对象会被一个以上的函数或文件使用，可以将它编写在一个模块中以便能够被多个客户端导入。
 
-# 函数参数
+导入给予了对模块的全局作用域中的变量名的读取权。
+
+Python的程序架构：一个程序 = 一个顶层脚本文件 + 多个模块文件。
+
+**标准库模块：**Python自带了大约200个实用的模块，称为标准链接库。
+
+![Python的程序架构](../images/python_module_1.png)
+
+
+```python
+# b.py
+def spam(text):
+    print(text, 'spam')
+
+# a.py
+import b    
+# import语句给文件a.py提供了文件b.py在全局作用域中所定义的所有对象的访问权限
+b.spam('gumby')
+# 通过变量名b获取它的所有的属性
+# b.spam，object.attribute对象属性语法，取出存储对象b中变量名为spam的值
+```
+
+## import如何工作
+
+在python中，导入并非只是把一个文件文本插入另一个文件而已。导入其实是运行时的运算，程序第一次导入制定文件时，会执行三个步骤：
+
+1. 找到模块文件；
+    > import b，而不是import c:\dir1\b.py，因为Python使用***标准模块搜索路径***来找出import语句对应的模块文件。在标准的import中引入路径和后缀名在语法上是非法的。
+2. 编译成字节码文件（需要时）；
+    > 遍历模块搜索路径，找到符合import语句的源代码文件后，如果有必要，Python会将其编译成字节码文件。Python会检查文件的时间戳，如果发现.pyc文件比.py文件旧，就会重新生成字节码文件。如果Python在搜索路径上只发现了字节码文件，没有源代码，就会直接加载字节码（因此可以把一个程序只作为字节码文件发布，从而避免发布源代码，这样也可以跳过编译步骤，是程序启动提速）。
+
+    > 只有被导入的文件才会在机器上留下.pyc文件，顶层文件的字节码在内部使用后就丢弃了。因此通常看不到程序顶层文件的.pyc字节码文件，除非这个文件也被其它文件导入。被导入的文件的字节码保存在机器上从而可以提高之后的运行速度。
+
+    > 顶层文件通常设计为直接执行，而不是被导入的。设计一个文件，使其作为程序的顶层文件，并同时扮演被导入的模块工具的角色也是有可能的，这类文件既能执行也能导入。（利用__name__属性）
+3. 执行模块的代码来创建其所定义的对象。
+    > import操作的最后步骤是执行模块的字节码。文件中的所有语句会依次执行，这个执行步骤会生成模块代码所定义的所有工具。
+
+这三个步骤只在模块第一次导入时才会进行，在此之后，导入相同模块时，会跳过这三个步骤，只提取内存中已加载的模块对象。如果在模块已经加载之后还需要再次导入（例如，为了支持终端用户的定制），可以通过调用reload强制处理这个问题。
+
+Python把载入的模块存储到一个名为sys.modules的表中，并在一次导入操作开始时检查该表，如果模块不存在，则会执行这三个步骤。
+
+> 可以导入sys并打印list(sys.modules.keys())来查看已经导入了哪些模块。
+
+## 模块搜索路径
+
+导入过程最重要的部分是定位要导入的文件（搜索部分）。
+
+搜索路径：
+1. 程序的主目录
+    > Python会首先在主目录内搜索导入的文件，这一入口与你如何运行代码有关。当你运行一个程序的时候，这个入口就是包含程序顶层脚本文件的目录。当在交互模式下工作时，这个入口就是你当前工作的目录。
+2. PYTHONPATH目录（如果已经进行了设置）
+    > 之后，Python会从左至右搜索PYTHONPATH环境变量设置中的所有目录。PYTHONPATH是设置包含Python程序文件的目录的列表，你可以把想到如的目录都加进来，Python会使用你的设置来拓展模块搜索的路径。
+
+    > 因为Python会先搜索主目录，所以当导入的文件跨目录时，这个设置才格外重要。
+3. 标准链接库目录
+    > 接着，Python会自动搜索标准库模块安装在机器上的那些目录。这些目录通常不需要添加到PYTHONPATH或包含到.pth路径文件中。
+4. 任何.pth文件的内容（如果存在的话）
+    > 最后，Python允许用户把有效的目录在.pth文件中一行一行地罗列出来。这提供了PYTHONPATH设置的一种替代方案。
+
+    > 当内含目录名称的.pth文件放在适当的目录中时（C:\Python\Python36、C:\Python\Python36\Lib\site-packages），可以扮演与PYTHONPATH环境变量设置相同的角色。
+
+这四部分组合起来就变成了sys.path，它是目录名称字符串的列表。
+
+搜索路径的第一和第三部分是自动定义的，但是因为Python会从头到尾搜索这些组件，第二和第四部分可以用于拓展路径，从而包含你自己的源代码目录。
+
+```python
+>>>import sys
+>>>sys.path
+['E:\\JetBrains\\PyCharm 2017.1.5\\helpers\\pydev',
+ 'E:\\JetBrains\\PyCharm 2017.1.5\\helpers\\pydev',
+ 'C:\\Python\\Python36\\python36.zip',
+ 'C:\\Python\\Python36\\DLLs',
+ 'C:\\Python\\Python36\\lib',
+ 'C:\\Python\\Python36',
+ 'C:\\Python\\Python36\\lib\\site-packages',
+ 'C:\\Python\\Python36\\lib\\site-packages\\win32',
+ 'C:\\Python\\Python36\\lib\\site-packages\\win32\\lib',
+ 'C:\\Python\\Python36\\lib\\site-packages\\Pythonwin',
+ 'C:\\Python\\Python36\\lib\\site-packages\\IPython\\extensions',
+ 'E:\\MyProjects\\PycharmProjects\\tools',
+ 'E:/MyProjects/PycharmProjects/tools']
+```
+可以通过修改sys.path列表直接调整搜索路径，不过这种修改只在脚本运行期间保持。
+
+## 模块文件选择
+文件名的后缀（如.py）是刻意从import语句中省略的。Python会选择在搜索路径中第一个符合导入文件名的文件。
+
+例如，import b可能会加载：
+* 源代码文件b.py
+* 字节码文件b.pyc
+* 目录b，包导入
+* 编译扩展模块（通常用C或C++编写），导入时使用动态链接（例如，Linux的b.so以及Cygwin和Windows的b.dll或b.pyd）
+* 用C编写的编译好的内置模块，并通过静态连接至Python
+* ZIP文件组件，导入时自动解压缩
+* 内存内映像，对于frozen可执行文件
+* Java类，在Jython版本的Python中
+* .NET组件，在IronPython版本的Python中
+
+对导入者来说，完全忽略了需要加载的文件类型之间的差异，例如，import b就是读取模块b，根据模块搜索路径，b是什么就是什么，b.attr则是去除模块中的一个元素，可能是Python变量或连接的C函数。某些标准模块实际上使用C编写的而不是Python，这是因为这种透明度，客户端并不在乎文件是什么。
+
+如果在不同的目录中有b.py和b.so，Python总是在从左至右搜索sys.path时加载模块搜索路径的目录中最先出现的相符文件；如果同一目录下有b.py和b.so，Python会遵循一个标准的挑选顺序，不过这个顺序不保证永远不变，所以尽量让模块名独特一些。
+
+
+
+# **函数参数**
 ## 位置参数（必选参数）
 ***调用函数时，按照位置顺序传递参数。***
 ## 默认参数
@@ -248,7 +365,8 @@ def func(a, b, c=0, *args, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
 ```
 
-# 装饰器（Decorator）
+# **装饰器（Decorator）**
+
 * 实质：是一个返回函数的高阶函数
 * 参数：要装饰的函数名（并非函数调用）
 * 返回：是装饰完的函数名（也非函数调用）
