@@ -651,6 +651,6 @@ export default Summary;
 
     __reducer(state, action)__
 
-    state是当前的状态，action是接收到的action对象，reducer函数要做的事情，就是根据state和 action的值产生一个新的对象返回。
+    state是当前的状态，action是接收到的action对象，reducer函数要做的事情，就是根据state和action的值产生一个新的对象返回。
 
     reducer必须是纯函数，即函数的返回结果必须完全由参数state和action决定，而且不产生任何副作用，也不能修改参数state和action对象。

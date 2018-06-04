@@ -1,14 +1,22 @@
-# Python
+# 目录
+* [IDLE](#IDLE)
+* [运行Python](#运行Python)
+* [Python标准文档模板](#Python标准文档模板)
+* [可变、不可变数据类型](#可变、不可变数据类型)
+* [变量、函数命名](#变量、函数命名)
+* [模块](#模块)
+* [函数参数](#函数参数)
+* [装饰器（Decorator）](#装饰器（Decorator）)
 
-## IDLE
+# IDLE
 IDLE是Python自带的简单的**集成开发环境**（**IDE**, Integrated Development Environment），是一个可以用来编辑、运行、浏览和调试Python程序的GUI。
 
 > IDLE是IDE的一个官方变形，是为了纪念Monty Python成员Eirc Idle而命名的。
 
-## 运行Python
-### 命令行模式
+# 运行Python
+## 命令行模式
 python *.py
-### Python交互模式
+## Python交互模式
 在系统提示环境（命令行、Win+R）下输入“python”即可开启一个交互的Python会话
 
 **输入一行，执行一行**
@@ -18,7 +26,30 @@ python *.py
 
 退出交互模式：exit()
 
-## 可变、不可变数据类型
+
+
+# Python标准文档模板
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+' a test module '
+
+__author__ = 'Michael Liao'
+```
+第1行和第2行是标准注释，
+
+第1行注释可以让这个.py文件直接在Unix/Linux/Mac上运行，
+
+第2行注释表示.py文件本身使用标准UTF-8编码；
+
+第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；
+
+第6行使用__author__变量把作者写进去。
+
+
+
+# 可变、不可变数据类型
 ***Python，一切皆为对象，一切皆为对象的引用***
 * ***可变数据类型：*** list、dict、set
 * ***不可变数据类型：*** int、float、string、tuple
@@ -121,20 +152,20 @@ python *.py
 
 ***可变对象的意思就是说对象的值是可变的，操作变量不会引起新建对象，只是改变了变量所引用的对象的值。***
 
-## 变量、函数命名
-### 公开的（public）：
+# 变量、函数命名
+## 公开的（public）：
 abc、x123、PI
 
 可以被直接引用
-### 特殊变量：
+## 特殊变量：
 \_\_author\_\_ , \_\_name\_\_ , \_\_doc\_\_
 可以被直接引用，有特殊用途
-### 非公开的（private）：
+## 非公开的（private）：
 \_xxx , \_\_xxx
 不应该被直接引用(“不应该”但不是“不能”)
 
-## 模块
-### 模块导入
+# 模块
+## 模块导入
 ```python
 try:
     import cStringIO as StringIO
@@ -143,29 +174,10 @@ except ImportError:
 ```
 
 
-## Python标准文档模板
-```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-' a test module '
-
-__author__ = 'Michael Liao'
-```
-第1行和第2行是标准注释，
-
-第1行注释可以让这个.py文件直接在Unix/Linux/Mac上运行，
-
-第2行注释表示.py文件本身使用标准UTF-8编码；
-
-第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；
-
-第6行使用__author__变量把作者写进去。
-
-## 函数参数
-### 位置参数（必选参数）
+# 函数参数
+## 位置参数（必选参数）
 ***调用函数时，按照位置顺序传递参数。***
-### 默认参数
+## 默认参数
 ```python
 def enroll(name, gender, age=6, city='Beijing'):
     print('name:', name)
@@ -192,7 +204,7 @@ def add_end(L=[]):
 >>> add_end()
 ['END', 'END', 'END']
 ```
-### 可变参数
+## 可变参数
 ```python
 def calc(*numbers):
     sum = 0
@@ -201,13 +213,13 @@ def calc(*numbers):
     return sum
 ```
 ***可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。***
-### 关键字参数
+## 关键字参数
 ```python
 def person(name, age, **kw):
     print('name:', name, 'age:', age, 'other:', kw)
 ```
 ***关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。***
-### 命名关键字参数
+## 命名关键字参数
 ```python
 # *, 后面的参数被视为命名关键字参数
 def person(name, age, *, city, job):
@@ -236,7 +248,7 @@ def func(a, b, c=0, *args, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
 ```
 
-## 装饰器（Decorator）
+# 装饰器（Decorator）
 * 实质：是一个返回函数的高阶函数
 * 参数：要装饰的函数名（并非函数调用）
 * 返回：是装饰完的函数名（也非函数调用）
