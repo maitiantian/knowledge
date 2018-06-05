@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gitbook build ./content ./docs",
     "serve": "gitbook serve ./content",
-    "publish": "gitbook build ./content ./docs && git add . && git commit -m"
+    "publish": "gitbook build ./content ./docs && git add . && git commit -m",
+    "postpublish": "git push"
   },
   "repository": {
     "type": "git",
