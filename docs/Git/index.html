@@ -401,8 +401,243 @@
                                 
                                 <h1 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h1>
 <ul>
+<li><a href="#git-cheat-sheet">Git Cheat Sheet</a></li>
 <li><a href="#issue">Issue</a></li>
 </ul>
+<h1 id="git-cheat-sheet">Git Cheat Sheet</h1>
+<h3 id="create">CREATE</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Clone an existing repository</td>
+<td style="text-align:left">$ git clone ssh://user@domain.com/repo.git</td>
+</tr>
+<tr>
+<td style="text-align:left">Create a new local repository</td>
+<td style="text-align:left">$ git init</td>
+</tr>
+</tbody>
+</table>
+<h3 id="local-changes">LOCAL CHANGES</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Changed files in your working directory</td>
+<td style="text-align:left">$ git status</td>
+</tr>
+<tr>
+<td style="text-align:left">Changes to tracked files</td>
+<td style="text-align:left">$ git diff</td>
+</tr>
+<tr>
+<td style="text-align:left">Add all current changes to the next commit</td>
+<td style="text-align:left">$ git add .</td>
+</tr>
+<tr>
+<td style="text-align:left">Add some changes in &lt;file&gt; to the next commit</td>
+<td style="text-align:left">$ git add -p &lt;file&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Commit all local changes in tracked files</td>
+<td style="text-align:left">$ git commit -a</td>
+</tr>
+<tr>
+<td style="text-align:left">Commit previously staged changes</td>
+<td style="text-align:left">$ git commit</td>
+</tr>
+<tr>
+<td style="text-align:left">Change the last commit. Don&apos;t amend published commits!</td>
+<td style="text-align:left">$ git commit --amend</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commit-history">COMMIT HISTORY</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Show all commits, starting with newest</td>
+<td style="text-align:left">$ git log</td>
+</tr>
+<tr>
+<td style="text-align:left">Show changes over time for a specifc file</td>
+<td style="text-align:left">$ git log -p &lt;file&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Who changed what and when in &lt;file&gt;</td>
+<td style="text-align:left">$ git blame &lt;file&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="branches--tags">BRANCHES &amp; TAGS</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">List all existing branches</td>
+<td style="text-align:left">$ git branch -av</td>
+</tr>
+<tr>
+<td style="text-align:left">Switch HEAD branch</td>
+<td style="text-align:left">$ git checkout &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Create a new branch based on your current HEAD</td>
+<td style="text-align:left">$ git branch &lt;new-branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Create a new tracking branch based on a remote branch</td>
+<td style="text-align:left">$ git checkout --track &lt;remote/branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Delete a local branch</td>
+<td style="text-align:left">$ git branch -d &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Mark the current commit with a tag</td>
+<td style="text-align:left">$ git tag &lt;tag-name&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update--publish">UPDATE &amp; PUBLISH</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">List all currently confgured remotes</td>
+<td style="text-align:left">$ git remote -v</td>
+</tr>
+<tr>
+<td style="text-align:left">Show information about a remote</td>
+<td style="text-align:left">$ git remote show &lt;remote&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Add new remote repository, named &lt;remote&gt;</td>
+<td style="text-align:left">$ git remote add &lt;shortname&gt; &lt;url&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Download all changes from &lt;remote&gt;, but don&apos;t integrate into HEAD</td>
+<td style="text-align:left">$ git fetch &lt;remote&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Download changes and directly merge/integrate into HEAD</td>
+<td style="text-align:left">$ git pull &lt;remote&gt; &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Publish local changes on a remote</td>
+<td style="text-align:left">$ git push &lt;remote&gt; &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Delete a branch on the remote</td>
+<td style="text-align:left">$ git branch -dr &lt;remote/branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Publish your tags</td>
+<td style="text-align:left">$ git push --tags</td>
+</tr>
+</tbody>
+</table>
+<h3 id="merge--rebase">MERGE &amp; REBASE</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Merge &lt;branch&gt; into your current HEAD</td>
+<td style="text-align:left">$ git merge &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Rebase your current HEAD onto &lt;branch&gt;. Don&apos;t rebase published commits!</td>
+<td style="text-align:left">$ git rebase &lt;branch&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Abort a rebase</td>
+<td style="text-align:left">$ git rebase --abort</td>
+</tr>
+<tr>
+<td style="text-align:left">Continue a rebase after resolving con&#xFB02;icts</td>
+<td style="text-align:left">$ git rebase --continue</td>
+</tr>
+<tr>
+<td style="text-align:left">Use your confgured merge tool to solve con&#xFB02;icts</td>
+<td style="text-align:left">$ git mergetool</td>
+</tr>
+<tr>
+<td style="text-align:left">Use your editor to manually solve con&#xFB02;icts and (after resolving) mark file as resolved</td>
+<td style="text-align:left">$ git add &lt;resolved-file&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">$ git rm &lt;resolved-file&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="undo">UNDO</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">description</th>
+<th style="text-align:left">usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Discard all local changes in your working directory</td>
+<td style="text-align:left">$ git reset --hard HEAD</td>
+</tr>
+<tr>
+<td style="text-align:left">Discard local changes in a specifc file</td>
+<td style="text-align:left">$ git checkout HEAD &lt;file&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Revert a commit (by producing a new commit with contrary changes)</td>
+<td style="text-align:left">$ git revert &lt;commit&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Reset your HEAD pointer to a previous commit &#x2026;and discard all changes since then</td>
+<td style="text-align:left">$ git reset --hard &lt;commit&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2026;and preserve all changes as unstaged changes</td>
+<td style="text-align:left">$ git reset &lt;commit&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2026;and preserve uncommitted local changes</td>
+<td style="text-align:left">$ git reset --keep &lt;commit&gt;</td>
+</tr>
+</tbody>
+</table>
 <h1 id="issue">Issue</h1>
 <p>Issue&#xFF08;&#x8BD1;&quot;&#x95EE;&#x9898;&quot;&#x6216;&quot;&#x4E8B;&#x52A1;&quot;&#xFF09;&#x6307;&#x4E00;&#x9879;&#x5F85;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x901A;&#x5E38;&#x4E0E;&#x7CFB;&#x7EDF;&#x7684;&#x6539;&#x8FDB;&#x76F8;&#x5173;&#xFF1A;</p>
 <ul>
@@ -576,7 +811,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.3","depth":1,"next":{"title":"Front-End","level":"1.4","depth":1,"path":"Front-End/README.md","ref":"Front-End/README.md","articles":[{"title":"HTML","level":"1.4.1","depth":2,"path":"Front-End/HTML/README.md","ref":"Front-End/HTML/README.md","articles":[]},{"title":"CSS","level":"1.4.2","depth":2,"path":"Front-End/CSS/README.md","ref":"Front-End/CSS/README.md","articles":[{"title":"line-height","level":"1.4.2.1","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]}]},{"title":"JavaScript","level":"1.4.3","depth":2,"path":"Front-End/JavaScript/README.md","ref":"Front-End/JavaScript/README.md","articles":[]},{"title":"ES6","level":"1.4.4","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[]},{"title":"React","level":"1.4.5","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[]},{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]}]},"previous":{"title":"CS基础","level":"1.2","depth":1,"path":"CS基础/README.md","ref":"CS基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Git/README.md","mtime":"2018-06-05T02:18:34.769Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-05T02:18:59.751Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.3","depth":1,"next":{"title":"Front-End","level":"1.4","depth":1,"path":"Front-End/README.md","ref":"Front-End/README.md","articles":[{"title":"HTML","level":"1.4.1","depth":2,"path":"Front-End/HTML/README.md","ref":"Front-End/HTML/README.md","articles":[]},{"title":"CSS","level":"1.4.2","depth":2,"path":"Front-End/CSS/README.md","ref":"Front-End/CSS/README.md","articles":[{"title":"line-height","level":"1.4.2.1","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]}]},{"title":"JavaScript","level":"1.4.3","depth":2,"path":"Front-End/JavaScript/README.md","ref":"Front-End/JavaScript/README.md","articles":[]},{"title":"ES6","level":"1.4.4","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[]},{"title":"React","level":"1.4.5","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[]},{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]}]},"previous":{"title":"CS基础","level":"1.2","depth":1,"path":"CS基础/README.md","ref":"CS基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Git/README.md","mtime":"2018-06-05T03:09:42.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-05T03:12:35.386Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
