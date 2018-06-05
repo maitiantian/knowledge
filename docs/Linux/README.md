@@ -14,6 +14,7 @@ ___在 Linux 系统中一切都是文件，而配置一个服务就是在修改�
 * tmux翻屏（翻页）：ctrl+b PgUp/PgDn
 
 # <p align="center">基本指令</p>
+###### [<p align="right">back to top ▲</p>](#目录)
 
 __命令名称 [命令参数] [命令对象]__
 
@@ -76,6 +77,8 @@ __命令名称 [命令参数] [命令对象]__
 
 
 # <p align="center">目录</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
 ### /usr 文件系统
 usr是 Unix System Resource 的缩写，里面一般放软件程序。
 /home目录下存的才是用户自己的东西。
@@ -89,6 +92,8 @@ usr是 Unix System Resource 的缩写，里面一般放软件程序。
 这里主要存放那些可选的程序。你想尝试最新的firefox测试版吗?那就装到/opt目录下吧，这样，当你尝试完，想删掉firefox的时候，你就可 以直接删除它，而不影响系统其他任何设置。安装到/opt目录下的程序，它所有的数据、库文件等等都是放在同个目录下面。
 
 # <p align="center">tmux</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
 ***终端复用命令行工具***
 * __会话（Session）操作__
     * __tmux ls__ 列出所有会话
@@ -116,6 +121,8 @@ usr是 Unix System Resource 的缩写，里面一般放软件程序。
     * __Ctrl+b q__ 显示窗格序号，序号出现期间按下对应的数字可跳转至对应的窗格
 
 # <p align="center">Vim</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
 #### Vim 编辑器中设置了三种模式：
 * ##### 命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作。
 * ##### 输入模式：正常的文本录入。

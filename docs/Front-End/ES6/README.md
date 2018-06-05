@@ -4,6 +4,8 @@
 * [Symbol](#symbol)
 
 # <p align="center">Object.assign(target, ...sources)</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
 * 它将返回目标对象target
@@ -199,6 +201,8 @@ console.log(copy);
 ```
 
 # <p align="center">Symbol</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
 最初JS定义了6种基本类型：
 * null
 * undefined
