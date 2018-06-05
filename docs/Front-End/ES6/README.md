@@ -1,6 +1,9 @@
-# ES6
+# 目录
 
-## ***Object.assign(target, ...sources)***
+* [Object.assign(target, ...sources)](#objectassigntarget-sources)
+* [Symbol](#symbol)
+
+# <p align="center">Object.assign(target, ...sources)</p>
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
 * 它将返回目标对象target
@@ -195,7 +198,7 @@ console.log(copy);
 // { foo: 1, get bar() { return 2 } }
 ```
 
-## ***Symbol***
+# <p align="center">Symbol</p>
 最初JS定义了6种基本类型：
 * null
 * undefined
