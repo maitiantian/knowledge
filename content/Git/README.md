@@ -3,7 +3,7 @@
 * [Git Cheat Sheet](#git-cheat-sheet)
 * [Issue](#issue)
 
-# Git Cheat Sheet
+# **Git Cheat Sheet**
 
 ### CREATE
 |description|usage|
@@ -73,7 +73,7 @@
 |…and preserve uncommitted local changes|$ git reset --keep &lt;commit&gt;|
 
 
-# Issue
+# **Issue**
 
 Issue（译"问题"或"事务"）指一项待完成的工作，通常与系统的改进相关：
 * 一个软件的bug

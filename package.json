@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gitbook build ./content ./docs",
-    "serve": "gitbook serve ./content"
+    "serve": "gitbook serve ./content",
+    "publish": "gitbook build ./content ./docs && git add . && git commit -m"
   },
   "repository": {
     "type": "git",
