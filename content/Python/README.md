@@ -303,6 +303,15 @@ Python把载入的模块存储到一个名为sys.modules的表中，并在一次
 如果在不同的目录中有b.py和b.so，Python总是在从左至右搜索sys.path时加载模块搜索路径的目录中最先出现的相符文件；如果同一目录下有b.py和b.so，Python会遵循一个标准的挑选顺序，不过这个顺序不保证永远不变，所以尽量让模块名独特一些。
 
 
+## 高级的模块选择概念
+
+利用导入钩子（import hook）可以重新定义Python中import操作所做的事。
+
+### **distutils**
+
+> Python的第三方扩展，通常使用标准链接库中的distutils模块自动安装，distutils会将第三方扩展安装在属于模块自动搜索路径的目录内（通常是Python安装目录树下的Lib\site-packages子目录中），所以不需要路径设置就能使用它们的代码。
+
+
 
 # <p align="center">函数参数</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
