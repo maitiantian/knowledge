@@ -683,6 +683,210 @@ b.spam(<span class="hljs-string">&apos;gumby&apos;</span>)
 </ul>
 <p>&#x5BF9;&#x5BFC;&#x5165;&#x8005;&#x6765;&#x8BF4;&#xFF0C;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x4E86;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;import b&#x5C31;&#x662F;&#x8BFB;&#x53D6;&#x6A21;&#x5757;b&#xFF0C;&#x6839;&#x636E;&#x6A21;&#x5757;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#xFF0C;b&#x662F;&#x4EC0;&#x4E48;&#x5C31;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;b.attr&#x5219;&#x662F;&#x53BB;&#x9664;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x80FD;&#x662F;Python&#x53D8;&#x91CF;&#x6216;&#x8FDE;&#x63A5;&#x7684;C&#x51FD;&#x6570;&#x3002;&#x67D0;&#x4E9B;&#x6807;&#x51C6;&#x6A21;&#x5757;&#x5B9E;&#x9645;&#x4E0A;&#x4F7F;&#x7528;C&#x7F16;&#x5199;&#x7684;&#x800C;&#x4E0D;&#x662F;Python&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x79CD;&#x900F;&#x660E;&#x5EA6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5E76;&#x4E0D;&#x5728;&#x4E4E;&#x6587;&#x4EF6;&#x662F;&#x4EC0;&#x4E48;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x76EE;&#x5F55;&#x4E2D;&#x6709;b.py&#x548C;b.so&#xFF0C;Python&#x603B;&#x662F;&#x5728;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;&#x641C;&#x7D22;sys.path&#x65F6;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x7684;&#x76EE;&#x5F55;&#x4E2D;&#x6700;&#x5148;&#x51FA;&#x73B0;&#x7684;&#x76F8;&#x7B26;&#x6587;&#x4EF6;&#xFF1B;&#x5982;&#x679C;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x6709;b.py&#x548C;b.so&#xFF0C;Python&#x4F1A;&#x9075;&#x5FAA;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x6311;&#x9009;&#x987A;&#x5E8F;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x987A;&#x5E8F;&#x4E0D;&#x4FDD;&#x8BC1;&#x6C38;&#x8FDC;&#x4E0D;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x5C3D;&#x91CF;&#x8BA9;&#x6A21;&#x5757;&#x540D;&#x72EC;&#x7279;&#x4E00;&#x4E9B;&#x3002;</p>
+<h2 id="&#x9AD8;&#x7EA7;&#x7684;&#x6A21;&#x5757;&#x9009;&#x62E9;&#x6982;&#x5FF5;">&#x9AD8;&#x7EA7;&#x7684;&#x6A21;&#x5757;&#x9009;&#x62E9;&#x6982;&#x5FF5;</h2>
+<p>&#x5229;&#x7528;&#x5BFC;&#x5165;&#x94A9;&#x5B50;&#xFF08;import hook&#xFF09;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;Python&#x4E2D;import&#x64CD;&#x4F5C;&#x6240;&#x505A;&#x7684;&#x4E8B;&#x3002;</p>
+<h3 id="distutils"><strong>distutils</strong></h3>
+<blockquote>
+<p>Python&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x6269;&#x5C55;&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x94FE;&#x63A5;&#x5E93;&#x4E2D;&#x7684;distutils&#x6A21;&#x5757;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#xFF0C;distutils&#x4F1A;&#x5C06;&#x7B2C;&#x4E09;&#x65B9;&#x6269;&#x5C55;&#x5B89;&#x88C5;&#x5728;&#x5C5E;&#x4E8E;&#x6A21;&#x5757;&#x81EA;&#x52A8;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x7684;&#x76EE;&#x5F55;&#x5185;&#xFF08;&#x901A;&#x5E38;&#x662F;Python&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x6811;&#x4E0B;&#x7684;Lib\site-packages&#x5B50;&#x76EE;&#x5F55;&#x4E2D;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E;&#x5C31;&#x80FD;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6A21;&#x5757;&#x7684;&#x521B;&#x5EFA;">&#x6A21;&#x5757;&#x7684;&#x521B;&#x5EFA;</h2>
+<p>&#x5BF9;&#x4E8E;&#x4F1A;&#x6267;&#x884C;&#x4F46;&#x4E0D;&#x4F1A;&#x88AB;&#x5BFC;&#x5165;&#x7684;&#x9876;&#x5C42;&#x6587;&#x4EF6;&#x800C;&#x8A00;&#xFF0C;.py&#x540E;&#x7F00;&#x53EF;&#x6709;&#x53EF;&#x65E0;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8981;&#x5C06;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x6A21;&#x5757;&#x5BFC;&#x5165;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x4EE5;.py&#x540E;&#x7F00;&#x7ED3;&#x5C3E;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;C&#x6216;C++&#xFF08;&#x6216;Java&#xFF0C;Python&#x8BED;&#x8A00;&#x7684;Jython&#x5B9E;&#x73B0;&#xFF09;&#x8FD9;&#x7C7B;&#x5916;&#x90E8;&#x8BED;&#x8A00;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x521B;&#x5EFA;Python&#x6A21;&#x5757;&#xFF0C;&#x8FD9;&#x7C7B;&#x6A21;&#x5757;&#x79F0;&#x4E3A;<strong>&#x6269;&#x5C55;&#x6A21;&#x5757;</strong>&#x3002;</p>
+<h2 id="&#x6A21;&#x5757;&#x7684;&#x4F7F;&#x7528;">&#x6A21;&#x5757;&#x7684;&#x4F7F;&#x7528;</h2>
+<p>import&#x4F1A;&#x8BFB;&#x53D6;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;from&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6A21;&#x5757;&#x4E2D;&#x7279;&#x5B9A;&#x7684;&#x53D8;&#x91CF;&#x3002;</p>
+<ul>
+<li><h3 id="import-module">import module</h3>
+<ul>
+<li>import&#x5C06;&#x6574;&#x4E2A;module&#x6A21;&#x5757;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;module&#x3002;</li>
+</ul>
+</li>
+<li><h3 id="from-module-import-varvar1-var2">from module import var/var1, var2.../*</h3>
+<ul>
+<li>from import&#x5C06;module&#x6A21;&#x5757;&#x4E2D;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x540C;&#x540D;&#x7684;&#x53D8;&#x91CF;&#xFF1B;</li>
+<li>from import&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x4E5F;&#x662F;&#x666E;&#x901A;&#x7684;&#x5BFC;&#x5165;&#x64CD;&#x4F5C;&#xFF0C;&#x4F1A;&#x628A;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#x5BFC;&#x5165;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x53EA;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;;</li>
+<li>&#x4F7F;&#x7528;from module import *&#x4F1A;&#x628A;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x878D;&#x5408;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#xFF0C;&#x4F1A;&#x4F7F;&#x5F97;&#x6A21;&#x5757;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5206;&#x5272;&#x7279;&#x6027;&#x6D88;&#x5931;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> module <span class="hljs-keyword">import</span> var1, var2
+<span class="hljs-comment"># &#x7B49;&#x6548;&#x4E8E;</span>
+<span class="hljs-keyword">import</span> module <span class="hljs-keyword">as</span> something
+var1 = something.var1
+var2 = something.var2
+<span class="hljs-keyword">del</span> something  <span class="hljs-comment"># Get rid of the module name</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># small.py</span>
+x = <span class="hljs-number">1</span>
+y = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+<span class="hljs-comment"># end small.py</span>
+
+&gt;&gt;&gt;<span class="hljs-keyword">from</span> small <span class="hljs-keyword">import</span> x, y
+&gt;&gt;&gt;x = <span class="hljs-number">42</span>
+<span class="hljs-comment"># &#x53D8;&#x91CF;x&#xFF0C;int&#xFF0C;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5904;&#x7684;x&#x548C;small&#x4E2D;&#x7684;x&#x6307;&#x5411;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;</span>
+&gt;&gt;&gt;x
+<span class="hljs-number">42</span>
+&gt;&gt;&gt;y[<span class="hljs-number">0</span>] = <span class="hljs-number">42</span>
+<span class="hljs-comment"># &#x53D8;&#x91CF;y&#xFF0C;list&#xFF0C;&#x662F;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5904;&#x7684;y&#x548C;small&#x4E2D;&#x7684;y&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+&gt;&gt;&gt;y
+[<span class="hljs-number">42</span>, <span class="hljs-number">2</span>]
+&gt;&gt;&gt;<span class="hljs-keyword">import</span> small
+&gt;&gt;&gt;small.x
+<span class="hljs-number">1</span>
+&gt;&gt;&gt;small.y
+[<span class="hljs-number">42</span>, <span class="hljs-number">2</span>]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># small.py</span>
+x = <span class="hljs-number">1</span>
+y = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+<span class="hljs-comment"># end small.py</span>
+
+&gt;&gt;&gt;<span class="hljs-keyword">import</span> small
+&gt;&gt;&gt;small
+<span class="hljs-comment"># &#x53D8;&#x91CF;small&#xFF0C;&#x53D8;&#x91CF;&#x540D;small&#x6307;&#x5411;&#x6A21;&#x5757;&#x5BF9;&#x8C61;</span>
+<span class="hljs-comment"># &lt;module &apos;small&apos; from &apos;...\\small.py&apos;&gt;</span>
+&gt;&gt;&gt;small.x = <span class="hljs-number">42</span>
+<span class="hljs-comment"># &#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;x</span>
+&gt;&gt;&gt;small.y[<span class="hljs-number">0</span>] = <span class="hljs-number">42</span>
+<span class="hljs-comment"># &#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;y</span>
+&gt;&gt;&gt;small.x
+<span class="hljs-number">42</span>
+&gt;&gt;&gt;small.y
+[<span class="hljs-number">42</span>, <span class="hljs-number">2</span>]
+&gt;&gt;&gt;<span class="hljs-keyword">from</span> small <span class="hljs-keyword">import</span> x, y
+<span class="hljs-comment"># &#x7B49;&#x6548;&#x4E8E;</span>
+<span class="hljs-comment"># import small as something</span>
+<span class="hljs-comment"># x = something.x</span>
+<span class="hljs-comment"># y = something.y</span>
+<span class="hljs-comment"># del something</span>
+&gt;&gt;&gt;x
+<span class="hljs-number">42</span>
+&gt;&gt;&gt;x = <span class="hljs-number">43</span>
+&gt;&gt;&gt;small.x
+<span class="hljs-number">42</span>
+<span class="hljs-comment"># &#x53D8;&#x91CF;x&#xFF0C;int&#xFF0C;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5904;&#x7684;x&#x548C;small&#x4E2D;&#x7684;x&#x6307;&#x5411;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;</span>
+<span class="hljs-comment"># &#x4FEE;&#x6539;&#x53D8;&#x91CF;x&#xFF0C;small&#x4E2D;&#x7684;x&#x4E0D;&#x53D8;</span>
+&gt;&gt;&gt;y
+[<span class="hljs-number">42</span>, <span class="hljs-number">2</span>]
+&gt;&gt;&gt;y[<span class="hljs-number">0</span>] = <span class="hljs-number">43</span>
+&gt;&gt;&gt;small.y
+[<span class="hljs-number">43</span>, <span class="hljs-number">2</span>]
+<span class="hljs-comment"># &#x53D8;&#x91CF;y&#xFF0C;list&#xFF0C;&#x662F;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5904;&#x7684;y&#x548C;small&#x4E2D;&#x7684;y&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+<span class="hljs-comment"># &#x4FEE;&#x6539;&#x53D8;&#x91CF;y&#xFF0C;small&#x4E2D;&#x7684;y&#x4E0D;&#x53D8;</span>
+</code></pre>
+<h3 id="&#x5BFC;&#x5165;&#x53EA;&#x53D1;&#x751F;&#x4E00;&#x6B21;">&#x5BFC;&#x5165;&#x53EA;&#x53D1;&#x751F;&#x4E00;&#x6B21;</h3>
+<p>&#x6A21;&#x5757;&#x4F1A;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x5BFC;&#x5165;&#x65F6;&#x8F7D;&#x5165;&#x5E76;&#x6267;&#x884C;&#xFF0C;&#x4E14;&#x4EC5;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x5982;&#x6B64;&#x3002;&#x56E0;&#x4E3A;&#x8BE5;&#x64CD;&#x4F5C;&#x5F00;&#x9500;&#x8F83;&#x5927;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;Python&#x53EA;&#x5BF9;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x505A;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x5BFC;&#x5165;&#x64CD;&#x4F5C;&#x90FD;&#x53EA;&#x4F1A;&#x53D6;&#x51FA;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># simple.py</span>
+print(<span class="hljs-string">&quot;Hello&quot;</span>)
+spam = <span class="hljs-number">1</span>
+<span class="hljs-comment"># end simple.py</span>
+
+&gt;&gt;&gt;<span class="hljs-keyword">import</span> simple    
+<span class="hljs-comment"># First import: loads and runs file&apos;s code</span>
+Hello
+&gt;&gt;&gt;simple.spam
+<span class="hljs-number">1</span>
+&gt;&gt;&gt;simple.spam = <span class="hljs-number">2</span>
+&gt;&gt;&gt;<span class="hljs-keyword">import</span> simple    
+<span class="hljs-comment"># &#x7B2C;&#x4E8C;&#x6B21;&#x53CA;&#x5176;&#x540E;&#x7684;&#x5BFC;&#x5165;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x6B64;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#xFF0C;</span>
+<span class="hljs-comment"># &#x53EA;&#x662F;&#x4ECE;Python&#x5185;&#x90E8;&#x6A21;&#x5757;&#x8868;&#x4E2D;&#x53D6;&#x51FA;&#x5DF2;&#x521B;&#x5EFA;&#x7684;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x3002;</span>
+<span class="hljs-comment"># &#x56E0;&#x6B64;spam&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF1A;</span>
+&gt;&gt;&gt;simple.spam
+<span class="hljs-number">2</span>
+</code></pre>
+<h3 id="import&#x548C;from-import&#x662F;&#x8D4B;&#x503C;&#x8BED;&#x53E5;">import&#x548C;from import&#x662F;&#x8D4B;&#x503C;&#x8BED;&#x53E5;</h3>
+<p>&#x548C;def&#x4E00;&#x6837;&#xFF0C;import&#x548C;from import&#x662F;&#x9690;&#x6027;&#x7684;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x7684;&#x58F0;&#x660E;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x5D4C;&#x5957;&#x5728;if&#x3001;def&#x7B49;&#x5176;&#x4ED6;&#x8BED;&#x53E5;&#x4E2D;&#x3002;</p>
+<h2 id="&#x6A21;&#x5757;&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x6A21;&#x5757;&#x547D;&#x540D;&#x7A7A;&#x95F4;</h2>
+<p><strong>&#x6A21;&#x5757;&#x5BF9;&#x5E94;&#x4E8E;&#x6587;&#x4EF6;&#xFF0C;Python&#x4F1A;&#x5EFA;&#x7ACB;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x5305;&#x542B;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#x540D;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6A21;&#x5757;&#x5C31;&#x662F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF08;&#x53D8;&#x91CF;&#x540D;&#x6240;&#x5728;&#x7684;&#x573A;&#x6240;&#xFF09;&#xFF0C;&#x6A21;&#x5757;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x5C31;&#x662F;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</strong></p>
+<h3 id="&#x6587;&#x4EF6;&#x751F;&#x6210;&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x6587;&#x4EF6;&#x751F;&#x6210;&#x547D;&#x540D;&#x7A7A;&#x95F4;</h3>
+<p>&#x5728;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x9876;&#x5C42;&#xFF08;&#x5373;&#x4E0D;&#x5728;&#x51FD;&#x6570;&#x6216;&#x7C7B;&#x7684;&#x4E3B;&#x4F53;&#x5185;&#xFF09;&#x6BCF;&#x4E00;&#x4E2A;&#x8D4B;&#x503C;&#x4E86;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x90FD;&#x4F1A;&#x6210;&#x4E3A;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<ul>
+<li>&#x6A21;&#x5757;&#x8BED;&#x53E5;&#x4F1A;&#x5728;&#x9996;&#x6B21;&#x5BFC;&#x5165;&#x65F6;&#x6267;&#x884C;&#xFF1B;</li>
+<li>&#x9876;&#x5C42;&#x7684;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x4F1A;&#x521B;&#x5EFA;&#x6A21;&#x5757;&#x5C5E;&#x6027;&#xFF1B;</li>
+<li>&#x6A21;&#x5757;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x80FD;&#x901A;&#x8FC7;&#x5C5E;&#x6027;__dict__&#x83B7;&#x53D6;&#xFF1B;</li>
+<li>&#x6A21;&#x5757;&#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x5C31;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF09;&#x3002;</li>
+</ul>
+<h3 id="&#x5BFC;&#x5165;&#x548C;&#x4F5C;&#x7528;&#x57DF;">&#x5BFC;&#x5165;&#x548C;&#x4F5C;&#x7528;&#x57DF;</h3>
+<p>&#x5BFC;&#x5165;&#x5E76;&#x4E0D;&#x4F1A;&#x8D4B;&#x4E88;&#x88AB;&#x5BFC;&#x5165;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x5BF9;&#x4E0A;&#x5C42;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x89C1;&#x5EA6;&#xFF1A;&#x88AB;&#x5BFC;&#x5165;&#x6587;&#x4EF6;&#x65E0;&#x6CD5;&#x770B;&#x89C1;&#x8FDB;&#x884C;&#x5BFC;&#x5165;&#x7684;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;&#xFF1A;</p>
+<ul>
+<li>&#x51FD;&#x6570;&#x7EDD;&#x5BF9;&#x65E0;&#x6CD5;&#x770B;&#x5230;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;&#xFF0C;&#x9664;&#x975E;&#x4ED6;&#x4EEC;&#x4ECE;&#x7269;&#x7406;&#x4E0A;&#x5904;&#x4E8E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#xFF1B;</li>
+<li>&#x6A21;&#x5757;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7EDD;&#x5BF9;&#x65E0;&#x6CD5;&#x770B;&#x89C1;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;&#xFF0C;&#x9664;&#x975E;&#x660E;&#x786E;&#x5730;&#x8FDB;&#x884C;&#x4E86;&#x5BFC;&#x5165;&#x3002;</li>
+</ul>
+<p><strong>&#x5728;Python&#x4E2D;&#xFF0C;&#x4E00;&#x6BB5;&#x7A0B;&#x5E8F;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5B8C;&#x5168;&#x7531;&#x7A0B;&#x5E8F;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5B9E;&#x9645;&#x4F4D;&#x7F6E;&#x51B3;&#x5B9A;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x7EDD;&#x4E0D;&#x4F1A;&#x88AB;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6216;&#x6A21;&#x5757;&#x5BFC;&#x5165;&#x5F71;&#x54CD;&#x3002;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># moda.py</span>
+X = <span class="hljs-number">88</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>:</span>
+    glabal X
+    X = <span class="hljs-number">99</span>
+<span class="hljs-comment"># end moda.py</span>
+
+<span class="hljs-comment"># modb.py</span>
+X = <span class="hljs-number">11</span>
+<span class="hljs-keyword">import</span> moda
+moda.f()
+<span class="hljs-comment"># &#x6267;&#x884C;&#x65F6;&#xFF0C;moda.f&#x4FEE;&#x6539;moda&#x4E2D;&#x7684;X&#x3002;</span>
+<span class="hljs-comment"># moda.f&#x7684;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E00;&#x5B9A;&#x662F;&#x5B9A;&#x4E49;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x975E;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x6587;&#x4EF6;</span>
+print(X, moda.X)
+<span class="hljs-comment"># end modb.py</span>
+
+% python modb.py
+<span class="hljs-number">11</span> <span class="hljs-number">99</span>
+</code></pre>
+<h3 id="&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x5D4C;&#x5957;">&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x5D4C;&#x5957;</h3>
+<p><strong>&#x5BFC;&#x5165;&#x4E0D;&#x4F1A;&#x4F7F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x53D1;&#x751F;&#x5411;&#x4E0A;&#x7684;&#x5D4C;&#x5957;&#xFF0C;&#x4F46;&#x4F1A;&#x53D1;&#x751F;&#x5411;&#x4E0B;&#x7684;&#x5D4C;&#x5957;&#x3002;&#x5229;&#x7528;&#x5C5E;&#x6027;&#x7684;&#x70B9;&#x53F7;&#x8FD0;&#x7B97;&#x8DEF;&#x5F84;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x6DF1;&#x5165;&#x5230;&#x4EFB;&#x610F;&#x5D4C;&#x5957;&#x7684;&#x6A21;&#x5757;&#x4E2D;&#x5E76;&#x8BFB;&#x53D6;&#x5176;&#x5C5E;&#x6027;&#x3002;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># mod3.py</span>
+X = <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># mod2.py</span>
+X = <span class="hljs-number">2</span>
+<span class="hljs-keyword">import</span> mod3
+print(X, end=<span class="hljs-string">&apos; &apos;</span>)   <span class="hljs-comment"># My global X </span>
+print(mod3.X)       <span class="hljs-comment"># mod3&apos;s X</span>
+<span class="hljs-comment"># mod3&#x65E0;&#x6CD5;&#x770B;&#x89C1;mod2&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;</span>
+
+<span class="hljs-comment"># mod1.py</span>
+X = <span class="hljs-number">1</span>
+<span class="hljs-keyword">import</span> mod2
+print(X, end=<span class="hljs-string">&apos; &apos;</span>)       <span class="hljs-comment"># My global X</span>
+print(mod2.X, end=<span class="hljs-string">&apos; &apos;</span>)  <span class="hljs-comment"># mod2&apos;s X</span>
+print(mod2.mod3.X)      <span class="hljs-comment"># Nested mod3&apos;s X</span>
+<span class="hljs-comment"># mod2&#x65E0;&#x6CD5;&#x770B;&#x89C1;mod1&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;</span>
+
+<span class="hljs-comment"># &#x8FD0;&#x884C;mod1.py</span>
+%python mod1.py
+<span class="hljs-number">2</span> <span class="hljs-number">3</span>
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>
+</code></pre>
+<p><strong>mod1.py&#x4E2D;&#xFF0C;import mod2&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;mod2.mod3.X&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;import mod2.mod3&#x3002;</strong>
+&#x8FD9;&#x662F;&#x5305;&#xFF08;&#x76EE;&#x5F55;&#xFF09;&#x5BFC;&#x5165;&#x7684;&#x8BED;&#x6CD5;&#x3002;&#x5305;&#x5BFC;&#x5165;&#x4E5F;&#x4F1A;&#x5F62;&#x6210;&#x6A21;&#x5757;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5D4C;&#x5957;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x5BFC;&#x5165;&#x8BED;&#x53E5;&#x4F1A;&#x53CD;&#x6620;&#x76EE;&#x5F55;&#x6811;&#x7ED3;&#x6784;&#xFF0C;&#x800C;&#x975E;&#x7B80;&#x5355;&#x7684;&#x5BFC;&#x5165;&#x94FE;&#x3002;</p>
+<h2 id="&#x91CD;&#x8F7D;&#x6A21;&#x5757;">&#x91CD;&#x8F7D;&#x6A21;&#x5757;</h2>
+<ul>
+<li>&#x6A21;&#x5757;&#x53EA;&#x4F1A;&#x5728;&#x6D41;&#x7A0B;&#x4E2D;&#x7B2C;&#x4E00;&#x6B21;&#x5BFC;&#x5165;&#x65F6;&#x52A0;&#x8F7D;&#x548C;&#x6267;&#x884C;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#xFF1B;</li>
+<li>&#x4E4B;&#x540E;&#x7684;&#x5BFC;&#x5165;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x91CD;&#x8F7D;&#x6216;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#xFF1B;</li>
+<li>reload&#x51FD;&#x6570;&#x4F1A;&#x5F3A;&#x5236;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#x91CD;&#x65B0;&#x8F7D;&#x5165;&#x5E76;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+<h3 id="reload&#x57FA;&#x7840;">reload&#x57FA;&#x7840;</h3>
+<p>&#x4E0E;import&#x4E0D;&#x540C;&#xFF1A;</p>
+<ul>
+<li>reload&#x662F;Python&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x662F;&#x8BED;&#x53E5;&#xFF1B;</li>
+<li>&#x4F20;&#x7ED9;reload&#x7684;&#x662F;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x662F;&#x53D8;&#x91CF;&#x540D;&#xFF1B;</li>
+<li>reload&#x5728;Python3.0&#x4E2D;&#x4F4D;&#x4E8E;&#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x5FC5;&#x987B;&#x5BFC;&#x5165;&#x81EA;&#x5DF1;&#x3002;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> module
+
+...use module.attributes...
+
+<span class="hljs-keyword">from</span> imp <span class="hljs-keyword">import</span> reload
+reload(module)
+...use module.attributes...
+</code></pre>
+<p><strong>&#x8C03;&#x7528;reload&#x65F6;&#xFF0C;Python&#x4F1A;&#x91CD;&#x8BFB;&#x6587;&#x4EF6;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x5176;&#x9876;&#x5C42;&#x8BED;&#x53E5;&#x3002;</strong></p>
+<p><strong>reload&#x4F1A;&#x5728;&#x9002;&#x5F53;&#x7684;&#x5730;&#x65B9;&#x4FEE;&#x6539;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#xFF0C;reload&#x5E76;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x5E76;&#x91CD;&#x5EFA;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x3002;</strong></p>
+<ul>
+<li>reload&#x4F1A;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x73B0;&#x6709;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x800C;&#x975E;&#x8FDB;&#x884C;&#x5220;&#x9664;&#x518D;&#x91CD;&#x5EFA;&#xFF1B;</li>
+<li>&#x6587;&#x4EF6;&#x4E2D;&#x9876;&#x5C42;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x4F1A;&#x4F7F;&#x5F97;&#x53D8;&#x91CF;&#x540D;&#x6362;&#x6210;&#x65B0;&#x503C;&#xFF1B;</li>
+<li><strong>&#x91CD;&#x8F7D;&#x4F1A;&#x5F71;&#x54CD;&#x6240;&#x6709;import&#x8BFB;&#x53D6;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</strong>&#xFF1A;&#x56E0;&#x4E3A;&#x4F7F;&#x7528;import&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x70B9;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;&#x53D6;&#x51FA;&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x91CD;&#x8F7D;&#x540E;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x53D1;&#x73B0;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x4E2D;&#x53D8;&#x6210;&#x4E86;&#x65B0;&#x7684;&#x503C;&#xFF1B;</li>
+<li><strong>&#x91CD;&#x8F7D;&#x53EA;&#x4F1A;&#x5BF9;&#x4EE5;&#x540E;&#x4F7F;&#x7528;from&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x9020;&#x6210;&#x5F71;&#x54CD;</strong>&#xFF1A;&#x4E4B;&#x524D;&#x4F7F;&#x7528;from&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5E76;&#x4E0D;&#x4F1A;&#x53D7;&#x5230;&#x91CD;&#x8F7D;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x90A3;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x7528;&#x7684;&#x4F9D;&#x7136;&#x662F;&#x91CD;&#x8F7D;&#x524D;&#x6240;&#x53D6;&#x51FA;&#x7684;&#x65E7;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
 <h1 id="&#x51FD;&#x6570;&#x53C2;&#x6570;"><p align="center">&#x51FD;&#x6570;&#x53C2;&#x6570;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
 <h2 id="&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;">&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;</h2>
@@ -822,7 +1026,7 @@ TypeError: person() takes <span class="hljs-number">2</span> positional argument
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.5","depth":1,"next":{"title":"Scrapy","level":"1.5.1","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},"previous":{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-06-05T06:25:48.453Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-09T09:26:13.044Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.5","depth":1,"next":{"title":"Scrapy","level":"1.5.1","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},"previous":{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-06-12T09:02:51.429Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-12T09:15:26.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

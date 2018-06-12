@@ -1559,7 +1559,7 @@ Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F1A;&#x
 </tbody>
 </table>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x4E5F;&#x5C31;&#x662F;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;/etc/passwd&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x6765;&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6237;&#x53C2;&#x6570;&#x9879;&#x76EE;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;usermod&#x547D;&#x4EE4;&#x4FEE;&#x6539;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x3002;</p>
-<h3 id="passwd&#x547D;&#x4EE4;">passwd&#x547D;&#x4EE4;</h3>
+<h3 id="passwd&#x547D;&#x4EE4;-password">passwd&#x547D;&#x4EE4; (PASSWorD)</h3>
 <p>passwd&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x7528;&#x6237;&#x5BC6;&#x7801;&#x3001;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x3001;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x7B49;&#xFF1A;<strong>passwd [&#x9009;&#x9879;] [&#x7528;&#x6237;&#x540D;]</strong></p>
 <table>
 <thead>
@@ -1729,7 +1729,7 @@ Last login: Wed Feb 11 11:49:16 CST 2017 on pts/0
 [linuxprobe@linuxprobe testdir]$ ls -al <span class="hljs-built_in">test</span>
 -rw-rw-r--. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
 </code></pre>
-<h4 id="chmod&#x547D;&#x4EE4;"><strong>chmod&#x547D;&#x4EE4;</strong></h4>
+<h4 id="chmod&#x547D;&#x4EE4;-change-mode">chmod&#x547D;&#x4EE4; (CHange MODe)</h4>
 <p>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;&#xFF1A;<strong>chmod [&#x53C2;&#x6570;] &#x6743;&#x9650; &#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;</strong></p>
 <p>&#x5982;&#x679C;&#x8981;&#x628A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x8BBE;&#x7F6E;&#x6210;&#x5176;&#x6240;&#x6709;&#x8005;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x53EF;&#x6267;&#x884C;&#x3001;&#x6240;&#x5C5E;&#x7EC4;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x3001;&#x5176;&#x4ED6;&#x4EBA;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6743;&#x9650;&#xFF0C;&#x5219;&#x76F8;&#x5E94;&#x7684;&#x5B57;&#x7B26;&#x6CD5;&#x8868;&#x793A;&#x4E3A;rwxrw----&#xFF0C;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#x6CD5;&#x8868;&#x793A;&#x4E3A;760&#x3002;</p>
 <pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -al test</span>
@@ -1738,7 +1738,7 @@ Last login: Wed Feb 11 11:49:16 CST 2017 on pts/0
 [root@linuxprobe ~]<span class="hljs-comment"># ls -l test</span>
 -rwxrw----. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
 </code></pre>
-<h4 id="chown&#x547D;&#x4EE4;"><strong>chown&#x547D;&#x4EE4;</strong></h4>
+<h4 id="chown&#x547D;&#x4EE4;-change-owner">chown&#x547D;&#x4EE4; (CHange OWNer)</h4>
 <p>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;&#x8005;&#x548C;&#x6240;&#x5C5E;&#x7EC4;&#xFF1A;<strong>chown [&#x53C2;&#x6570;] &#x6240;&#x6709;&#x8005;:&#x6240;&#x5C5E;&#x7EC4; &#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;</strong></p>
 <pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -l test</span>
 -rwxrw----. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
@@ -1777,7 +1777,7 @@ drwxr-xr-t. 2 root root 6 Feb 11 19:34 linux/
 <h2 id="&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;">&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;</h2>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x9664;&#x4E86;&#x5177;&#x5907;&#x4E00;&#x822C;&#x6743;&#x9650;&#x548C;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF0C;&#x5373;&#x88AB;&#x9690;&#x85CF;&#x8D77;&#x6765;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x88AB;&#x7528;&#x6237;&#x53D1;&#x89C9;&#x3002;</p>
 <p>&#x660E;&#x660E;&#x6743;&#x9650;&#x5145;&#x8DB3;&#x4F46;&#x5374;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x6216;&#x4EC5;&#x80FD;&#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#x800C;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x6216;&#x5220;&#x9664;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x963B;&#x6B62;&#x4E86;&#x9ED1;&#x5BA2;&#x7BE1;&#x6539;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;&#x7684;&#x56FE;&#x8C0B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x79CD;&#x9690;&#x85CF;&#x6743;&#x9650;&#x4E5F;&#x4FDD;&#x969C;&#x4E86;Linux&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
-<h3 id="chattr&#x547D;&#x4EE4;">chattr&#x547D;&#x4EE4;</h3>
+<h3 id="chattr&#x547D;&#x4EE4;-change-attribute">chattr&#x547D;&#x4EE4; (CHange ATTRibute)</h3>
 <p>&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF1A;<strong>chattr [+/-&#x53C2;&#x6570;] &#x6587;&#x4EF6;</strong></p>
 <ul>
 <li>&#x8981;&#x628A;&#x67D0;&#x4E2A;&#x9690;&#x85CF;&#x529F;&#x80FD;&#x6DFB;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x4E0A;&#xFF0C;<strong>chattr +&#x53C2;&#x6570; &#x6587;&#x4EF6;</strong>&#xFF1B;</li>
@@ -1851,7 +1851,7 @@ rm: remove regular file &#x2018;linuxprobe&#x2019;? y
 rm: remove regular file &#x2018;linuxprobe&#x2019;? y
 rm: cannot remove &#x2018;linuxprobe&#x2019;: Operation not permitted
 </code></pre>
-<h3 id="lsattr&#x547D;&#x4EE4;">lsattr&#x547D;&#x4EE4;</h3>
+<h3 id="lsattr&#x547D;&#x4EE4;-list-attribute">lsattr&#x547D;&#x4EE4; (LiSt ATTRibute)</h3>
 <p>&#x7528;&#x4E8E;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF1A;<strong>lsattr [&#x53C2;&#x6570;] &#x6587;&#x4EF6;</strong></p>
 <p><strong><em>&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#x5FC5;&#x987B;&#x4F7F;&#x7528;lsattr&#x547D;&#x4EE4;&#x6765;&#x67E5;&#x770B;&#xFF0C;&#x4F7F;&#x7528;ls&#x547D;&#x4EE4;&#x5219;&#x770B;&#x4E0D;&#x51FA;&#x6765;&#x3002;</em></strong></p>
 <pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -al linuxprobe</span>
@@ -1876,7 +1876,7 @@ Last login: Sat Mar 21 16:31:19 CST 2017 on pts/0
 -bash: <span class="hljs-built_in">cd</span>: /root: Permission denied
 [linuxprobe@linuxprobe root]$ <span class="hljs-built_in">exit</span>
 </code></pre>
-<h3 id="setfacl&#x547D;&#x4EE4;">setfacl&#x547D;&#x4EE4;</h3>
+<h3 id="setfacl&#x547D;&#x4EE4;-set-file-acl">setfacl&#x547D;&#x4EE4; (SET File ACL)</h3>
 <p>&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x6587;&#x4EF6;&#x7684;ACL&#x89C4;&#x5219;&#xFF1A;<strong>setfacl [&#x53C2;&#x6570;] &#x6587;&#x4EF6;&#x540D;&#x79F0;</strong></p>
 <p>&#x6587;&#x4EF6;&#x7684;ACL&#x63D0;&#x4F9B;&#x5728;&#x6240;&#x6709;&#x8005;&#x3001;&#x6240;&#x5C5E;&#x7EC4;&#x3001;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x8BFB;/&#x5199;/&#x6267;&#x884C;&#x6743;&#x9650;&#x4E4B;&#x5916;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x4F7F;&#x7528;setfacl&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x5355;&#x4E00;&#x7528;&#x6237;&#x6216;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x5355;&#x4E00;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x6765;&#x8FDB;&#x884C;&#x8BFB;/&#x5199;/&#x6267;&#x884C;&#x6743;&#x9650;&#x7684;&#x63A7;&#x5236;&#x3002;</p>
 <p>&#x9488;&#x5BF9;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x8981;&#x4F7F;&#x7528;-R&#x9012;&#x5F52;&#x53C2;&#x6570;&#xFF1B;&#x9488;&#x5BF9;&#x666E;&#x901A;&#x6587;&#x4EF6;&#x4F7F;&#x7528;-m&#x53C2;&#x6570;&#xFF1B;&#x8981;&#x5220;&#x9664;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x7684;ACL&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-b&#x53C2;&#x6570;&#x3002;</p>
@@ -1892,7 +1892,7 @@ anaconda-ks.cfg Downloads Pictures Public
 </code></pre>
 <p>&#x7528;ls&#x547D;&#x4EE4;&#x770B;&#x4E0D;&#x5230;ACL&#x8868;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x70B9;&#xFF08;.&#xFF09;&#x53D8;
 &#x6210;&#x4E86;&#x52A0;&#x53F7;&#xFF08;+&#xFF09;,&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x4E86;ACL&#x4E86;&#x3002;</p>
-<h3 id="getfacl&#x547D;&#x4EE4;">getfacl&#x547D;&#x4EE4;</h3>
+<h3 id="getfacl&#x547D;&#x4EE4;-get-file-acl">getfacl&#x547D;&#x4EE4; (GET File ACL)</h3>
 <p>&#x7528;&#x4E8E;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x4E0A;&#x8BBE;&#x7F6E;&#x7684;ACL&#x4FE1;&#x606F;&#xFF1A;<strong>getfacl &#x6587;&#x4EF6;&#x540D;&#x79F0;</strong></p>
 <p>&#x4E0B;&#x9762;&#x7528;getfacl&#x547D;&#x4EE4;&#x663E;&#x793A;&#x5728;root&#x7BA1;&#x7406;&#x5458;&#x5BB6;&#x76EE;&#x5F55;&#x4E0A;&#x8BBE;&#x7F6E;&#x7684;&#x6240;&#x6709;ACL&#x4FE1;&#x606F;&#xFF1A;</p>
 <pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># getfacl /root</span>
@@ -1909,7 +1909,7 @@ other::---
 <h2 id="su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;">su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;</h2>
 <p>&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x8FD8;&#x662F;&#x8981;&#x5BF9;&#x5B89;&#x5168;&#x591A;&#x4E00;&#x4EFD;&#x656C;&#x754F;&#x4E4B;&#x5FC3;&#xFF0C;&#x4E0D;&#x8981;&#x7528;root&#x7BA1;&#x7406;&#x5458;&#x53BB;&#x505A;&#x6240;&#x6709;&#x4E8B;&#x60C5;&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x6267;&#x884C;&#x4E86;&#x9519;&#x8BEF;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x76F4;&#x63A5;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x3002;</p>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E3A;&#x4E86;&#x5B89;&#x5168;&#x6027;&#x8003;&#x8651;&#xFF0C;&#x4F7F;&#x5F97;&#x8BB8;&#x591A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x548C;&#x670D;&#x52A1;&#x53EA;&#x80FD;&#x88AB;root&#x7BA1;&#x7406;&#x5458;&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x8FD9;&#x4E5F;&#x8BA9;&#x666E;&#x901A;&#x7528;&#x6237;&#x53D7;&#x5230;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x6743;&#x9650;&#x675F;&#x7F1A;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x987A;&#x5229;&#x5B8C;&#x6210;&#x7279;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x4EFB;&#x52A1;&#x3002;</p>
-<h3 id="su&#x547D;&#x4EE4;">su&#x547D;&#x4EE4;</h3>
+<h3 id="su&#x547D;&#x4EE4;-swith-user">su&#x547D;&#x4EE4; (Swith User)</h3>
 <p>&#x4F7F;&#x5F53;&#x524D;&#x7528;&#x6237;&#x5728;&#x4E0D;&#x9000;&#x51FA;&#x767B;&#x5F55;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5207;&#x6362;&#x5230;&#x5176;&#x4ED6;&#x7528;&#x6237;&#xFF1A;</p>
 <pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># id</span>
 uid=0(root) gid=0(root) groups=0(root)
@@ -1921,7 +1921,7 @@ u:unconfined_r:unconfined_t:s0<span class="hljs-_">-s</span>0:c0.c1023
 </code></pre>
 <p>su&#x547D;&#x4EE4;&#x4E0E;&#x7528;&#x6237;&#x540D;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x4E2A;&#x51CF;&#x53F7;&#xFF08;-&#xFF09;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B8C;&#x5168;&#x5207;&#x6362;&#x5230;&#x65B0;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x5373;&#x628A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4FE1;&#x606F;&#x4E5F;&#x53D8;&#x66F4;&#x4E3A;&#x65B0;&#x7528;&#x6237;&#x7684;&#x76F8;&#x5E94;&#x4FE1;&#x606F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4FDD;&#x7559;&#x539F;&#x59CB;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x5728;&#x5207;&#x6362;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x65F6;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x51CF;&#x53F7;&#xFF08;-&#xFF09;&#x3002;</p>
 <p>&#x4ECE;root&#x7BA1;&#x7406;&#x5458;&#x5207;&#x6362;&#x5230;&#x666E;&#x901A;&#x7528;&#x6237;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#xFF0C;&#x4ECE;&#x666E;&#x901A;&#x7528;&#x6237;&#x5207;&#x6362;&#x6210;root&#x7BA1;&#x7406;&#x5458;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#x3002;</p>
-<h3 id="sudo&#x547D;&#x4EE4;">sudo&#x547D;&#x4EE4;</h3>
+<h3 id="sudo&#x547D;&#x4EE4;-superuser-do">sudo&#x547D;&#x4EE4; (SuperUser DO)</h3>
 <p>&#x7528;&#x4E8E;&#x7ED9;&#x666E;&#x901A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x989D;&#x5916;&#x7684;&#x6743;&#x9650;&#x6765;&#x5B8C;&#x6210;&#x539F;&#x672C;root&#x7BA1;&#x7406;&#x5458;&#x624D;&#x80FD;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#xFF1A;<strong>sudo [&#x53C2;&#x6570;] &#x547D;&#x4EE4;&#x540D;&#x79F0;</strong>
 |&#x53C2;&#x6570;|&#x4F5C;&#x7528;|
 |:---|:---|
@@ -2016,15 +2016,6 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 </code></pre>
 <h1 id="&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x4E0E;&#x78C1;&#x76D8;&#x5212;&#x5206;"><p align="center">&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x4E0E;&#x78C1;&#x76D8;&#x5212;&#x5206;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
-<h3 id="usr-&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;">/usr &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h3>
-<p>usr&#x662F; Unix System Resource &#x7684;&#x7F29;&#x5199;&#xFF0C;&#x91CC;&#x9762;&#x4E00;&#x822C;&#x653E;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#x3002;
-/home&#x76EE;&#x5F55;&#x4E0B;&#x5B58;&#x7684;&#x624D;&#x662F;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
-<h4 id="usrbin">/usr/bin</h4>
-<p>&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7528;&#x6237;&#x547D;&#x4EE4;.&#x6709;&#x4E9B;&#x547D;&#x4EE4;&#x5728;/bin &#x6216;/usr/local/bin &#x4E2D;&#x3002;</p>
-<h3 id="var-&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;">/var &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h3>
-<p>/var &#x5305;&#x62EC;&#x7CFB;&#x7EDF;&#x4E00;&#x822C;&#x8FD0;&#x884C;&#x65F6;&#x8981;&#x6539;&#x53D8;&#x7684;&#x6570;&#x636E;.&#x6BCF;&#x4E2A;&#x7CFB;&#x7EDF;&#x662F;&#x7279;&#x5B9A;&#x7684;&#xFF0C;&#x5373;&#x4E0D;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x4E0E;&#x5176;&#x4ED6;&#x8BA1;&#x7B97;&#x673A;&#x5171;&#x4EAB;&#x3002;</p>
-<h3 id="opt-&#x7528;&#x6237;&#x7EA7;&#x7684;&#x7A0B;&#x5E8F;&#x76EE;&#x5F55;">/opt &#x7528;&#x6237;&#x7EA7;&#x7684;&#x7A0B;&#x5E8F;&#x76EE;&#x5F55;</h3>
-<p>&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x5B58;&#x653E;&#x90A3;&#x4E9B;&#x53EF;&#x9009;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x4F60;&#x60F3;&#x5C1D;&#x8BD5;&#x6700;&#x65B0;&#x7684;firefox&#x6D4B;&#x8BD5;&#x7248;&#x5417;?&#x90A3;&#x5C31;&#x88C5;&#x5230;/opt&#x76EE;&#x5F55;&#x4E0B;&#x5427;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x5F53;&#x4F60;&#x5C1D;&#x8BD5;&#x5B8C;&#xFF0C;&#x60F3;&#x5220;&#x6389;firefox&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x5C31;&#x53EF; &#x4EE5;&#x76F4;&#x63A5;&#x5220;&#x9664;&#x5B83;&#xFF0C;&#x800C;&#x4E0D;&#x5F71;&#x54CD;&#x7CFB;&#x7EDF;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x8BBE;&#x7F6E;&#x3002;&#x5B89;&#x88C5;&#x5230;/opt&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5B83;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x3001;&#x5E93;&#x6587;&#x4EF6;&#x7B49;&#x7B49;&#x90FD;&#x662F;&#x653E;&#x5728;&#x540C;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x3002;</p>
 <p>&#x201C;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;&#x201D;&#xFF0C;&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x76EE;&#x5F55;&#x3001;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#x3001;&#x5757;&#x8BBE;&#x5907;&#x3001;&#x5957;&#x63A5;&#x5B57;&#x3001;&#x6253;&#x5370;&#x673A;&#x7B49;&#x90FD;&#x88AB;&#x62BD;&#x8C61;&#x6210;&#x4E86;&#x6587;&#x4EF6;&#x3002;</p>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;C/D/E/F&#x7B49;&#x76D8;&#x7B26;&#xFF0C;&#x4E00;&#x5207;&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x4ECE;&#x201C;&#x6839;&#xFF08;/&#xFF09;&#x201D;&#x76EE;&#x5F55;&#x5F00;&#x59CB;&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5C42;&#x6B21;&#x5316;&#x6807;&#x51C6;&#xFF08;FHS&#xFF09;&#x91C7;&#x7528;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x6765;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9A;&#x4E49;&#x4E86;&#x5E38;&#x89C1;&#x76EE;&#x5F55;&#x7684;&#x7528;&#x9014;&#x3002;</p>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#x4E25;&#x683C;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF0C;root&#x3001;rOOt&#x3001;Root&#x3001;rooT&#x5747;&#x4EE3;&#x8868;&#x4E0D;&#x540C;&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x4E14;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x4E2D;&#x4E0D;&#x5F97;&#x5305;&#x542B;&#x659C;&#x6760;&#xFF08;/&#xFF09;&#x3002;</p>
@@ -2044,11 +2035,11 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <td style="text-align:left">&#x5F00;&#x673A;&#x6240;&#x9700;&#x6587;&#x4EF6;&#x2014;&#x5185;&#x6838;&#x3001;&#x5F00;&#x673A;&#x83DC;&#x5355;&#x4EE5;&#x53CA;&#x6240;&#x9700;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7B49;</td>
 </tr>
 <tr>
-<td style="text-align:left">/dev</td>
+<td style="text-align:left">/dev (DEVices)</td>
 <td style="text-align:left">&#x4EE5;&#x6587;&#x4EF6;&#x5F62;&#x5F0F;&#x5B58;&#x653E;&#x4EFB;&#x4F55;&#x8BBE;&#x5907;&#x4E0E;&#x63A5;&#x53E3;</td>
 </tr>
 <tr>
-<td style="text-align:left">/etc</td>
+<td style="text-align:left">/etc (Editable Text Configuration)</td>
 <td style="text-align:left">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</td>
 </tr>
 <tr>
@@ -2056,15 +2047,15 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <td style="text-align:left">&#x7528;&#x6237;&#x5BB6;&#x76EE;&#x5F55;</td>
 </tr>
 <tr>
-<td style="text-align:left">/bin</td>
+<td style="text-align:left">/bin (BINaries)</td>
 <td style="text-align:left">&#x5B58;&#x653E;&#x5355;&#x7528;&#x6237;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD8;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x7684;&#x547D;&#x4EE4;</td>
 </tr>
 <tr>
-<td style="text-align:left">/lib</td>
+<td style="text-align:left">/lib (LIBrary)</td>
 <td style="text-align:left">&#x5F00;&#x673A;&#x65F6;&#x7528;&#x5230;&#x7684;&#x51FD;&#x6570;&#x5E93;&#xFF0C;&#x4EE5;&#x53CA;/bin &#x4E0E;/sbin &#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8981;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;</td>
 </tr>
 <tr>
-<td style="text-align:left">/sbin</td>
+<td style="text-align:left">/sbin (Superuser BINaries)</td>
 <td style="text-align:left">&#x5F00;&#x673A;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x7684;&#x547D;&#x4EE4;</td>
 </tr>
 <tr>
@@ -2072,7 +2063,7 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <td style="text-align:left">&#x7528;&#x4E8E;&#x6302;&#x8F7D;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;</td>
 </tr>
 <tr>
-<td style="text-align:left">/opt</td>
+<td style="text-align:left">/opt (OPTional application software packages)</td>
 <td style="text-align:left">&#x653E;&#x7F6E;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x8F6F;&#x4EF6;</td>
 </tr>
 <tr>
@@ -2084,15 +2075,15 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <td style="text-align:left">&#x4E00;&#x4E9B;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x7684;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</td>
 </tr>
 <tr>
-<td style="text-align:left">/tmp</td>
+<td style="text-align:left">/tmp (TeMPorary)</td>
 <td style="text-align:left">&#x4EFB;&#x4F55;&#x4EBA;&#x5747;&#x53EF;&#x4F7F;&#x7528;&#x7684;&#x201C;&#x5171;&#x4EAB;&#x201D;&#x4E34;&#x65F6;&#x76EE;&#x5F55;</td>
 </tr>
 <tr>
-<td style="text-align:left">/proc</td>
+<td style="text-align:left">/proc (PROCesses)</td>
 <td style="text-align:left">&#x865A;&#x62DF;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x4F8B;&#x5982;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x3001;&#x8FDB;&#x7A0B;&#x3001;&#x5916;&#x90E8;&#x8BBE;&#x5907;&#x53CA;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x7B49;</td>
 </tr>
 <tr>
-<td style="text-align:left">/usr/local</td>
+<td style="text-align:left">/usr/local (Unix Shared Resources)</td>
 <td style="text-align:left">&#x7528;&#x6237;&#x81EA;&#x884C;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;</td>
 </tr>
 <tr>
@@ -2104,7 +2095,7 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <td style="text-align:left">&#x5E2E;&#x52A9;&#x4E0E;&#x8BF4;&#x660E;&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x53EF;&#x653E;&#x7F6E;&#x5171;&#x4EAB;&#x6587;&#x4EF6;</td>
 </tr>
 <tr>
-<td style="text-align:left">/var</td>
+<td style="text-align:left">/var (VARiable)</td>
 <td style="text-align:left">&#x4E3B;&#x8981;&#x5B58;&#x653E;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x65E5;&#x5FD7;</td>
 </tr>
 <tr>
@@ -2117,7 +2108,7 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <p>&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;absolute path&#xFF09;&#x662F;&#x4ECE;&#x6839;&#x76EE;&#x5F55;&#xFF08;/&#xFF09;&#x5F00;&#x59CB;&#x5199;&#x8D77;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;&#xFF0C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;relative path&#xFF09;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
 <h2 id="&#x7269;&#x7406;&#x8BBE;&#x5907;&#x7684;&#x547D;&#x540D;&#x89C4;&#x5219;">&#x7269;&#x7406;&#x8BBE;&#x5907;&#x7684;&#x547D;&#x540D;&#x89C4;&#x5219;</h2>
 <p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;&#x3002;</p>
-<p>&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x4E2D;&#x7684;udev&#x8BBE;&#x5907;&#x7BA1;&#x7406;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x628A;&#x786C;&#x4EF6;&#x540D;&#x79F0;&#x89C4;&#x8303;&#x8D77;&#x6765;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#x731C;&#x51FA;&#x8BBE;&#x5907;&#x5927;&#x81F4;&#x7684;&#x5C5E;&#x6027;&#x4EE5;&#x53CA;&#x5206;&#x533A;&#x4FE1;&#x606F;&#x7B49;&#x3002;</p>
+<p>&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x4E2D;&#x7684;udev (Userspace DEVices)&#x8BBE;&#x5907;&#x7BA1;&#x7406;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x628A;&#x786C;&#x4EF6;&#x540D;&#x79F0;&#x89C4;&#x8303;&#x8D77;&#x6765;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#x731C;&#x51FA;&#x8BBE;&#x5907;&#x5927;&#x81F4;&#x7684;&#x5C5E;&#x6027;&#x4EE5;&#x53CA;&#x5206;&#x533A;&#x4FE1;&#x606F;&#x7B49;&#x3002;</p>
 <p>udev&#x8BBE;&#x5907;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x670D;&#x52A1;&#x4F1A;&#x4E00;&#x76F4;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x7684;&#x5F62;&#x5F0F;&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x4FA6;&#x542C;&#x5185;&#x6838;&#x53D1;&#x51FA;&#x7684;&#x4FE1;&#x53F7;&#x6765;&#x7BA1;&#x7406;/dev&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x3002;</p>
 <table>
 <thead>
@@ -2187,6 +2178,355 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
 <li>Ext4&#xFF1A;Ext3&#x7684;&#x6539;&#x8FDB;&#x7248;&#x672C;&#xFF0C;RHEL 6&#x7CFB;&#x7EDF;&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#xFF0C;&#x652F;&#x6301;&#x9AD8;&#x8FBE; 1EB&#xFF08;1EB=1,073,741,824GB&#xFF09;&#x7684;&#x5B58;&#x50A8;&#x5BB9;&#x91CF;&#xFF0C;&#x80FD;&#x591F;&#x6709;&#x65E0;&#x9650;&#x591A;&#x7684;&#x5B50;&#x76EE;&#x5F55;&#x3002;Ext4&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x80FD;&#x591F;&#x6279;&#x91CF;&#x5206;&#x914D;block&#x5757;&#xFF0C;&#x4ECE;&#x800C;&#x6781;&#x5927;&#x7684;&#x63D0;&#x9AD8;&#x8BFB;&#x5199;&#x6548;&#x7387;&#x3002;</li>
 <li>XFS&#xFF1A;&#x4E00;&#x79CD;&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;RHEL 7&#x7CFB;&#x7EDF;&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#xFF0C;&#x5B83;&#x7684;&#x4F18;&#x52BF;&#x662F;&#x5728;&#x53D1;&#x751F;&#x610F;&#x5916;&#x5B95;&#x673A;&#x540E;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5730;&#x6062;&#x590D;&#x53EF;&#x80FD;&#x88AB;&#x7834;&#x574F;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E14;&#x5F3A;&#x5927;&#x7684;&#x65E5;&#x5FD7;&#x529F;&#x80FD;&#x53EA;&#x7528;&#x82B1;&#x8D39;&#x6781;&#x4F4E;&#x7684;&#x8BA1;&#x7B97;&#x548C;&#x5B58;&#x50A8;&#x6027;&#x80FD;&#x3002;&#x6700;&#x5927;&#x53EF;&#x652F;&#x6301;18EB&#x7684;&#x5B58;&#x50A8;&#x5BB9;&#x91CF;&#xFF0C;&#x51E0;&#x4E4E;&#x6EE1;&#x8DB3;&#x4E86;&#x6240;&#x6709;&#x9700;&#x6C42;&#x3002;</li>
 </ul>
+<p>&#x5728;&#x62FF;&#x5230;&#x4E86;&#x4E00;&#x5757;&#x65B0;&#x7684;&#x786C;&#x76D8;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x5206;&#x533A;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x683C;&#x5F0F;&#x5316;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x6700;&#x540E;&#x624D;&#x80FD;&#x6302;&#x8F7D;&#x5E76;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x3002;&#x786C;&#x76D8;&#x7684;&#x5206;&#x533A;&#x64CD;&#x4F5C;&#x53D6;&#x51B3;&#x4E8E;&#x9700;&#x6C42;&#x548C;&#x786C;&#x76D8;&#x5927;&#x5C0F;&#xFF1B;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E0D;&#x8FDB;&#x884C;&#x5206;&#x533A;&#xFF0C;&#x4F46;&#x5FC5;&#x987B;&#x5BF9;&#x786C;&#x76D8;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x65E5;&#x5E38;&#x5728;&#x786C;&#x76D8;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x5F88;&#x591A;&#xFF0C;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;super block&#x7684;&#x201C;&#x786C;&#x76D8;&#x5730;&#x56FE;&#x201D;&#x3002;Linux&#x628A;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x4E0E;&#x5C5E;&#x6027;&#x8BB0;&#x5F55;&#x5728;inode&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5360;&#x7528;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;inode&#x8868;&#x683C;&#xFF0C;&#x8BE5;&#x8868;&#x683C;&#x7684;&#x5927;&#x5C0F;&#x9ED8;&#x8BA4;&#x4E3A;128&#x5B57;&#x8282;&#xFF0C;&#x91CC;&#x9762;&#x8BB0;&#x5F55;&#x7740;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
+<ul>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF08;read&#x3001;write&#x3001;execute&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8005;&#x4E0E;&#x6240;&#x5C5E;&#x7EC4;&#xFF08;owner&#x3001;group&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#xFF08;size&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x521B;&#x5EFA;&#x6216;&#x5185;&#x5BB9;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF08;ctime&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x65F6;&#x95F4;&#xFF08;atime&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF08;mtime&#xFF09;&#xFF1B;</li>
+<li>&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;&#xFF08;SUID&#x3001;SGID&#x3001;SBIT&#xFF09;&#xFF1B;</li>
+<li>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x5730;&#x5740;&#xFF08;point&#xFF09;&#x3002;</li>
+</ul>
+<p>&#x6587;&#x4EF6;&#x7684;&#x5B9E;&#x9645;&#x5185;&#x5BB9;&#x4FDD;&#x5B58;&#x5728;block&#x5757;&#x4E2D;&#xFF08;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x662F;1KB&#x3001;2KB&#x6216;4KB&#xFF09;&#xFF0C;&#x4E00;&#x4E2A;inode&#x9ED8;&#x8BA4;&#x5927;&#x5C0F;&#x4EC5;&#x4E3A;128B&#xFF08;Ext3&#xFF09;&#xFF0C;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A;block&#x6D88;&#x8017;4B&#x3002;&#x5F53;&#x6587;&#x4EF6;&#x7684;inode&#x88AB;&#x5199;&#x6EE1;&#x540E;&#xFF0C;Linux&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x51FA;&#x4E00;&#x4E2A;block&#x5757;&#xFF0C;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x50CF;inode&#x90A3;&#x6837;&#x8BB0;&#x5F55;&#x5176;&#x4ED6;block&#x5757;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x628A;&#x5404;&#x4E2A;block&#x5757;&#x7684;&#x5185;&#x5BB9;&#x4E32;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x8BA9;&#x7528;&#x6237;&#x8BFB;&#x5230;&#x5B8C;&#x6574;&#x7684;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4E86;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5B58;&#x50A8;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;block&#x5757;&#xFF0C;&#x6709;&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x5E38;&#x89C1;&#x60C5;&#x51B5;&#xFF08;&#x4EE5;4KB&#x7684;block&#x5927;&#x5C0F;&#x4E3A;&#x4F8B;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>&#x6587;&#x4EF6;&#x5F88;&#x5C0F;&#xFF08;1KB&#xFF09;&#xFF0C;&#x4F46;&#x4F9D;&#x7136;&#x4F1A;&#x5360;&#x7528;&#x4E00;&#x4E2A;block&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x6F5C;&#x5728;&#x5730;&#x6D6A;&#x8D39;3KB&#xFF1B;</li>
+<li>&#x6587;&#x4EF6;&#x5F88;&#x5927;&#xFF08;5KB&#xFF09;&#xFF0C;&#x4F1A;&#x5360;&#x7528;&#x4E24;&#x4E2A;block&#xFF08;5KB-4KB&#x540E;&#x5269;&#x4E0B;&#x7684;1KB&#x4E5F;&#x8981;&#x5360;&#x7528;&#x4E00;&#x4E2A;block&#xFF09;&#x3002;</li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x6237;&#x5728;&#x8BFB;&#x53D6;&#x6216;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x65F6;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x5E95;&#x5C42;&#x786C;&#x76D8;&#x7ED3;&#x6784;&#xFF0C;Linux&#x5185;&#x6838;&#x4E2D;&#x7684;&#x8F6F;&#x4EF6;&#x5C42;&#x4E3A;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;VFS&#xFF08;Virtual File System&#xFF0C;&#x865A;&#x62DF;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF09;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x6237;&#x5728;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x65F6;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5BF9;VFS&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5728;VFS&#x4E0B;&#x9690;&#x85CF;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6027;&#x548C;&#x7EC6;&#x8282;&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x5728;&#x65E5;&#x5E38;&#x4F7F;&#x7528;&#x65F6;&#x4F1A;&#x89C9;&#x5F97;&#x201C;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x201D;&#xFF0C;&#x4E5F;&#x5C31;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x4F7F;&#x7528;&#x5404;&#x79CD;&#x547D;&#x4EE4;&#x5728;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x4E86;&#xFF08;&#x6BD4;&#x5982;&#x4F7F;&#x7528;cp&#x547D;&#x4EE4;&#x6765;&#x590D;&#x5236;&#x6587;&#x4EF6;&#xFF09;&#x3002;</p>
+<p><img src="../images/linux_file_system_VFS.png" alt="VFS&#x7684;&#x67B6;&#x6784;&#x793A;&#x610F;&#x56FE;"></p>
+<h2 id="&#x6302;&#x8F7D;&#x786C;&#x4EF6;&#x8BBE;&#x5907;">&#x6302;&#x8F7D;&#x786C;&#x4EF6;&#x8BBE;&#x5907;</h2>
+<p>&#x5F53;&#x7528;&#x6237;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x786C;&#x76D8;&#x8BBE;&#x5907;&#x6216;&#x5206;&#x533A;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x5C06;&#x5176;&#x4E0E;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5173;&#x8054;&#xFF0C;&#x8FD9;&#x4E2A;&#x5173;&#x8054;&#x52A8;&#x4F5C;&#x5C31;&#x662F;&#x201C;&#x6302;&#x8F7D;&#x201D;&#x3002;</p>
+<h3 id="mount&#x547D;&#x4EE4;">mount&#x547D;&#x4EE4;</h3>
+<p>&#x7528;&#x4E8E;&#x6302;&#x8F7D;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF1A;<strong>mount &#x6587;&#x4EF6;&#x7CFB;&#x7EDF; &#x6302;&#x8F7D;&#x76EE;&#x5F55;</strong></p>
+<p>&#x6302;&#x8F7D;&#x662F;&#x5728;&#x4F7F;&#x7528;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x524D;&#x6240;&#x6267;&#x884C;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x53EA;&#x9700;&#x4F7F;&#x7528;mount&#x547D;&#x4EE4;&#x628A;&#x786C;&#x76D8;&#x8BBE;&#x5907;&#x6216;&#x5206;&#x533A;&#x4E0E;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5173;&#x8054;&#xFF0C;&#x5C31;&#x80FD;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#x770B;&#x5230;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x4E86;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-a</td>
+<td style="text-align:left">&#x6302;&#x8F7D;&#x6240;&#x6709;&#x5728;/etc/fstab&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</td>
+</tr>
+<tr>
+<td style="text-align:left">-t</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5BF9;&#x4E8E;&#x6BD4;&#x8F83;&#x65B0;&#x7684;Linux&#x7CFB;&#x7EDF;&#x6765;&#x8BB2;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;-t&#x53C2;&#x6570;&#x6765;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;Linux&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#x3002;mount&#x7684;-a&#x53C2;&#x6570;&#x4F1A;&#x5728;&#x6267;&#x884C;&#x540E;&#x81EA;&#x52A8;&#x68C0;&#x67E5;/etc/fstab&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x65E0;&#x758F;&#x6F0F;&#x88AB;&#x6302;&#x8F7D;&#x7684;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x6302;&#x8F7D;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-bash">&#x628A;&#x8BBE;&#x5907;/dev/sdb2 &#x6302;&#x8F7D;&#x5230;/backup&#x76EE;&#x5F55;
+[root@linuxprobe ~]<span class="hljs-comment"># mount /dev/sdb2 /backup</span>
+</code></pre>
+<p>&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;mount&#x547D;&#x4EE4;&#x540E;&#x5C31;&#x80FD;&#x7ACB;&#x5373;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E86;&#xFF0C;&#x4F46;&#x7CFB;&#x7EDF;&#x5728;&#x91CD;&#x542F;&#x540E;&#x6302;&#x8F7D;&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6BCF;&#x6B21;&#x5F00;&#x673A;&#x540E;&#x90FD;&#x624B;&#x52A8;&#x6302;&#x8F7D;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8BA9;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x548C;&#x76EE;&#x5F55;&#x6C38;&#x4E45;&#x5730;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x5173;&#x8054;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x628A;&#x6302;&#x8F7D;&#x4FE1;&#x606F;&#x6309;&#x7167;&#x683C;&#x5F0F;&#x201C;&#x8BBE;&#x5907;&#x6587;&#x4EF6; &#x6302;&#x8F7D;&#x76EE;&#x5F55; &#x683C;&#x5F0F;&#x7C7B;&#x578B; &#x6743;&#x9650;&#x9009;&#x9879; &#x662F;&#x5426;&#x5907;&#x4EFD; &#x662F;&#x5426;&#x81EA;&#x68C0;&#x201D;&#x5199;&#x5165;&#x5230;/etc/fstab&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x7740;&#x6302;&#x8F7D;&#x6240;&#x9700;&#x7684;&#x8BF8;&#x591A;&#x4FE1;&#x606F;&#x9879;&#x76EE;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:left">&#x610F;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&#x8BBE;&#x5907;&#x6587;&#x4EF6;</td>
+<td style="text-align:left">&#x4E00;&#x822C;&#x4E3A;&#x8BBE;&#x5907;&#x7684;&#x8DEF;&#x5F84;+&#x8BBE;&#x5907;&#x540D;&#x79F0; &#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x552F;&#x4E00;&#x8BC6;&#x522B;&#x7801;&#xFF08;UUID&#xFF0C;Universally Unique Identifier&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x6302;&#x8F7D;&#x76EE;&#x5F55;</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x8981;&#x6302;&#x8F7D;&#x5230;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x9700;&#x5728;&#x6302;&#x8F7D;&#x524D;&#x521B;&#x5EFA;&#x597D;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x683C;&#x5F0F;&#x7C7B;&#x578B;</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;Ext3&#x3001;Ext4&#x3001;XFS&#x3001;SWAP&#x3001;iso9660&#xFF08;&#x6B64;&#x4E3A;&#x5149;&#x76D8;&#x8BBE;&#x5907;&#xFF09;&#x7B49;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x6743;&#x9650;&#x9009;&#x9879;</td>
+<td style="text-align:left">&#x82E5;&#x8BBE;&#x4E3A;defaults&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x6743;&#x9650;&#x4E3A;&#xFF1A;rw, suid, dev, exec, auto, nouser, async</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x662F;&#x5426;&#x5907;&#x4EFD;</td>
+<td style="text-align:left">&#x82E5;&#x4E3A;1&#x5219;&#x5F00;&#x673A;&#x540E;&#x4F7F;&#x7528;dump&#x8FDB;&#x884C;&#x78C1;&#x76D8;&#x5907;&#x4EFD;&#xFF0C;&#x4E3A;0&#x5219;&#x4E0D;&#x5907;&#x4EFD;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x662F;&#x5426;&#x81EA;&#x68C0;</td>
+<td style="text-align:left">&#x82E5;&#x4E3A;1&#x5219;&#x5F00;&#x673A;&#x540E;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x78C1;&#x76D8;&#x81EA;&#x68C0;&#xFF0C;&#x4E3A;0&#x5219;&#x4E0D;&#x81EA;&#x68C0;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># vim /etc/fstab</span>
+<span class="hljs-comment"># #</span>
+/etc/fstab
+<span class="hljs-comment"># Created by anaconda on Wed May 4 19:26:23 2017</span>
+<span class="hljs-comment"># #</span>
+Accessible filesystems, by reference, are maintained under <span class="hljs-string">&apos;/dev/disk&apos;</span>
+<span class="hljs-comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="hljs-comment">#</span>
+/dev/mapper/rhel-root / xfs defaults 1 1
+UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
+/dev/mapper /rhel-swap swap swap defaults 0 0
+/dev/cdrom /media/cdrom iso9660 defaults 0 0
+
+&#x5C06;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E3A;ext4&#x7684;&#x786C;&#x4EF6;&#x8BBE;&#x5907;/dev/sdb2&#x5728;&#x5F00;&#x673A;&#x540E;&#x81EA;&#x52A8;&#x6302;&#x8F7D;&#x5230;/backup&#x76EE;&#x5F55;&#x4E0A;&#xFF0C;&#x5E76;&#x4FDD;&#x6301;&#x9ED8;&#x8BA4;&#x6743;&#x9650;&#x4E14;&#x65E0;&#x9700;&#x5F00;&#x673A;&#x81EA;&#x68C0;
+/dev/sdb2 /backup ext4 defaults 0 0
+</code></pre>
+<h3 id="umount&#x547D;&#x4EE4;-unmount">umount&#x547D;&#x4EE4; (UnMOUNT)</h3>
+<p>&#x7528;&#x4E8E;&#x64A4;&#x9500;&#x5DF2;&#x7ECF;&#x6302;&#x8F7D;&#x7684;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF1A;<strong>umount [&#x6302;&#x8F7D;&#x70B9;/&#x8BBE;&#x5907;&#x6587;&#x4EF6;]</strong></p>
+<p>&#x5378;&#x8F7D;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x786C;&#x4EF6;&#x7684;&#x8BBE;&#x5907;&#x8D44;&#x6E90;&#xFF1B;&#x5378;&#x8F7D;&#x64CD;&#x4F5C;&#x53EA;&#x8981;&#x8BF4;&#x660E;&#x60F3;&#x8981;&#x53D6;&#x6D88;&#x5173;&#x8054;&#x7684;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x6216;&#x6302;&#x8F7D;&#x76EE;&#x5F55;&#x7684;&#x4E00;&#x9879;&#x5373;&#x53EF;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x52A0;&#x5176;&#x4ED6;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code class="lang-bash">&#x624B;&#x52A8;&#x5378;&#x8F7D;&#x6389;/dev/sdb2&#x8BBE;&#x5907;&#x6587;&#x4EF6;
+[root@linuxprobe ~]<span class="hljs-comment"># umount /dev/sdb2</span>
+</code></pre>
+<h2 id="&#x6DFB;&#x52A0;&#x786C;&#x76D8;&#x8BBE;&#x5907;">&#x6DFB;&#x52A0;&#x786C;&#x76D8;&#x8BBE;&#x5907;</h2>
+<h3 id="fdisk&#x547D;&#x4EE4;">fdisk&#x547D;&#x4EE4;</h3>
+<p>&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x78C1;&#x76D8;&#x5206;&#x533A;&#xFF1A;<strong>fdisk [&#x78C1;&#x76D8;&#x540D;&#x79F0;]</strong></p>
+<p>&#x8FD9;&#x6761;&#x547D;&#x4EE4;&#x7684;&#x53C2;&#x662F;&#x4EA4;&#x4E92;&#x5F0F;&#x7684;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">m</td>
+<td style="text-align:left">&#x67E5;&#x770B;&#x5168;&#x90E8;&#x53EF;&#x7528;&#x7684;&#x53C2;&#x6570;</td>
+</tr>
+<tr>
+<td style="text-align:left">n</td>
+<td style="text-align:left">&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5206;&#x533A;</td>
+</tr>
+<tr>
+<td style="text-align:left">d</td>
+<td style="text-align:left">&#x5220;&#x9664;&#x67D0;&#x4E2A;&#x5206;&#x533A;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left">l</td>
+<td style="text-align:left">&#x5217;&#x51FA;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x5206;&#x533A;&#x7C7B;&#x578B;</td>
+</tr>
+<tr>
+<td style="text-align:left">t</td>
+<td style="text-align:left">&#x6539;&#x53D8;&#x67D0;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x7C7B;&#x578B;</td>
+</tr>
+<tr>
+<td style="text-align:left">p</td>
+<td style="text-align:left">&#x67E5;&#x770B;&#x5206;&#x533A;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">&#x4FDD;&#x5B58;&#x5E76;&#x9000;&#x51FA;</td>
+</tr>
+<tr>
+<td style="text-align:left">q</td>
+<td style="text-align:left">&#x4E0D;&#x4FDD;&#x5B58;&#x76F4;&#x63A5;&#x9000;&#x51FA;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-bash">&#x4F7F;&#x7528;fdisk&#x547D;&#x4EE4;&#x6765;&#x7BA1;&#x7406;/dev/sdb&#x786C;&#x76D8;&#x8BBE;&#x5907;
+[root@linuxprobe ~]<span class="hljs-comment"># fdisk /dev/sdb</span>
+Welcome to fdisk (util-linux 2.23.2).
+Changes will remain <span class="hljs-keyword">in</span> memory only, until you decide to write them.
+Be careful before using the write command.
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x47d24a34.
+
+&#x8F93;&#x5165;&#x53C2;&#x6570;p&#x6765;&#x67E5;&#x770B;&#x786C;&#x76D8;&#x8BBE;&#x5907;&#x5185;&#x5DF2;&#x6709;&#x7684;&#x5206;&#x533A;&#x4FE1;&#x606F;&#xFF0C;
+&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x4E86;&#x786C;&#x76D8;&#x7684;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;&#x3001;&#x6247;&#x533A;&#x4E2A;&#x6570;&#x7B49;&#x4FE1;&#x606F;
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label <span class="hljs-built_in">type</span>: dos
+Disk identifier: 0x47d24a34
+Device Boot Start End Blocks Id System
+
+&#x8F93;&#x5165;&#x53C2;&#x6570;n&#x5C1D;&#x8BD5;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5206;&#x533A;
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): n
+Partition <span class="hljs-built_in">type</span>:
+p primary (0 primary, 0 extended, 4 free)
+e extended
+
+&#x8F93;&#x5165;&#x53C2;&#x6570;p&#x521B;&#x5EFA;&#x4E3B;&#x5206;&#x533A;&#xFF0C;
+&#x8F93;&#x5165;&#x53C2;&#x6570;e&#x521B;&#x5EFA;&#x6269;&#x5C55;&#x5206;&#x533A;
+Select (default p): p
+
+&#x8F93;&#x5165;&#x4E3B;&#x5206;&#x533A;&#x7684;&#x7F16;&#x53F7;&#x3002;
+&#x4E3B;&#x5206;&#x533A;&#x7684;&#x7F16;&#x53F7;&#x8303;&#x56F4;&#x662F;1&#xFF5E;4
+Partition number (1-4, default 1): 1
+
+&#x7CFB;&#x7EDF;&#x63D0;&#x793A;&#x5B9A;&#x4E49;&#x8D77;&#x59CB;&#x7684;&#x6247;&#x533A;&#x4F4D;&#x7F6E;&#xFF0C;
+&#x6309;&#x56DE;&#x8F66;&#x4FDD;&#x7559;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x5373;&#x53EF;&#xFF0C;
+&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x8BA1;&#x7B97;&#x51FA;&#x6700;&#x9760;&#x524D;&#x7684;&#x7A7A;&#x95F2;&#x6247;&#x533A;&#x7684;&#x4F4D;&#x7F6E;
+First sector (2048-41943039, default 2048):&#x6B64;&#x5904;&#x6572;&#x51FB;&#x56DE;&#x8F66;
+Using default value 2048
+
+&#x7CFB;&#x7EDF;&#x8981;&#x6C42;&#x5B9A;&#x4E49;&#x5206;&#x533A;&#x7684;&#x7ED3;&#x675F;&#x6247;&#x533A;&#x4F4D;&#x7F6E;&#xFF0C;&#x5373;&#x5B9A;&#x4E49;&#x6574;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x591A;&#x5C11;&#x3002;
+&#x4E0D;&#x7528;&#x53BB;&#x8BA1;&#x7B97;&#x6247;&#x533A;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;+2G&#x5373;&#x53EF;&#x521B;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;&#x5BB9;&#x91CF;&#x4E3A;2GB&#x7684;&#x786C;&#x76D8;&#x5206;&#x533A;
+Last sector, +sectors or +size{K,M,G} (2048-41943039, default 41943039): +2G
+Partition 1 of <span class="hljs-built_in">type</span> Linux and of size 2 GiB is <span class="hljs-built_in">set</span>
+
+&#x4F7F;&#x7528;&#x53C2;&#x6570;p&#x67E5;&#x770B;&#x786C;&#x76D8;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x5206;&#x533A;&#x4FE1;&#x606F;
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label <span class="hljs-built_in">type</span>: dos
+Disk identifier: 0x47d24a34
+Device Boot Start End Blocks Id System
+
+&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x540D;&#x79F0;&#x4E3A;/dev/sdb1&#x3001;
+&#x8D77;&#x59CB;&#x6247;&#x533A;&#x4F4D;&#x7F6E;&#x4E3A;2048&#x3001;&#x7ED3;&#x675F;&#x6247;&#x533A;&#x4F4D;&#x7F6E;&#x4E3A;4196351&#x7684;&#x4E3B;&#x5206;&#x533A;
+/dev/sdb1 2048 4196351 2097152 83 Linux
+
+&#x6572;&#x51FB;&#x53C2;&#x6570;w&#x540E;&#x56DE;&#x8F66;&#xFF0C;&#x8FD9;&#x6837;&#x5206;&#x533A;&#x4FE1;&#x606F;&#x624D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x5199;&#x5165;&#x6210;&#x529F;
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+Syncing disks.
+
+Linux&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x628A;&#x8FD9;&#x4E2A;&#x786C;&#x76D8;&#x4E3B;&#x5206;&#x533A;&#x62BD;&#x8C61;&#x6210;/dev/sdb1&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x3002;
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;file&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#xFF0C;
+&#x6709;&#x65F6;&#x5019;&#x7CFB;&#x7EDF;&#x5E76;&#x6CA1;&#x6709;&#x81EA;&#x52A8;&#x628A;&#x5206;&#x533A;&#x4FE1;&#x606F;&#x540C;&#x6B65;&#x7ED9;Linux&#x5185;&#x6838;&#xFF0C;
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F93;&#x5165;partprobe&#x547D;&#x4EE4;&#x624B;&#x52A8;&#x5C06;&#x5206;&#x533A;&#x4FE1;&#x606F;&#x540C;&#x6B65;&#x5230;&#x5185;&#x6838;&#xFF0C;
+&#x4E00;&#x822C;&#x63A8;&#x8350;&#x8FDE;&#x7EED;&#x4E24;&#x6B21;&#x6267;&#x884C;&#x8BE5;&#x547D;&#x4EE4;&#xFF0C;&#x6548;&#x679C;&#x4F1A;&#x66F4;&#x597D;&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x90FD;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x91CD;&#x542F;&#x8BA1;&#x7B97;&#x673A;&#x3002;
+[root@linuxprobe ]<span class="hljs-comment"># file /dev/sdb1</span>
+/dev/sdb1: cannot open (No such file or directory)
+[root@linuxprobe ]<span class="hljs-comment"># partprobe</span>
+[root@linuxprobe ]<span class="hljs-comment"># partprobe</span>
+[root@linuxprobe ]<span class="hljs-comment"># file /dev/sdb1</span>
+/dev/sdb1: block special
+</code></pre>
+<h3 id="mkfs&#x547D;&#x4EE4;-make-filesystem">mkfs&#x547D;&#x4EE4; (MaKe FileSystem)</h3>
+<p>&#x7528;&#x4E8E;&#x683C;&#x5F0F;&#x5316;&#x64CD;&#x4F5C;&#xFF1A;<strong>mkfs.&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x540D;&#x79F0; &#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x5206;&#x533A;</strong></p>
+<p>&#x5982;&#x679C;&#x786C;&#x4EF6;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5219;Linux&#x65E0;&#x6CD5;&#x5F97;&#x77E5;&#x600E;&#x4E48;&#x5728;&#x5176;&#x4E0A;&#x5199;&#x5165;&#x6570;&#x636E;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x5BF9;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x8FDB;&#x884C;&#x5206;&#x533A;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5728;Shell&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;mkfs&#x540E;&#x518D;&#x6572;&#x51FB;&#x4E24;&#x4E0B;Tab&#x952E;&#xFF0C;&#x4F1A;&#x6709;&#x5982;&#x4E0B;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># mkfs</span>
+mkfs mkfs.cramfs mkfs.ext3 mkfs.fat mkfs.msdos mkfs.xfs
+mkfs.btrfs mkfs.ext2 mkfs.ext4 mkfs.minix mkfs.vfat
+</code></pre>
+<pre><code class="lang-bash">&#x683C;&#x5F0F;&#x5316;&#x4E3A;XFS&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;
+[root@linuxprobe ~]<span class="hljs-comment"># mkfs.xfs /dev/sdb1</span>
+meta-data=/dev/sdb1 isize=256 agcount=4, agsize=131072 blks
+= sectsz=512 attr=2, projid32bit=1
+= crc=0
+data = bsize=4096 blocks=524288, imaxpct=25
+= sunit=0 swidth=0 blks
+naming =version 2 bsize=4096 ascii-ci=0 ftype=0
+<span class="hljs-built_in">log</span> =internal <span class="hljs-built_in">log</span> bsize=4096 blocks=2560, version=2
+= sectsz=512 sunit=0 blks, lazy-count=1
+realtime =none extsz=4096 blocks=0, rtextents=0
+</code></pre>
+<p>&#x5B8C;&#x6210;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x7684;&#x5206;&#x533A;&#x548C;&#x683C;&#x5F0F;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6302;&#x8F7D;&#x5E76;&#x4F7F;&#x7528;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4E86;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6302;&#x8F7D;&#x8BBE;&#x5907;&#x7684;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;&#xFF1B;</li>
+<li>&#x7136;&#x540E;&#x7528;mount&#x547D;&#x4EE4;&#x5C06;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4E0E;&#x6302;&#x8F7D;&#x70B9;&#x8FDB;&#x884C;&#x5173;&#x8054;&#xFF1B;</li>
+<li>&#x6700;&#x540E;&#x7528;df -h&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6302;&#x8F7D;&#x72B6;&#x6001;&#x548C;&#x786C;&#x76D8;&#x4F7F;&#x7528;&#x91CF;&#x4FE1;&#x606F;&#x3002;</li>
+</ol>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># mkdir /newFS</span>
+[root@linuxprobe ~]<span class="hljs-comment"># mount /dev/sdb1 /newFS/</span>
+[root@linuxprobe ~]<span class="hljs-comment"># df -h</span>
+Filesystem              Size    Used    Avail   Use%    Mounted on
+/dev/mapper/rhel-root   18G     3.5G    15G     20%     /
+devtmpfs                905M    0       905M    0%      /dev
+tmpfs                   914M    140K    914M    1%      /dev/shm
+tmpfs                   914M    8.8M    905M    1%      /run
+tmpfs                   914M    0       914M    0%      /sys/fs/cgroup
+/dev/sr0                3.5G    3.5G    0       100%    /media/cdrom
+/dev/sda1               497M    119M    379M    24%     /boot
+/dev/sdb1               2.0G    33M     2.0G    2%      /newFS
+</code></pre>
+<h3 id="du&#x547D;&#x4EE4;-disk-usage">du&#x547D;&#x4EE4; (Disk Usage)</h3>
+<p>&#x7528;&#x4E8E;&#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x5360;&#x7528;&#x4E86;&#x591A;&#x5927;&#x7684;&#x786C;&#x76D8;&#x7A7A;&#x95F4;&#xFF1A;<strong>du [&#x9009;&#x9879;] [&#x6587;&#x4EF6;]</strong></p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;du -sh /*&#x547D;&#x4EE4;&#x67E5;&#x770B;Linux&#x7CFB;&#x7EDF;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x4E00;&#x7EA7;&#x76EE;&#x5F55;&#x5206;&#x522B;&#x5360;&#x7528;&#x7684;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x3002;</p>
+<h2 id="&#x6DFB;&#x52A0;&#x4EA4;&#x6362;&#x5206;&#x533A;">&#x6DFB;&#x52A0;&#x4EA4;&#x6362;&#x5206;&#x533A;</h2>
+<blockquote>
+<p>SWAP&#xFF08;&#x4EA4;&#x6362;&#xFF09;&#x5206;&#x533A;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x8FC7;&#x5728;&#x786C;&#x76D8;&#x4E2D;&#x9884;&#x5148;&#x5212;&#x5206;&#x4E00;&#x5B9A;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x628A;&#x5185;&#x5B58;&#x4E2D;&#x6682;&#x65F6;&#x4E0D;&#x5E38;&#x7528;&#x7684;&#x6570;&#x636E;&#x4E34;&#x65F6;&#x5B58;&#x653E;&#x5230;&#x786C;&#x76D8;&#x4E2D;&#xFF0C;&#x4EE5;&#x4FBF;&#x817E;&#x51FA;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x8BA9;&#x66F4;&#x6D3B;&#x8DC3;&#x7684;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x6765;&#x4F7F;&#x7528;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x5176;&#x8BBE;&#x8BA1;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x771F;&#x5B9E;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x7684;&#x95EE;&#x9898;&#x3002;&#x53EA;&#x6709;&#x5F53;&#x771F;&#x5B9E;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x8017;&#x5C3D;&#x540E;&#x624D;&#x4F1A;&#x8C03;&#x7528;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x7684;&#x8D44;&#x6E90;&#x3002;</p>
+</blockquote>
+<p>&#x4EA4;&#x6362;&#x5206;&#x533A;&#x5212;&#x5206;&#x5EFA;&#x8BAE;&#xFF1A;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x7684;&#x5927;&#x5C0F;&#x4E00;&#x822C;&#x4E3A;&#x771F;&#x5B9E;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;1.5&#xFF5E;2 &#x500D;&#x3002;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># fdisk /dev/sdb</span>
+Welcome to fdisk (util-linux 2.23.2).
+Changes will remain <span class="hljs-keyword">in</span> memory only, until you decide to write them.
+Be careful before using the write command.
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0xb3d27ce1.
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): n
+Partition <span class="hljs-built_in">type</span>:
+p primary (1 primary, 0 extended, 3 free)
+e extendedSelect (default p): p
+Partition number (2-4, default 2):
+First sector (4196352-41943039, default 4196352):
+Using default value 4196352
+
+&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A;5GB&#x7684;&#x4E3B;&#x5206;&#x533A;&#x4F5C;&#x4E3A;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x8D44;&#x6E90;
+Last sector, +sectors or +size{K,M,G} (4196352-41943039, default 41943039): +5G
+Partition 2 of <span class="hljs-built_in">type</span> Linux and of size 5 GiB is <span class="hljs-built_in">set</span>
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label <span class="hljs-built_in">type</span>: dos
+Disk identifier: 0xb0ced57f
+Device Boot Start End Blocks Id System
+/dev/sdb1 2048 4196351 2097152 83 Linux
+/dev/sdb2 4196352 14682111 5242880 83 Linux
+Command (m <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
+The kernel still uses the old table. The new table will be used at
+the next reboot or after you run partprobe(8) or kpartx(8)
+Syncing disks.
+
+&#x4F7F;&#x7528;SWAP&#x5206;&#x533A;&#x4E13;&#x7528;&#x7684;&#x683C;&#x5F0F;&#x5316;&#x547D;&#x4EE4;mkswap&#xFF0C;
+&#x5BF9;&#x65B0;&#x5EFA;&#x7684;&#x4E3B;&#x5206;&#x533A;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x64CD;&#x4F5C;
+[root@linuxprobe ~]<span class="hljs-comment"># mkswap /dev/sdb2</span>
+Setting up swapspace version 1, size = 5242876 KiB
+no label, UUID=2972f9cb-17f0-4113-84c6-c64b97c40c75
+
+&#x4F7F;&#x7528;free -m&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x5927;&#x5C0F;
+[root@linuxprobe ~]<span class="hljs-comment"># free -m</span>
+                    total   used    free    shared  buffers cached
+Mem:                1483    782     701     9       0       254
+-/+ buffers/cache:  526     957
+Swap:               2047    0       2047
+
+&#x4F7F;&#x7528;swapon&#x547D;&#x4EE4;&#x628A;&#x51C6;&#x5907;&#x597D;&#x7684;SWAP&#x5206;&#x533A;&#x8BBE;&#x5907;&#x6B63;&#x5F0F;&#x6302;&#x8F7D;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;
+[root@linuxprobe ~]<span class="hljs-comment"># swapon /dev/sdb2</span>
+
+&#x4F7F;&#x7528;free -m&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x5927;&#x5C0F;&#x53D8;&#x5316;&#xFF08;&#x7531;2047MB&#x589E;&#x52A0;&#x5230;7167MB&#xFF09;
+[root@linuxprobe ~]<span class="hljs-comment"># free -m</span>
+                    total   used    free    shared  buffers cached
+Mem:                1483    785     697     9       0       254
+-/+ buffers/cache:  530     953
+Swap:               7167    0       7167
+
+&#x4E3A;&#x4E86;&#x4F7F;&#x65B0;&#x7684;&#x4EA4;&#x6362;&#x5206;&#x533A;&#x8BBE;&#x5907;&#x5728;&#x91CD;&#x542F;&#x540E;&#x4F9D;&#x7136;&#x751F;&#x6548;&#xFF0C;
+&#x9700;&#x8981;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x683C;&#x5F0F;&#x5C06;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x5199;&#x5165;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;
+[root@linuxprobe ~]<span class="hljs-comment"># vim /etc/fstab</span>
+<span class="hljs-comment"># #</span>
+/etc/fstab
+<span class="hljs-comment"># Created by anaconda on Wed May 4 19:26:23 2017</span>
+<span class="hljs-comment"># #</span>
+Accessible filesystems, by reference, are maintained under <span class="hljs-string">&apos;/dev/disk&apos;</span>
+<span class="hljs-comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="hljs-comment">#</span>
+/dev/mapper/rhel-root   /       xfs     defaults 1 1
+&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x7701;&#x7565;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+/dev/sdb2               swap    swap    defaults 0 0
+</code></pre>
+<h2 id="&#x78C1;&#x76D8;&#x5BB9;&#x91CF;&#x914D;&#x989D;">&#x78C1;&#x76D8;&#x5BB9;&#x91CF;&#x914D;&#x989D;</h2>
 
                                 
                                 </section>
@@ -2230,7 +2570,7 @@ poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.6","depth":1,"next":{"title":"数据库","level":"1.7","depth":1,"path":"数据库/README.md","ref":"数据库/README.md","articles":[]},"previous":{"title":"Flask","level":"1.5.3","depth":2,"path":"Python/Flask/README.md","ref":"Python/Flask/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/README.md","mtime":"2018-06-08T09:15:51.005Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-09T09:26:13.044Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.6","depth":1,"next":{"title":"数据库","level":"1.7","depth":1,"path":"数据库/README.md","ref":"数据库/README.md","articles":[]},"previous":{"title":"Flask","level":"1.5.3","depth":2,"path":"Python/Flask/README.md","ref":"Python/Flask/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/README.md","mtime":"2018-06-12T00:23:36.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-12T09:15:26.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

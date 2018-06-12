@@ -293,7 +293,7 @@ module.exports = {
 }
 ```
 
-# <p align="center">输出(output)</p>
+# <p align="center">loader</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
 loader用于对模块的源代码进行转换。loader可以使你在import或“加载”模块时预处理文件。loader类似于其他构建工具中“任务(task)”。loader可以将文件从不同的语言（如TypeScript）转换为JavaScript，或将内联图像转换为data URL。loader甚至允许你直接在JavaScript模块中import CSS文件！

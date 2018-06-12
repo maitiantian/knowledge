@@ -303,6 +303,243 @@ Python把载入的模块存储到一个名为sys.modules的表中，并在一次
 如果在不同的目录中有b.py和b.so，Python总是在从左至右搜索sys.path时加载模块搜索路径的目录中最先出现的相符文件；如果同一目录下有b.py和b.so，Python会遵循一个标准的挑选顺序，不过这个顺序不保证永远不变，所以尽量让模块名独特一些。
 
 
+## 高级的模块选择概念
+
+利用导入钩子（import hook）可以重新定义Python中import操作所做的事。
+
+### **distutils**
+
+> Python的第三方扩展，通常使用标准链接库中的distutils模块自动安装，distutils会将第三方扩展安装在属于模块自动搜索路径的目录内（通常是Python安装目录树下的Lib\site-packages子目录中），所以不需要路径设置就能使用它们的代码。
+
+
+## 模块的创建
+
+对于会执行但不会被导入的顶层文件而言，.py后缀可有可无，但是如果要将文件作为模块导入，则必须以.py后缀结尾。
+
+也可以使用C或C++（或Java，Python语言的Jython实现）这类外部语言编写代码创建Python模块，这类模块称为**扩展模块**。
+
+
+## 模块的使用
+
+import会读取整个模块，from用于获取模块中特定的变量。
+
+* ### import module
+    * import将整个module模块赋值给变量module。
+
+* ### from module import var/var1, var2.../*
+    * from import将module模块中一个或多个变量赋值给另一个模块中同名的变量；
+    * from import的第一步也是普通的导入操作，会把整个模块导入到内存中，只加载模块文件的一部分是不可能的;
+    * 使用from module import *会把一个命名空间融合到另一个，会使得模块的命名空间分割特性消失。
+
+```python
+from module import var1, var2
+# 等效于
+import module as something
+var1 = something.var1
+var2 = something.var2
+del something  # Get rid of the module name
+```
+
+```python
+# small.py
+x = 1
+y = [1, 2]
+# end small.py
+
+>>>from small import x, y
+>>>x = 42
+# 变量x，int，是不可变对象，此处的x和small中的x指向不同的对象
+>>>x
+42
+>>>y[0] = 42
+# 变量y，list，是可变对象，此处的y和small中的y指向同一个对象
+>>>y
+[42, 2]
+>>>import small
+>>>small.x
+1
+>>>small.y
+[42, 2]
+```
+
+```python
+# small.py
+x = 1
+y = [1, 2]
+# end small.py
+
+>>>import small
+>>>small
+# 变量small，变量名small指向模块对象
+# <module 'small' from '...\\small.py'>
+>>>small.x = 42
+# 直接修改模块对象中的x
+>>>small.y[0] = 42
+# 直接修改模块对象中的y
+>>>small.x
+42
+>>>small.y
+[42, 2]
+>>>from small import x, y
+# 等效于
+# import small as something
+# x = something.x
+# y = something.y
+# del something
+>>>x
+42
+>>>x = 43
+>>>small.x
+42
+# 变量x，int，是不可变对象，此处的x和small中的x指向不同的对象
+# 修改变量x，small中的x不变
+>>>y
+[42, 2]
+>>>y[0] = 43
+>>>small.y
+[43, 2]
+# 变量y，list，是可变对象，此处的y和small中的y指向同一个对象
+# 修改变量y，small中的y不变
+```
+
+### 导入只发生一次
+
+模块会在第一次导入时载入并执行，且仅在第一次如此。因为该操作开销较大，默认情况下Python只对每个文件的每个进程做一次操作，之后的导入操作都只会取出已加载的模块对象。
+
+```python
+# simple.py
+print("Hello")
+spam = 1
+# end simple.py
+
+>>>import simple    
+# First import: loads and runs file's code
+Hello
+>>>simple.spam
+1
+>>>simple.spam = 2
+>>>import simple    
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>simple.spam
+2
+```
+
+### import和from import是赋值语句
+
+和def一样，import和from import是隐性的赋值语句，而不是编译期间的声明，可以被嵌套在if、def等其他语句中。
+
+## 模块命名空间
+
+**模块对应于文件，Python会建立模块对象，以包含模块文件内的所有变量名。所以，模块就是命名空间（变量名所在的场所），模块内的变量名就是模块对象的属性。**
+
+### 文件生成命名空间
+
+在模块文件顶层（即不在函数或类的主体内）每一个赋值了的变量名都会成为该模块的属性。
+
+* 模块语句会在首次导入时执行；
+* 顶层的赋值语句会创建模块属性；
+* 模块的命名空间能通过属性\_\_dict\_\_获取；
+* 模块是一个独立的作用域（本地变量就是全局变量）。
+
+### 导入和作用域
+
+导入并不会赋予被导入文件中的代码对上层代码的可见度：被导入文件无法看见进行导入的文件内的变量名：
+
+* 函数绝对无法看到其他函数内的变量名，除非他们从物理上处于这个函数内；
+* 模块程序代码绝对无法看见其他模块内的变量名，除非明确地进行了导入。
+
+**在Python中，一段程序的作用域完全由程序在文件中的实际位置决定，作用域绝不会被函数调用或模块导入影响。**
+
+```python
+# moda.py
+X = 88
+def f():
+    glabal X
+    X = 99
+# end moda.py
+
+# modb.py
+X = 11
+import moda
+moda.f()
+# 执行时，moda.f修改moda中的X。
+# moda.f的全局作用域一定是定义它的文件，而非调用它的文件
+print(X, moda.X)
+# end modb.py
+
+% python modb.py
+11 99
+```
+
+### 命名空间的嵌套
+
+**导入不会使命名空间发生向上的嵌套，但会发生向下的嵌套。利用属性的点号运算路径，有可能深入到任意嵌套的模块中并读取其属性。**
+
+```python
+# mod3.py
+X = 3
+
+# mod2.py
+X = 2
+import mod3
+print(X, end=' ')   # My global X 
+print(mod3.X)       # mod3's X
+# mod3无法看见mod2内的变量名
+
+# mod1.py
+X = 1
+import mod2
+print(X, end=' ')       # My global X
+print(mod2.X, end=' ')  # mod2's X
+print(mod2.mod3.X)      # Nested mod3's X
+# mod2无法看见mod1内的变量名
+
+# 运行mod1.py
+%python mod1.py
+2 3
+1 2 3
+```
+
+**mod1.py中，import mod2，然后使用mod2.mod3.X是合法的，但是不可以import mod2.mod3。**
+这是包（目录）导入的语法。包导入也会形成模块命名空间嵌套，但是其导入语句会反映目录树结构，而非简单的导入链。
+
+## 重载模块
+
+* 模块只会在流程中第一次导入时加载和执行该模块的代码；
+* 之后的导入只会使用已加载的模块对象，而不会重载或重新执行文件的代码；
+* reload函数会强制加载模块的代码重新载入并重新执行。
+
+### reload基础
+
+与import不同：
+* reload是Python的内置函数，不是语句；
+* 传给reload的是已存在的模块对象，不是变量名；
+* reload在Python3.0中位于模块之中，必须导入自己。
+
+```python
+import module
+
+...use module.attributes...
+
+from imp import reload
+reload(module)
+...use module.attributes...
+```
+
+**调用reload时，Python会重读文件的源代码，重新执行其顶层语句。**
+
+**reload会在适当的地方修改模块对象，reload并不会删除并重建模块对象。**
+
+* reload会重新执行模块文件的代码覆盖现有命名空间，而非进行删除再重建；
+* 文件中顶层赋值语句会使得变量名换成新值；
+* **重载会影响所有import读取了模块的客户端**：因为使用import的客户端需要通过点号运算符取出属性，在重载后，它们会发现模块对象中变成了新的值；
+* **重载只会对以后使用from的客户端造成影响**：之前使用from读取属性的客户端并不会受到重载的影响，那些客户端引用的依然是重载前所取出的旧对象。
+
+
+
+
 
 # <p align="center">函数参数</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
