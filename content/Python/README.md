@@ -334,10 +334,10 @@ import会读取整个模块，from用于获取模块中特定的变量。
 ```python
 from module import var1, var2
 # 等效于
-import module as something
-var1 = something.var1
-var2 = something.var2
-del something  # Get rid of the module name
+import module
+var1 = module.var1
+var2 = module.var2
+del module  # Get rid of the module name
 ```
 
 ```python
@@ -382,10 +382,10 @@ y = [1, 2]
 [42, 2]
 >>>from small import x, y
 # 等效于
-# import small as something
-# x = something.x
-# y = something.y
-# del something
+# import small
+# x = small.x
+# y = small.y
+# del small
 >>>x
 42
 >>>x = 43
@@ -404,7 +404,7 @@ y = [1, 2]
 
 ### 导入只发生一次
 
-模块会在第一次导入时载入并执行，且仅在第一次如此。因为该操作开销较大，默认情况下Python只对每个文件的每个进程做一次操作，之后的导入操作都只会取出已加载的模块对象。
+模块会在第一次导入时载入并执行（**不管是import还是from import**），且仅在第一次如此。因为该操作开销较大，默认情况下Python只对每个文件的每个进程做一次操作，之后的导入操作都只会取出已加载的模块对象。
 
 ```python
 # simple.py
@@ -412,18 +412,61 @@ print("Hello")
 spam = 1
 # end simple.py
 
->>>import simple    
+>>>import simple
 # First import: loads and runs file's code
 Hello
 >>>simple.spam
 1
 >>>simple.spam = 2
->>>import simple    
+>>>import simple
 # 第二次及其后的导入不会重新执行此模块的代码，
 # 只是从Python内部模块表中取出已创建的模块对象。
 # 因此spam不会再次进行初始化：
 >>>simple.spam
 2
+```
+
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+# end simple.py
+
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+# 修改simple.py中的代码
+# spam = [1, 2, 3, 4]
+>>>import simple
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>simple.spam
+[1, 2, 3]
+```
+
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+# end simple.py
+
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+>>>spam.append(4)
+>>>spam
+[1, 2, 3, 4]
+>>>import simple
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>simple.spam
+[1, 2, 3, 4]
 ```
 
 ### import和from import是赋值语句
@@ -515,7 +558,7 @@ print(mod2.mod3.X)      # Nested mod3's X
 
 与import不同：
 * reload是Python的内置函数，不是语句；
-* 传给reload的是已存在的模块对象，不是变量名；
+* 传给reload的是已存在的**模块对象**，不是变量名；
 * reload在Python3.0中位于模块之中，必须导入自己。
 
 ```python
@@ -537,7 +580,170 @@ reload(module)
 * **重载会影响所有import读取了模块的客户端**：因为使用import的客户端需要通过点号运算符取出属性，在重载后，它们会发现模块对象中变成了新的值；
 * **重载只会对以后使用from的客户端造成影响**：之前使用from读取属性的客户端并不会受到重载的影响，那些客户端引用的依然是重载前所取出的旧对象。
 
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+baz = [4, 5, 6]
+# end simple.py
 
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+>>>spam.append(4)
+>>>spam
+[1, 2, 3, 4]
+>>>import simple
+# 注意，没有打印出“Hello”，
+# 说明没有重新执行此模块的代码。
+>>>simple.spam
+[1, 2, 3, 4]
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>import imp
+# 先将simple.py中的baz修改为[4, 5, 6, 7]
+>>>imp.reload(simple)
+Hello
+<module 'simple' from '...\\simple.py'>
+>>>simple.spam
+[1, 2, 3]
+# 重载会影响所有import读取了模块的客户端
+>>>spam
+[1, 2, 3, 4]
+# 之前使用from读取属性的客户端并不会受到重载的影响，
+# 那些客户端引用的依然是重载前所取出的旧对象。
+>>>from simple import baz
+>>>baz
+[4, 5, 6, 7]
+# 重载只会对以后使用from的客户端造成影响
+```
+
+**模块重载的意义：**
+
+> 除了可以在交互模式下重载外，模块重载在较大系统中也很有用。如果重新启动系统代价太大，可以在执行期间定期自动重载Python定制的程序代码，这样在系统执行时就可以采用用户的修改，每次Python代码修改时就不需要停止并重启。
+
+
+## 包导入基础
+
+> 除了模块名外，导入也可以指定目录路径。Python代码的目录称为包，因此这类导入称为包导入。包导入就是把计算机上的目录变成一个Python命名空间，而属性则对应于目录中所包含的子目录和模块文件。
+
+> 当多个同名的程序文件安装在某一机器上时，包导入可以用来解决导入的不确定性。
+
+* **import dir1.dir2.mod**
+* **from dir1.dir2.mod import x**
+
+**dir0\dir1\dir2\mod.py     # or mod.pyc, mod.so. etc.**
+
+“点号路径”是对应于机器上目录层次的路径，这些导入意味着dir1位于某个容器目录dir0中，***dir0目录可以在Python模块搜索路径中找到***。
+
+### \_\_init\_\_.py包文件
+
+**包导入语句的路径中每个目录内都必须有\_\_init\_\_.py文件，否则导入包会失败。**
+
+dir0\dir1\dir2.mod.py
+
+import dir1.dir2.mod
+
+* dir1和dir2中必须有\_\_init\_\_.py文件；
+* dir0是容器,不需要\_\_init\_\_.py文件，如果有也会被忽略；
+* dir0必须在模块搜索路径上。
+
+\_\_init\_\_.py文件扮演了包初始化的钩子、替目录产生模块命名空间以及使用目录导入时实现from ... import *的角色：
+
+* #### **包的初始化：**
+    > Python首次导入某个目录时，会自动执行该目录下的\_\_init\_\_.py文件中的所有代码。可以用它来创建所需要的数据文件、连接数据库等。直接执行\_\_init\_\_.py文件没什么用，当包首次读取时，它会自动运行。
+
+* #### **模块命名空间的初始化：**
+    > 在包导入的模型中，脚本内的目录路径在导入后会变成真实的嵌套对象路径。在上个例子中，导入后，表达式dir1.dir2会运行，并返回一个模块对象，此对象的命名空间包含了dir2的\_\_init\_\_.py文件所赋值的所有变量名。
+
+* #### __from ... import *__
+    > 可以在\_\_init\_\_.py文件内使用__all__列表来定义目录以from ... import *形式导入时需要导出什么。在__init__.py文件中，__all__列表指当包（目录）名称使用from ... import *时，应该导入的子模块的名称清单。如果没有设定__all__，from ... import *不会自动加载嵌套于该目录内的子模块。取而代之的是，只加载该目录的__init__.py文件中赋值语句定义的变量名，包括该文件中程序代码明确导入的任何子模块。
+
+## 包导入实例
+
+```python
+# dir1\__init__.py
+print('dir1 init')
+x = 1
+
+# dir1\dir2\__init__.py
+print('dir2 init')
+y = 2
+
+# dir1\dir2\mod.py
+print('in mod.py')
+z = 3
+
+% python
+>>>import dir1.dir2.mod
+dir1 init
+dir2 init
+in mod.py
+>>>
+>>>import dir1.dir2.mod
+>>>
+>>>from imp import reload
+>>>reload(dir1)
+dir1 init
+<module 'dir' from 'dir1\__init__.pyc'>
+>>>
+>>>reload(dir1.dir2)
+dir2 init
+<module 'dir1.dir2' from 'dir1\dir2\__init__.pyc'>
+>>>dir1
+<module 'dir1' from 'dir1\__init__.pyc'>
+>>>dir1.dir2
+<module 'dir1.dir2' from 'dir1\dir2\__init__.pyc'>
+>>>dir1.dir2.mod
+<module 'dir1.dir2.mod' from 'dir1\dir2\mod.pyc'>
+>>>dir1.x
+1
+>>>dir1.dir2.y
+2
+>>>dir1.dir2.mod.z
+3
+```
+
+## 包对应的from import语句和import语句
+
+import语句和包一起使用时，必须经常重新输入路径：
+
+```python
+>>>dir2.mod
+NameError: name 'dir2' is not defined
+>>>mod.z
+NameError: name 'mod' is not defined
+```
+
+使用from import语句可以避免每次读取时都要重新输入路径：
+
+```python
+>>>from dir1.dir2 import mod
+dir1 init
+dir2 init
+in mod.py
+>>>mod.z
+3
+>>>from dir1.dir2.mod import z
+>>>z
+3
+>>>import dir1.dir2.mod as mod
+>>>mod.z
+3
+```
+
+**更重要的是，如果你改变了目录树结构，from import语句只需在程序中更新一次路径，而import则需要修改很多地方。**
+
+## 为什么要用包导入
+
+包让导入更具信息性，并且可作为组织工具，简化模块的搜索路径，而且可以解决模糊性。
+
+* 包导入提供了程序文件的目录信息，可以轻松找到文件，从而可以作为组织工具使用；
+* 没有包导入时，通常要通过查看模块走走路径才能找出文件。
+* 如果根据功能吧文件组织成子目录，包导入会让模块扮演的角色更为明显，也使代码更具可读性。
 
 
 
