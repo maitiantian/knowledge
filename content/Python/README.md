@@ -7,6 +7,7 @@
 * [模块](#模块)
 * [函数参数](#函数参数)
 * [装饰器](#装饰器（decorator）)
+* [WSGI（the Python Web Server Gateway Interface）](#wsgi（the-python-web-server-gateway-interface）)
 
 # <p align="center">IDLE</p>
 
@@ -856,3 +857,180 @@ def func():
     pass
 # 相当于func = decorator(func)
 ```
+
+
+# <p align="center">WSGI（the Python Web Server Gateway Interface）</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+Web应用的本质就是：
+
+1. 浏览器发送一个HTTP请求；
+
+    ```
+    # 内容包括了 method、 url、 protocol version 以及头部的信息
+    GET /Index.html HTTP/1.1\r\n
+    Connection: Keep-Alive\r\n
+    Accept: */*\r\n
+    User-Agent: Sample Application\r\n
+    Host: www.microsoft.com\r\n\r\n
+    ```
+2. 服务器收到请求，生成一个HTML文档；
+3. 服务器把HTML文档作为HTTP响应的Body发送给浏览器；
+
+    ```
+    # HTTP 响应（不包括数据）可能是如下的内容
+    HTTP/1.1 200 OK
+    Server: Microsoft-IIS/5.0\r\n
+    Content-Location: http://www.microsoft.com/default.htm\r\n
+    Date: Tue, 25 Jun 2002 19:33:18 GMT\r\n
+    Content-Type: text/html\r\n
+    Accept-Ranges: bytes\r\n
+    Last-Modified: Mon, 24 Jun 2002 20:27:23 GMT\r\n
+    Content-Length: 26812\r\n
+    ```
+4. 浏览器收到HTTP响应，从HTTP Body取出HTML文档并显示。
+
+最简单的Web应用就是先把HTML用文件保存好，用一个现成的HTTP服务器软件，接收用户请求，从文件中读取HTML，返回。Apache、Nginx、Lighttpd等这些常见的静态服务器就是干这件事情的：
+
+![HTTP](../images/python_wsgi_http_1.jpg)
+
+如果要动态生成HTML，就需要把上述步骤自己来实现。
+
+面向http的python程序需要关心哪些内容：
+
+* 请求
+	* 请求的方法method
+	* 请求的地址url
+	* 请求的内容
+	* 请求的头部header
+	* 请求的环境信息
+* 响应
+	* 状态码status_code
+	* 响应的数据
+	* 响应的头部
+
+不过，接受HTTP请求、解析HTTP请求、发送HTTP响应都是苦力活，如果我们自己来写这些底层代码，还没开始写动态HTML呢，就得花个把月去读HTTP规范。
+
+正确的做法是底层代码由专门的服务器软件实现，我们用Python专注于生成HTML文档。实际生产中，Python程序是放在服务器的http server（比如Apache，Nginx 等）上的。***服务器程序怎么把接受到的请求传递给Python呢？怎么在网络的数据流和Python的结构体之间转换呢？***
+
+这就是WSGI做的事情：
+
+> **WSGI，官方定义是，the Python Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着python程序。WSGI的任务就是把上面的数据在http server和python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 3333](https://www.python.org/dev/peps/pep-3333/)。http server和python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
+
+![HTTP](../images/python_wsgi_http_2.jpg)
+
+* ## python程序端
+WSGI接口定义非常简单，它只要求Web开发者实现一个可调用的对象（实现了\_\_call\_\_函数的方法或者类），就可以响应HTTP请求：
+
+```python
+# hello.py
+# 1. 可调用对象是一个函数
+# application函数就是符合WSGI标准的一个HTTP处理函数，它接收两个参数：
+# environ：WSGI的环境信息，一个包含所有HTTP请求信息的dict对象；
+# start_response：发送HTTP响应的函数。
+def application(environ, start_response):
+    """
+    这里的可调用对象是application这个函数。
+    使用方法类似于：
+    for result in Application(environ, start_response):
+        do_something(result)
+    """
+    # start_response接收两个参数，HTTP响应码和一个HTTP Header组成的list，
+    # 每个Header用一个包含两个str的tuple表示。
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    # 发送HTTP响应的Header，
+    # 注意Header只能发送一次，也就是只能调用一次start_response()函数。
+
+    return [b'<h1>Hello, Web!</h1>']
+    # 然后，函数的返回值b'<h1>Hello, web!</h1>'将作为HTTP响应的Body发送给浏览器。
+    # 返回必须是iterable
+
+# 2. 可调用对象是一个类
+class Application:
+    """
+    这里的可调用对象是Application这个类，调用它就能生成可以迭代的结果。
+    使用方法类似于：
+    for result in Application(environ, start_response):
+        do_something(result)
+    """
+    def __init__(self, environ, start_response):
+        self.environ = environ
+        self.start = start_response
+
+    def __iter__(self):
+        status = '200 OK'
+        response_headers = [('Content-type', 'text/plain')]
+        self.start(status, response_headers)
+        yield "<h1>Hello, Web!</h1>"
+
+# 3. 可调用对象是一个实例
+class Application:
+    """
+    这里的可调用对象是Application的实例，使用方法类似于：
+    app = Application()
+    for result in app(environ, start_response):
+        do_something(result)
+    """
+    def __init__(self):
+        pass
+
+    def __call__(self, environ, start_response):
+        status = '200 OK'
+        response_headers = [('Content-type', 'text/plain')]
+        self.start(status, response_headers)
+        yield "<h1>Hello, Web!</h1>"
+```
+
+有了WSGI，我们只需要关心如何从environ这个dict对象拿到HTTP请求信息，然后构造HTML，通过start_response()发送Header，最后返回Body。
+
+application函数本身没有涉及到任何解析HTTP的部分，也就是说，底层代码不需要我们自己编写，我们只负责在更高层次上考虑如何响应请求就可以了。
+
+* ## http server服务器程序端
+
+**application函数怎么调用？**
+
+* 如果我们自己调用，两个参数environ和start_response我们没法提供，返回的bytes也没法发给浏览器；
+* 所以application()函数必须由WSGI服务器来调用。
+
+Python内置了一个WSGI服务器，这个模块叫wsgiref，它完全符合WSGI标准，但是不考虑任何运行效率，仅供开发和测试使用。
+
+```python
+# server.py
+from wsgiref.simple_server import make_server
+from hello import application
+
+# 创建一个服务器，IP地址为空，端口8000，处理函数application
+httpd = make_server('', 8000, application)
+print('Serving HTTP on port 8000...')
+# 开始监听HTTP请求
+httpd.server_forever()
+```
+
+
+1. 启动WSGI服务器
+
+    ![启动WSGI服务器](../images/python_wsgi_server_1.jpg)
+2. 访问http://localhost:8000/
+
+    ![访问http://localhost:8000/](../images/python_wsgi_server_2.jpg)
+3. 可以看到wsgiref打印的log信息
+
+    ![wsgiref打印的log信息](../images/python_wsgi_server_3.jpg)
+
+改进这个Web应用，从environ里读取PATH_INFO，显示更加动态的内容：
+```python
+# hello.py
+def application(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    body = '<h1>Hello, %s!</h1>' % (environ['PATH_INFO'][1:] or 'web')
+    return [body.encode('utf-8')]
+```
+
+可以在地址栏输入用户名作为URL的一部分，将返回Hello, xxx!：
+
+![访问http://localhost:8000/Michael](../images/python_wsgi_server_4.jpg)
+
+无论多么复杂的Web应用程序，入口都是一个WSGI处理函数。HTTP请求的所有输入信息都可以通过environ获得，HTTP响应的输出都可以通过start_response()加上函数返回值作为Body。
+
+复杂的Web应用程序，光靠一个WSGI函数来处理还是太底层了，我们需要在WSGI之上再抽象出Web框架，进一步简化Web开发。
+

@@ -7,6 +7,7 @@
 * [模块](#模块)
 * [函数参数](#函数参数)
 * [装饰器](#装饰器（decorator）)
+* [WSGI（the Python Web Server Gateway Interface）](#wsgi（the-python-web-server-gateway-interface）)
 
 # <p align="center">IDLE</p>
 
@@ -334,10 +335,10 @@ import会读取整个模块，from用于获取模块中特定的变量。
 ```python
 from module import var1, var2
 # 等效于
-import module as something
-var1 = something.var1
-var2 = something.var2
-del something  # Get rid of the module name
+import module
+var1 = module.var1
+var2 = module.var2
+del module  # Get rid of the module name
 ```
 
 ```python
@@ -382,10 +383,10 @@ y = [1, 2]
 [42, 2]
 >>>from small import x, y
 # 等效于
-# import small as something
-# x = something.x
-# y = something.y
-# del something
+# import small
+# x = small.x
+# y = small.y
+# del small
 >>>x
 42
 >>>x = 43
@@ -404,7 +405,7 @@ y = [1, 2]
 
 ### 导入只发生一次
 
-模块会在第一次导入时载入并执行，且仅在第一次如此。因为该操作开销较大，默认情况下Python只对每个文件的每个进程做一次操作，之后的导入操作都只会取出已加载的模块对象。
+模块会在第一次导入时载入并执行（**不管是import还是from import**），且仅在第一次如此。因为该操作开销较大，默认情况下Python只对每个文件的每个进程做一次操作，之后的导入操作都只会取出已加载的模块对象。
 
 ```python
 # simple.py
@@ -412,18 +413,61 @@ print("Hello")
 spam = 1
 # end simple.py
 
->>>import simple    
+>>>import simple
 # First import: loads and runs file's code
 Hello
 >>>simple.spam
 1
 >>>simple.spam = 2
->>>import simple    
+>>>import simple
 # 第二次及其后的导入不会重新执行此模块的代码，
 # 只是从Python内部模块表中取出已创建的模块对象。
 # 因此spam不会再次进行初始化：
 >>>simple.spam
 2
+```
+
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+# end simple.py
+
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+# 修改simple.py中的代码
+# spam = [1, 2, 3, 4]
+>>>import simple
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>simple.spam
+[1, 2, 3]
+```
+
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+# end simple.py
+
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+>>>spam.append(4)
+>>>spam
+[1, 2, 3, 4]
+>>>import simple
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>simple.spam
+[1, 2, 3, 4]
 ```
 
 ### import和from import是赋值语句
@@ -515,7 +559,7 @@ print(mod2.mod3.X)      # Nested mod3's X
 
 与import不同：
 * reload是Python的内置函数，不是语句；
-* 传给reload的是已存在的模块对象，不是变量名；
+* 传给reload的是已存在的**模块对象**，不是变量名；
 * reload在Python3.0中位于模块之中，必须导入自己。
 
 ```python
@@ -537,7 +581,170 @@ reload(module)
 * **重载会影响所有import读取了模块的客户端**：因为使用import的客户端需要通过点号运算符取出属性，在重载后，它们会发现模块对象中变成了新的值；
 * **重载只会对以后使用from的客户端造成影响**：之前使用from读取属性的客户端并不会受到重载的影响，那些客户端引用的依然是重载前所取出的旧对象。
 
+```python
+# simple.py
+print("Hello")
+spam = [1, 2, 3]
+baz = [4, 5, 6]
+# end simple.py
 
+>>>from simple import spam
+# First import: loads and runs file's code
+Hello
+>>>spam
+[1, 2, 3]
+>>>spam.append(4)
+>>>spam
+[1, 2, 3, 4]
+>>>import simple
+# 注意，没有打印出“Hello”，
+# 说明没有重新执行此模块的代码。
+>>>simple.spam
+[1, 2, 3, 4]
+# 第二次及其后的导入不会重新执行此模块的代码，
+# 只是从Python内部模块表中取出已创建的模块对象。
+# 因此spam不会再次进行初始化：
+>>>import imp
+# 先将simple.py中的baz修改为[4, 5, 6, 7]
+>>>imp.reload(simple)
+Hello
+<module 'simple' from '...\\simple.py'>
+>>>simple.spam
+[1, 2, 3]
+# 重载会影响所有import读取了模块的客户端
+>>>spam
+[1, 2, 3, 4]
+# 之前使用from读取属性的客户端并不会受到重载的影响，
+# 那些客户端引用的依然是重载前所取出的旧对象。
+>>>from simple import baz
+>>>baz
+[4, 5, 6, 7]
+# 重载只会对以后使用from的客户端造成影响
+```
+
+**模块重载的意义：**
+
+> 除了可以在交互模式下重载外，模块重载在较大系统中也很有用。如果重新启动系统代价太大，可以在执行期间定期自动重载Python定制的程序代码，这样在系统执行时就可以采用用户的修改，每次Python代码修改时就不需要停止并重启。
+
+
+## 包导入基础
+
+> 除了模块名外，导入也可以指定目录路径。Python代码的目录称为包，因此这类导入称为包导入。包导入就是把计算机上的目录变成一个Python命名空间，而属性则对应于目录中所包含的子目录和模块文件。
+
+> 当多个同名的程序文件安装在某一机器上时，包导入可以用来解决导入的不确定性。
+
+* **import dir1.dir2.mod**
+* **from dir1.dir2.mod import x**
+
+**dir0\dir1\dir2\mod.py     # or mod.pyc, mod.so. etc.**
+
+“点号路径”是对应于机器上目录层次的路径，这些导入意味着dir1位于某个容器目录dir0中，***dir0目录可以在Python模块搜索路径中找到***。
+
+### \_\_init\_\_.py包文件
+
+**包导入语句的路径中每个目录内都必须有\_\_init\_\_.py文件，否则导入包会失败。**
+
+dir0\dir1\dir2.mod.py
+
+import dir1.dir2.mod
+
+* dir1和dir2中必须有\_\_init\_\_.py文件；
+* dir0是容器,不需要\_\_init\_\_.py文件，如果有也会被忽略；
+* dir0必须在模块搜索路径上。
+
+\_\_init\_\_.py文件扮演了包初始化的钩子、替目录产生模块命名空间以及使用目录导入时实现from ... import *的角色：
+
+* #### **包的初始化：**
+    > Python首次导入某个目录时，会自动执行该目录下的\_\_init\_\_.py文件中的所有代码。可以用它来创建所需要的数据文件、连接数据库等。直接执行\_\_init\_\_.py文件没什么用，当包首次读取时，它会自动运行。
+
+* #### **模块命名空间的初始化：**
+    > 在包导入的模型中，脚本内的目录路径在导入后会变成真实的嵌套对象路径。在上个例子中，导入后，表达式dir1.dir2会运行，并返回一个模块对象，此对象的命名空间包含了dir2的\_\_init\_\_.py文件所赋值的所有变量名。
+
+* #### __from ... import *__
+    > 可以在\_\_init\_\_.py文件内使用__all__列表来定义目录以from ... import *形式导入时需要导出什么。在__init__.py文件中，__all__列表指当包（目录）名称使用from ... import *时，应该导入的子模块的名称清单。如果没有设定__all__，from ... import *不会自动加载嵌套于该目录内的子模块。取而代之的是，只加载该目录的__init__.py文件中赋值语句定义的变量名，包括该文件中程序代码明确导入的任何子模块。
+
+## 包导入实例
+
+```python
+# dir1\__init__.py
+print('dir1 init')
+x = 1
+
+# dir1\dir2\__init__.py
+print('dir2 init')
+y = 2
+
+# dir1\dir2\mod.py
+print('in mod.py')
+z = 3
+
+% python
+>>>import dir1.dir2.mod
+dir1 init
+dir2 init
+in mod.py
+>>>
+>>>import dir1.dir2.mod
+>>>
+>>>from imp import reload
+>>>reload(dir1)
+dir1 init
+<module 'dir' from 'dir1\__init__.pyc'>
+>>>
+>>>reload(dir1.dir2)
+dir2 init
+<module 'dir1.dir2' from 'dir1\dir2\__init__.pyc'>
+>>>dir1
+<module 'dir1' from 'dir1\__init__.pyc'>
+>>>dir1.dir2
+<module 'dir1.dir2' from 'dir1\dir2\__init__.pyc'>
+>>>dir1.dir2.mod
+<module 'dir1.dir2.mod' from 'dir1\dir2\mod.pyc'>
+>>>dir1.x
+1
+>>>dir1.dir2.y
+2
+>>>dir1.dir2.mod.z
+3
+```
+
+## 包对应的from import语句和import语句
+
+import语句和包一起使用时，必须经常重新输入路径：
+
+```python
+>>>dir2.mod
+NameError: name 'dir2' is not defined
+>>>mod.z
+NameError: name 'mod' is not defined
+```
+
+使用from import语句可以避免每次读取时都要重新输入路径：
+
+```python
+>>>from dir1.dir2 import mod
+dir1 init
+dir2 init
+in mod.py
+>>>mod.z
+3
+>>>from dir1.dir2.mod import z
+>>>z
+3
+>>>import dir1.dir2.mod as mod
+>>>mod.z
+3
+```
+
+**更重要的是，如果你改变了目录树结构，from import语句只需在程序中更新一次路径，而import则需要修改很多地方。**
+
+## 为什么要用包导入
+
+包让导入更具信息性，并且可作为组织工具，简化模块的搜索路径，而且可以解决模糊性。
+
+* 包导入提供了程序文件的目录信息，可以轻松找到文件，从而可以作为组织工具使用；
+* 没有包导入时，通常要通过查看模块走走路径才能找出文件。
+* 如果根据功能吧文件组织成子目录，包导入会让模块扮演的角色更为明显，也使代码更具可读性。
 
 
 
@@ -650,3 +857,180 @@ def func():
     pass
 # 相当于func = decorator(func)
 ```
+
+
+# <p align="center">WSGI（the Python Web Server Gateway Interface）</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+Web应用的本质就是：
+
+1. 浏览器发送一个HTTP请求；
+
+    ```
+    # 内容包括了 method、 url、 protocol version 以及头部的信息
+    GET /Index.html HTTP/1.1\r\n
+    Connection: Keep-Alive\r\n
+    Accept: */*\r\n
+    User-Agent: Sample Application\r\n
+    Host: www.microsoft.com\r\n\r\n
+    ```
+2. 服务器收到请求，生成一个HTML文档；
+3. 服务器把HTML文档作为HTTP响应的Body发送给浏览器；
+
+    ```
+    # HTTP 响应（不包括数据）可能是如下的内容
+    HTTP/1.1 200 OK
+    Server: Microsoft-IIS/5.0\r\n
+    Content-Location: http://www.microsoft.com/default.htm\r\n
+    Date: Tue, 25 Jun 2002 19:33:18 GMT\r\n
+    Content-Type: text/html\r\n
+    Accept-Ranges: bytes\r\n
+    Last-Modified: Mon, 24 Jun 2002 20:27:23 GMT\r\n
+    Content-Length: 26812\r\n
+    ```
+4. 浏览器收到HTTP响应，从HTTP Body取出HTML文档并显示。
+
+最简单的Web应用就是先把HTML用文件保存好，用一个现成的HTTP服务器软件，接收用户请求，从文件中读取HTML，返回。Apache、Nginx、Lighttpd等这些常见的静态服务器就是干这件事情的：
+
+![HTTP](../images/python_wsgi_http_1.jpg)
+
+如果要动态生成HTML，就需要把上述步骤自己来实现。
+
+面向http的python程序需要关心哪些内容：
+
+* 请求
+	* 请求的方法method
+	* 请求的地址url
+	* 请求的内容
+	* 请求的头部header
+	* 请求的环境信息
+* 响应
+	* 状态码status_code
+	* 响应的数据
+	* 响应的头部
+
+不过，接受HTTP请求、解析HTTP请求、发送HTTP响应都是苦力活，如果我们自己来写这些底层代码，还没开始写动态HTML呢，就得花个把月去读HTTP规范。
+
+正确的做法是底层代码由专门的服务器软件实现，我们用Python专注于生成HTML文档。实际生产中，Python程序是放在服务器的http server（比如Apache，Nginx 等）上的。***服务器程序怎么把接受到的请求传递给Python呢？怎么在网络的数据流和Python的结构体之间转换呢？***
+
+这就是WSGI做的事情：
+
+> **WSGI，官方定义是，the Python Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着python程序。WSGI的任务就是把上面的数据在http server和python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 3333](https://www.python.org/dev/peps/pep-3333/)。http server和python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
+
+![HTTP](../images/python_wsgi_http_2.jpg)
+
+* ## python程序端
+WSGI接口定义非常简单，它只要求Web开发者实现一个可调用的对象（实现了\_\_call\_\_函数的方法或者类），就可以响应HTTP请求：
+
+```python
+# hello.py
+# 1. 可调用对象是一个函数
+# application函数就是符合WSGI标准的一个HTTP处理函数，它接收两个参数：
+# environ：WSGI的环境信息，一个包含所有HTTP请求信息的dict对象；
+# start_response：发送HTTP响应的函数。
+def application(environ, start_response):
+    """
+    这里的可调用对象是application这个函数。
+    使用方法类似于：
+    for result in Application(environ, start_response):
+        do_something(result)
+    """
+    # start_response接收两个参数，HTTP响应码和一个HTTP Header组成的list，
+    # 每个Header用一个包含两个str的tuple表示。
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    # 发送HTTP响应的Header，
+    # 注意Header只能发送一次，也就是只能调用一次start_response()函数。
+
+    return [b'<h1>Hello, Web!</h1>']
+    # 然后，函数的返回值b'<h1>Hello, web!</h1>'将作为HTTP响应的Body发送给浏览器。
+    # 返回必须是iterable
+
+# 2. 可调用对象是一个类
+class Application:
+    """
+    这里的可调用对象是Application这个类，调用它就能生成可以迭代的结果。
+    使用方法类似于：
+    for result in Application(environ, start_response):
+        do_something(result)
+    """
+    def __init__(self, environ, start_response):
+        self.environ = environ
+        self.start = start_response
+
+    def __iter__(self):
+        status = '200 OK'
+        response_headers = [('Content-type', 'text/plain')]
+        self.start(status, response_headers)
+        yield "<h1>Hello, Web!</h1>"
+
+# 3. 可调用对象是一个实例
+class Application:
+    """
+    这里的可调用对象是Application的实例，使用方法类似于：
+    app = Application()
+    for result in app(environ, start_response):
+        do_something(result)
+    """
+    def __init__(self):
+        pass
+
+    def __call__(self, environ, start_response):
+        status = '200 OK'
+        response_headers = [('Content-type', 'text/plain')]
+        self.start(status, response_headers)
+        yield "<h1>Hello, Web!</h1>"
+```
+
+有了WSGI，我们只需要关心如何从environ这个dict对象拿到HTTP请求信息，然后构造HTML，通过start_response()发送Header，最后返回Body。
+
+application函数本身没有涉及到任何解析HTTP的部分，也就是说，底层代码不需要我们自己编写，我们只负责在更高层次上考虑如何响应请求就可以了。
+
+* ## http server服务器程序端
+
+**application函数怎么调用？**
+
+* 如果我们自己调用，两个参数environ和start_response我们没法提供，返回的bytes也没法发给浏览器；
+* 所以application()函数必须由WSGI服务器来调用。
+
+Python内置了一个WSGI服务器，这个模块叫wsgiref，它完全符合WSGI标准，但是不考虑任何运行效率，仅供开发和测试使用。
+
+```python
+# server.py
+from wsgiref.simple_server import make_server
+from hello import application
+
+# 创建一个服务器，IP地址为空，端口8000，处理函数application
+httpd = make_server('', 8000, application)
+print('Serving HTTP on port 8000...')
+# 开始监听HTTP请求
+httpd.server_forever()
+```
+
+
+1. 启动WSGI服务器
+
+    ![启动WSGI服务器](../images/python_wsgi_server_1.jpg)
+2. 访问http://localhost:8000/
+
+    ![访问http://localhost:8000/](../images/python_wsgi_server_2.jpg)
+3. 可以看到wsgiref打印的log信息
+
+    ![wsgiref打印的log信息](../images/python_wsgi_server_3.jpg)
+
+改进这个Web应用，从environ里读取PATH_INFO，显示更加动态的内容：
+```python
+# hello.py
+def application(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    body = '<h1>Hello, %s!</h1>' % (environ['PATH_INFO'][1:] or 'web')
+    return [body.encode('utf-8')]
+```
+
+可以在地址栏输入用户名作为URL的一部分，将返回Hello, xxx!：
+
+![访问http://localhost:8000/Michael](../images/python_wsgi_server_4.jpg)
+
+无论多么复杂的Web应用程序，入口都是一个WSGI处理函数。HTTP请求的所有输入信息都可以通过environ获得，HTTP响应的输出都可以通过start_response()加上函数返回值作为Body。
+
+复杂的Web应用程序，光靠一个WSGI函数来处理还是太底层了，我们需要在WSGI之上再抽象出Web框架，进一步简化Web开发。
+
