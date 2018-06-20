@@ -4,10 +4,11 @@
 * [Python标准文档模板](#python标准文档模板)
 * [可变、不可变数据类型](#可变、不可变数据类型)
 * [变量、函数命名](#变量、函数命名)
-* [模块](#模块)
 * [函数参数](#函数参数)
+* [模块](#模块)
+* [类与OOP](#类与oop)
 * [装饰器](#装饰器（decorator）)
-* [WSGI（the Python Web Server Gateway Interface）](#wsgi（the-python-web-server-gateway-interface）)
+* [WSGI（Web Server Gateway Interface）](#wsgi（web-server-gateway-interface）)
 
 # <p align="center">IDLE</p>
 
@@ -162,6 +163,8 @@ __author__ = 'Michael Liao'
 
 ***可变对象的意思就是说对象的值是可变的，操作变量不会引起新建对象，只是改变了变量所引用的对象的值。***
 
+
+
 # <p align="center">变量、函数命名</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
@@ -175,6 +178,81 @@ abc、x123、PI
 ## 非公开的（private）：
 \_xxx , \_\_xxx
 不应该被直接引用(“不应该”但不是“不能”)
+# <p align="center">函数参数</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+## 位置参数（必选参数）
+***调用函数时，按照位置顺序传递参数。***
+## 默认参数
+```python
+def enroll(name, gender, age=6, city='Beijing'):
+    print('name:', name)
+    print('gender:', gender)
+    print('age:', age)
+    print('city:', city)
+
+# 调用有多个默认参数的函数
+# 按顺序提供默认参数
+enroll('Bob', 'M', 7)
+# 不按顺序提供默认参数时，需要写上参数的名字
+enroll('Adam', 'M', city='Tianjin')
+```
+
+***默认参数必须指向不变对象:***
+```python
+def add_end(L=[]):
+    L.append('END')
+    return L    # L是一个变量，它指向对象[]
+>>> add_end()
+['END']
+>>> add_end()
+['END', 'END']
+>>> add_end()
+['END', 'END', 'END']
+```
+## 可变参数
+```python
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+```
+***可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。***
+## 关键字参数
+```python
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+```
+***关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。***
+## 命名关键字参数
+```python
+# *, 后面的参数被视为命名关键字参数
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+# 命名关键字参数必须传入参数名，否则将报错
+>>> person('Jack', 24, 'Beijing', 'Engineer')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: person() takes 2 positional arguments but 4 were given
+# 由于调用时缺少参数名city和job
+# Python解释器把这4个参数均视为位置参数
+# 但person()函数仅接受2个位置参数
+
+# 如果函数定义中已经有了一个可变参数，后面的命名关键字参数就不需要特殊分隔符 *,
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+    
+# 命名关键字参数可以有缺省值，从而简化调用
+def person(name, age, *, city='Beijing', job):
+    print(name, age, city, job)
+```
+
+***参数定义的顺序必须是：位置参数（必选参数）、默认参数、可变参数和关键字参数。***
+```python
+def func(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+```
 
 
 
@@ -225,7 +303,7 @@ b.spam('gumby')
 
 ## import如何工作
 
-在python中，导入并非只是把一个文件文本插入另一个文件而已。导入其实是运行时的运算，程序第一次导入制定文件时，会执行三个步骤：
+在Python中，导入并非只是把一个文件文本插入另一个文件而已。导入其实是运行时的运算，程序第一次导入制定文件时，会执行三个步骤：
 
 1. 找到模块文件；
     > import b，而不是import c:\dir1\b.py，因为Python使用***标准模块搜索路径***来找出import语句对应的模块文件。在标准的import中引入路径和后缀名在语法上是非法的。
@@ -541,7 +619,7 @@ print(mod2.mod3.X)      # Nested mod3's X
 # mod2无法看见mod1内的变量名
 
 # 运行mod1.py
-%python mod1.py
+% python mod1.py
 2 3
 1 2 3
 ```
@@ -743,86 +821,71 @@ in mod.py
 包让导入更具信息性，并且可作为组织工具，简化模块的搜索路径，而且可以解决模糊性。
 
 * 包导入提供了程序文件的目录信息，可以轻松找到文件，从而可以作为组织工具使用；
-* 没有包导入时，通常要通过查看模块走走路径才能找出文件。
-* 如果根据功能吧文件组织成子目录，包导入会让模块扮演的角色更为明显，也使代码更具可读性。
+    * 没有包导入时，通常要通过查看模块走走路径才能找出文件；
+    * 如果根据功能把文件组织成子目录，包导入会让模块扮演的角色更为明显，也使代码更具可读性。
+    ```python
+    import utilities
+    # 正常导入模块搜索路径上某个目录内的文件，
+    # 与下面包含路径的导入相比，提供的信息就更少
+    import database.client.utilities
+    ```
+* 包导入可以大幅简化PYTHONPATH和.pth文件搜索路径设置；
+    * 如果所有跨目录的导入都使用包导入，且让这些包导入都相对于一个共同的根目录，把所有Python程序代码都存在其中，在搜索路径上就只需要一个单独的接入点：通用的根目录。
+* 包导入让你想导入的文件更明确，从而解决了模糊性。
+
+```python
+root\
+    system1\
+        __init__.py
+        utilities.py
+        main.py
+        other.py
+    system2\
+        __init__.py
+        utilities.py
+        main.py
+        other.py
+    system3\            # Here or elsewhere
+        __init__.py     # Your new code here
+        myfile.py
+
+# myfile.py
+# 目录名称让模块的引用变得具有唯一性。
+# 如果使用import utilities，
+# 因为搜索路径本质上是线性的，搜索总是从左至右扫描，
+# 所以一定会得到搜索路径上最左侧的目录内的utilities.py，
+# 而永远无法导入另一个目录中的utilities.py。
+import system1.utilities
+import system2.utilities
+system1.utilities.function('spam')
+system2.utilities.function('eggs')
+```
+
+\_\_init\_\_.py文件加入system1和system2目录中使其工作，但不需要在根目录中添加。只有代码中import语句所列出的目录才需要\_\_init\_\_.py文件。Python首次通过包的目录处理导入时，\_\_init\_\_.py文件会自动运行。
+
+技术上讲， system3不需要放在根目录下：只有被导入的代码包需要。然而，因为不知道何时模块可能在其他程序中使用，还是将其放在通用的根目录下以避免以后类似的变量名冲突问题。
+
+
+## 包相对导入
+
+### 为什么要用包导入
+```python
+mypkg\
+    __init__.py
+    main.py
+    string.py
+```
 
 
 
-# <p align="center">函数参数</p>
+# <p align="center">类与OOP</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
-## 位置参数（必选参数）
-***调用函数时，按照位置顺序传递参数。***
-## 默认参数
-```python
-def enroll(name, gender, age=6, city='Beijing'):
-    print('name:', name)
-    print('gender:', gender)
-    print('age:', age)
-    print('city:', city)
+OOP（Object Oriented Programming，面向对象的程序设计）
 
-# 调用有多个默认参数的函数
-# 按顺序提供默认参数
-enroll('Bob', 'M', 7)
-# 不按顺序提供默认参数时，需要写上参数的名字
-enroll('Adam', 'M', city='Tianjin')
-```
 
-***默认参数必须指向不变对象:***
-```python
-def add_end(L=[]):
-    L.append('END')
-    return L    # L是一个变量，它指向对象[]
->>> add_end()
-['END']
->>> add_end()
-['END', 'END']
->>> add_end()
-['END', 'END', 'END']
-```
-## 可变参数
-```python
-def calc(*numbers):
-    sum = 0
-    for n in numbers:
-        sum = sum + n * n
-    return sum
-```
-***可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。***
-## 关键字参数
-```python
-def person(name, age, **kw):
-    print('name:', name, 'age:', age, 'other:', kw)
-```
-***关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。***
-## 命名关键字参数
-```python
-# *, 后面的参数被视为命名关键字参数
-def person(name, age, *, city, job):
-    print(name, age, city, job)
-# 命名关键字参数必须传入参数名，否则将报错
->>> person('Jack', 24, 'Beijing', 'Engineer')
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: person() takes 2 positional arguments but 4 were given
-# 由于调用时缺少参数名city和job
-# Python解释器把这4个参数均视为位置参数
-# 但person()函数仅接受2个位置参数
 
-# 如果函数定义中已经有了一个可变参数，后面的命名关键字参数就不需要特殊分隔符 *,
-def person(name, age, *args, city, job):
-    print(name, age, args, city, job)
-    
-# 命名关键字参数可以有缺省值，从而简化调用
-def person(name, age, *, city='Beijing', job):
-    print(name, age, city, job)
-```
 
-***参数定义的顺序必须是：位置参数（必选参数）、默认参数、可变参数和关键字参数。***
-```python
-def func(a, b, c=0, *args, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
-```
 
 # <p align="center">装饰器（Decorator）</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
@@ -859,7 +922,7 @@ def func():
 ```
 
 
-# <p align="center">WSGI（the Python Web Server Gateway Interface）</p>
+# <p align="center">WSGI（Web Server Gateway Interface）</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
 Web应用的本质就是：
@@ -896,7 +959,7 @@ Web应用的本质就是：
 
 如果要动态生成HTML，就需要把上述步骤自己来实现。
 
-面向http的python程序需要关心哪些内容：
+面向http的Python程序需要关心哪些内容：
 
 * 请求
 	* 请求的方法method
@@ -911,16 +974,69 @@ Web应用的本质就是：
 
 不过，接受HTTP请求、解析HTTP请求、发送HTTP响应都是苦力活，如果我们自己来写这些底层代码，还没开始写动态HTML呢，就得花个把月去读HTTP规范。
 
-正确的做法是底层代码由专门的服务器软件实现，我们用Python专注于生成HTML文档。实际生产中，Python程序是放在服务器的http server（比如Apache，Nginx 等）上的。***服务器程序怎么把接受到的请求传递给Python呢？怎么在网络的数据流和Python的结构体之间转换呢？***
+正确的做法是底层代码由专门的服务器软件实现，我们用Python专注于生成HTML文档。实际生产中，Python程序是放在服务器的http server（比如Apache，Nginx 等）上的。
+
+> Python Web开发中，服务端程序可以分为两个部分，一是服务器程序，二是应用程序。前者负责把客户端请求接收，整理，后者负责具体的逻辑处理。为了方便应用程序的开发，我们把常用的功能封装起来，成为各种Web开发框架，例如Django，Flask，Tornado。不同的框架有不同的开发方式，但是无论如何，开发出的应用程序都要和服务器程序配合，才能为用户提供服务。这样，服务器程序就需要为不同的框架提供不同的支持。这样混乱的局面无论对于服务器还是框架，都是不好的。对服务器来说，需要支持各种不同框架，对框架来说，只有支持它的服务器才能被开发出的应用使用。
+
+> 这时候，标准化就变得尤为重要。我们可以设立一个标准，只要服务器程序支持这个标准，框架也支持这个标准，那么他们就可以配合使用。一旦标准确定，双方各自实现。这样，服务器可以支持更多支持标准的框架，框架也可以使用更多支持标准的服务器。
+
+***服务器程序怎么把接受到的请求传递给Python呢？怎么在网络的数据流和Python的结构体之间转换呢？***
 
 这就是WSGI做的事情：
 
-> **WSGI，官方定义是，the Python Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着python程序。WSGI的任务就是把上面的数据在http server和python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 3333](https://www.python.org/dev/peps/pep-3333/)。http server和python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
+> **WSGI，官方定义是，Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着Python程序。WSGI的任务就是把上面的数据在http server和Python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 3333](https://www.python.org/dev/peps/pep-3333/)。http server和Python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
+
+> **WSGI是服务器程序与应用程序的一个约定，它规定了双方各自需要实现什么接口，提供什么功能，以便二者能够配合使用。**
 
 ![HTTP](../images/python_wsgi_http_2.jpg)
 
-* ## python程序端
-WSGI接口定义非常简单，它只要求Web开发者实现一个可调用的对象（实现了\_\_call\_\_函数的方法或者类），就可以响应HTTP请求：
+## Python应用程序端
+
+1. 应用程序需要是一个可调用的对象；
+    * 函数
+    * 实例，它的类实现了\_\_call\_\_方法
+    * 类，这时候，用这个类生成实例的过程就相当于调用这个类
+2. 可调用对象接收两个参数；
+    ```python
+    # callable function
+    def application(environ, start_response):
+        pass
+
+    # callable class
+    class Application:
+        def __init__(self, environ, start_response):
+            pass
+
+    # callable object
+    class ApplicationObj:
+        def __call__(self, environ, start_response):
+            pass
+    ```
+3. 可调用对象要返回一个值，这个值是可迭代的。
+    ```python
+    HELLO_WORLD = b"Hello world!\n"
+
+    # callable function
+    def application(environ, start_response):
+        return [HELLO_WORLD]
+
+    # callable class
+    class Application:
+        def __init__(self, environ, start_response):
+            pass
+
+        def __iter__(self):
+            yield HELLO_WORLD
+
+    # callable object
+    class ApplicationObj:
+        def __call__(self, environ, start_response):
+            return [HELLO_WORLD]
+    ```
+
+> 由于框架已经把WSGI中规定的一些东西封装起来了，我们平时用框架时，看不到这些东西，只需要直接实现我们的逻辑，再返回一个值就好了。其它的东西框架帮我们做好了。这也是框架的价值所在，把常用的东西封装起来，让使用者只需要关注最重要的东西。
+
+WSGI接口定义非常简单，它只要求Web开发者实现一个可调用的对象（函数；类；实现了\_\_call\_\_方法的类的实例），就可以响应HTTP请求：
 
 ```python
 # hello.py
@@ -932,7 +1048,7 @@ def application(environ, start_response):
     """
     这里的可调用对象是application这个函数。
     使用方法类似于：
-    for result in Application(environ, start_response):
+    for result in application(environ, start_response):
         do_something(result)
     """
     # start_response接收两个参数，HTTP响应码和一个HTTP Header组成的list，
@@ -985,14 +1101,14 @@ class Application:
 
 application函数本身没有涉及到任何解析HTTP的部分，也就是说，底层代码不需要我们自己编写，我们只负责在更高层次上考虑如何响应请求就可以了。
 
-* ## http server服务器程序端
+## http server服务器程序端
 
 **application函数怎么调用？**
 
 * 如果我们自己调用，两个参数environ和start_response我们没法提供，返回的bytes也没法发给浏览器；
 * 所以application()函数必须由WSGI服务器来调用。
 
-Python内置了一个WSGI服务器，这个模块叫wsgiref，它完全符合WSGI标准，但是不考虑任何运行效率，仅供开发和测试使用。
+Python内置了一个WSGI服务器，这个模块叫wsgiref，它完全符合WSGI标准，但不考虑任何运行效率，仅供开发和测试使用。
 
 ```python
 # server.py
@@ -1005,7 +1121,6 @@ print('Serving HTTP on port 8000...')
 # 开始监听HTTP请求
 httpd.server_forever()
 ```
-
 
 1. 启动WSGI服务器
 
@@ -1022,7 +1137,7 @@ httpd.server_forever()
 # hello.py
 def application(environ, start_response):
     start_response('200 OK', [('Content-Type', 'text/html')])
-    body = '<h1>Hello, %s!</h1>' % (environ['PATH_INFO'][1:] or 'web')
+    body = '<h1>Hello, %s!</h1>' % (environ['PATH_INFO'][1:] or 'Web')
     return [body.encode('utf-8')]
 ```
 
@@ -1034,3 +1149,30 @@ def application(environ, start_response):
 
 复杂的Web应用程序，光靠一个WSGI函数来处理还是太底层了，我们需要在WSGI之上再抽象出Web框架，进一步简化Web开发。
 
+## middleware
+
+有些功能可能介于服务器程序和应用程序之间，例如，服务器拿到了客户端请求的URL, 不同的URL需要交由不同的函数处理，这个功能叫做URL Routing，这个功能就可以放在二者中间实现，这个中间层就是middleware。
+
+middleware对服务器程序和应用是透明的，也就是说，服务器程序以为它就是应用程序，而应用程序以为它就是服务器。这就告诉我们，middleware需要把自己伪装成一个服务器，接受应用程序，调用它，同时middleware还需要把自己伪装成一个应用程序，传给服务器程序。
+
+无论是服务器程序，middleware还是应用程序，都在服务端，为客户端提供服务，之所以把他们抽象成不同层，就是为了控制复杂度，使得每一次都不太复杂，各司其职。
+
+```python
+# URL Routing middleware
+
+# urlrouting函数，相当于一个函数生成器，
+# 你给它不同的url-app映射关系，
+# 它会生成相应的具有url routing功能的middleware。
+def urlrouting(url_app_mapping):
+    # 函数midware_app就是一个简单的middleware
+    # 对应用程序而言，它是一个服务器，
+    # 为应用程序提供了参数，并且调用了应用程序
+    def midware_app(environ, start_response):
+        url = environ['PATH_INFO']
+        app = url_app_mapping[url]
+        result = app(environ, start_response)
+        return result
+    # 对服务器而言，它是一个应用程序，
+    # 是一个可调用对象，有两个参数，返回一个可调用对象
+    return midware_app
+```

@@ -12,6 +12,8 @@
     * [React](Front-End/React/README.md)
     * [webpack](Front-End/webpack/README.md)
 * [Python](Python/README.md)
+    * [常用内建模块](Python/常用内建模块/README.md)
+    * [常用第三方模块](Python/常用第三方模块/README.md)
     * [Scrapy](Python/Scrapy/README.md)
     * [Django](Python/Django/README.md)
     * [Flask](Python/Flask/README.md)

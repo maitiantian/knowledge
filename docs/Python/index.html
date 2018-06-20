@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Scrapy/" />
+    <link rel="next" href="常用内建模块/" />
     
     
     <link rel="prev" href="../Front-End/webpack/" />
@@ -258,7 +258,33 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="Scrapy/">
+        <li class="chapter " data-level="1.5.1" data-path="常用内建模块/">
+            
+                <a href="常用内建模块/">
+            
+                    
+                    常用内建模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="常用第三方模块/">
+            
+                <a href="常用第三方模块/">
+            
+                    
+                    常用第三方模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="Scrapy/">
             
                 <a href="Scrapy/">
             
@@ -271,7 +297,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="Django/">
+        <li class="chapter " data-level="1.5.4" data-path="Django/">
             
                 <a href="Django/">
             
@@ -284,7 +310,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="Flask/">
+        <li class="chapter " data-level="1.5.5" data-path="Flask/">
             
                 <a href="Flask/">
             
@@ -406,10 +432,11 @@
 <li><a href="#python&#x6807;&#x51C6;&#x6587;&#x6863;&#x6A21;&#x677F;">Python&#x6807;&#x51C6;&#x6587;&#x6863;&#x6A21;&#x677F;</a></li>
 <li><a href="#&#x53EF;&#x53D8;&#x3001;&#x4E0D;&#x53EF;&#x53D8;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x53EF;&#x53D8;&#x3001;&#x4E0D;&#x53EF;&#x53D8;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
 <li><a href="#&#x53D8;&#x91CF;&#x3001;&#x51FD;&#x6570;&#x547D;&#x540D;">&#x53D8;&#x91CF;&#x3001;&#x51FD;&#x6570;&#x547D;&#x540D;</a></li>
-<li><a href="#&#x6A21;&#x5757;">&#x6A21;&#x5757;</a></li>
 <li><a href="#&#x51FD;&#x6570;&#x53C2;&#x6570;">&#x51FD;&#x6570;&#x53C2;&#x6570;</a></li>
+<li><a href="#&#x6A21;&#x5757;">&#x6A21;&#x5757;</a></li>
+<li><a href="#&#x7C7B;&#x4E0E;oop">&#x7C7B;&#x4E0E;OOP</a></li>
 <li><a href="#&#x88C5;&#x9970;&#x5668;&#xFF08;decorator&#xFF09;">&#x88C5;&#x9970;&#x5668;</a></li>
-<li><a href="#wsgi&#xFF08;the-python-web-server-gateway-interface&#xFF09;">WSGI&#xFF08;the Python Web Server Gateway Interface&#xFF09;</a></li>
+<li><a href="#wsgi&#xFF08;web-server-gateway-interface&#xFF09;">WSGI&#xFF08;Web Server Gateway Interface&#xFF09;</a></li>
 </ul>
 <h1 id="idle"><p align="center">IDLE</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
@@ -558,6 +585,72 @@ print(a <span class="hljs-keyword">is</span> b, a <span class="hljs-keyword">is<
 <h2 id="&#x975E;&#x516C;&#x5F00;&#x7684;&#xFF08;private&#xFF09;&#xFF1A;">&#x975E;&#x516C;&#x5F00;&#x7684;&#xFF08;private&#xFF09;&#xFF1A;</h2>
 <p>_xxx , __xxx
 &#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x76F4;&#x63A5;&#x5F15;&#x7528;(&#x201C;&#x4E0D;&#x5E94;&#x8BE5;&#x201D;&#x4F46;&#x4E0D;&#x662F;&#x201C;&#x4E0D;&#x80FD;&#x201D;)</p>
+<h1 id="&#x51FD;&#x6570;&#x53C2;&#x6570;"><p align="center">&#x51FD;&#x6570;&#x53C2;&#x6570;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h2 id="&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;">&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;</h2>
+<p><strong><em>&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6309;&#x7167;&#x4F4D;&#x7F6E;&#x987A;&#x5E8F;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;</em></strong></p>
+<h2 id="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;">&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enroll</span><span class="hljs-params">(name, gender, age=<span class="hljs-number">6</span>, city=<span class="hljs-string">&apos;Beijing&apos;</span>)</span>:</span>
+    print(<span class="hljs-string">&apos;name:&apos;</span>, name)
+    print(<span class="hljs-string">&apos;gender:&apos;</span>, gender)
+    print(<span class="hljs-string">&apos;age:&apos;</span>, age)
+    print(<span class="hljs-string">&apos;city:&apos;</span>, city)
+
+<span class="hljs-comment"># &#x8C03;&#x7528;&#x6709;&#x591A;&#x4E2A;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;</span>
+<span class="hljs-comment"># &#x6309;&#x987A;&#x5E8F;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</span>
+enroll(<span class="hljs-string">&apos;Bob&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, <span class="hljs-number">7</span>)
+<span class="hljs-comment"># &#x4E0D;&#x6309;&#x987A;&#x5E8F;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5199;&#x4E0A;&#x53C2;&#x6570;&#x7684;&#x540D;&#x5B57;</span>
+enroll(<span class="hljs-string">&apos;Adam&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, city=<span class="hljs-string">&apos;Tianjin&apos;</span>)
+</code></pre>
+<p><strong><em>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x6307;&#x5411;&#x4E0D;&#x53D8;&#x5BF9;&#x8C61;:</em></strong></p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_end</span><span class="hljs-params">(L=[])</span>:</span>
+    L.append(<span class="hljs-string">&apos;END&apos;</span>)
+    <span class="hljs-keyword">return</span> L    <span class="hljs-comment"># L&#x662F;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x6307;&#x5411;&#x5BF9;&#x8C61;[]</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
+[<span class="hljs-string">&apos;END&apos;</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
+[<span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
+[<span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>]
+</code></pre>
+<h2 id="&#x53EF;&#x53D8;&#x53C2;&#x6570;">&#x53EF;&#x53D8;&#x53C2;&#x6570;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc</span><span class="hljs-params">(*numbers)</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> numbers:
+        sum = sum + n * n
+    <span class="hljs-keyword">return</span> sum
+</code></pre>
+<p><strong><em>&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x4F60;&#x4F20;&#x5165;0&#x4E2A;&#x6216;&#x4EFB;&#x610F;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#x81EA;&#x52A8;&#x7EC4;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;tuple&#x3002;</em></strong></p>
+<h2 id="&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;">&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, **kw)</span>:</span>
+    print(<span class="hljs-string">&apos;name:&apos;</span>, name, <span class="hljs-string">&apos;age:&apos;</span>, age, <span class="hljs-string">&apos;other:&apos;</span>, kw)
+</code></pre>
+<p><strong><em>&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x4F60;&#x4F20;&#x5165;0&#x4E2A;&#x6216;&#x4EFB;&#x610F;&#x4E2A;&#x542B;&#x53C2;&#x6570;&#x540D;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x81EA;&#x52A8;&#x7EC4;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;dict&#x3002;</em></strong></p>
+<h2 id="&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;">&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># *, &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#x88AB;&#x89C6;&#x4E3A;&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *, city, job)</span>:</span>
+    print(name, age, city, job)
+<span class="hljs-comment"># &#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x540D;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x62A5;&#x9519;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>person(<span class="hljs-string">&apos;Jack&apos;</span>, <span class="hljs-number">24</span>, <span class="hljs-string">&apos;Beijing&apos;</span>, <span class="hljs-string">&apos;Engineer&apos;</span>)
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+TypeError: person() takes <span class="hljs-number">2</span> positional arguments but <span class="hljs-number">4</span> were given
+<span class="hljs-comment"># &#x7531;&#x4E8E;&#x8C03;&#x7528;&#x65F6;&#x7F3A;&#x5C11;&#x53C2;&#x6570;&#x540D;city&#x548C;job</span>
+<span class="hljs-comment"># Python&#x89E3;&#x91CA;&#x5668;&#x628A;&#x8FD9;4&#x4E2A;&#x53C2;&#x6570;&#x5747;&#x89C6;&#x4E3A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</span>
+<span class="hljs-comment"># &#x4F46;person()&#x51FD;&#x6570;&#x4EC5;&#x63A5;&#x53D7;2&#x4E2A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</span>
+
+<span class="hljs-comment"># &#x5982;&#x679C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E2D;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5206;&#x9694;&#x7B26; *,</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *args, city, job)</span>:</span>
+    print(name, age, args, city, job)
+
+<span class="hljs-comment"># &#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6709;&#x7F3A;&#x7701;&#x503C;&#xFF0C;&#x4ECE;&#x800C;&#x7B80;&#x5316;&#x8C03;&#x7528;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *, city=<span class="hljs-string">&apos;Beijing&apos;</span>, job)</span>:</span>
+    print(name, age, city, job)
+</code></pre>
+<p><strong><em>&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x987A;&#x5E8F;&#x5FC5;&#x987B;&#x662F;&#xFF1A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;&#x3001;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x3001;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x548C;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x3002;</em></strong></p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a, b, c=<span class="hljs-number">0</span>, *args, **kw)</span>:</span>
+    print(<span class="hljs-string">&apos;a =&apos;</span>, a, <span class="hljs-string">&apos;b =&apos;</span>, b, <span class="hljs-string">&apos;c =&apos;</span>, c, <span class="hljs-string">&apos;args =&apos;</span>, args, <span class="hljs-string">&apos;kw =&apos;</span>, kw)
+</code></pre>
 <h1 id="&#x6A21;&#x5757;"><p align="center">&#x6A21;&#x5757;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
 <h2 id="&#x6A21;&#x5757;&#x5BFC;&#x5165;">&#x6A21;&#x5757;&#x5BFC;&#x5165;</h2>
@@ -601,7 +694,7 @@ b.spam(<span class="hljs-string">&apos;gumby&apos;</span>)
 <span class="hljs-comment"># b.spam&#xFF0C;object.attribute&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x8BED;&#x6CD5;&#xFF0C;&#x53D6;&#x51FA;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;b&#x4E2D;&#x53D8;&#x91CF;&#x540D;&#x4E3A;spam&#x7684;&#x503C;</span>
 </code></pre>
 <h2 id="import&#x5982;&#x4F55;&#x5DE5;&#x4F5C;">import&#x5982;&#x4F55;&#x5DE5;&#x4F5C;</h2>
-<p>&#x5728;python&#x4E2D;&#xFF0C;&#x5BFC;&#x5165;&#x5E76;&#x975E;&#x53EA;&#x662F;&#x628A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6587;&#x672C;&#x63D2;&#x5165;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x800C;&#x5DF2;&#x3002;&#x5BFC;&#x5165;&#x5176;&#x5B9E;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x8FD0;&#x7B97;&#xFF0C;&#x7A0B;&#x5E8F;&#x7B2C;&#x4E00;&#x6B21;&#x5BFC;&#x5165;&#x5236;&#x5B9A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>&#x5728;Python&#x4E2D;&#xFF0C;&#x5BFC;&#x5165;&#x5E76;&#x975E;&#x53EA;&#x662F;&#x628A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6587;&#x672C;&#x63D2;&#x5165;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x800C;&#x5DF2;&#x3002;&#x5BFC;&#x5165;&#x5176;&#x5B9E;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x8FD0;&#x7B97;&#xFF0C;&#x7A0B;&#x5E8F;&#x7B2C;&#x4E00;&#x6B21;&#x5BFC;&#x5165;&#x5236;&#x5B9A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
 <ol>
 <li>&#x627E;&#x5230;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#xFF1B;<blockquote>
 <p>import b&#xFF0C;&#x800C;&#x4E0D;&#x662F;import c:\dir1\b.py&#xFF0C;&#x56E0;&#x4E3A;Python&#x4F7F;&#x7528;<strong><em>&#x6807;&#x51C6;&#x6A21;&#x5757;&#x641C;&#x7D22;&#x8DEF;&#x5F84;</em></strong>&#x6765;&#x627E;&#x51FA;import&#x8BED;&#x53E5;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x3002;&#x5728;&#x6807;&#x51C6;&#x7684;import&#x4E2D;&#x5F15;&#x5165;&#x8DEF;&#x5F84;&#x548C;&#x540E;&#x7F00;&#x540D;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x662F;&#x975E;&#x6CD5;&#x7684;&#x3002;</p>
@@ -892,7 +985,7 @@ print(mod2.mod3.X)      <span class="hljs-comment"># Nested mod3&apos;s X</span>
 <span class="hljs-comment"># mod2&#x65E0;&#x6CD5;&#x770B;&#x89C1;mod1&#x5185;&#x7684;&#x53D8;&#x91CF;&#x540D;</span>
 
 <span class="hljs-comment"># &#x8FD0;&#x884C;mod1.py</span>
-%python mod1.py
+% python mod1.py
 <span class="hljs-number">2</span> <span class="hljs-number">3</span>
 <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>
 </code></pre>
@@ -1075,76 +1168,60 @@ dir2 init
 <h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x5305;&#x5BFC;&#x5165;">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x5305;&#x5BFC;&#x5165;</h2>
 <p>&#x5305;&#x8BA9;&#x5BFC;&#x5165;&#x66F4;&#x5177;&#x4FE1;&#x606F;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4F5C;&#x4E3A;&#x7EC4;&#x7EC7;&#x5DE5;&#x5177;&#xFF0C;&#x7B80;&#x5316;&#x6A21;&#x5757;&#x7684;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x6A21;&#x7CCA;&#x6027;&#x3002;</p>
 <ul>
-<li>&#x5305;&#x5BFC;&#x5165;&#x63D0;&#x4F9B;&#x4E86;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x627E;&#x5230;&#x6587;&#x4EF6;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x7EC4;&#x7EC7;&#x5DE5;&#x5177;&#x4F7F;&#x7528;&#xFF1B;</li>
-<li>&#x6CA1;&#x6709;&#x5305;&#x5BFC;&#x5165;&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x8981;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x6A21;&#x5757;&#x8D70;&#x8D70;&#x8DEF;&#x5F84;&#x624D;&#x80FD;&#x627E;&#x51FA;&#x6587;&#x4EF6;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x6839;&#x636E;&#x529F;&#x80FD;&#x5427;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x6210;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x5305;&#x5BFC;&#x5165;&#x4F1A;&#x8BA9;&#x6A21;&#x5757;&#x626E;&#x6F14;&#x7684;&#x89D2;&#x8272;&#x66F4;&#x4E3A;&#x660E;&#x663E;&#xFF0C;&#x4E5F;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x5177;&#x53EF;&#x8BFB;&#x6027;&#x3002;</li>
+<li>&#x5305;&#x5BFC;&#x5165;&#x63D0;&#x4F9B;&#x4E86;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x627E;&#x5230;&#x6587;&#x4EF6;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x7EC4;&#x7EC7;&#x5DE5;&#x5177;&#x4F7F;&#x7528;&#xFF1B;<ul>
+<li>&#x6CA1;&#x6709;&#x5305;&#x5BFC;&#x5165;&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x8981;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x6A21;&#x5757;&#x8D70;&#x8D70;&#x8DEF;&#x5F84;&#x624D;&#x80FD;&#x627E;&#x51FA;&#x6587;&#x4EF6;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x6839;&#x636E;&#x529F;&#x80FD;&#x628A;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x6210;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x5305;&#x5BFC;&#x5165;&#x4F1A;&#x8BA9;&#x6A21;&#x5757;&#x626E;&#x6F14;&#x7684;&#x89D2;&#x8272;&#x66F4;&#x4E3A;&#x660E;&#x663E;&#xFF0C;&#x4E5F;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x5177;&#x53EF;&#x8BFB;&#x6027;&#x3002;<pre><code class="lang-python"><span class="hljs-keyword">import</span> utilities
+<span class="hljs-comment"># &#x6B63;&#x5E38;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4E0A;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x5185;&#x7684;&#x6587;&#x4EF6;&#xFF0C;</span>
+<span class="hljs-comment"># &#x4E0E;&#x4E0B;&#x9762;&#x5305;&#x542B;&#x8DEF;&#x5F84;&#x7684;&#x5BFC;&#x5165;&#x76F8;&#x6BD4;&#xFF0C;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#x5C31;&#x66F4;&#x5C11;</span>
+<span class="hljs-keyword">import</span> database.client.utilities
+</code></pre>
+</li>
 </ul>
-<h1 id="&#x51FD;&#x6570;&#x53C2;&#x6570;"><p align="center">&#x51FD;&#x6570;&#x53C2;&#x6570;</p></h1>
+</li>
+<li>&#x5305;&#x5BFC;&#x5165;&#x53EF;&#x4EE5;&#x5927;&#x5E45;&#x7B80;&#x5316;PYTHONPATH&#x548C;.pth&#x6587;&#x4EF6;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E;&#xFF1B;<ul>
+<li>&#x5982;&#x679C;&#x6240;&#x6709;&#x8DE8;&#x76EE;&#x5F55;&#x7684;&#x5BFC;&#x5165;&#x90FD;&#x4F7F;&#x7528;&#x5305;&#x5BFC;&#x5165;&#xFF0C;&#x4E14;&#x8BA9;&#x8FD9;&#x4E9B;&#x5305;&#x5BFC;&#x5165;&#x90FD;&#x76F8;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x5171;&#x540C;&#x7684;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x628A;&#x6240;&#x6709;Python&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x90FD;&#x5B58;&#x5728;&#x5176;&#x4E2D;&#xFF0C;&#x5728;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4E0A;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x63A5;&#x5165;&#x70B9;&#xFF1A;&#x901A;&#x7528;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5305;&#x5BFC;&#x5165;&#x8BA9;&#x4F60;&#x60F3;&#x5BFC;&#x5165;&#x7684;&#x6587;&#x4EF6;&#x66F4;&#x660E;&#x786E;&#xFF0C;&#x4ECE;&#x800C;&#x89E3;&#x51B3;&#x4E86;&#x6A21;&#x7CCA;&#x6027;&#x3002;</li>
+</ul>
+<pre><code class="lang-python">root\
+    system1\
+        __init__.py
+        utilities.py
+        main.py
+        other.py
+    system2\
+        __init__.py
+        utilities.py
+        main.py
+        other.py
+    system3\            <span class="hljs-comment"># Here or elsewhere</span>
+        __init__.py     <span class="hljs-comment"># Your new code here</span>
+        myfile.py
+
+<span class="hljs-comment"># myfile.py</span>
+<span class="hljs-comment"># &#x76EE;&#x5F55;&#x540D;&#x79F0;&#x8BA9;&#x6A21;&#x5757;&#x7684;&#x5F15;&#x7528;&#x53D8;&#x5F97;&#x5177;&#x6709;&#x552F;&#x4E00;&#x6027;&#x3002;</span>
+<span class="hljs-comment"># &#x5982;&#x679C;&#x4F7F;&#x7528;import utilities&#xFF0C;</span>
+<span class="hljs-comment"># &#x56E0;&#x4E3A;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x7EBF;&#x6027;&#x7684;&#xFF0C;&#x641C;&#x7D22;&#x603B;&#x662F;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;&#x626B;&#x63CF;&#xFF0C;</span>
+<span class="hljs-comment"># &#x6240;&#x4EE5;&#x4E00;&#x5B9A;&#x4F1A;&#x5F97;&#x5230;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4E0A;&#x6700;&#x5DE6;&#x4FA7;&#x7684;&#x76EE;&#x5F55;&#x5185;&#x7684;utilities.py&#xFF0C;</span>
+<span class="hljs-comment"># &#x800C;&#x6C38;&#x8FDC;&#x65E0;&#x6CD5;&#x5BFC;&#x5165;&#x53E6;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#x7684;utilities.py&#x3002;</span>
+<span class="hljs-keyword">import</span> system1.utilities
+<span class="hljs-keyword">import</span> system2.utilities
+system1.utilities.function(<span class="hljs-string">&apos;spam&apos;</span>)
+system2.utilities.function(<span class="hljs-string">&apos;eggs&apos;</span>)
+</code></pre>
+<p>__init__.py&#x6587;&#x4EF6;&#x52A0;&#x5165;system1&#x548C;system2&#x76EE;&#x5F55;&#x4E2D;&#x4F7F;&#x5176;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#x6DFB;&#x52A0;&#x3002;&#x53EA;&#x6709;&#x4EE3;&#x7801;&#x4E2D;import&#x8BED;&#x53E5;&#x6240;&#x5217;&#x51FA;&#x7684;&#x76EE;&#x5F55;&#x624D;&#x9700;&#x8981;__init__.py&#x6587;&#x4EF6;&#x3002;Python&#x9996;&#x6B21;&#x901A;&#x8FC7;&#x5305;&#x7684;&#x76EE;&#x5F55;&#x5904;&#x7406;&#x5BFC;&#x5165;&#x65F6;&#xFF0C;__init__.py&#x6587;&#x4EF6;&#x4F1A;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x6280;&#x672F;&#x4E0A;&#x8BB2;&#xFF0C; system3&#x4E0D;&#x9700;&#x8981;&#x653E;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF1A;&#x53EA;&#x6709;&#x88AB;&#x5BFC;&#x5165;&#x7684;&#x4EE3;&#x7801;&#x5305;&#x9700;&#x8981;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x77E5;&#x9053;&#x4F55;&#x65F6;&#x6A21;&#x5757;&#x53EF;&#x80FD;&#x5728;&#x5176;&#x4ED6;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x8FD8;&#x662F;&#x5C06;&#x5176;&#x653E;&#x5728;&#x901A;&#x7528;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x4EE5;&#x907F;&#x514D;&#x4EE5;&#x540E;&#x7C7B;&#x4F3C;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x51B2;&#x7A81;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x5305;&#x76F8;&#x5BF9;&#x5BFC;&#x5165;">&#x5305;&#x76F8;&#x5BF9;&#x5BFC;&#x5165;</h2>
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x5305;&#x5BFC;&#x5165;">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x5305;&#x5BFC;&#x5165;</h3>
+<pre><code class="lang-python">mypkg\
+    __init__.py
+    main.py
+    string.py
+</code></pre>
+<h1 id="&#x7C7B;&#x4E0E;oop"><p align="center">&#x7C7B;&#x4E0E;OOP</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
-<h2 id="&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;">&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;</h2>
-<p><strong><em>&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6309;&#x7167;&#x4F4D;&#x7F6E;&#x987A;&#x5E8F;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;</em></strong></p>
-<h2 id="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;">&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h2>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enroll</span><span class="hljs-params">(name, gender, age=<span class="hljs-number">6</span>, city=<span class="hljs-string">&apos;Beijing&apos;</span>)</span>:</span>
-    print(<span class="hljs-string">&apos;name:&apos;</span>, name)
-    print(<span class="hljs-string">&apos;gender:&apos;</span>, gender)
-    print(<span class="hljs-string">&apos;age:&apos;</span>, age)
-    print(<span class="hljs-string">&apos;city:&apos;</span>, city)
-
-<span class="hljs-comment"># &#x8C03;&#x7528;&#x6709;&#x591A;&#x4E2A;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;</span>
-<span class="hljs-comment"># &#x6309;&#x987A;&#x5E8F;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</span>
-enroll(<span class="hljs-string">&apos;Bob&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, <span class="hljs-number">7</span>)
-<span class="hljs-comment"># &#x4E0D;&#x6309;&#x987A;&#x5E8F;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5199;&#x4E0A;&#x53C2;&#x6570;&#x7684;&#x540D;&#x5B57;</span>
-enroll(<span class="hljs-string">&apos;Adam&apos;</span>, <span class="hljs-string">&apos;M&apos;</span>, city=<span class="hljs-string">&apos;Tianjin&apos;</span>)
-</code></pre>
-<p><strong><em>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x6307;&#x5411;&#x4E0D;&#x53D8;&#x5BF9;&#x8C61;:</em></strong></p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_end</span><span class="hljs-params">(L=[])</span>:</span>
-    L.append(<span class="hljs-string">&apos;END&apos;</span>)
-    <span class="hljs-keyword">return</span> L    <span class="hljs-comment"># L&#x662F;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x6307;&#x5411;&#x5BF9;&#x8C61;[]</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
-[<span class="hljs-string">&apos;END&apos;</span>]
-<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
-[<span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>]
-<span class="hljs-meta">&gt;&gt;&gt; </span>add_end()
-[<span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>, <span class="hljs-string">&apos;END&apos;</span>]
-</code></pre>
-<h2 id="&#x53EF;&#x53D8;&#x53C2;&#x6570;">&#x53EF;&#x53D8;&#x53C2;&#x6570;</h2>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc</span><span class="hljs-params">(*numbers)</span>:</span>
-    sum = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> numbers:
-        sum = sum + n * n
-    <span class="hljs-keyword">return</span> sum
-</code></pre>
-<p><strong><em>&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x4F60;&#x4F20;&#x5165;0&#x4E2A;&#x6216;&#x4EFB;&#x610F;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#x81EA;&#x52A8;&#x7EC4;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;tuple&#x3002;</em></strong></p>
-<h2 id="&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;">&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</h2>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, **kw)</span>:</span>
-    print(<span class="hljs-string">&apos;name:&apos;</span>, name, <span class="hljs-string">&apos;age:&apos;</span>, age, <span class="hljs-string">&apos;other:&apos;</span>, kw)
-</code></pre>
-<p><strong><em>&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5141;&#x8BB8;&#x4F60;&#x4F20;&#x5165;0&#x4E2A;&#x6216;&#x4EFB;&#x610F;&#x4E2A;&#x542B;&#x53C2;&#x6570;&#x540D;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x81EA;&#x52A8;&#x7EC4;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;dict&#x3002;</em></strong></p>
-<h2 id="&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;">&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</h2>
-<pre><code class="lang-python"><span class="hljs-comment"># *, &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#x88AB;&#x89C6;&#x4E3A;&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *, city, job)</span>:</span>
-    print(name, age, city, job)
-<span class="hljs-comment"># &#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x540D;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x62A5;&#x9519;</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>person(<span class="hljs-string">&apos;Jack&apos;</span>, <span class="hljs-number">24</span>, <span class="hljs-string">&apos;Beijing&apos;</span>, <span class="hljs-string">&apos;Engineer&apos;</span>)
-Traceback (most recent call last):
-  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
-TypeError: person() takes <span class="hljs-number">2</span> positional arguments but <span class="hljs-number">4</span> were given
-<span class="hljs-comment"># &#x7531;&#x4E8E;&#x8C03;&#x7528;&#x65F6;&#x7F3A;&#x5C11;&#x53C2;&#x6570;&#x540D;city&#x548C;job</span>
-<span class="hljs-comment"># Python&#x89E3;&#x91CA;&#x5668;&#x628A;&#x8FD9;4&#x4E2A;&#x53C2;&#x6570;&#x5747;&#x89C6;&#x4E3A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</span>
-<span class="hljs-comment"># &#x4F46;person()&#x51FD;&#x6570;&#x4EC5;&#x63A5;&#x53D7;2&#x4E2A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</span>
-
-<span class="hljs-comment"># &#x5982;&#x679C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E2D;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5206;&#x9694;&#x7B26; *,</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *args, city, job)</span>:</span>
-    print(name, age, args, city, job)
-
-<span class="hljs-comment"># &#x547D;&#x540D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6709;&#x7F3A;&#x7701;&#x503C;&#xFF0C;&#x4ECE;&#x800C;&#x7B80;&#x5316;&#x8C03;&#x7528;</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">person</span><span class="hljs-params">(name, age, *, city=<span class="hljs-string">&apos;Beijing&apos;</span>, job)</span>:</span>
-    print(name, age, city, job)
-</code></pre>
-<p><strong><em>&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x987A;&#x5E8F;&#x5FC5;&#x987B;&#x662F;&#xFF1A;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF08;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF09;&#x3001;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x3001;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x548C;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x3002;</em></strong></p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a, b, c=<span class="hljs-number">0</span>, *args, **kw)</span>:</span>
-    print(<span class="hljs-string">&apos;a =&apos;</span>, a, <span class="hljs-string">&apos;b =&apos;</span>, b, <span class="hljs-string">&apos;c =&apos;</span>, c, <span class="hljs-string">&apos;args =&apos;</span>, args, <span class="hljs-string">&apos;kw =&apos;</span>, kw)
-</code></pre>
+<p>OOP&#xFF08;Object Oriented Programming&#xFF0C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#xFF09;</p>
 <h1 id="&#x88C5;&#x9970;&#x5668;&#xFF08;decorator&#xFF09;"><p align="center">&#x88C5;&#x9970;&#x5668;&#xFF08;Decorator&#xFF09;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
 <ul>
@@ -1175,7 +1252,7 @@ TypeError: person() takes <span class="hljs-number">2</span> positional argument
     <span class="hljs-keyword">pass</span>
 <span class="hljs-comment"># &#x76F8;&#x5F53;&#x4E8E;func = decorator(func)</span>
 </code></pre>
-<h1 id="wsgi&#xFF08;the-python-web-server-gateway-interface&#xFF09;"><p align="center">WSGI&#xFF08;the Python Web Server Gateway Interface&#xFF09;</p></h1>
+<h1 id="wsgi&#xFF08;web-server-gateway-interface&#xFF09;"><p align="center">WSGI&#xFF08;Web Server Gateway Interface&#xFF09;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
 <p>Web&#x5E94;&#x7528;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&#xFF1A;</p>
 <ol>
@@ -1204,7 +1281,7 @@ TypeError: person() takes <span class="hljs-number">2</span> positional argument
 <p>&#x6700;&#x7B80;&#x5355;&#x7684;Web&#x5E94;&#x7528;&#x5C31;&#x662F;&#x5148;&#x628A;HTML&#x7528;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x597D;&#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x73B0;&#x6210;&#x7684;HTTP&#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#xFF0C;&#x63A5;&#x6536;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#xFF0C;&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;HTML&#xFF0C;&#x8FD4;&#x56DE;&#x3002;Apache&#x3001;Nginx&#x3001;Lighttpd&#x7B49;&#x8FD9;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x9759;&#x6001;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x662F;&#x5E72;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#x7684;&#xFF1A;</p>
 <p><img src="../images/python_wsgi_http_1.jpg" alt="HTTP"></p>
 <p>&#x5982;&#x679C;&#x8981;&#x52A8;&#x6001;&#x751F;&#x6210;HTML&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x628A;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#x81EA;&#x5DF1;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
-<p>&#x9762;&#x5411;http&#x7684;python&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>&#x9762;&#x5411;http&#x7684;Python&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;&#xFF1A;</p>
 <ul>
 <li>&#x8BF7;&#x6C42;<ul>
 <li>&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;method</li>
@@ -1222,16 +1299,68 @@ TypeError: person() takes <span class="hljs-number">2</span> positional argument
 </li>
 </ul>
 <p>&#x4E0D;&#x8FC7;&#xFF0C;&#x63A5;&#x53D7;HTTP&#x8BF7;&#x6C42;&#x3001;&#x89E3;&#x6790;HTTP&#x8BF7;&#x6C42;&#x3001;&#x53D1;&#x9001;HTTP&#x54CD;&#x5E94;&#x90FD;&#x662F;&#x82E6;&#x529B;&#x6D3B;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x6765;&#x5199;&#x8FD9;&#x4E9B;&#x5E95;&#x5C42;&#x4EE3;&#x7801;&#xFF0C;&#x8FD8;&#x6CA1;&#x5F00;&#x59CB;&#x5199;&#x52A8;&#x6001;HTML&#x5462;&#xFF0C;&#x5C31;&#x5F97;&#x82B1;&#x4E2A;&#x628A;&#x6708;&#x53BB;&#x8BFB;HTTP&#x89C4;&#x8303;&#x3002;</p>
-<p>&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5E95;&#x5C42;&#x4EE3;&#x7801;&#x7531;&#x4E13;&#x95E8;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x4EEC;&#x7528;Python&#x4E13;&#x6CE8;&#x4E8E;&#x751F;&#x6210;HTML&#x6587;&#x6863;&#x3002;&#x5B9E;&#x9645;&#x751F;&#x4EA7;&#x4E2D;&#xFF0C;Python&#x7A0B;&#x5E8F;&#x662F;&#x653E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7684;http server&#xFF08;&#x6BD4;&#x5982;Apache&#xFF0C;Nginx &#x7B49;&#xFF09;&#x4E0A;&#x7684;&#x3002;<strong><em>&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x600E;&#x4E48;&#x628A;&#x63A5;&#x53D7;&#x5230;&#x7684;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;Python&#x5462;&#xFF1F;&#x600E;&#x4E48;&#x5728;&#x7F51;&#x7EDC;&#x7684;&#x6570;&#x636E;&#x6D41;&#x548C;Python&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x4E4B;&#x95F4;&#x8F6C;&#x6362;&#x5462;&#xFF1F;</em></strong></p>
+<p>&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5E95;&#x5C42;&#x4EE3;&#x7801;&#x7531;&#x4E13;&#x95E8;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x4EEC;&#x7528;Python&#x4E13;&#x6CE8;&#x4E8E;&#x751F;&#x6210;HTML&#x6587;&#x6863;&#x3002;&#x5B9E;&#x9645;&#x751F;&#x4EA7;&#x4E2D;&#xFF0C;Python&#x7A0B;&#x5E8F;&#x662F;&#x653E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7684;http server&#xFF08;&#x6BD4;&#x5982;Apache&#xFF0C;Nginx &#x7B49;&#xFF09;&#x4E0A;&#x7684;&#x3002;</p>
+<blockquote>
+<p>Python Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x4E00;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E8C;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x524D;&#x8005;&#x8D1F;&#x8D23;&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x63A5;&#x6536;&#xFF0C;&#x6574;&#x7406;&#xFF0C;&#x540E;&#x8005;&#x8D1F;&#x8D23;&#x5177;&#x4F53;&#x7684;&#x903B;&#x8F91;&#x5904;&#x7406;&#x3002;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x5E38;&#x7528;&#x7684;&#x529F;&#x80FD;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x6210;&#x4E3A;&#x5404;&#x79CD;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x4F8B;&#x5982;Django&#xFF0C;Flask&#xFF0C;Tornado&#x3002;&#x4E0D;&#x540C;&#x7684;&#x6846;&#x67B6;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5F00;&#x53D1;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x65E0;&#x8BBA;&#x5982;&#x4F55;&#xFF0C;&#x5F00;&#x53D1;&#x51FA;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x90FD;&#x8981;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x914D;&#x5408;&#xFF0C;&#x624D;&#x80FD;&#x4E3A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x5C31;&#x9700;&#x8981;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x6846;&#x67B6;&#x63D0;&#x4F9B;&#x4E0D;&#x540C;&#x7684;&#x652F;&#x6301;&#x3002;&#x8FD9;&#x6837;&#x6DF7;&#x4E71;&#x7684;&#x5C40;&#x9762;&#x65E0;&#x8BBA;&#x5BF9;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x662F;&#x6846;&#x67B6;&#xFF0C;&#x90FD;&#x662F;&#x4E0D;&#x597D;&#x7684;&#x3002;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x6765;&#x8BF4;&#xFF0C;&#x9700;&#x8981;&#x652F;&#x6301;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x6846;&#x67B6;&#xFF0C;&#x5BF9;&#x6846;&#x67B6;&#x6765;&#x8BF4;&#xFF0C;&#x53EA;&#x6709;&#x652F;&#x6301;&#x5B83;&#x7684;&#x670D;&#x52A1;&#x5668;&#x624D;&#x80FD;&#x88AB;&#x5F00;&#x53D1;&#x51FA;&#x7684;&#x5E94;&#x7528;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x6807;&#x51C6;&#x5316;&#x5C31;&#x53D8;&#x5F97;&#x5C24;&#x4E3A;&#x91CD;&#x8981;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BBE;&#x7ACB;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x652F;&#x6301;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x6846;&#x67B6;&#x4E5F;&#x652F;&#x6301;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x914D;&#x5408;&#x4F7F;&#x7528;&#x3002;&#x4E00;&#x65E6;&#x6807;&#x51C6;&#x786E;&#x5B9A;&#xFF0C;&#x53CC;&#x65B9;&#x5404;&#x81EA;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x66F4;&#x591A;&#x652F;&#x6301;&#x6807;&#x51C6;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x6846;&#x67B6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x66F4;&#x591A;&#x652F;&#x6301;&#x6807;&#x51C6;&#x7684;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+</blockquote>
+<p><strong><em>&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x600E;&#x4E48;&#x628A;&#x63A5;&#x53D7;&#x5230;&#x7684;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;Python&#x5462;&#xFF1F;&#x600E;&#x4E48;&#x5728;&#x7F51;&#x7EDC;&#x7684;&#x6570;&#x636E;&#x6D41;&#x548C;Python&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x4E4B;&#x95F4;&#x8F6C;&#x6362;&#x5462;&#xFF1F;</em></strong></p>
 <p>&#x8FD9;&#x5C31;&#x662F;WSGI&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF1A;</p>
 <blockquote>
-<p><strong>WSGI&#xFF0C;&#x5B98;&#x65B9;&#x5B9A;&#x4E49;&#x662F;&#xFF0C;the Python Web Server Gateway Interface&#xFF0C;&#x4ECE;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x4E1C;&#x897F;&#x662F;&#x4E00;&#x4E2A;Gateway&#xFF0C;&#x7F51;&#x5173;&#xFF0C;&#x7F51;&#x5173;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5728;&#x534F;&#x8BAE;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;WSGI&#x5C31;&#x50CF;&#x662F;&#x4E00;&#x5EA7;&#x6865;&#x6881;&#xFF0C;&#x4E00;&#x8FB9;&#x8FDE;&#x7740;http server&#xFF0C;&#x53E6;&#x4E00;&#x8FB9;&#x8FDE;&#x7740;python&#x7A0B;&#x5E8F;&#x3002;WSGI&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x628A;&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#x5728;http server&#x548C;python&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x53CB;&#x597D;&#x5730;&#x4F20;&#x9012;&#x3002;WSGI&#x662F;&#x4E00;&#x5957;&#x5173;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x7A0B;&#x5E8F;&#x7AEF;&#x7684;&#x89C4;&#x8303;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x7EDF;&#x4E00;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x88AB;&#x5B9A;&#x4E49;&#x5728;<a href="https://www.python.org/dev/peps/pep-3333/" target="_blank">PEP 3333</a>&#x3002;http server&#x548C;python&#x7A0B;&#x5E8F;&#x90FD;&#x8981;&#x9075;&#x5B88;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x7EA6;&#x5B9A;&#x5185;&#x5BB9;&#xFF0C;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;WSGI&#x4F7F;&#x6211;&#x4EEC;&#x4E0D;&#x5FC5;&#x63A5;&#x89E6;TCP&#x8FDE;&#x63A5;&#x3001;HTTP&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x4E13;&#x5FC3;&#x7528;Python&#x7F16;&#x5199;Web&#x4E1A;&#x52A1;&#x3002;</strong></p>
+<p><strong>WSGI&#xFF0C;&#x5B98;&#x65B9;&#x5B9A;&#x4E49;&#x662F;&#xFF0C;Web Server Gateway Interface&#xFF0C;&#x4ECE;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x4E1C;&#x897F;&#x662F;&#x4E00;&#x4E2A;Gateway&#xFF0C;&#x7F51;&#x5173;&#xFF0C;&#x7F51;&#x5173;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5728;&#x534F;&#x8BAE;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;WSGI&#x5C31;&#x50CF;&#x662F;&#x4E00;&#x5EA7;&#x6865;&#x6881;&#xFF0C;&#x4E00;&#x8FB9;&#x8FDE;&#x7740;http server&#xFF0C;&#x53E6;&#x4E00;&#x8FB9;&#x8FDE;&#x7740;Python&#x7A0B;&#x5E8F;&#x3002;WSGI&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x628A;&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#x5728;http server&#x548C;Python&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x53CB;&#x597D;&#x5730;&#x4F20;&#x9012;&#x3002;WSGI&#x662F;&#x4E00;&#x5957;&#x5173;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x548C;&#x7A0B;&#x5E8F;&#x7AEF;&#x7684;&#x89C4;&#x8303;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x7EDF;&#x4E00;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x88AB;&#x5B9A;&#x4E49;&#x5728;<a href="https://www.python.org/dev/peps/pep-3333/" target="_blank">PEP 3333</a>&#x3002;http server&#x548C;Python&#x7A0B;&#x5E8F;&#x90FD;&#x8981;&#x9075;&#x5B88;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#xFF0C;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x7EA6;&#x5B9A;&#x5185;&#x5BB9;&#xFF0C;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;WSGI&#x4F7F;&#x6211;&#x4EEC;&#x4E0D;&#x5FC5;&#x63A5;&#x89E6;TCP&#x8FDE;&#x63A5;&#x3001;HTTP&#x539F;&#x59CB;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x4E13;&#x5FC3;&#x7528;Python&#x7F16;&#x5199;Web&#x4E1A;&#x52A1;&#x3002;</strong></p>
+<p><strong>WSGI&#x662F;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4E00;&#x4E2A;&#x7EA6;&#x5B9A;&#xFF0C;&#x5B83;&#x89C4;&#x5B9A;&#x4E86;&#x53CC;&#x65B9;&#x5404;&#x81EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4EC0;&#x4E48;&#x63A5;&#x53E3;&#xFF0C;&#x63D0;&#x4F9B;&#x4EC0;&#x4E48;&#x529F;&#x80FD;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8C;&#x8005;&#x80FD;&#x591F;&#x914D;&#x5408;&#x4F7F;&#x7528;&#x3002;</strong></p>
 </blockquote>
 <p><img src="../images/python_wsgi_http_2.jpg" alt="HTTP"></p>
-<ul>
-<li><h2 id="python&#x7A0B;&#x5E8F;&#x7AEF;">python&#x7A0B;&#x5E8F;&#x7AEF;</h2>
-WSGI&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x53EA;&#x8981;&#x6C42;Web&#x5F00;&#x53D1;&#x8005;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5B9E;&#x73B0;&#x4E86;__call__&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x7C7B;&#xFF09;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x54CD;&#x5E94;HTTP&#x8BF7;&#x6C42;&#xFF1A;</li>
+<h2 id="python&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7AEF;">Python&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7AEF;</h2>
+<ol>
+<li>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;<ul>
+<li>&#x51FD;&#x6570;</li>
+<li>&#x5B9E;&#x4F8B;&#xFF0C;&#x5B83;&#x7684;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;__call__&#x65B9;&#x6CD5;</li>
+<li>&#x7C7B;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;</li>
 </ul>
+</li>
+<li><p>&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1B;</p>
+<pre><code class="lang-python"> <span class="hljs-comment"># callable function</span>
+ <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">application</span><span class="hljs-params">(environ, start_response)</span>:</span>
+     <span class="hljs-keyword">pass</span>
+
+ <span class="hljs-comment"># callable class</span>
+ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span>:</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, environ, start_response)</span>:</span>
+         <span class="hljs-keyword">pass</span>
+
+ <span class="hljs-comment"># callable object</span>
+ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApplicationObj</span>:</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, environ, start_response)</span>:</span>
+         <span class="hljs-keyword">pass</span>
+</code></pre>
+</li>
+<li><p>&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x662F;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x3002;</p>
+<pre><code class="lang-python"> HELLO_WORLD = <span class="hljs-string">b&quot;Hello world!\n&quot;</span>
+
+ <span class="hljs-comment"># callable function</span>
+ <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">application</span><span class="hljs-params">(environ, start_response)</span>:</span>
+     <span class="hljs-keyword">return</span> [HELLO_WORLD]
+
+ <span class="hljs-comment"># callable class</span>
+ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span>:</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, environ, start_response)</span>:</span>
+         <span class="hljs-keyword">pass</span>
+
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+         <span class="hljs-keyword">yield</span> HELLO_WORLD
+
+ <span class="hljs-comment"># callable object</span>
+ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApplicationObj</span>:</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, environ, start_response)</span>:</span>
+         <span class="hljs-keyword">return</span> [HELLO_WORLD]
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>&#x7531;&#x4E8E;&#x6846;&#x67B6;&#x5DF2;&#x7ECF;&#x628A;WSGI&#x4E2D;&#x89C4;&#x5B9A;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x7528;&#x6846;&#x67B6;&#x65F6;&#xFF0C;&#x770B;&#x4E0D;&#x5230;&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#x6211;&#x4EEC;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x518D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#x5C31;&#x597D;&#x4E86;&#x3002;&#x5176;&#x5B83;&#x7684;&#x4E1C;&#x897F;&#x6846;&#x67B6;&#x5E2E;&#x6211;&#x4EEC;&#x505A;&#x597D;&#x4E86;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x6846;&#x67B6;&#x7684;&#x4EF7;&#x503C;&#x6240;&#x5728;&#xFF0C;&#x628A;&#x5E38;&#x7528;&#x7684;&#x4E1C;&#x897F;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x8BA9;&#x4F7F;&#x7528;&#x8005;&#x53EA;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+</blockquote>
+<p>WSGI&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B83;&#x53EA;&#x8981;&#x6C42;Web&#x5F00;&#x53D1;&#x8005;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x51FD;&#x6570;&#xFF1B;&#x7C7B;&#xFF1B;&#x5B9E;&#x73B0;&#x4E86;__call__&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF09;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x54CD;&#x5E94;HTTP&#x8BF7;&#x6C42;&#xFF1A;</p>
 <pre><code class="lang-python"><span class="hljs-comment"># hello.py</span>
 <span class="hljs-comment"># 1. &#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</span>
 <span class="hljs-comment"># application&#x51FD;&#x6570;&#x5C31;&#x662F;&#x7B26;&#x5408;WSGI&#x6807;&#x51C6;&#x7684;&#x4E00;&#x4E2A;HTTP&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</span>
@@ -1241,7 +1370,7 @@ WSGI&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5
     <span class="hljs-string">&quot;&quot;&quot;
     &#x8FD9;&#x91CC;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x662F;application&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;
     &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#x4E8E;&#xFF1A;
-    for result in Application(environ, start_response):
+    for result in application(environ, start_response):
         do_something(result)
     &quot;&quot;&quot;</span>
     <span class="hljs-comment"># start_response&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;HTTP&#x54CD;&#x5E94;&#x7801;&#x548C;&#x4E00;&#x4E2A;HTTP Header&#x7EC4;&#x6210;&#x7684;list&#xFF0C;</span>
@@ -1291,16 +1420,13 @@ WSGI&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5
 </code></pre>
 <p>&#x6709;&#x4E86;WSGI&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x5982;&#x4F55;&#x4ECE;environ&#x8FD9;&#x4E2A;dict&#x5BF9;&#x8C61;&#x62FF;&#x5230;HTTP&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x6784;&#x9020;HTML&#xFF0C;&#x901A;&#x8FC7;start_response()&#x53D1;&#x9001;Header&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;Body&#x3002;</p>
 <p>application&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x6CA1;&#x6709;&#x6D89;&#x53CA;&#x5230;&#x4EFB;&#x4F55;&#x89E3;&#x6790;HTTP&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5E95;&#x5C42;&#x4EE3;&#x7801;&#x4E0D;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8D1F;&#x8D23;&#x5728;&#x66F4;&#x9AD8;&#x5C42;&#x6B21;&#x4E0A;&#x8003;&#x8651;&#x5982;&#x4F55;&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
-<ul>
-<li><h2 id="http-server&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x7AEF;">http server&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x7AEF;</h2>
-</li>
-</ul>
+<h2 id="http-server&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x7AEF;">http server&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x7AEF;</h2>
 <p><strong>application&#x51FD;&#x6570;&#x600E;&#x4E48;&#x8C03;&#x7528;&#xFF1F;</strong></p>
 <ul>
 <li>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x8C03;&#x7528;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;environ&#x548C;start_response&#x6211;&#x4EEC;&#x6CA1;&#x6CD5;&#x63D0;&#x4F9B;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;bytes&#x4E5F;&#x6CA1;&#x6CD5;&#x53D1;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#xFF1B;</li>
 <li>&#x6240;&#x4EE5;application()&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x7531;WSGI&#x670D;&#x52A1;&#x5668;&#x6765;&#x8C03;&#x7528;&#x3002;</li>
 </ul>
-<p>Python&#x5185;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;WSGI&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x53EB;wsgiref&#xFF0C;&#x5B83;&#x5B8C;&#x5168;&#x7B26;&#x5408;WSGI&#x6807;&#x51C6;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x8003;&#x8651;&#x4EFB;&#x4F55;&#x8FD0;&#x884C;&#x6548;&#x7387;&#xFF0C;&#x4EC5;&#x4F9B;&#x5F00;&#x53D1;&#x548C;&#x6D4B;&#x8BD5;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Python&#x5185;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;WSGI&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x53EB;wsgiref&#xFF0C;&#x5B83;&#x5B8C;&#x5168;&#x7B26;&#x5408;WSGI&#x6807;&#x51C6;&#xFF0C;&#x4F46;&#x4E0D;&#x8003;&#x8651;&#x4EFB;&#x4F55;&#x8FD0;&#x884C;&#x6548;&#x7387;&#xFF0C;&#x4EC5;&#x4F9B;&#x5F00;&#x53D1;&#x548C;&#x6D4B;&#x8BD5;&#x4F7F;&#x7528;&#x3002;</p>
 <pre><code class="lang-python"><span class="hljs-comment"># server.py</span>
 <span class="hljs-keyword">from</span> wsgiref.simple_server <span class="hljs-keyword">import</span> make_server
 <span class="hljs-keyword">from</span> hello <span class="hljs-keyword">import</span> application
@@ -1326,13 +1452,35 @@ httpd.server_forever()
 <pre><code class="lang-python"><span class="hljs-comment"># hello.py</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">application</span><span class="hljs-params">(environ, start_response)</span>:</span>
     start_response(<span class="hljs-string">&apos;200 OK&apos;</span>, [(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/html&apos;</span>)])
-    body = <span class="hljs-string">&apos;&lt;h1&gt;Hello, %s!&lt;/h1&gt;&apos;</span> % (environ[<span class="hljs-string">&apos;PATH_INFO&apos;</span>][<span class="hljs-number">1</span>:] <span class="hljs-keyword">or</span> <span class="hljs-string">&apos;web&apos;</span>)
+    body = <span class="hljs-string">&apos;&lt;h1&gt;Hello, %s!&lt;/h1&gt;&apos;</span> % (environ[<span class="hljs-string">&apos;PATH_INFO&apos;</span>][<span class="hljs-number">1</span>:] <span class="hljs-keyword">or</span> <span class="hljs-string">&apos;Web&apos;</span>)
     <span class="hljs-keyword">return</span> [body.encode(<span class="hljs-string">&apos;utf-8&apos;</span>)]
 </code></pre>
 <p>&#x53EF;&#x4EE5;&#x5728;&#x5730;&#x5740;&#x680F;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x4F5C;&#x4E3A;URL&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;Hello, xxx!&#xFF1A;</p>
 <p><img src="../images/python_wsgi_server_4.jpg" alt="&#x8BBF;&#x95EE;http://localhost:8000/Michael"></p>
 <p>&#x65E0;&#x8BBA;&#x591A;&#x4E48;&#x590D;&#x6742;&#x7684;Web&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5165;&#x53E3;&#x90FD;&#x662F;&#x4E00;&#x4E2A;WSGI&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;HTTP&#x8BF7;&#x6C42;&#x7684;&#x6240;&#x6709;&#x8F93;&#x5165;&#x4FE1;&#x606F;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;environ&#x83B7;&#x5F97;&#xFF0C;HTTP&#x54CD;&#x5E94;&#x7684;&#x8F93;&#x51FA;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;start_response()&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x4F5C;&#x4E3A;Body&#x3002;</p>
 <p>&#x590D;&#x6742;&#x7684;Web&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5149;&#x9760;&#x4E00;&#x4E2A;WSGI&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406;&#x8FD8;&#x662F;&#x592A;&#x5E95;&#x5C42;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;WSGI&#x4E4B;&#x4E0A;&#x518D;&#x62BD;&#x8C61;&#x51FA;Web&#x6846;&#x67B6;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x7B80;&#x5316;Web&#x5F00;&#x53D1;&#x3002;</p>
+<h2 id="middleware">middleware</h2>
+<p>&#x6709;&#x4E9B;&#x529F;&#x80FD;&#x53EF;&#x80FD;&#x4ECB;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x548C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x62FF;&#x5230;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;URL, &#x4E0D;&#x540C;&#x7684;URL&#x9700;&#x8981;&#x4EA4;&#x7531;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x53EB;&#x505A;URL Routing&#xFF0C;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x5C31;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4E8C;&#x8005;&#x4E2D;&#x95F4;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E2D;&#x95F4;&#x5C42;&#x5C31;&#x662F;middleware&#x3002;</p>
+<p>middleware&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x548C;&#x5E94;&#x7528;&#x662F;&#x900F;&#x660E;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x4EE5;&#x4E3A;&#x5B83;&#x5C31;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x800C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE5;&#x4E3A;&#x5B83;&#x5C31;&#x662F;&#x670D;&#x52A1;&#x5668;&#x3002;&#x8FD9;&#x5C31;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#xFF0C;middleware&#x9700;&#x8981;&#x628A;&#x81EA;&#x5DF1;&#x4F2A;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x63A5;&#x53D7;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x8C03;&#x7528;&#x5B83;&#xFF0C;&#x540C;&#x65F6;middleware&#x8FD8;&#x9700;&#x8981;&#x628A;&#x81EA;&#x5DF1;&#x4F2A;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F20;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x65E0;&#x8BBA;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7A0B;&#x5E8F;&#xFF0C;middleware&#x8FD8;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x90FD;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5;&#x628A;&#x4ED6;&#x4EEC;&#x62BD;&#x8C61;&#x6210;&#x4E0D;&#x540C;&#x5C42;&#xFF0C;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x63A7;&#x5236;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x4F7F;&#x5F97;&#x6BCF;&#x4E00;&#x6B21;&#x90FD;&#x4E0D;&#x592A;&#x590D;&#x6742;&#xFF0C;&#x5404;&#x53F8;&#x5176;&#x804C;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># URL Routing middleware</span>
+
+<span class="hljs-comment"># urlrouting&#x51FD;&#x6570;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x751F;&#x6210;&#x5668;&#xFF0C;</span>
+<span class="hljs-comment"># &#x4F60;&#x7ED9;&#x5B83;&#x4E0D;&#x540C;&#x7684;url-app&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;</span>
+<span class="hljs-comment"># &#x5B83;&#x4F1A;&#x751F;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x5177;&#x6709;url routing&#x529F;&#x80FD;&#x7684;middleware&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">urlrouting</span><span class="hljs-params">(url_app_mapping)</span>:</span>
+    <span class="hljs-comment"># &#x51FD;&#x6570;midware_app&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;middleware</span>
+    <span class="hljs-comment"># &#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;</span>
+    <span class="hljs-comment"># &#x4E3A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x4E86;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x7528;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">midware_app</span><span class="hljs-params">(environ, start_response)</span>:</span>
+        url = environ[<span class="hljs-string">&apos;PATH_INFO&apos;</span>]
+        app = url_app_mapping[url]
+        result = app(environ, start_response)
+        <span class="hljs-keyword">return</span> result
+    <span class="hljs-comment"># &#x5BF9;&#x670D;&#x52A1;&#x5668;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;</span>
+    <span class="hljs-comment"># &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-keyword">return</span> midware_app
+</code></pre>
 
                                 
                                 </section>
@@ -1365,7 +1513,7 @@ httpd.server_forever()
                 </a>
                 
                 
-                <a href="Scrapy/" class="navigation navigation-next " aria-label="Next page: Scrapy">
+                <a href="常用内建模块/" class="navigation navigation-next " aria-label="Next page: 常用内建模块">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1376,7 +1524,7 @@ httpd.server_forever()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.5","depth":1,"next":{"title":"Scrapy","level":"1.5.1","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},"previous":{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-06-15T09:51:44.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-15T09:52:38.044Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.5","depth":1,"next":{"title":"常用内建模块","level":"1.5.1","depth":2,"path":"Python/常用内建模块/README.md","ref":"Python/常用内建模块/README.md","articles":[]},"previous":{"title":"webpack","level":"1.4.6","depth":2,"path":"Front-End/webpack/README.md","ref":"Front-End/webpack/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-06-20T09:06:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-20T09:06:49.975Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
