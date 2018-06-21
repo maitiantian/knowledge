@@ -347,19 +347,32 @@ Python把载入的模块存储到一个名为sys.modules的表中，并在一次
 ```python
 >>>import sys
 >>>sys.path
-['E:\\JetBrains\\PyCharm 2017.1.5\\helpers\\pydev',
- 'E:\\JetBrains\\PyCharm 2017.1.5\\helpers\\pydev',
- 'C:\\Python\\Python36\\python36.zip',
- 'C:\\Python\\Python36\\DLLs',
- 'C:\\Python\\Python36\\lib',
- 'C:\\Python\\Python36',
- 'C:\\Python\\Python36\\lib\\site-packages',
- 'C:\\Python\\Python36\\lib\\site-packages\\win32',
- 'C:\\Python\\Python36\\lib\\site-packages\\win32\\lib',
- 'C:\\Python\\Python36\\lib\\site-packages\\Pythonwin',
- 'C:\\Python\\Python36\\lib\\site-packages\\IPython\\extensions',
- 'E:\\MyProjects\\PycharmProjects\\tools',
- 'E:/MyProjects/PycharmProjects/tools']
+# 交互环境下sys.path第一个路径是一个空项，对应当前目录。
+['', 
+'C:\\Python\\Python36\\python36.zip', 
+'C:\\Python\\Python36\\DLLs', 
+'C:\\Python\\Python36\\lib', 
+'C:\\Python\\Python36', 
+'C:\\Python\\Python36\\lib\\site-packages', 
+'C:\\Python\\Python36\\lib\\site-packages\\win32', 
+'C:\\Python\\Python36\\lib\\site-packages\\win32\\lib', 
+'C:\\Python\\Python36\\lib\\site-packages\\Pythonwin']
+
+# foo.py
+import sys
+print(sys.path)
+
+# 运行
+E:\MyProjects\PycharmProjects\bao>python foo.py
+['E:\\MyProjects\\PycharmProjects\\bao', 
+'C:\\Python\\Python36\\python36.zip', 
+'C:\\Python\\Python36\\DLLs', 
+'C:\\Python\\Python36\\lib', 
+'C:\\Python\\Python36', 
+'C:\\Python\\Python36\\lib\\site-packages', 
+'C:\\Python\\Python36\\lib\\site-packages\\win32', 
+'C:\\Python\\Python36\\lib\\site-packages\\win32\\lib', 
+'C:\\Python\\Python36\\lib\\site-packages\\Pythonwin']
 ```
 可以通过修改sys.path列表直接调整搜索路径，不过这种修改只在脚本运行期间保持。
 
