@@ -737,6 +737,361 @@ session.close()
 </ol>
 </li>
 </ol>
+<p><a href="https://www.jb51.net/article/49789.htm" target="_blank">Python SQLAlchemy&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x548C;&#x5E38;&#x7528;&#x6280;&#x5DE7;</a></p>
+<ul>
+<li><h2 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h2>
+```python
+from sqlalchemy import func, or<em>, not</em></li>
+</ul>
+<p>user = User(name = &apos;a&apos;)
+session.add(user)
+user = User(name = &apos;b&apos;)
+session.add(user)
+user = User(name = &apos;a&apos;)
+session.add(user)
+user = User()
+session.add(user)
+session.commit()
+query = session.query(User)
+print query # &#x663E;&#x793A;SQL&#x8BED;&#x53E5;
+print query.statement # &#x540C;&#x4E0A;
+for user in query: # &#x904D;&#x5386;&#x65F6;&#x67E5;&#x8BE2;
+    print user.name
+print query.all() # &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x5217;&#x8868;&#x7684;&#x5BF9;&#x8C61;
+print query.first().name # &#x8BB0;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#xFF0C;first()&#x4F1A;&#x8FD4;&#x56DE;None
+print query.one().name # &#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x6216;&#x6709;&#x591A;&#x884C;&#x8BB0;&#x5F55;&#x65F6;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;
+print query.filter(User.id == 2).first().name
+print query.get(2).name # &#x4EE5;&#x4E3B;&#x952E;&#x83B7;&#x53D6;&#xFF0C;&#x7B49;&#x6548;&#x4E8E;&#x4E0A;&#x53E5;
+print query.filter(&apos;id = 2&apos;).first().name # &#x652F;&#x6301;&#x5B57;&#x7B26;&#x4E32;
+query2 = session.query(User.name)
+print query2.all() # &#x6BCF;&#x884C;&#x662F;&#x4E2A;&#x5143;&#x7EC4;
+print query2.limit(1).all() # &#x6700;&#x591A;&#x8FD4;&#x56DE;1&#x6761;&#x8BB0;&#x5F55;
+print query2.offset(1).all() # &#x4ECE;&#x7B2C;2&#x6761;&#x8BB0;&#x5F55;&#x5F00;&#x59CB;&#x8FD4;&#x56DE;
+print query2.order<em>by(User.name).all()
+print query2.order_by(&apos;name&apos;).all()
+print query2.order_by(User.name.desc()).all()
+print query2.order_by(&apos;name desc&apos;).all()
+print session.query(User.id).order_by(User.name.desc(), User.id).all()
+print query2.filter(User.id == 1).scalar() # &#x5982;&#x679C;&#x6709;&#x8BB0;&#x5F55;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;
+print session.query(&apos;id&apos;).select_from(User).filter(&apos;id = 1&apos;).scalar()
+print query2.filter(User.id &gt; 1, User.name != &apos;a&apos;).scalar() # and
+query3 = query2.filter(User.id &gt; 1) # &#x591A;&#x6B21;&#x62FC;&#x63A5;&#x7684;filter&#x4E5F;&#x662F;and
+query3 = query3.filter(User.name != &apos;a&apos;)
+print query3.scalar()
+print query2.filter(or</em>(User.id == 1, User.id == 2)).all() # or
+print query2.filter(User.id.in<em>((1, 2))).all() # in
+query4 = session.query(User.id)
+print query4.filter(User.name == None).scalar()
+print query4.filter(&apos;name is null&apos;).scalar()
+print query4.filter(not</em>(User.name == None)).all() # not
+print query4.filter(User.name != None).all()
+print query4.count()
+print session.query(func.count(&apos;<em>&apos;)).select_from(User).scalar()
+print session.query(func.count(&apos;1&apos;)).select_from(User).scalar()
+print session.query(func.count(User.id)).scalar()
+print session.query(func.count(&apos;</em>&apos;)).filter(User.id &gt; 0).scalar() # filter()&#x4E2D;&#x5305;&#x542B;User&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x8868;
+print session.query(func.count(&apos;*&apos;)).filter(User.name == &apos;a&apos;).limit(1).scalar() == 1 # &#x53EF;&#x4EE5;&#x7528;limit()&#x9650;&#x5236;count()&#x7684;&#x8FD4;&#x56DE;&#x6570;
+print session.query(func.sum(User.id)).scalar()
+print session.query(func.now()).scalar() # func&#x540E;&#x53EF;&#x4EE5;&#x8DDF;&#x4EFB;&#x610F;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x53EA;&#x8981;&#x8BE5;&#x6570;&#x636E;&#x5E93;&#x652F;&#x6301;
+print session.query(func.current_timestamp()).scalar()
+print session.query(func.md5(User.name)).filter(User.id == 1).scalar()
+query.filter(User.id == 1).update({User.name: &apos;c&apos;})
+user = query.get(1)
+print user.name
+user.name = &apos;d&apos;
+session.flush() # &#x5199;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x63D0;&#x4EA4;
+print query.get(1).name
+session.delete(user)
+session.flush()
+print query.get(1)
+session.rollback()
+print query.get(1).name
+query.filter(User.id == 1).delete()
+session.commit()
+print query.get(1)</p>
+<pre><code>
+* ## &#x8FDB;&#x9636;
+
+```python
+# &#x5982;&#x4F55;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x5927;&#x6279;&#x6570;&#x636E;&#xFF1F;
+# &#x4F7F;&#x7528;&#x975E;ORM&#x7684;&#x65B9;&#x6CD5;
+session.execute(
+    User.__table__.insert() ,
+    [{&apos;name&apos; : `randint(1, 100)` , &apos;age&apos; : randint(1, 100)} for i in xrange(10000)]
+)
+session.commit()
+
+# &#x5982;&#x4F55;&#x8BA9;&#x6267;&#x884C;&#x7684; SQL &#x8BED;&#x53E5;&#x589E;&#x52A0;&#x524D;&#x7F00;&#xFF1F;
+# &#x4F7F;&#x7528; query &#x5BF9;&#x8C61;&#x7684; prefix_with() &#x65B9;&#x6CD5;
+session.query(User.name).prefix_with(&apos;HIGH_PRIORITY&apos;).all()
+session.execute(User.__table__.insert().prefix_with(&apos;IGNORE&apos;) , {&apos;id&apos; : 1 , &apos;name&apos; : &apos;1&apos;})
+
+# &#x5982;&#x4F55;&#x66FF;&#x6362;&#x4E00;&#x4E2A;&#x5DF2;&#x6709;&#x4E3B;&#x952E;&#x7684;&#x8BB0;&#x5F55;&#xFF1F;
+# &#x4F7F;&#x7528; session.merge() &#x65B9;&#x6CD5;&#x66FF;&#x4EE3; session.add()&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F; SELECT + UPDATE
+user = User(id=1, name=&apos;ooxx&apos;)
+session.merge(user)
+session.commit()
+
+# &#x5982;&#x4F55;&#x4F7F;&#x7528;&#x65E0;&#x7B26;&#x53F7;&#x6574;&#x6570;&#xFF1F;
+# &#x53EF;&#x4EE5;&#x4F7F;&#x7528;MySQL&#x7684;&#x65B9;&#x8A00;&#xFF08;dialect&#xFF09;
+from sqlalchemy.dialects.mysql import INTEGER
+id = Column(INTEGER(unsigned = True) , primary_key = True)
+
+# &#x6A21;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x9700;&#x8981;&#x548C;&#x8868;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#x4E0D;&#x4E00;&#x6837;&#x600E;&#x4E48;&#x529E;&#xFF1F;
+# &#x5F00;&#x53D1;&#x65F6;&#x9047;&#x5230;&#x8FC7;&#x4E00;&#x4E2A;&#x5947;&#x602A;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x6709;&#x4E2A;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#x7684;&#x8868;&#x91CC;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x201C;from&#x201D;&#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x5728; Python &#x91CC;&#x662F;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x4E8E;&#x662F;&#x53EA;&#x80FD;&#x8FD9;&#x6837;&#x5904;&#x7406;&#x4E86;&#xFF1A;
+from_ = Column(&apos;from&apos; , CHAR(10))
+
+# &#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5B57;&#x6BB5;&#x7684;&#x957F;&#x5EA6;&#xFF1F;
+# Column &#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5F88;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x60F3;&#x83B7;&#x53D6;&#x957F;&#x5EA6;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5; User.name &#x4E3A;&#x4F8B;&#xFF1A;
+User.name.property.columns[0].type.length
+
+#&#x5982;&#x4F55;&#x6307;&#x5B9A;&#x4F7F;&#x7528; InnoDB&#xFF0C;&#x4EE5;&#x53CA;&#x4F7F;&#x7528; UTF-8 &#x7F16;&#x7801;&#xFF1F;
+#&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x975E;&#x8981;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x6307;&#x5B9A;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF1A;
+class User(BaseModel):
+    __table_args__ = {
+        &apos;mysql_engine&apos; : &apos;InnoDB&apos; ,
+        &apos;mysql_charset&apos; : &apos;utf8&apos;
+}
+# MySQL 5.5&#x5F00;&#x59CB;&#x652F;&#x6301;&#x5B58;&#x50A8;4&#x5B57;&#x8282;&#x7684;UTF-8&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E86;&#xFF0C;iOS&#x91CC;&#x81EA;&#x5E26;&#x7684;emoji&#x5C31;&#x5C5E;&#x4E8E;&#x8FD9;&#x79CD;&#x3002;
+# &#x5982;&#x679C;&#x662F;&#x5BF9;&#x8868;&#x6765;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;utf8&#x6539;&#x6210;utf8mb4&#xFF0C;DB_CONNECT_STRING&#x91CC;&#x7684;charset&#x4E5F;&#x8FD9;&#x6837;&#x66F4;&#x6539;&#x3002;
+# &#x4E0D;&#x5EFA;&#x8BAE;&#x5168;&#x7528;utf8mb4&#x4EE3;&#x66FF;utf8&#xFF0C;&#x56E0;&#x4E3A;&#x524D;&#x8005;&#x66F4;&#x6162;&#xFF0C;&#x7D22;&#x5F15;&#x4F1A;&#x5360;&#x7528;&#x66F4;&#x591A;&#x7A7A;&#x95F4;&#x3002;
+
+# &#x5982;&#x4F55;&#x8BBE;&#x7F6E;&#x5916;&#x952E;&#x7EA6;&#x675F;&#xFF1F;
+from random import randint
+from sqlalchemy import ForeignKey
+class User(BaseModel):
+    __tablename__ = &apos;user&apos;
+    id = Column(Integer , primary_key = True)
+age = Column(Integer)
+
+class Friendship(BaseModel):
+    __tablename__ = &apos;friendship&apos;
+    id = Column(Integer , primary_key=True)
+    user_id1 = Column(Integer , ForeignKey(&apos;user.id&apos;))
+    user_id2 = Column(Integer , ForeignKey(&apos;user.id&apos;))
+
+for i in xrange(100):
+    session.add(User(age = randint(1, 100)))
+session.flush() # &#x6216;session.commit()&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x540E;&#xFF0C;user&#x5BF9;&#x8C61;&#x7684;id&#x5C5E;&#x6027;&#x624D;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#xFF08;&#x56E0;&#x4E3A; id &#x662F;&#x81EA;&#x589E;&#x7684;&#xFF09;
+for i in xrange(100):
+    session.add(Friendship(user_id1 = randint(1, 100) , user_id2 = randint(1, 100)))
+session.commit()
+session.query(User).filter(User.age &lt; 50).delete()
+
+# &#x6267;&#x884C;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x4F1A;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF1A;
+sqlalchemy.exc.IntegrityError: 
+(IntegrityError) (1451, &apos;Cannot delete or update a parent row: a foreign key constraint fails (`ooxx`.`friendship`, CONSTRAINT `friendship_ibfk_1` FOREIGN KEY (`user_id1`) REFERENCES `user` (`id`))&apos;) &apos;DELETE FROM user WHERE user.age &lt; %s&apos; (50,)
+# &#x539F;&#x56E0;&#x662F;&#x5220;&#x9664;user&#x8868;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;friendship&#x7684;&#x5916;&#x952E;&#x4E0D;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x771F;&#x5B9E;&#x5B58;&#x5728;&#x7684;&#x8BB0;&#x5F55;&#x3002;
+# &#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;MySQL&#x4F1A;&#x62D2;&#x7EDD;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;RESTRICT&#x3002;
+# InnoDB&#x8FD8;&#x5141;&#x8BB8;&#x6307;&#x5B9A;ON DELETE&#x4E3A;CASCADE&#x548C;SET NULL&#xFF0C;&#x524D;&#x8005;&#x4F1A;&#x5220;&#x9664;friendship&#x4E2D;&#x65E0;&#x6548;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x540E;&#x8005;&#x4F1A;&#x5C06;&#x8FD9;&#x4E9B;&#x8BB0;&#x5F55;&#x7684;&#x5916;&#x952E;&#x8BBE;&#x4E3A;NULL&#x3002;
+# &#x9664;&#x4E86;&#x5220;&#x9664;&#xFF0C;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x66F4;&#x6539;&#x4E3B;&#x952E;&#xFF0C;&#x8FD9;&#x4E5F;&#x4F1A;&#x5BFC;&#x81F4;friendship&#x7684;&#x5916;&#x952E;&#x5931;&#x6548;&#x3002;&#x4E8E;&#x662F;&#x76F8;&#x5E94;&#x7684;&#x5C31;&#x6709;ON UPDATE&#x4E86;&#x3002;
+# &#x5176;&#x4E2D;CASCADE&#x53D8;&#x6210;&#x4E86;&#x66F4;&#x65B0;&#x76F8;&#x5E94;&#x7684;&#x5916;&#x952E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5220;&#x9664;&#x3002;
+class Friendship(BaseModel):
+    __tablename__ = &apos;friendship&apos;
+    id = Column(Integer, primary_key = True)
+    user_id1 = Column(Integer , ForeignKey(&apos;user.id&apos; , ondelete = &apos;CASCADE&apos; , onupdate = &apos;CASCADE&apos;))
+    user_id2 = Column(Integer , ForeignKey(&apos;user.id&apos; , ondelete = &apos;CASCADE&apos; , onupdate = &apos;CASCADE&apos;))
+
+# &#x5982;&#x4F55;&#x8FDE;&#x63A5;&#x8868;&#xFF1F;
+from sqlalchemy import distinct
+from sqlalchemy.orm import aliased
+
+Friend = aliased(User , name = &apos;Friend&apos;)
+print session.query(User.id).join(Friendship , User.id == Friendship.user_id1).all() 
+# &#x6240;&#x6709;&#x6709;&#x670B;&#x53CB;&#x7684;&#x7528;&#x6237;
+# SELECT id , user_id1 FROM User , Friendship WHERE id = user_id1 ;
+# SELECT id , user_id1 FROM User INNER JOIN Friendship ON id = user_id1 ;
+print session.query(distinct(User.id)).join(Friendship , User.id == Friendship.user_id1).all() 
+# &#x6240;&#x6709;&#x6709;&#x670B;&#x53CB;&#x7684;&#x7528;&#x6237;&#xFF08;&#x53BB;&#x6389;&#x91CD;&#x590D;&#x7684;&#xFF09;
+print session.query(User.id).join(Friendship , User.id == Friendship.user_id1).distinct().all() 
+# &#x540C;&#x4E0A;
+print session.query(Friendship.user_id2).join(User , User.id == Friendship.user_id1).order_by(Friendship.user_id2).distinct().all() 
+# &#x6240;&#x6709;&#x88AB;&#x522B;&#x4EBA;&#x5F53;&#x6210;&#x670B;&#x53CB;&#x7684;&#x7528;&#x6237;
+print session.query(Friendship.user_id2).select_from(User).join(Friendship , User.id == Friendship.user_id1).order_by(Friendship.user_id2).distinct().all() 
+# &#x540C;&#x4E0A;&#xFF0C;join &#x7684;&#x65B9;&#x5411;&#x76F8;&#x53CD;&#xFF0C;&#x4F46;&#x56E0;&#x4E3A;&#x4E0D;&#x662F; STRAIGHT_JOIN&#xFF0C;&#x6240;&#x4EE5; MySQL &#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x9009;&#x62E9;&#x987A;&#x5E8F;
+print session.query(User.id , Friendship.user_id2).join(Friendship , User.id == Friendship.user_id1).all() 
+# &#x7528;&#x6237;&#x53CA;&#x5176;&#x670B;&#x53CB;
+print session.query(User.id , Friendship.user_id2).join(Friendship , User.id == Friendship.user_id1).filter(User.id &lt; 10).all() 
+# id &#x5C0F;&#x4E8E; 10 &#x7684;&#x7528;&#x6237;&#x53CA;&#x5176;&#x670B;&#x53CB;
+print session.query(User.id , Friend.id).join(Friendship , User.id == Friendship.user_id1).join(Friend , Friend.id == Friendship.user_id2).all() 
+# &#x4E24;&#x6B21; join&#xFF0C;&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x5230;&#x76F8;&#x540C;&#x7684;&#x8868;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x522B;&#x540D;
+print session.query(User.id , Friendship.user_id2).outerjoin(Friendship , User.id == Friendship.user_id1).all() 
+# &#x7528;&#x6237;&#x53CA;&#x5176;&#x670B;&#x53CB;&#xFF08;&#x65E0;&#x670B;&#x53CB;&#x5219;&#x4E3A; None&#xFF0C;&#x4F7F;&#x7528;&#x5DE6;&#x8FDE;&#x63A5;&#xFF09;
+
+# &#x4E3A;&#x4EC0;&#x4E48;&#x65E0;&#x6CD5;&#x5220;&#x9664; in &#x64CD;&#x4F5C;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x8BB0;&#x5F55;&#xFF1F;
+session.query(User).filter(User.id.in_((1 , 2 , 3))).delete()
+# &#x629B;&#x51FA;&#x8FD9;&#x6837;&#x7684;&#x5F02;&#x5E38;&#xFF1A;
+sqlalchemy.exc.InvalidRequestError : Could not evaluate current criteria in Python . Specify &apos;fetch&apos; or False for the synchronize_session parameter .
+&#x4F46;&#x8FD9;&#x6837;&#x662F;&#x6CA1;&#x95EE;&#x9898;&#x7684;&#xFF1A;
+session.query(User).filter(or_(User.id == 1 , User.id == 2 , User.id == 3)).delete()
+# &#x641C;&#x4E86;&#x4E0B;&#x627E;&#x5230; Sqlalchemy delete subquery &#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x63D0;&#x5230;&#x4E86; delete &#x7684;&#x4E00;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;&#xFF1A;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F1A;&#x5C1D;&#x8BD5;&#x5220;&#x9664; session &#x4E2D;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C; in &#x64CD;&#x4F5C;&#x4F30;&#x8BA1;&#x8FD8;&#x4E0D;&#x652F;&#x6301;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x51FA;&#x9519;&#x4E86;&#x3002;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x5220;&#x9664;&#x65F6;&#x4E0D;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8BA9; session &#x91CC;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F53;&#x90FD;&#x8FC7;&#x671F;&#xFF1A;
+session.query(User).filter(User.id.in_((1, 2, 3))).delete(synchronize_session=False)
+session.commit() # or session.expire_all()
+# &#x6B64;&#x5916;&#xFF0C;update &#x64CD;&#x4F5C;&#x4E5F;&#x6709;&#x540C;&#x6837;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x540E;&#x9762;&#x7ACB;&#x523B;&#x63D0;&#x4EA4;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x52A0;&#x4E0A; synchronize_session = False &#x53C2;&#x6570;&#x4F1A;&#x66F4;&#x5FEB;
+
+# &#x5982;&#x4F55;&#x6269;&#x5145;&#x6A21;&#x578B;&#x7684;&#x57FA;&#x7C7B;&#xFF1F;
+# declarative_base() &#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A; class &#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5B50;&#x7C7B;&#x4E00;&#x822C;&#x90FD;&#x548C;&#x4E00;&#x5F20;&#x8868;&#x5BF9;&#x5E94;&#x3002;&#x5982;&#x679C;&#x60F3;&#x589E;&#x52A0;&#x8FD9;&#x4E2A;&#x57FA;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x5C5E;&#x6027;&#xFF0C;&#x8BA9;&#x5B50;&#x7C7B;&#x90FD;&#x80FD;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;
+# 1.&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x4E3A;&#x57FA;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;
+class ModelMixin(object):
+    @classmethod
+    def get_by_id(cls , session , id , columns=None , lock_mode=None):
+        if hasattr(cls , &apos;id&apos;):
+            scalar = False
+            if columns:
+                if isinstance(columns , (tuple , list)):
+                    query = session.query(*columns)
+                else:
+                    scalar = True
+                    query = session.query(columns)
+            else:
+                query = session.query(cls)
+            if lock_mode:
+                query = query.with_lockmode(lock_mode)
+            query = query.filter(cls.id == id)
+            if scalar:
+                return query.scalar()
+            return query.first()
+        return None
+    BaseModel.get_by_id = get_by_id
+    @classmethod
+    def get_all(cls , session , columns=None , offset=None , limit=None , order_by=None , lock_mode=None):
+        if columns:
+            if isinstance(columns , (tuple , list)):
+                query = session.query(*columns)
+            else:
+                query = session.query(columns)
+                if isinstance(columns , str):
+                    query = query.select_from(cls)
+        else:
+            query = session.query(cls)
+        if order_by is not None:
+            if isinstance(order_by , (tuple , list)):
+                query = query.order_by(*order_by)
+            else:
+                query = query.order_by(order_by)
+        if offset:
+            query = query.offset(offset)
+        if limit:
+            query = query.limit(limit)
+        if lock_mode:
+            query = query.with_lockmode(lock_mode)
+        return query.all()
+    BaseModel.get_all = get_all
+    @classmethod
+    def count_all(cls , session , lock_mode=None):
+        query = session.query(func.count(&apos;*&apos;)).select_from(cls)
+        if lock_mode:
+            query = query.with_lockmode(lock_mode)
+        return query.scalar()
+    BaseModel.count_all = count_all
+    @classmethod
+    def exist(cls , session , id , lock_mode=None):
+        if hasattr(cls , &apos;id&apos;):
+            query = session.query(func.count(&apos;*&apos;)).select_from(cls).filter(cls.id == id)
+            if lock_mode:
+                query = query.with_lockmode(lock_mode)
+            return query.scalar() &gt; 0
+        return False
+    BaseModel.exist = exist
+    @classmethod
+    def set_attr(cls , session , id , attr , value):
+        if hasattr(cls , &apos;id&apos;):
+            session.query(cls).filter(cls.id == id).update({
+                attr: value
+            })
+            session.commit()
+    BaseModel.set_attr = set_attr
+    @classmethod
+    def set_attrs(cls , session , id , attrs):
+        if hasattr(cls , &apos;id&apos;):
+            session.query(cls).filter(cls.id == id).update(attrs)
+            session.commit()
+BaseModel.set_attrs = set_attrs
+
+# 2.&#x8BBE;&#x7F6E; declarative_base() &#x7684; cls &#x53C2;&#x6570;&#xFF1A;
+BaseModel = declarative_base(cls=ModelMixin)
+# &#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x201C;BaseModel.get_by_id = get_by_id&#x201D;&#x4E4B;&#x7C7B;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#x5C31;&#x662F; PyCharm &#x4ECD;&#x7136;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x4F4D;&#x7F6E;
+
+# 3.&#x8BBE;&#x7F6E; __abstract__ &#x5C5E;&#x6027;&#xFF1A;
+class BaseModel(BaseModel):
+    __abstract__ = True
+    __table_args__ = { # &#x53EF;&#x4EE5;&#x7701;&#x6389;&#x5B50;&#x7C7B;&#x7684; __table_args__ &#x4E86;
+        &apos;mysql_engine&apos; : &apos;InnoDB&apos;,
+        &apos;mysql_charset&apos; : &apos;utf8&apos;
+    }
+# ...
+# &#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x6700;&#x7B80;&#x5355;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x51FA;&#x591A;&#x4E2A;&#x7C7B;
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x5982;&#x4F55;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;&#xFF1F;</span>
+<span class="hljs-comment"># &#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x94F6;&#x884C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E00;&#x5171;&#x4E24;&#x540D;&#x7528;&#x6237;&#xFF1A;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span><span class="hljs-params">(BaseModel)</span>:</span>
+    __tablename__ = <span class="hljs-string">&apos;user&apos;</span>
+    id = Column(Integer , primary_key=<span class="hljs-keyword">True</span>)
+    money = Column(DECIMAL(<span class="hljs-number">10</span> , <span class="hljs-number">2</span>))
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TanseferLog</span><span class="hljs-params">(BaseModel)</span>:</span>
+    __tablename__ = <span class="hljs-string">&apos;tansefer_log&apos;</span>
+    id = Column(Integer , primary_key=<span class="hljs-keyword">True</span>)
+    from_user = Column(Integer , ForeignKey(<span class="hljs-string">&apos;user.id&apos;</span> , ondelete=<span class="hljs-string">&apos;CASCADE&apos;</span> , onupdate=<span class="hljs-string">&apos;CASCADE&apos;</span>))
+    to_user = Column(Integer , ForeignKey(<span class="hljs-string">&apos;user.id&apos;</span> , ondelete=<span class="hljs-string">&apos;CASCADE&apos;</span> , onupdate=<span class="hljs-string">&apos;CASCADE&apos;</span>))
+    amount = Column(DECIMAL(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>))
+
+user = User(money=<span class="hljs-number">100</span>)
+session.add(user)
+user = User(money=<span class="hljs-number">0</span>)
+session.add(user)
+session.commit()
+
+<span class="hljs-comment"># &#x7136;&#x540E;&#x5F00;&#x4E24;&#x4E2A; session&#xFF0C;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x4E24;&#x6B21;&#x8F6C;&#x8D26;&#x64CD;&#x4F5C;&#xFF1A;</span>
+session1 = DB_Session()
+session2 = DB_Session()
+user1 = session1.query(User).get(<span class="hljs-number">1</span>)
+user2 = session1.query(User).get(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">if</span> user1.money &gt;= <span class="hljs-number">100</span>:
+    user1.money -= <span class="hljs-number">100</span>
+    user2.money += <span class="hljs-number">100</span>
+    session1.add(TanseferLog(from_user=<span class="hljs-number">1</span> , to_user=<span class="hljs-number">2</span> , amount=<span class="hljs-number">100</span>))
+user1 = session2.query(User).get(<span class="hljs-number">1</span>)
+user2 = session2.query(User).get(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">if</span> user1.money &gt;= <span class="hljs-number">100</span>:
+    user1.money -= <span class="hljs-number">100</span>
+    user2.money += <span class="hljs-number">100</span>
+    session2.add(TanseferLog(from_user=<span class="hljs-number">1</span> , to_user=<span class="hljs-number">2</span> , amount=<span class="hljs-number">100</span>))
+session1.commit()
+session2.commit()
+
+<span class="hljs-comment"># &#x73B0;&#x5728;&#x770B;&#x770B;&#x7ED3;&#x679C;&#xFF1A;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>user1.money
+Decimal(<span class="hljs-string">&apos;0.00&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>user2.money
+Decimal(<span class="hljs-string">&apos;100.00&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>session.query(TanseferLog).count()
+<span class="hljs-number">2L</span>
+<span class="hljs-comment"># &#x4E24;&#x6B21;&#x8F6C;&#x8D26;&#x90FD;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x8F6C;&#x8D70;&#x4E86;&#x4E00;&#x7B14;&#x94B1;&#xFF0C;&#x8FD9;&#x660E;&#x663E;&#x4E0D;&#x79D1;&#x5B66;</span>
+<span class="hljs-comment"># &#x53EF;&#x89C1; MySQL InnoDB &#x867D;&#x7136;&#x652F;&#x6301;&#x4E8B;&#x52A1;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x624B;&#x52A8;&#x52A0;&#x9501;</span>
+<span class="hljs-comment"># &#x9996;&#x5148;&#x6765;&#x8BD5;&#x8BD5;&#x8BFB;&#x9501;&#xFF1A;</span>
+user1 = session1.query(User).with_lockmode(<span class="hljs-string">&apos;read&apos;</span>).get(<span class="hljs-number">1</span>)
+user2 = session1.query(User).with_lockmode(<span class="hljs-string">&apos;read&apos;</span>).get(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">if</span> user1.money &gt;= <span class="hljs-number">100</span>:
+    user1.money -= <span class="hljs-number">100</span>
+    user2.money += <span class="hljs-number">100</span>
+    session1.add(TanseferLog(from_user=<span class="hljs-number">1</span> , to_user=<span class="hljs-number">2</span> , amount=<span class="hljs-number">100</span>))
+user1 = session2.query(User).with_lockmode(<span class="hljs-string">&apos;read&apos;</span>).get(<span class="hljs-number">1</span>)
+user2 = session2.query(User).with_lockmode(<span class="hljs-string">&apos;read&apos;</span>).get(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">if</span> user1.money &gt;= <span class="hljs-number">100</span>:
+    user1.money -= <span class="hljs-number">100</span>
+    user2.money += <span class="hljs-number">100</span>
+    session2.add(TanseferLog(from_user=<span class="hljs-number">1</span> , to_user=<span class="hljs-number">2</span> , amount=<span class="hljs-number">100</span>))
+session1.commit()
+session2.commit()
+<span class="hljs-comment"># &#x73B0;&#x5728;&#x5728;&#x6267;&#x884C;session1.commit()&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x56E0;&#x4E3A;user1&#x548C;user2&#x90FD;&#x88AB;session2&#x52A0;&#x4E86;&#x8BFB;&#x9501;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x7B49;&#x5F85;&#x9501;&#x88AB;&#x91CA;&#x653E;&#x3002;</span>
+<span class="hljs-comment"># &#x8D85;&#x65F6;&#x4EE5;&#x540E;&#xFF0C;session1.commit()&#x4F1A;&#x629B;&#x51FA;&#x4E2A;&#x8D85;&#x65F6;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x6355;&#x6349;&#x4E86;&#x7684;&#x8BDD;&#xFF0C;&#x6216;&#x8005;session2&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x90A3;&#x4E48;session2.commit()&#x8FD8;&#x662F;&#x80FD;&#x6B63;&#x5E38;&#x63D0;&#x4EA4;&#x7684;&#x3002;</span>
+<span class="hljs-comment"># &#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x662F;&#x80AF;&#x5B9A;&#x4F1A;&#x63D0;&#x4EA4;&#x5931;&#x8D25;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x90A3;&#x4E9B;&#x66F4;&#x6539;&#x7B49;&#x4E8E;&#x767D;&#x505A;&#x4E86;&#x3002;</span>
+
+<span class="hljs-comment"># &#x63A5;&#x4E0B;&#x6765;&#x770B;&#x770B;&#x5199;&#x9501;&#xFF0C;&#x628A;&#x4E0A;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&apos;read&apos;&#x6539;&#x6210;&apos;update&apos;&#x5373;&#x53EF;&#x3002;&#x8FD9;&#x6B21;&#x5728;&#x6267;&#x884C;select&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x88AB;&#x963B;&#x585E;&#x4E86;&#xFF1A;</span>
+user1 = session2.query(User).with_lockmode(<span class="hljs-string">&apos;update&apos;</span>).get(<span class="hljs-number">1</span>)
+<span class="hljs-comment"># &#x8FD9;&#x6837;&#x53EA;&#x8981;&#x5728;&#x8D85;&#x65F6;&#x671F;&#x95F4;&#x5185;&#xFF0C;session1 &#x5B8C;&#x6210;&#x4E86;&#x63D0;&#x4EA4;&#x6216;&#x56DE;&#x6EDA;&#xFF0C;&#x90A3;&#x4E48; session2 &#x5C31;&#x80FD;&#x6B63;&#x5E38;&#x5224;&#x65AD; user1.money &gt;= 100 &#x662F;&#x5426;&#x6210;&#x7ACB;&#x4E86;</span>
+<span class="hljs-comment"># &#x7531;&#x6B64;&#x53EF;&#x89C1;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x6539;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x597D;&#x52A0;&#x5199;&#x9501;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -780,7 +1135,7 @@ session.close()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用第三方模块","level":"1.5.2","depth":2,"next":{"title":"Scrapy","level":"1.5.3","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},"previous":{"title":"常用内建模块","level":"1.5.1","depth":2,"path":"Python/常用内建模块/README.md","ref":"Python/常用内建模块/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用第三方模块/README.md","mtime":"2018-06-20T07:55:52.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-20T09:06:49.975Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用第三方模块","level":"1.5.2","depth":2,"next":{"title":"Scrapy","level":"1.5.3","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},"previous":{"title":"常用内建模块","level":"1.5.1","depth":2,"path":"Python/常用内建模块/README.md","ref":"Python/常用内建模块/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用第三方模块/README.md","mtime":"2018-06-21T07:01:31.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-21T09:48:50.566Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
