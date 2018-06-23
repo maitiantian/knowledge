@@ -132,7 +132,9 @@ HTTPS，安全增强版的HTTP，S表示TLS、SSL。HTTPS是HTTP与安全套接�
 ### HTTP请求报文格式
 
 ![HTTP请求报文格式](../images/http_request_1.png)
+
 ![HTTP请求报文格式](../images/http_request_2.png)
+
 ![HTTP请求报文格式](../images/http_request_3.png)
 
 * HTTP请求报文
@@ -157,7 +159,9 @@ HTTPS，安全增强版的HTTP，S表示TLS、SSL。HTTPS是HTTP与安全套接�
 ### HTTP响应报文格式
 
 ![HTTP响应格式](../images/http_response_1.png)
+
 ![HTTP响应格式](../images/http_response_2.png)
+
 ![HTTP响应格式](../images/http_response_3.png)
 
 * HTTP响应报文
