@@ -679,6 +679,10 @@ print sql
 2. **格式化时间字符串(Format String)**
 3. **结构化时间(struct\_time)**：struct\_time元组共有9个元素（年，月，日，时，分，秒，一年中第几周，一年中第几天，夏令时）
 
+> UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在我国为UTC+8。
+
+> DST（Daylight Saving Time，夏令时），又称阳光节约时。是一种为节约能源而人为调整地方时间的制度，利用夏季天亮得早这一自然现象，人为地将时间提前一小时。这样可以使人们早起早睡，以充分利用光照资源，减少照明时间，从而节约照明用电。
+
 ```python
 >>> import time
 
@@ -734,10 +738,6 @@ time.struct_time(tm_year=2018, tm_mon=6, tm_mday=25, tm_hour=5, tm_min=44, tm_se
 >>> time.clock()
 1.8889197571657532
 ```
-
-> UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在我国为UTC+8。
-
-> DST（Daylight Saving Time，夏令时），又称阳光节约时。是一种为节约能源而人为调整地方时间的制度，利用夏季天亮得早这一自然现象，人为地将时间提前一小时。这样可以使人们早起早睡，以充分利用光照资源，减少照明时间，从而节约照明用电。
 
 ![time](../../images/python_time_1.png)
 
