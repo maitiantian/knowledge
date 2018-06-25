@@ -1,7 +1,9 @@
 # 目录
+
 * [sys](#sys)
 * [os](#os)
 * [re](#re)
+* [string](#string)
 
 ## Python常用模块Top200
 
