@@ -2,6 +2,9 @@
 * [sys](#sys)
 * [os](#os)
 * [re](#re)
+* [string](#string)
+* [time](#time)
+* [datetime](#datetime)
 
 ## Python常用模块Top200
 
@@ -663,3 +666,11 @@ print sql
 # python3写法：print("Hello World!", file=open("somefile.txt", "w+"))
 # 将Hello World写入文件somefile.txt
 ```
+
+
+
+# <p align="center">time</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
+
+* 时间戳（timestamp）：时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。返回时间戳方式的函数主要有time()，clock()等。
