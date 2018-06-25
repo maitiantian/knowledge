@@ -674,4 +674,239 @@ print sql
 
 ###### [<p align="right">back to top ▲</p>](#目录)
 
-* 时间戳（timestamp）：时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。返回时间戳方式的函数主要有time()，clock()等。
+在Python中，有三种方式表示时间：
+1. **时间戳(timestamp)**：时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。运行type(time.time())，返回float类型的timestamp
+2. **格式化时间字符串(Format String)**
+3. **结构化时间(struct\_time)**：struct\_time元组共有9个元素（年，月，日，时，分，秒，一年中第几周，一年中第几天，夏令时）
+
+```python
+>>> import time
+
+# 时间戳
+>>> time.time()
+1529905431.7368107
+
+# time.strftime(format[, t])
+# 将日期转换为字符串，可选参数是一个struct_time对象。
+>>> time.strftime("%Y-%m-%d %X")
+'2018-06-25 13:44:15'
+>>> time.strftime('Weekday: %w; Day of the yesr: %j.')
+'Weekday: 1; Day of the yesr: 176.'
+>>> time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+'2018-06-25 09:43:38'
+
+# time.strptime(string, format)
+# 按指定格式解析（parse）一个表示时间的字符串，返回struct_time对象
+>>> time.strptime('2009-06-23 15:30:53', '%Y-%m-%d %H:%M:%S')
+time.struct_time(tm_year=2009, tm_mon=6, tm_mday=23, tm_hour=15, tm_min=30, tm_sec=53, tm_wday=1, tm_yday=174, tm_isdst=-1)
+
+# 本地时区的struct_time
+>>> time.localtime()
+time.struct_time(tm_year=2018, tm_mon=6, tm_mday=25, tm_hour=13, tm_min=44, tm_sec=30, tm_wday=0, tm_yday=176, tm_isdst=0)
+
+# UTC时区的struct_time
+>>> time.gmtime()
+time.struct_time(tm_year=2018, tm_mon=6, tm_mday=25, tm_hour=5, tm_min=44, tm_sec=44, tm_wday=0, tm_yday=176, tm_isdst=0)
+
+# 接收struct_time对象作为参数，返回用秒数来表示时间的浮点数
+>>> time.mktime(time.localtime())
+1529920484.0
+
+# time.asctime()
+# struct_time -> '%a %b %d %H:%M:%S %Y'
+>>> time.asctime(time.localtime())
+'Mon Jun 25 18:04:02 2018'
+
+# time.ctime()
+# timestamp -> '%a %b %d %H:%M:%S %Y'
+>>> time.ctime(time.time())
+'Mon Jun 25 18:04:23 2018'
+
+# time.sleep()
+# 调用time.sleep来挂起当前进程。time.sleep接收一个浮点型参数，表示进程挂起的时间。
+>>> time.sleep(3.6)
+
+# time.clock()
+# 在Windows上，返回第一次调用该方法到现在的秒数，精确度高于1微秒
+# 可用来记录程序执行时间
+>>> time.clock()
+3.208019535555764e-07
+>>> time.clock()
+1.8889197571657532
+```
+
+> UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在我国为UTC+8。
+
+> DST（Daylight Saving Time，夏令时），又称阳光节约时。是一种为节约能源而人为调整地方时间的制度，利用夏季天亮得早这一自然现象，人为地将时间提前一小时。这样可以使人们早起早睡，以充分利用光照资源，减少照明时间，从而节约照明用电。
+
+![time](../../images/python_time_1.png)
+
+![time](../../images/python_time_2.png)
+
+
+
+# <p align="center">datetime</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
+
+datetime模块定义了以下几个类：
+
+* datetime.date：表示日期的类。常用属性有year，month，day；
+* datetime.time：表示时间的类。常用属性有hour，minute，second，microsecond；
+* datetime.datetime：表示日期时间的类；
+* datetime.timedelta：表示时间间隔，即两个时间点之间的长度；
+* datetime.tzinfo：与时区有关的相关信息。
+
+datetime模块定义了两个常量：datetime.MINYEAR和datetime.MAXYEAR，分别表示datetime所能表示的最小、最大年份。MINYEAR = 1，MAXYEAR = 9999。
+
+**注：以上类型的对象都是不可变（immutable）的。**
+
+### date类
+
+* #### class datetime.date(year, month, day)
+
+    * year的范围是[MINYEAR, MAXYEAR]，即[1, 9999]；
+    * month的范围是[1, 12]（月份从1开始）；
+    * day的最大值根据给定的year，month决定。例如闰年2月份有29天。
+
+* #### date类的常用类属性与类方法：
+
+    * date.max、date.min：date对象所能表示的最大、最小日期；
+    * date.resolution：date对象表示日期的最小单位，天；
+    * date.today()：返回表示当前本地日期的date对象；
+    * date.fromtimestamp(timestamp)：根据给定的时间戮，返回一个date对象；
+    * date.fromordinal(ordinal)：将Gregorian日历时间转换为date对象（Gregorian Calendar：一种日历表示方法，类似于我国的农历，西方国家使用较多，此处不详细讨论）。
+
+* #### date实例的常用属性与方法：
+    * date.year、date.month、date.day：年、月、日；
+    * date.replace([year[, month[, day]]])：生成一个新的日期对象（原有对象仍保持不变），用参数指定的年，月，日代替原有对象中的属性；
+    * date.timetuple()：返回对应的time.struct_time对象；
+    * date.toordinal()：返回对应的Gregorian Calendar日期；
+    * date.weekday()：返回星期几，0-6，0表示星期一；
+    * data.isoweekday()：返回星期几，1-7，1表示星期一；
+    * date.isocalendar()：返回一个元组，(year, month, day)；
+    * date.isoformat()：返回字符串，'YYYY-MM-DD'；
+    * date.strftime(fmt)：返回自定义格式化字符串。
+
+* #### date类对某些操作进行了重载，允许对日期进行如下操作：
+
+```python
+# date2 = date1 + timedelta   # 日期加上一个间隔，返回一个新的日期对象
+# date2 = date1 – timedelta   # 日期隔去间隔，返回一个新的日期对象
+# timedelta = date1 – date2   # 两个日期相减，返回一个时间间隔对象
+# date1 < date2               # 两个日期进行比较
+
+>>> now = date.today()
+>>> tomorrow = now.replace(day = 26)
+>>> delta = tomorrow - now
+>>> print("now:", now, "tomorrow:", tomorrow)
+now: 2018-06-25 tomorrow: 2018-06-26
+>>> print("timedelta:", delta)
+timedelta: 1 day, 0:00:00
+>>> print(now + delta)
+2018-06-26
+>>> print(tomorrow > now)
+True
+```
+
+**注：对日期进行操作时，要防止日期超出它所能表示的范围。**
+
+
+### time类
+
+* #### class datetime.time(hour[, minute[, second[, microsecond[, tzinfo]]]])
+    * hour范围，[0, 24)
+    * minute范围，[0, 60)
+    * second范围，[0, 60)
+    * microsecond范围，[0, 1000000)
+    * tzinfo表示时区信息
+
+* #### time类的常用类属性：
+    * time.min、time.max：time类所能表示的最小、最大时间。time.min = time(0, 0, 0, 0)， time.max = time(23, 59, 59, 999999)；
+    * time.resolution：time的最小单位，1微秒；
+
+* #### time实例的常用属性和方法：
+    * time.hour、time.minute、time.second、time.microsecond：时、分、秒、微秒；
+    * time.tzinfo：时区信息；
+    * time.replace([hour[, minute[, second[, microsecond[, tzinfo]]]]])：创建一个新的时间对象（原有对象仍保持不变），用参数指定的时、分、秒、微秒代替原有对象中的属性；
+    * time.isoformat()：返回字符串，'HH:MM:SS'；
+    * time.strftime(fmt)：返回自定义格式化字符串。
+
+
+### datetime类
+
+datetime是date与time的结合体，包括date与time的所有信息。
+
+* #### datetime.datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]])
+    * 要注意参数值的范围。
+
+* #### datetime类的常用类属性与类方法：
+    * datetime.min、datetime.max：datetime类所能表示的最小、最大值；
+    * datetime.resolution：datetime最小单位；
+    * datetime.today()：返回一个表示当前本地时间的datetime对象；
+    * datetime.now([tz])：返回一个表示当前本地时间的datetime对象，如果提供了参数tz，则获取tz参数所指时区的本地时间；
+    * datetime.utcnow()：返回一个当前UTC时间的datetime对象；
+    * datetime.fromtimestamp(timestamp[, tz])：根据时间戮创建datetime对象，参数tz指定时区信息；
+    * datetime.utcfromtimestamp(timestamp)：根据时间戮创建datetime对象；
+    * datetime.combine(date, time)：根据date和time，创建datetime对象；
+    * datetime.strptime(date_string, format)：将格式字符串转换为datetime对象。
+
+* #### datetime实例的常用属性与方法：
+    * datetime.year、month、day、hour、minute、second、microsecond、tzinfo；
+    * datetime.date()：获取date对象；
+    * datetime.time()：获取time对象；
+    * datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])；
+    * datetime.timetuple()；
+    * datetime.utctimetuple()；
+    * datetime.toordinal()；
+    * datetime.weekday()；
+    * datetime.isocalendar()；
+    * datetime.isoformat([sep])；
+    * datetime.ctime()：返回一个'Mon Jun 25 19:51:43 2018'格式的字符串，等效于time.ctime(time.mktime(dt.timetuple()))；
+    * datetime.strftime(format)。
+
+
+### 格式化字符串
+
+datetime、date、time都提供了strftime()方法，该方法接收一个格式字符串，输出日期时间的字符串表示。
+
+|符号|意义|
+|:---|:---|
+|%a|星期几的简写，'Mon'|
+|%A|星期几的全称，'Monday'|
+|%b|月份的简写，'Jun'|
+|%B|月份的全称，'June'|
+|%c|标准的日期和时间时间串，'Mon Jun 25 14:18:09 2018'|
+|%C|年份的前两位数字，'20'|
+|%d|每月的第几天[01, 31]，'01'|
+|%D|月/天/年，'06/01/18'|
+|%e|每月的第几天[1, 31]，' 1'（注意1前面有一个空格），'25'|
+|%f|微秒[0, 999999]|
+|%F|年-月-日，'2018-06-05'|
+|%g|年份的后两位数字[00, 99]，'09'|
+|%G|年份[0001, 9999]，'2018'，使用基于周的年|
+|%h|简写的月份名，'Jun'|
+|%H|24小时制的小时[00, 23]，'00'，'14'|
+|%I|12小时制的小时[01, 12]，'01'，'12'|
+|%j|每年的第几天[001, 366]，'001'，'176'，'366'|
+|%m|月份[01, 12]，'06'|
+|%M|分钟数[00, 59]，'00'，'28'|
+|%n|新行符，'\n'|
+|%p|本地的AM或PM的等价显示，'PM'|
+|%r|12小时制的时间，'02:01:08 PM'|
+|%R|小时和分钟，hh:mm，'14:31'，'04:01'|
+|%S|秒数[00, 60]，'05'，'60'|
+|%t|水平制表符，'\t'|
+|%T|时:分:秒，hh:mm:ss，'04:03:04'，'14:03:04'|
+|%u|星期几[1, 7]，星期一为1，'1'|
+|%U|每年的第几周[00, 53]，把星期日当做标记，'00'（2018-01-01，星期一），'01'（2017-01-01，星期日）|
+|%V|每年的第几周[00, 53]，'53'（2016-01-01，星期五），'52'（2017-01-01，星期日），使用基于周的年|
+|%w|星期几[0, 6]，星期日为0，'0'，'1'|
+|%W|每年的第几周[00, 53]，把星期一当做标记，'01'（2018-01-01，星期一），'00'（2017-01-01，星期日），'01'（2017-01-02，星期一）|
+|%x|标准的日期字符串，'06/05/18'|
+|%X|标准的时间字符串，'06:08:00'|
+|%y|年份的后两位[00, 99]，'18'|
+|%Y|年份[0001, 9999]，'2018'，'0001'|
+|%z|当前时区与格林威治标准时间的时间差，'+0800'|
+|%Z|当前时区的名称，'CST'|
+|%%|百分号，'%'|
