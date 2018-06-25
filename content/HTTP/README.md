@@ -1,10 +1,25 @@
-# HTTP
+# 目录
 
-## TCP/IP协议族
+* [TCP/IP协议族](#tcpip协议族)
+    * [TCP/IP四层模型](#tcpip四层模型)
+    * [负责域名解析的DNS服务](#负责域名解析的dns服务)
+    * [确保可靠性的TCP协议](#确保可靠性的tcp协议) 
+    * [负责传输的IP协议](#负责传输的ip协议)    
+* [HTTP协议](#http协议)
+    * [HTTP报文](#http报文)
+
+
+
+
+# <p align="center">TCP/IP协议族</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
 
 先简单介绍一下TCP/IP协议族。通常使用的网络（包括互联网）是在TCP/IP协议族的基础上运作的，它包含了各种各样的内容：从电缆规格到IP地址选定方法、寻找异地用户的方法、双方建立通信的顺序，以及Web页面显示的处理步骤等等。HTTP是它的一个子集。
 
 ![TCP/IP协议族](../images/http_tcpip_1.png)
+
+## TCP/IP四层模型
 
 TCP/IP协议族是分层的，它借鉴了OSI（Open System Interconnection）七层网络模型建立TCP/IP四层模型：
 * 应用层：决定了向用户提供应用服务时的通信的活动；
@@ -16,9 +31,9 @@ TCP/IP协议族是分层的，它借鉴了OSI（Open System Interconnection）�
 
 <table>
     <tr>
-        <td><strong>OSI七层网络模型</strong></td>
-        <td><strong>TCP/IP四层模型</strong></td>
-        <td><strong>对应的网络协议</strong></td>
+        <th>OSI七层网络模型</th>
+        <th>TCP/IP四层模型</th>
+        <th>对应的网络协议</th>
     </tr>
     <tr>
         <td>应用层（Application）</td>
@@ -70,23 +85,18 @@ IMAP4: Internet Mail Access Protocol
 ![TCP/IP基础：数据封装](../images/http_tcpip_3.jpg)
 
 
-### 负责传输的IP协议
+## 负责域名解析的DNS服务
 
-IP（Internet Protocol，网际协议），位于网络层。可能有人会把“IP”和“IP地址”搞混，“IP”其实是一种协议名称。
+DNS（Domain Name System，域名系统），位于应用层，提供域名到IP地址之间的解析服务。
 
-IP协议的作用是把各种数据包传送给对方，而要确保传送到对方哪里，最重要满足两个条件：IP地址和MAC地址（Media Access Control Address）。
+计算机可以被赋予IP地址，也可以被赋予主机名和域名。比如：www.hackr.jp。
 
-* IP地址指明节点被分配到的地址，IP地址可变换；
-* MAC地址指网卡所属的固定地址，MAC地址基本不会改变。
+用户通常使用主机名或域名来访问对方计算机，而计算机则是通过IP地址来寻找计算机。因此，DNS服务应运而生：DNS协议提供通过域名查找IP地址，或通过IP地址反查域名的服务。
 
-在网络中，通信双方通常要经过多台计算机和网络设备中转才能连接到对方。在进行中转时，会利用下一站中转设备的MAC地址来搜索下一个中转目标。这是会使用ARP协议（Address Resolution Protocol，地址解析协议）：ARP是一种用来解析地址的协议，可以根据IP地址反查出对应的MAC地址。
-
-在到达通信目标前的中转过程中，无论哪台计算机、哪台网络设备都无法全面掌握网络中的细节，它们只能获取粗略的传输路线，这种机制叫做路由选择（routing）。
-
-![路由选择](../images/http_tcpip_routing.png)
+![DNS服务](../images/http_tcpip_dns.png)
 
 
-### 确保可靠性的TCP协议
+## 确保可靠性的TCP协议
 
 TCP（Transmission Control Protocol，传输控制协议），位于传输层，提供可靠地字节流服务。
 
@@ -105,19 +115,30 @@ TCP（Transmission Control Protocol，传输控制协议），位于传输层，
 ![TCP三次握手](../images/http_tcpip_three-way_handshaking.png)
 
 
-### 负责域名解析的DNS服务
+## 负责传输的IP协议
 
-DNS（Domain Name System，域名系统），位于应用层，提供域名到IP地址之间的解析服务。
+IP（Internet Protocol，网际协议），位于网络层。可能有人会把“IP”和“IP地址”搞混，“IP”其实是一种协议名称。
 
-计算机可以被赋予IP地址，也可以被赋予主机名和域名。比如：www.hackr.jp。
+IP协议的作用是把各种数据包传送给对方，而要确保传送到对方哪里，最重要满足两个条件：IP地址和MAC地址（Media Access Control Address）。
 
-用户通常使用主机名或域名来访问对方计算机，而计算机则是通过IP地址来寻找计算机。因此，DNS服务应运而生：DNS协议提供通过域名查找IP地址，或通过IP地址反查域名的服务。
+* IP地址指明节点被分配到的地址，IP地址可变换；
+* MAC地址指网卡所属的固定地址，MAC地址基本不会改变。
 
-![DNS服务](../images/http_tcpip_dns.png)
+在网络中，通信双方通常要经过多台计算机和网络设备中转才能连接到对方。在进行中转时，会利用下一站中转设备的MAC地址来搜索下一个中转目标。这是会使用ARP协议（Address Resolution Protocol，地址解析协议）：ARP是一种用来解析地址的协议，可以根据IP地址反查出对应的MAC地址。
+
+在到达通信目标前的中转过程中，无论哪台计算机、哪台网络设备都无法全面掌握网络中的细节，它们只能获取粗略的传输路线，这种机制叫做路由选择（routing）。
+
+![路由选择](../images/http_tcpip_routing.png)
+
+**IP协议、TCP协议和DNS服务在使用HTTP协议的通信过程中各自发挥的作用：**
 
 ![HTTP通信](../images/http_tcpip.png)
 
 
+
+# <p align="center">HTTP协议</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
 
 HTTP（HyperText Transfer Protocol），超文本传输协议，是应用层协议，是一种请求/响应式的协议。一个客户端与服务器建立连接后，发送一个请求给服务器；服务器接到请求后，给予相应的响应信息。
 
@@ -146,10 +167,18 @@ HTTPS，安全增强版的HTTP，S表示TLS、SSL。HTTPS是HTTP与安全套接�
             ```http
             GET /index.html HTTP/1.1
             ```
-        * 首部字段，包含表示请求的各种条件和属性的各类首部：
-            * 请求首部字段
-            * 通用首部字段
-            * 实体首部字段
+        * 首部字段（字段名: 字段值）：
+            > 使用首部字段是为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容。
+
+            1. 通用首部字段（General Header Fields）
+                > 请求报文和响应报文都会使用的首部。
+
+            2. 请求首部字段（Request Header Fields）
+                > 客户端向服务器端发送请求报文时使用的首部。补充了请求的附加内容、客户端信息、响应内容相关优先级等信息。
+
+            3. 实体首部字段（Entity Header Fields）
+                > 针对请求报文的实体部分使用的首部。补充了资源内容更新时间等与实体有关的信息。
+
         * 其他，可能包含HTTP的RFC里未定义的首部（Cookie等）。
     * 空行（CR+LF），首部结束标志
     * 报文主体，这部分并不是每个请求必须的。
@@ -174,9 +203,156 @@ HTTPS，安全增强版的HTTP，S表示TLS、SSL。HTTPS是HTTP与安全套接�
             HTTP/1.1 200 OK
             ```
         * 首部字段，包含表示响应的各种条件和属性的各类首部：
-            * 请求首部字段
-            * 通用首部字段
-            * 实体首部字段
+            > 使用首部字段是为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容。
+
+            1. 通用首部字段（General Header Fields）
+                > 请求报文和响应报文都会使用的首部。
+
+                <table>
+                    <tr>
+                        <th>首部字段名</th><th>说明</th>
+                    </tr>
+                    <tr>
+                        <td>Cache-Control</td><td>控制缓存的行为</td>
+                    </tr>
+                    <tr>
+                        <td>Connection</td><td>逐跳首部、连接的管理</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td><td>创建报文的日期时间</td>
+                    </tr>
+                    <tr>
+                        <td>Pragma</td><td>报文指令</td>
+                    </tr>
+                    <tr>
+                        <td>Trailer</td><td>报文末端的首部一览</td>
+                    </tr>
+                </table>
+
+            2. 响应首部字段（Response Header Fields）
+                > 服务器端向客户端返回响应报文时使用的首部。补充了响应的附加内容，也会要求客户端附加额外的内容信息。
+
+                |首部字段名|说明|
+                |:---|:---|
+                |Accept-Ranges|是否接受字节范围请求|
+                |Age|推算资源创建经过时间|
+                |ETag|资源的匹配信息|
+                |Location|令客户端重定向至指定URI|
+                |Proxy-Authenticate|代理服务器对客户端的认证信息|
+                |Retry-After|对再次发起请求的时机要求|
+                |Server|HTTP服务器的安装信息|
+                |Vary|代理服务器缓存的管理信息|
+                |WWW-Authenticate|服务器对客户端的认证信息|
+            
+            3. 实体首部字段（Entity Header Fields）
+                > 针对响应报文实体部分使用的首部。补充了资源内容更新时间等与实体有关的信息。
+
+                |首部字段名|说明|
+                |:---|:---|
+                |Allow|资源可支持的HTTP方法|
+                |Content-Encoding|实体主体适用的编码方式|
+                |Content-Language|实体主体的自然语言|
+                |Content-Length|实体主体的大小（单位：字节）|
+                |Content-Location|替代对应资源的URI|
+                |Content-MD5|实体主体的报文摘要|
+                |Content-Range|实体主体的位置范围|
+                |Content-Type|实体主体的媒体联系|
+                |Expires|实体主体过期的日期时间|
+                |Last-Modified|资源的最后修改日期时间|
+
         * 其他，可能包含HTTP的RFC里未定义的首部（Cookie等）。
     * 空行（CR+LF），首部结束标志。
     * 报文主体
+
+
+
+
+    通用首部字段
+
+<table>
+	<th>
+		<td>首部字段名</td><td>说明</td>
+	</th>
+	<tr>
+		<td>Cache-Control</td><td>控制缓存的行为</td>
+	</tr>
+	<tr>
+		<td>Connection</td><td>逐跳首部、连接的管理</td>
+	</tr>
+	<tr>
+		<td>Date</td><td>创建报文的日期时间</td>
+	</tr>
+	<tr>
+		<td>Pragma</td><td>报文指令</td>
+	</tr>
+	<tr>
+		<td>Trailer</td><td>报文末端的首部一览</td>
+	</tr>
+</table>
+|首部字段名|说明|
+|:---|:---|
+|Cache-Control|控制缓存的行为|
+|Connection|逐跳首部、连接的管理|
+|Date|创建报文的日期时间|
+|Pragma|报文指令|
+|Trailer|报文末端的首部一览|
+|Transfer-Encoding|指定报文主体的传输编码方式|
+|Upgrade|升级为其他协议|
+|Via|代理服务器的相关信息|
+|Warning|错误通知|
+
+请求首部字段
+
+|首部字段名|说明|
+|:---|:---|
+|Accept|用户代理可处理的媒体类型|
+|Accept-Charset|优先的字符集|
+|Accept-Encoding|优先的内容编码|
+|Accept-Language|优先的语言（自然语言）|
+|Authorization|Web认证信息|
+|Expect|期待服务器的特定性为|
+|From|用户的电子邮箱地址|
+|Host|请求资源所在服务器|
+|If-Match|比较实体标记（ETag）|
+|If-Modified-Since|比较资源的更新时间|
+|If-None-Match|比较实体标记（与If-Match相反）|
+|If-Range|资源未更新时发送实体Byte的范围请求|
+|If-Unmodified-Since|比较资源的更新时间（与If-Modified-Since相反）|
+|Max-Forwards|最大传输逐跳数|
+|Proxy-Authorization|代理服务器要求客户端的认证信息|
+|Range|实体的字节范围请求|
+|Referer|对请求中URI的原始获取方|
+|TE|传输编码的优先级|
+|User-Agent|HTTP客户端程序的信息|
+
+
+响应首部字段
+
+|首部字段名|说明|
+|:---|:---|
+|Accept-Ranges|是否接受字节范围请求|
+|Age|推算资源创建经过时间|
+|ETag|资源的匹配信息|
+|Location|令客户端重定向至指定URI|
+|Proxy-Authenticate|代理服务器对客户端的认证信息|
+|Retry-After|对再次发起请求的时机要求|
+|Server|HTTP服务器的安装信息|
+|Vary|代理服务器缓存的管理信息|
+|WWW-Authenticate|服务器对客户端的认证信息|
+
+
+实体首部字段
+
+|首部字段名|说明|
+|:---|:---|
+|Allow|资源可支持的HTTP方法|
+|Content-Encoding|实体主体适用的编码方式|
+|Content-Language|实体主体的自然语言|
+|Content-Length|实体主体的大小（单位：字节）|
+|Content-Location|替代对应资源的URI|
+|Content-MD5|实体主体的报文摘要|
+|Content-Range|实体主体的位置范围|
+|Content-Type|实体主体的媒体联系|
+|Expires|实体主体过期的日期时间|
+|Last-Modified|资源的最后修改日期时间|
+
