@@ -848,10 +848,10 @@ Linux系统中一切都是文件，Linux系统使用不同的字符来区分不�
 
 <table>
     <tr>
-        <td colspan="1" style="background-color: gray; font-weight: bolder;">权限分配</td>
-        <td colspan="3" style="background-color: gray; font-weight: bolder;">文件所有者</td>
-        <td colspan="3" style="background-color: gray; font-weight: bolder;">文件所属组</td>
-        <td colspan="3" style="background-color: gray; font-weight: bolder;">其他用户</td>
+        <th colspan="1" style="background-color: gray;">权限分配</th>
+        <th colspan="3" style="background-color: gray;">文件所有者</th>
+        <th colspan="3" style="background-color: gray;">文件所属组</th>
+        <th colspan="3" style="background-color: gray;">其他用户</th>
     </tr>
     <tr>
     	<td>权限项</td>
