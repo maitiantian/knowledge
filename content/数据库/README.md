@@ -29,7 +29,7 @@
 
 ### 隔离级别
 
-SET Transaction Isolation Level
+SET Transaction Isolation Level { READ COMMITTED | READ UNCOMMITTED | REPEATABLE READ | SERIALIZABLE };
 
 1. READ UNCOMMITTED
 
@@ -55,14 +55,15 @@ SET Transaction Isolation Level
 
     **不可重复读对应的是修改，即UPDATE操作**。但是可能还会有幻读问题。因为**幻读问题对应的是插入INSERT操作**，不是UPDATE操作。
 
-    程序员某天去消费，花了2千元，这时他的老婆去查看他今天的消费记录（老婆事务开启），看到确实是花了2千元，就在这时，程序员又花了1万元买了一部电脑，即新增INSERT了一条消费记录，并提交。当老婆打印程序员的消费记录清单时（老婆事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。
+    程序员某天去消费，花了2千元，这时他的老婆去查看他今天的消费记录（老婆事务开启，查询），看到确实是花了2千元，就在这时，程序员又花了1万元买了一部电脑，即新增INSERT了一条消费记录，并提交。当老婆打印程序员的消费记录清单时（老婆事务提交，查询），发现花了1.2万元，似乎出现了幻觉，这就是幻读。
 
 4. SERIALIZABLE
 
-    SERIALIZABLE是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。
+    SERIALIZABLE是最高的事务隔离级别，在该级别下，**事务串行化顺序执行**，可以避免脏读、不可重复读与幻读。
     
     但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。
 
 
 * SQL Server，Oracle默认的隔离级别是READ COMMITTED；
-* MySQL默认的隔离级别是REPEATABLE READ。
+* MySQL默认的隔离级别是REPEATABLE READ；
+* 一次只能设置一个选项，且设置的选项将一直对那个连接保持有效，直到显式更改该选项为止。这是默认行为，除非在语句的FROM子句中在表级上指定优化选项。

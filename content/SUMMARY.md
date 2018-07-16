@@ -2,6 +2,10 @@
 
 * [前言](README.md)
 * [CS基础](CS基础/README.md)
+    * [数据结构](CS基础/数据结构/README.md)
+    * [算法](CS基础/算法/README.md)
+        * [排序](CS基础/算法/排序/README.md)
+        * [查找](CS基础/算法/查找/README.md)
 * [Git](Git/README.md)
 * [Front-End](Front-End/README.md)
     * [HTML](Front-End/HTML/README.md)
