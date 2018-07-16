@@ -1,0 +1,1423 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>用户身份与文件权限 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../存储结构与磁盘划分/" />
+    
+    
+    <link rel="prev" href="../supervisor/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../CS基础/">
+            
+                <a href="../../CS基础/">
+            
+                    
+                    CS基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../CS基础/数据结构/">
+            
+                <a href="../../CS基础/数据结构/">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../CS基础/数据结构/线性表/">
+            
+                <a href="../../CS基础/数据结构/线性表/">
+            
+                    
+                    线性表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../CS基础/数据结构/栈与队列/">
+            
+                <a href="../../CS基础/数据结构/栈与队列/">
+            
+                    
+                    栈与队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../CS基础/数据结构/树/">
+            
+                <a href="../../CS基础/数据结构/树/">
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../CS基础/算法/">
+            
+                <a href="../../CS基础/算法/">
+            
+                    
+                    算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../CS基础/算法/排序/">
+            
+                <a href="../../CS基础/算法/排序/">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../CS基础/算法/查找/">
+            
+                <a href="../../CS基础/算法/查找/">
+            
+                    
+                    查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../Git/">
+            
+                <a href="../../Git/">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../Git/常用Git命令/">
+            
+                <a href="../../Git/常用Git命令/">
+            
+                    
+                    常用Git命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../Git/Issue/">
+            
+                <a href="../../Git/Issue/">
+            
+                    
+                    Issue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../Git/工作流程及分支管理/">
+            
+                <a href="../../Git/工作流程及分支管理/">
+            
+                    
+                    工作流程及分支管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../Git/Git使用规范流程/">
+            
+                <a href="../../Git/Git使用规范流程/">
+            
+                    
+                    Git使用规范流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Front-End/">
+            
+                <a href="../../Front-End/">
+            
+                    
+                    Front-End
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Front-End/HTML/">
+            
+                <a href="../../Front-End/HTML/">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Front-End/CSS/">
+            
+                <a href="../../Front-End/CSS/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../Front-End/CSS/line-height/">
+            
+                <a href="../../Front-End/CSS/line-height/">
+            
+                    
+                    line-height
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../Front-End/JavaScript/">
+            
+                <a href="../../Front-End/JavaScript/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Front-End/ES6/">
+            
+                <a href="../../Front-End/ES6/">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../Front-End/React/">
+            
+                <a href="../../Front-End/React/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../Front-End/webpack/">
+            
+                <a href="../../Front-End/webpack/">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../Python/">
+            
+                <a href="../../Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../Python/常用内建模块/">
+            
+                <a href="../../Python/常用内建模块/">
+            
+                    
+                    常用内建模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../Python/常用第三方模块/">
+            
+                <a href="../../Python/常用第三方模块/">
+            
+                    
+                    常用第三方模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../Python/Scrapy/">
+            
+                <a href="../../Python/Scrapy/">
+            
+                    
+                    Scrapy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../Python/Django/">
+            
+                <a href="../../Python/Django/">
+            
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../Python/Flask/">
+            
+                <a href="../../Python/Flask/">
+            
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../HTTP/">
+            
+                <a href="../../HTTP/">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../HTTP/TCPIP协议族/">
+            
+                <a href="../../HTTP/TCPIP协议族/">
+            
+                    
+                    TCP/IP协议族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../HTTP/HTTP报文/">
+            
+                <a href="../../HTTP/HTTP报文/">
+            
+                    
+                    HTTP报文
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../基本命令/">
+            
+                <a href="../基本命令/">
+            
+                    
+                    基本命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../vim/">
+            
+                <a href="../vim/">
+            
+                    
+                    vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../tmux/">
+            
+                <a href="../tmux/">
+            
+                    
+                    tmux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../supervisor/">
+            
+                <a href="../supervisor/">
+            
+                    
+                    supervisor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    用户身份与文件权限
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../存储结构与磁盘划分/">
+            
+                <a href="../存储结构与磁盘划分/">
+            
+                    
+                    存储结构与磁盘划分
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../数据库/事务/">
+            
+                <a href="../../数据库/事务/">
+            
+                    
+                    事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../数据库/索引/">
+            
+                <a href="../../数据库/索引/">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../../数据库/存储过程/">
+            
+                <a href="../../数据库/存储过程/">
+            
+                    
+                    存储过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../健身/">
+            
+                <a href="../../健身/">
+            
+                    
+                    健身
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../摄影/">
+            
+                <a href="../../摄影/">
+            
+                    
+                    摄影
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >用户身份与文件权限</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;">&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;</h1>
+<ul>
+<li><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x80FD;&#x529B;">&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x80FD;&#x529B;</a></li>
+<li><a href="#&#x6587;&#x4EF6;&#x6743;&#x9650;&#x4E0E;&#x5F52;&#x5C5E;">&#x6587;&#x4EF6;&#x6743;&#x9650;&#x4E0E;&#x5F52;&#x5C5E;</a></li>
+<li><a href="#&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;">&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;</a></li>
+<li><a href="#&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;">&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;</a></li>
+<li><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;">&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;</a></li>
+<li><a href="#su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;">su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;</a></li>
+</ul>
+<h1 id="&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x80FD;&#x529B;"><p align="center">&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x80FD;&#x529B;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<blockquote>
+<p>&#x8BBE;&#x8BA1;Linux&#x7CFB;&#x7EDF;&#x7684;&#x521D;&#x8877;&#x4E4B;&#x4E00;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x6EE1;&#x8DB3;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x540C;&#x65F6;&#x5DE5;&#x4F5C;&#x7684;&#x9700;&#x6C42;&#x3002;&#x5728;&#x5B89;&#x88C5;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x65F6;&#x7279;&#x522B;&#x8981;&#x6C42;&#x8BBE;&#x7F6E;root&#x7BA1;&#x7406;&#x5458;&#x5BC6;&#x7801;&#xFF0C;root&#x7BA1;&#x7406;&#x5458;&#x5C31;&#x662F;&#x5B58;&#x5728;&#x4E8E;&#x6240;&#x6709;&#x7C7B;UNIX&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x8D85;&#x7EA7;&#x7528;&#x6237;&#x3002;&#x5B83;&#x62E5;&#x6709;&#x6700;&#x9AD8;&#x7684;&#x7CFB;&#x7EDF;&#x6240;&#x6709;&#x6743;&#xFF0C;&#x80FD;&#x591F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x7684;&#x5404;&#x9879;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x7528;&#x6237;&#x3001;&#x542F;&#x52A8;/&#x5173;&#x95ED;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#x3001;&#x5F00;&#x542F;/&#x7981;&#x7528;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x7B49;&#x3002;&#x4EE5;root&#x7BA1;&#x7406;&#x5458;&#x7684;&#x8EAB;&#x4EFD;&#x5DE5;&#x4F5C;&#x65F6;&#x4E0D;&#x4F1A;&#x53D7;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x9650;&#x5236;&#x3002;</p>
+</blockquote>
+<p>Linux&#x7CFB;&#x7EDF;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x4E4B;&#x6240;&#x4EE5;&#x662F;root&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x540D;&#x5B57;&#x53EB;root&#xFF0C;&#x800C;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x8EAB;&#x4EFD;&#x53F7;&#x7801;&#x5373;UID&#xFF08;User IDentification&#xFF09;&#x7684;&#x6570;&#x503C;&#x4E3A;0&#x3002;&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;UID&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x7801;&#x4E00;&#x6837;&#x5177;&#x6709;&#x552F;&#x4E00;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x901A;&#x8FC7;&#x7528;&#x6237;&#x7684;UID&#x503C;&#x6765;&#x5224;&#x65AD;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x3002;&#x5728;RHEL 7&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x6709;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#xFF1A;</p>
+<ul>
+<li>&#x7BA1;&#x7406;&#x5458;&#xFF0C;UID&#x4E3A;0&#xFF1A;&#x7CFB;&#x7EDF;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x7528;&#x6237;&#xFF1B;</li>
+<li>&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#xFF0C;UID&#x4E3A;1&#xFF5E;999&#xFF1A;Linux&#x4E3A;&#x907F;&#x514D;&#x56E0;&#x67D0;&#x4E2A;&#x670D;&#x52A1;&#x7A0B;&#x5E8F;&#x51FA;&#x73B0;&#x6F0F;&#x6D1E;&#x800C;&#x88AB;&#x9ED1;&#x5BA2;&#x63D0;&#x6743;&#x81F3;&#x6574;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9ED8;&#x8BA4;&#x670D;&#x52A1;&#x7A0B;&#x5E8F;&#x4F1A;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x8D1F;&#x8D23;&#x8FD0;&#x884C;&#xFF0C;&#x8FDB;&#x800C;&#x6709;&#x6548;&#x63A7;&#x5236;&#x88AB;&#x7834;&#x574F;&#x8303;&#x56F4;&#xFF1B;</li>
+<li>&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;UID&#x4ECE;1000&#x59CB;&#xFF1A;&#x7531;&#x7BA1;&#x7406;&#x5458;&#x521B;&#x5EFA;&#x7684;&#x7528;&#x4E8E;&#x65E5;&#x5E38;&#x5DE5;&#x4F5C;&#x7684;&#x7528;&#x6237;&#x3002;</li>
+</ul>
+<p><strong>UID&#x4E0D;&#x80FD;&#x51B2;&#x7A81;&#xFF0C;&#x4E14;&#x7BA1;&#x7406;&#x5458;&#x521B;&#x5EFA;&#x7684;&#x666E;&#x901A;&#x7528;&#x6237;&#x7684;UID&#x9ED8;&#x8BA4;&#x4ECE;1000&#x5F00;&#x59CB;&#xFF08;&#x5373;&#x4F7F;&#x524D;&#x9762;&#x6709;&#x95F2;&#x7F6E;&#x7684;&#x53F7;&#x7801;&#xFF09;&#x3002;</strong></p>
+<p>&#x4E3A;&#x65B9;&#x4FBF;&#x7BA1;&#x7406;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x7EC4;&#x7684;&#x7528;&#x6237;&#xFF0C;Linux&#x4E2D;&#x8FD8;&#x5F15;&#x5165;&#x4E86;&#x7528;&#x6237;&#x7EC4;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x7528;&#x6237;&#x7EC4;&#x53F7;&#x7801;&#xFF08;GID&#xFF0C;Group IDentification&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x52A0;&#x5165;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x7EC4;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x65B9;&#x4FBF;&#x4E3A;&#x7EC4;&#x4E2D;&#x7684;&#x7528;&#x6237;&#x7EDF;&#x4E00;&#x89C4;&#x5212;&#x6743;&#x9650;&#x6216;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x5728;Linux&#x4E2D;&#x521B;&#x5EFA;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;&#x5176;&#x540C;&#x540D;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;&#x53EA;&#x6709;&#x8BE5;&#x7528;&#x6237;&#x4E00;&#x4E2A;&#x4EBA;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x7528;&#x6237;&#x4EE5;&#x540E;&#x88AB;&#x5F52;&#x7EB3;&#x5165;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x7EC4;&#x79F0;&#x4E4B;&#x4E3A;&#x6269;&#x5C55;&#x7528;&#x6237;&#x7EC4;&#x3002;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x6269;&#x5C55;&#x7528;&#x6237;&#x7EC4;&#x3002;</p>
+<h3 id="useradd&#x547D;&#x4EE4;">useradd&#x547D;&#x4EE4;</h3>
+<p>useradd&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x7528;&#x6237;&#xFF1A;<strong>useradd [&#x9009;&#x9879;] &#x7528;&#x6237;&#x540D;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-d</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;/home/username&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">-e</td>
+<td style="text-align:left">&#x8D26;&#x6237;&#x7684;&#x5230;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x9ED8;&#x8BA4;UID</td>
+</tr>
+<tr>
+<td style="text-align:left">-g</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x7684;&#x7528;&#x6237;&#x57FA;&#x672C;&#x7EC4;&#xFF08;&#x5FC5;&#x987B;&#x5DF2;&#x5B58;&#x5728;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">-G</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6269;&#x5C55;&#x7528;&#x6237;&#x7EC4;</td>
+</tr>
+<tr>
+<td style="text-align:left">-N</td>
+<td style="text-align:left">&#x4E0D;&#x521B;&#x5EFA;&#x4E0E;&#x7528;&#x6237;&#x540C;&#x540D;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;</td>
+</tr>
+<tr>
+<td style="text-align:left">-s</td>
+<td style="text-align:left">&#x6307;&#x5B9A;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x9ED8;&#x8BA4;Shell&#x89E3;&#x91CA;&#x5668;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4F7F;&#x7528;&#x8BE5;&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x8D26;&#x6237;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x7528;&#x6237;&#x5BB6;&#x76EE;&#x5F55;&#x4F1A;&#x88AB;&#x5B58;&#x653E;&#x5728;/home&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;Shell&#x89E3;&#x91CA;&#x5668;&#x4E3A;/bin/bash&#xFF0C;&#x800C;&#x4E14;&#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0E;&#x8BE5;&#x7528;&#x6237;&#x540C;&#x540D;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;&#x3002;</p>
+<h3 id="groupadd&#x547D;&#x4EE4;">groupadd&#x547D;&#x4EE4;</h3>
+<p>groupadd&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;&#xFF1A;<strong>groupadd [&#x9009;&#x9879;] &#x7FA4;&#x7EC4;&#x540D;</strong></p>
+<h3 id="usermod&#x547D;&#x4EE4;">usermod&#x547D;&#x4EE4;</h3>
+<p>usermod&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x7528;&#x6237;&#x5C5E;&#x6027;&#xFF1A;<strong>usermod [&#x9009;&#x9879;] &#x7528;&#x6237;&#x540D;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-c</td>
+<td style="text-align:left">&#x586B;&#x5199;&#x7528;&#x6237;&#x8D26;&#x6237;&#x7684;&#x5907;&#x6CE8;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left">-d -m</td>
+<td style="text-align:left">-m&#x4E0E;-d&#x8FDE;&#x7528;&#xFF0C;&#x53EF;&#x91CD;&#x65B0;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#x5E76;&#x81EA;&#x52A8;&#x628A;&#x65E7;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x79FB;&#x8FC7;&#x53BB;</td>
+</tr>
+<tr>
+<td style="text-align:left">-e</td>
+<td style="text-align:left">&#x8D26;&#x6237;&#x7684;&#x5230;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:left">-g</td>
+<td style="text-align:left">&#x53D8;&#x66F4;&#x6240;&#x5C5E;&#x7528;&#x6237;&#x7EC4;</td>
+</tr>
+<tr>
+<td style="text-align:left">-G</td>
+<td style="text-align:left">&#x53D8;&#x66F4;&#x6269;&#x5C55;&#x7528;&#x6237;&#x7EC4;</td>
+</tr>
+<tr>
+<td style="text-align:left">-L</td>
+<td style="text-align:left">&#x9501;&#x5B9A;&#x7528;&#x6237;&#x7981;&#x6B62;&#x5176;&#x767B;&#x5F55;&#x7CFB;&#x7EDF;</td>
+</tr>
+<tr>
+<td style="text-align:left">-U</td>
+<td style="text-align:left">&#x89E3;&#x9501;&#x7528;&#x6237;&#xFF0C;&#x5141;&#x8BB8;&#x5176;&#x767B;&#x5F55;&#x7CFB;&#x7EDF;</td>
+</tr>
+<tr>
+<td style="text-align:left">-s</td>
+<td style="text-align:left">&#x53D8;&#x66F4;&#x9ED8;&#x8BA4;&#x7EC8;&#x7AEF;</td>
+</tr>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">&#x4FEE;&#x6539;&#x7528;&#x6237;&#x7684;UID</td>
+</tr>
+</tbody>
+</table>
+<p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x4E5F;&#x5C31;&#x662F;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;/etc/passwd&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x6765;&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6237;&#x53C2;&#x6570;&#x9879;&#x76EE;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;usermod&#x547D;&#x4EE4;&#x4FEE;&#x6539;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="passwd&#x547D;&#x4EE4;-password">passwd&#x547D;&#x4EE4; (PASSWorD)</h3>
+<p>passwd&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x7528;&#x6237;&#x5BC6;&#x7801;&#x3001;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x3001;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x7B49;&#xFF1A;<strong>passwd [&#x9009;&#x9879;] [&#x7528;&#x6237;&#x540D;]</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-l</td>
+<td style="text-align:left">&#x9501;&#x5B9A;&#x7528;&#x6237;&#xFF0C;&#x7981;&#x6B62;&#x5176;&#x767B;&#x5F55;</td>
+</tr>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">&#x89E3;&#x9664;&#x9501;&#x5B9A;&#xFF0C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x767B;&#x5F55;</td>
+</tr>
+<tr>
+<td style="text-align:left">--stdin</td>
+<td style="text-align:left">&#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x4FEE;&#x6539;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x5982;echo &quot;NewPassWord&quot; \</td>
+<td>passwd --stdin Username</td>
+</tr>
+<tr>
+<td style="text-align:left">-d</td>
+<td style="text-align:left">&#x4F7F;&#x8BE5;&#x7528;&#x6237;&#x53EF;&#x7528;&#x7A7A;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x7CFB;&#x7EDF;</td>
+</tr>
+<tr>
+<td style="text-align:left">-e</td>
+<td style="text-align:left">&#x5F3A;&#x5236;&#x7528;&#x6237;&#x5728;&#x4E0B;&#x6B21;&#x767B;&#x5F55;&#x65F6;&#x4FEE;&#x6539;&#x5BC6;&#x7801;</td>
+</tr>
+<tr>
+<td style="text-align:left">-S</td>
+<td style="text-align:left">&#x663E;&#x793A;&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;&#x662F;&#x5426;&#x88AB;&#x9501;&#x5B9A;&#xFF0C;&#x4EE5;&#x53CA;&#x5BC6;&#x7801;&#x6240;&#x91C7;&#x7528;&#x7684;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x540D;&#x79F0;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x666E;&#x901A;&#x7528;&#x6237;&#x53EA;&#x80FD;&#x4F7F;&#x7528;passwd&#x547D;&#x4EE4;&#x4FEE;&#x6539;&#x81EA;&#x8EAB;&#x7684;&#x7CFB;&#x7EDF;&#x5BC6;&#x7801;&#xFF0C;&#x800C;root&#x7BA1;&#x7406;&#x5458;&#x5219;&#x6709;&#x6743;&#x9650;&#x4FEE;&#x6539;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x4EBA;&#x7684;&#x5BC6;&#x7801;&#x3002;</p>
+<h3 id="userdel&#x547D;&#x4EE4;">userdel&#x547D;&#x4EE4;</h3>
+<p>userdel&#x7528;&#x4E8E;&#x5220;&#x9664;&#x7528;&#x6237;&#xFF1A;<strong>userdel [&#x9009;&#x9879;] &#x7528;&#x6237;&#x540D;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-f</td>
+<td style="text-align:left">&#x5F3A;&#x5236;&#x5220;&#x9664;&#x7528;&#x6237;</td>
+</tr>
+<tr>
+<td style="text-align:left">-r</td>
+<td style="text-align:left">&#x540C;&#x65F6;&#x5220;&#x9664;&#x7528;&#x6237;&#x53CA;&#x7528;&#x6237;&#x5BB6;&#x76EE;&#x5F55;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x67D0;&#x4F4D;&#x7528;&#x6237;&#x540E;&#x7EED;&#x4E0D;&#x518D;&#x4F1A;&#x767B;&#x5F55;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;userdel&#x547D;&#x4EE4;&#x5220;&#x9664;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x6267;&#x884C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#x9ED8;&#x8BA4;&#x4F1A;&#x4FDD;&#x7559;&#x4E0B;&#x6765;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-r&#x53C2;&#x6570;&#x5C06;&#x5176;&#x5220;&#x9664;&#x3002;</p>
+<h1 id="&#x6587;&#x4EF6;&#x6743;&#x9650;&#x4E0E;&#x5F52;&#x5C5E;"><p align="center">&#x6587;&#x4EF6;&#x6743;&#x9650;&#x4E0E;&#x5F52;&#x5C5E;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;&#xFF0C;Linux&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x6765;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ul>
+<li>-&#xFF1A;&#x666E;&#x901A;&#x6587;&#x4EF6;</li>
+<li>d&#xFF1A;&#x76EE;&#x5F55;&#x6587;&#x4EF6;</li>
+<li>l&#xFF1A;&#x94FE;&#x63A5;&#x6587;&#x4EF6;</li>
+<li>b&#xFF1A;&#x5757;&#x8BBE;&#x5907;&#x6587;&#x4EF6;</li>
+<li>c&#xFF1A;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#x6587;&#x4EF6;</li>
+<li>p&#xFF1A;&#x7BA1;&#x9053;&#x6587;</li>
+</ul>
+<p>&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x6240;&#x5C5E;&#x7684;&#x6240;&#x6709;&#x8005;&#x548C;&#x6240;&#x6709;&#x7EC4;&#xFF0C;&#x5E76;&#x4E14;&#x89C4;&#x5B9A;&#x4E86;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8005;&#x3001;&#x6240;&#x6709;&#x7EC4;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x4EBA;&#x5BF9;&#x6587;&#x4EF6;&#x6240;&#x62E5;&#x6709;&#x7684;&#x53EF;&#x8BFB;&#xFF08;r&#xFF09;&#x3001;&#x53EF;&#x5199;&#xFF08;w&#xFF09;&#x3001;&#x53EF;&#x6267;&#x884C;&#xFF08;x&#xFF09;&#x7B49;&#x6743;&#x9650;&#x3002;</p>
+<p><strong>&#x5BF9;&#x4E8E;&#x4E00;&#x822C;&#x6587;&#x4EF6;</strong>&#xFF1A;&#x201C;&#x53EF;&#x8BFB;&#x201D;&#x8868;&#x793A;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x5B9E;&#x9645;&#x5185;&#x5BB9;&#xFF1B;&#x201C;&#x53EF;&#x5199;&#x201D;&#x8868;&#x793A;&#x80FD;&#x591F;&#x7F16;&#x8F91;&#x3001;&#x65B0;&#x589E;&#x3001;&#x4FEE;&#x6539;&#x3001;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x7684;&#x5B9E;&#x9645;&#x5185;&#x5BB9;&#xFF1B;&#x201C;&#x53EF;&#x6267;&#x884C;&#x201D;&#x5219;&#x8868;&#x793A;&#x80FD;&#x591F;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x7A0B;&#x5E8F;&#xFF1B;</p>
+<p><strong>&#x5BF9;&#x4E8E;&#x76EE;&#x5F55;&#x6587;&#x4EF6;</strong>&#xFF1A;&#x201C;&#x53EF;&#x8BFB;&#x201D;&#x8868;&#x793A;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x5185;&#x7684;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF1B;&#x201C;&#x53EF;&#x5199;&#x201D;&#x8868;&#x793A;&#x80FD;&#x591F;&#x5728;&#x76EE;&#x5F55;&#x5185;&#x65B0;&#x589E;&#x3001;&#x5220;&#x9664;&#x3001;&#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;&#xFF1B;&#x800C;&#x201C;&#x53EF;&#x6267;&#x884C;&#x201D;&#x5219;&#x8868;&#x793A;&#x80FD;&#x591F;&#x8FDB;&#x5165;&#x8BE5;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x3001;&#x5199;&#x3001;&#x6267;&#x884C;&#x6743;&#x9650;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A;rwx&#xFF0C;&#x4EA6;&#x53EF;&#x5206;&#x522B;&#x7528;&#x6570;&#x5B57;4&#x3001;2&#x3001;1&#x6765;&#x8868;&#x793A;&#xFF0C;&#x6587;&#x4EF6;&#x6240;&#x6709;&#x8005;&#xFF0C;&#x6240;&#x5C5E;&#x7EC4;&#x53CA;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x6743;&#x9650;&#x4E4B;&#x95F4;&#x65E0;&#x5173;&#x8054;&#x3002;</p>
+<table>
+    <tr>
+        <th colspan="1" style="background-color: gray;">&#x6743;&#x9650;&#x5206;&#x914D;</th>
+        <th colspan="3" style="background-color: gray;">&#x6587;&#x4EF6;&#x6240;&#x6709;&#x8005;</th>
+        <th colspan="3" style="background-color: gray;">&#x6587;&#x4EF6;&#x6240;&#x5C5E;&#x7EC4;</th>
+        <th colspan="3" style="background-color: gray;">&#x5176;&#x4ED6;&#x7528;&#x6237;</th>
+    </tr>
+    <tr>
+        <td>&#x6743;&#x9650;&#x9879;</td>
+        <td>&#x8BFB;</td>
+        <td>&#x5199;</td>
+        <td>&#x6267;&#x884C;</td>
+        <td>&#x8BFB;</td>
+        <td>&#x5199;</td>
+        <td>&#x6267;&#x884C;</td>
+        <td>&#x8BFB;</td>
+        <td>&#x5199;</td>
+        <td>&#x6267;&#x884C;</td>
+    </tr>
+    <tr>
+        <td>&#x5B57;&#x7B26;&#x8868;&#x793A;</td>
+        <td>r</td>
+        <td>w</td>
+        <td>x</td>
+        <td>r</td>
+        <td>w</td>
+        <td>x</td>
+        <td>r</td>
+        <td>w</td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <td>&#x6570;&#x5B57;&#x8868;&#x793A;</td>
+        <td>4</td>
+        <td>2</td>
+        <td>1</td>
+        <td>4</td>
+        <td>2</td>
+        <td>1</td>
+        <td>4</td>
+        <td>2</td>
+        <td>1</td>
+    </tr>
+</table>
+
+<p>&#x6587;&#x4EF6;&#x6743;&#x9650;&#x7684;&#x6570;&#x5B57;&#x6CD5;&#x8868;&#x793A;&#x57FA;&#x4E8E;&#x5B57;&#x7B26;&#x8868;&#x793A;&#xFF08;rwx&#xFF09;&#x7684;&#x6743;&#x9650;&#x8BA1;&#x7B97;&#x800C;&#x6765;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x662F;&#x7B80;&#x5316;&#x6743;&#x9650;&#x7684;&#x8868;&#x793A;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x82E5;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x4E3A;7&#x5219;&#x4EE3;&#x8868;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x5199;&#x3001;&#x53EF;&#x6267;&#x884C;&#xFF08;4+2+1&#xFF09;&#xFF1B;&#x82E5;&#x6743;&#x9650;&#x4E3A;6&#x5219;&#x4EE3;&#x8868;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x5199;&#xFF08;4+2&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x6240;&#x6709;&#x8005;&#x62E5;&#x6709;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x5199;&#x3001;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x5176;&#x6587;&#x4EF6;&#x6240;&#x5C5E;&#x7EC4;&#x62E5;&#x6709;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x5199;&#x7684;&#x6743;&#x9650;&#xFF1B;&#x800C;&#x4E14;&#x5176;&#x4ED6;&#x4EBA;&#x53EA;&#x6709;&#x53EF;&#x8BFB;&#x7684;&#x6743;&#x9650;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x5C31;&#x662F;rwxrw-r--&#xFF0C;&#x6570;&#x5B57;&#x6CD5;&#x8868;&#x793A;&#x5373;&#x4E3A;764&#x3002;</p>
+<p><img src="../../images/linux_rwx.png" alt="&#x6587;&#x4EF6;&#x5C5E;&#x6027;&#x4FE1;&#x606F;"></p>
+<p>&#x4E0A;&#x56FE;&#x5305;&#x542B;&#x4E86;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x3001;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3001;&#x6240;&#x6709;&#x8005;&#xFF08;&#x5C5E;&#x4E3B;&#xFF09;&#x3001;&#x6240;&#x5C5E;&#x7EC4;&#xFF08;&#x5C5E;&#x7EC4;&#xFF09;&#x3001;&#x5360;&#x7528;&#x7684;&#x78C1;&#x76D8;&#x5927;&#x5C0F;&#x3001;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x548C;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x666E;&#x901A;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x6709;&#x8005;&#x6743;&#x9650;&#x4E3A;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x5199;&#xFF08;rw-&#xFF09;&#xFF0C;&#x6240;&#x5C5E;&#x7EC4;&#x6743;&#x9650;&#x4E3A;&#x53EF;&#x8BFB;&#xFF08;r--&#xFF09;&#xFF0C;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x4EBA;&#x4E5F;&#x53EA;&#x6709;&#x53EF;&#x8BFB;&#x6743;&#x9650;&#xFF08;r--&#xFF09;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x78C1;&#x76D8;&#x5360;&#x7528;&#x5927;&#x5C0F;&#x662F;34298&#x5B57;&#x8282;&#xFF0C;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x7684;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x4E3A;4&#x6708;2&#x65E5;&#x7684;&#x51CC;&#x6668;23&#x5206;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x4E3A;install.log&#x3002;</p>
+<h1 id="&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;"><p align="center">&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<p>SUID&#x3001;SGID&#x4E0E;SBIT&#x662F;&#x5BF9;&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E;&#x4E00;&#x822C;&#x6743;&#x9650;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x5F25;&#x8865;&#x4E00;&#x822C;&#x6743;&#x9650;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="suid">SUID</h3>
+<p>&#x5BF9;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x8005;&#x4E34;&#x65F6;&#x62E5;&#x6709;&#x5C5E;&#x4E3B;&#x7684;&#x6743;&#x9650;&#xFF08;&#x4EC5;&#x5BF9;&#x62E5;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x6709;&#x6548;&#xFF09;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x53EF;&#x4EE5;&#x6267;&#x884C;passwd&#x547D;&#x4EE4;&#x6765;&#x4FEE;&#x6539;&#x81EA;&#x5DF1;&#x7684;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x800C;&#x7528;&#x6237;&#x5BC6;&#x7801;&#x4FDD;&#x5B58;&#x5728;/etc/shadow&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x6743;&#x9650;&#x662F;000&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9664;&#x4E86;root&#x7BA1;&#x7406;&#x5458;&#x4EE5;&#x5916;&#xFF0C;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x6CA1;&#x6709;&#x67E5;&#x770B;&#x6216;&#x7F16;&#x8F91;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x4F7F;&#x7528;passwd&#x547D;&#x4EE4;&#x65F6;&#x5982;&#x679C;&#x52A0;&#x4E0A;SUID&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#xFF0C;&#x5C31;&#x53EF;&#x8BA9;&#x666E;&#x901A;&#x7528;&#x6237;&#x4E34;&#x65F6;&#x83B7;&#x5F97;&#x7A0B;&#x5E8F;&#x6240;&#x6709;&#x8005;&#x7684;&#x8EAB;&#x4EFD;&#xFF0C;&#x628A;&#x53D8;&#x66F4;&#x7684;&#x5BC6;&#x7801;&#x4FE1;&#x606F;&#x5199;&#x5165;&#x5230;shadow&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<p>&#x8FD9;&#x5F88;&#x50CF;&#x53E4;&#x4EE3;&#x7684;&#x624B;&#x6301;&#x5C1A;&#x65B9;&#x5B9D;&#x5251;&#x7684;&#x94A6;&#x5DEE;&#x5927;&#x81E3;&#xFF0C;&#x4ED6;&#x624B;&#x6301;&#x7684;&#x5C1A;&#x65B9;&#x5B9D;&#x5251;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x7687;&#x4E0A;&#x7684;&#x6743;&#x5A01;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x60E9;&#x6212;&#x8D2A;&#x5B98;&#xFF0C;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x4ED6;&#x6C38;&#x4E45;&#x6210;&#x4E3A;&#x4E86;&#x7687;&#x4E0A;&#x3002;&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x3001;&#x4E34;&#x65F6;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x6388;&#x6743;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -l /etc/shadow</span>
+----------. 1 root root 1004 Jan 3 06:23 /etc/shadow
+[root@linuxprobe ~]<span class="hljs-comment"># ls -l /bin/passwd</span>
+-rwsr-xr-x. 1 root root 27832 Jan 29 2017 /bin/passwd
+</code></pre>
+<p>&#x67E5;&#x770B;passwd&#x547D;&#x4EE4;&#x5C5E;&#x6027;&#x65F6;&#x53D1;&#x73B0;&#x6240;&#x6709;&#x8005;&#x7684;&#x6743;&#x9650;&#x7531;rwx&#x53D8;&#x6210;&#x4E86;rws&#xFF0C;&#x5176;&#x4E2D;x&#x6539;&#x53D8;&#x6210;s&#x5C31;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x6587;&#x4EF6;&#x88AB;&#x8D4B;&#x4E88;&#x4E86; SUID &#x6743;&#x9650;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x539F;&#x672C;&#x7684;&#x6743;&#x9650;&#x662F;rw-&#xFF0C;&#x6CA1;&#x6709;x&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x90A3;&#x4E48;&#x88AB;&#x8D4B;&#x4E88;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x540E;&#x5C06;&#x53D8;&#x6210;&#x5927;&#x5199;&#x7684;S&#x3002;</p>
+<h3 id="sgid">SGID</h3>
+<p>SGID&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>&#x8BA9;&#x6267;&#x884C;&#x8005;&#x4E34;&#x65F6;&#x62E5;&#x6709;&#x5C5E;&#x7EC4;&#x7684;&#x6743;&#x9650;&#xFF08;&#x5BF9;&#x62E5;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF09;&#xFF1B;</li>
+<li>&#x5728;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x81EA;&#x52A8;&#x7EE7;&#x627F;&#x8BE5;&#x76EE;&#x5F55;&#x7684;&#x7528;&#x6237;&#x7EC4;&#xFF08;&#x53EA;&#x53EF;&#x4EE5;&#x5BF9;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF09;&#x3002;</li>
+</ul>
+<p>&#x65E9;&#x671F;&#x7684;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;/dev/kmem&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x5185;&#x6838;&#x7A0B;&#x5E8F;&#x8981;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6743;&#x9650;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-bash">cr--r----- 1 root system 2, 1 Feb 11 2017 kmem
+</code></pre>
+<p>&#x9664;&#x4E86;root&#x7BA1;&#x7406;&#x5458;&#x6216;&#x5C5E;&#x4E8E;system&#x7EC4;&#x6210;&#x5458;&#x5916;&#xFF0C;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x6CA1;&#x6709;&#x8BFB;&#x53D6;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x3002;</p>
+<p>&#x5E73;&#x65F6;&#x6211;&#x4EEC;&#x5728;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x7684;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x5728;&#x7528;&#x4E8E;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x7684;ps&#x547D;&#x4EE4;&#x6587;&#x4EF6;&#x4E0A;&#x589E;&#x52A0;SGID&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#x3002;&#x67E5;&#x770B;ps&#x547D;&#x4EE4;&#x6587;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-bash">-r-xr-sr-x 1 bin system 59346 Feb 11 2017 ps
+</code></pre>
+<p>&#x7531;&#x4E8E;ps&#x547D;&#x4EE4;&#x88AB;&#x589E;&#x52A0;&#x4E86;SGID&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x7528;&#x6237;&#x6267;&#x884C;&#x8BE5;&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x4E5F;&#x5C31;&#x4E34;&#x65F6;&#x83B7;&#x53D6;&#x5230;&#x4E86;system&#x7528;&#x6237;&#x7EC4;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x987A;&#x5229;&#x5730;&#x8BFB;&#x53D6;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x4E86;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x5176;&#x5F52;&#x5C5E;&#x7684;&#x6240;&#x6709;&#x8005;&#x548C;&#x6240;&#x5C5E;&#x7EC4;&#xFF0C;&#x5F53;&#x521B;&#x5EFA;&#x6216;&#x4F20;&#x9001;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5F52;&#x5C5E;&#x4E8E;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x7528;&#x6237;&#xFF08;&#x5373;&#x8BE5;&#x7528;&#x6237;&#x662F;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8005;&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x5728;&#x4E00;&#x4E2A;&#x90E8;&#x95E8;&#x5185;&#x8BBE;&#x7F6E;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#xFF0C;&#x8BA9;&#x90E8;&#x95E8;&#x5185;&#x7684;&#x6240;&#x6709;&#x4EBA;&#x5458;&#x90FD;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x90E8;&#x95E8;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x540E;&#xFF0C;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0A;&#x8BBE;&#x7F6E;SGID&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x90E8;&#x95E8;&#x5185;&#x7684;&#x4EFB;&#x4F55;&#x4EBA;&#x5458;&#x5728;&#x91CC;&#x9762;&#x521B;&#x5EFA;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x90FD;&#x4F1A;&#x5F52;&#x5C5E;&#x4E8E;&#x8BE5;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x5C5E;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6237;&#x7EC4;&#x3002;&#x6B64;&#x65F6;&#x7528;&#x5230;&#x7684;&#x662F;SGID&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x5373;&#x5728;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x81EA;&#x52A8;&#x7EE7;&#x627F;&#x8BE5;&#x76EE;&#x5F55;&#x7684;&#x7528;&#x6237;&#x7EC4;&#xFF08;&#x53EA;&#x53EF;&#x4EE5;&#x5BF9;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF09;&#x3002;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># cd /tmp</span>
+[root@linuxprobe tmp]<span class="hljs-comment"># mkdir testdir</span>
+[root@linuxprobe tmp]<span class="hljs-comment"># ls -ald testdir/</span>
+drwxr-xr-x. 2 root root 6 Feb 11 11:50 testdir/
+[root@linuxprobe tmp]<span class="hljs-comment"># chmod -Rf 777 testdir/</span>
+[root@linuxprobe tmp]<span class="hljs-comment"># chmod -Rf g+s testdir/</span>
+[root@linuxprobe tmp]<span class="hljs-comment"># ls -ald testdir/</span>
+drwxrwsrwx. 2 root root 6 Feb 11 11:50 testdir/
+
+// &#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;&#x597D;&#x76EE;&#x5F55;&#x7684;777&#x6743;&#x9650;&#xFF08;&#x786E;&#x4FDD;&#x666E;&#x901A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5411;&#x5176;&#x4E2D;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x5E76;&#x4E3A;&#x8BE5;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E86;SGID&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;
+
+[root@linuxprobe tmp]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Wed Feb 11 11:49:16 CST 2017 on pts/0
+[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">cd</span> /tmp/testdir/
+[linuxprobe@linuxprobe testdir]$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;linuxprobe.com&quot;</span> &gt; <span class="hljs-built_in">test</span>
+[linuxprobe@linuxprobe testdir]$ ls -al <span class="hljs-built_in">test</span>
+-rw-rw-r--. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
+</code></pre>
+<h4 id="chmod&#x547D;&#x4EE4;-change-mode">chmod&#x547D;&#x4EE4; (CHange MODe)</h4>
+<p>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;&#xFF1A;<strong>chmod [&#x53C2;&#x6570;] &#x6743;&#x9650; &#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;</strong></p>
+<p>&#x5982;&#x679C;&#x8981;&#x628A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x8BBE;&#x7F6E;&#x6210;&#x5176;&#x6240;&#x6709;&#x8005;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x53EF;&#x6267;&#x884C;&#x3001;&#x6240;&#x5C5E;&#x7EC4;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x3001;&#x5176;&#x4ED6;&#x4EBA;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6743;&#x9650;&#xFF0C;&#x5219;&#x76F8;&#x5E94;&#x7684;&#x5B57;&#x7B26;&#x6CD5;&#x8868;&#x793A;&#x4E3A;rwxrw----&#xFF0C;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#x6CD5;&#x8868;&#x793A;&#x4E3A;760&#x3002;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -al test</span>
+-rw-rw-r--. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
+[root@linuxprobe ~]<span class="hljs-comment"># chmod 760 test</span>
+[root@linuxprobe ~]<span class="hljs-comment"># ls -l test</span>
+-rwxrw----. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
+</code></pre>
+<h4 id="chown&#x547D;&#x4EE4;-change-owner">chown&#x547D;&#x4EE4; (CHange OWNer)</h4>
+<p>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;&#x8005;&#x548C;&#x6240;&#x5C5E;&#x7EC4;&#xFF1A;<strong>chown [&#x53C2;&#x6570;] &#x6240;&#x6709;&#x8005;:&#x6240;&#x5C5E;&#x7EC4; &#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x540D;&#x79F0;</strong></p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -l test</span>
+-rwxrw----. 1 linuxprobe root 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
+[root@linuxprobe ~]<span class="hljs-comment"># chown root:bin test</span>
+[root@linuxprobe ~]<span class="hljs-comment"># ls -l test</span>
+-rwxrw----. 1 root bin 15 Feb 11 11:50 <span class="hljs-built_in">test</span>
+</code></pre>
+<p>chmod&#x548C;chown&#x547D;&#x4EE4;&#x662F;&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5C5E;&#x6027;&#x548C;&#x6743;&#x9650;&#x7684;&#x6700;&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF0C;<strong><em>&#x5B83;&#x4EEC;&#x5728;&#x9488;&#x5BF9;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x5927;&#x5199;&#x53C2;&#x6570;-R&#x6765;&#x8868;&#x793A;&#x9012;&#x5F52;&#x64CD;&#x4F5C;</em></strong>&#xFF0C;&#x5373;&#x5BF9;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x6574;&#x4F53;&#x64CD;&#x4F5C;&#x3002;</p>
+<h3 id="sbit">SBIT</h3>
+<p>&#x5927;&#x5B66;&#x91CC;&#x7684;&#x5F88;&#x591A;&#x8001;&#x5E08;&#x90FD;&#x8981;&#x6C42;&#x5B66;&#x751F;&#x5C06;&#x4F5C;&#x4E1A;&#x4E0A;&#x4F20;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7279;&#x5B9A;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x4E3A;&#x9632;&#x6B62;&#x201C;&#x7834;&#x574F;&#x5206;&#x5B50;&#x201D;&#x5220;&#x9664;&#x5176;&#x4ED6;&#x540C;&#x5B66;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x8981;&#x8BBE;&#x7F6E;SBIT&#xFF08;Sticky Bit&#xFF09;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#x4E4B;&#x4FDD;&#x62A4;&#x4F4D;&#xFF09;&#x3002;SBIT&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#x53EF;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x53EA;&#x80FD;&#x5220;&#x9664;&#x81EA;&#x5DF1;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5F53;&#x5BF9;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E86;SBIT&#x7C98;&#x6EDE;&#x4F4D;&#x6743;&#x9650;&#x540E;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5C31;&#x53EA;&#x80FD;&#x88AB;&#x5176;&#x6240;&#x6709;&#x8005;&#x6267;&#x884C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x4E86;&#x3002;</p>
+<p>&#x5F53;&#x76EE;&#x5F55;&#x88AB;&#x8BBE;&#x7F6E;SBIT&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#x540E;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x5176;&#x4ED6;&#x4EBA;&#x6743;&#x9650;&#x90E8;&#x5206;&#x7684;x&#x6267;&#x884C;&#x6743;&#x9650;&#x5C31;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x6210;t&#x6216;&#x8005;T&#x3002;&#x539F;&#x672C;&#x6709;x&#x6267;&#x884C;&#x6743;&#x9650;&#x5219;&#x4F1A;&#x5199;&#x6210;t&#xFF0C;&#x539F;&#x672C;&#x6CA1;&#x6709;x&#x6267;&#x884C;&#x6743;&#x9650;&#x5219;&#x4F1A;&#x88AB;&#x5199;&#x6210;T&#x3002;</p>
+<pre><code class="lang-bash">[root@linuxprobe tmp]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Wed Feb 11 12:41:20 CST 2017 on pts/0
+[linuxprobe@linuxprobe tmp]$ ls -ald /tmp
+drwxrwxrwt. 17 root root 4096 Feb 11 13:03 /tmp
+[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">cd</span> /tmp
+[linuxprobe@linuxprobe tmp]$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Welcome to linuxprobe.com&quot;</span> &gt; <span class="hljs-built_in">test</span>
+[linuxprobe@linuxprobe tmp]$ chmod 777 <span class="hljs-built_in">test</span>
+[linuxprobe@linuxprobe tmp]$ ls -al <span class="hljs-built_in">test</span>
+-rwxrwxrwx. 1 linuxprobe linuxprobe 10 Feb 11 12:59 <span class="hljs-built_in">test</span>
+
+[root@linuxprobe tmp]<span class="hljs-comment"># su - blackshield</span>
+Last login: Wed Feb 11 12:41:29 CST 2017 on pts/1
+[blackshield@linuxprobe ~]$ <span class="hljs-built_in">cd</span> /tmp
+[blackshield@linuxprobe tmp]$ rm <span class="hljs-_">-f</span> <span class="hljs-built_in">test</span>
+rm: cannot remove &#x2018;<span class="hljs-built_in">test</span>&#x2019;: Operation not permitted
+</code></pre>
+<p><strong><em>&#x5176;&#x5B9E;&#xFF0C;&#x6587;&#x4EF6;&#x80FD;&#x5426;&#x88AB;&#x5220;&#x9664;&#x5E76;&#x4E0D;&#x53D6;&#x51B3;&#x4E8E;&#x81EA;&#x8EAB;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x800C;&#x662F;&#x770B;&#x5176;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x662F;&#x5426;&#x6709;&#x5199;&#x5165;&#x6743;&#x9650;&#x3002;</em></strong></p>
+<p>&#x5BF9;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;SBIT&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4F4D;&#xFF0C;&#x7528;chmod&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;o+t&#x4EE3;&#x8868;&#x8BBE;&#x7F6E;SBIT&#x4FDD;&#x62A4;&#x4F4D;&#x6743;&#x9650;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe tmp]<span class="hljs-comment"># cd ~</span>
+[root@linuxprobe ~]<span class="hljs-comment"># mkdir linux</span>
+[root@linuxprobe ~]<span class="hljs-comment"># chmod -R o+t linux/</span>
+[root@linuxprobe ~]<span class="hljs-comment"># ls -ld linux/</span>
+drwxr-xr-t. 2 root root 6 Feb 11 19:34 linux/
+</code></pre>
+<h1 id="&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;"><p align="center">&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x5C5E;&#x6027;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<p>Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x9664;&#x4E86;&#x5177;&#x5907;&#x4E00;&#x822C;&#x6743;&#x9650;&#x548C;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF0C;&#x5373;&#x88AB;&#x9690;&#x85CF;&#x8D77;&#x6765;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x88AB;&#x7528;&#x6237;&#x53D1;&#x89C9;&#x3002;</p>
+<p>&#x660E;&#x660E;&#x6743;&#x9650;&#x5145;&#x8DB3;&#x4F46;&#x5374;&#x65E0;&#x6CD5;&#x5220;&#x9664;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x6216;&#x4EC5;&#x80FD;&#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#x800C;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x6216;&#x5220;&#x9664;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x963B;&#x6B62;&#x4E86;&#x9ED1;&#x5BA2;&#x7BE1;&#x6539;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;&#x7684;&#x56FE;&#x8C0B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x79CD;&#x9690;&#x85CF;&#x6743;&#x9650;&#x4E5F;&#x4FDD;&#x969C;&#x4E86;Linux&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
+<h3 id="chattr&#x547D;&#x4EE4;-change-attribute">chattr&#x547D;&#x4EE4; (CHange ATTRibute)</h3>
+<p>&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF1A;<strong>chattr [+/-&#x53C2;&#x6570;] &#x6587;&#x4EF6;</strong></p>
+<ul>
+<li>&#x8981;&#x628A;&#x67D0;&#x4E2A;&#x9690;&#x85CF;&#x529F;&#x80FD;&#x6DFB;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x4E0A;&#xFF0C;<strong>chattr +&#x53C2;&#x6570; &#x6587;&#x4EF6;</strong>&#xFF1B;</li>
+<li>&#x8981;&#x628A;&#x67D0;&#x4E2A;&#x9690;&#x85CF;&#x529F;&#x80FD;&#x79FB;&#x51FA;&#x6587;&#x4EF6;&#xFF0C;<strong>chattr -&#x53C2;&#x6570; &#x6587;&#x4EF6;</strong>&#x3002;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">i</td>
+<td style="text-align:left">&#x65E0;&#x6CD5;&#x5BF9;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF1B;&#x82E5;&#x5BF9;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E86;&#x8BE5;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4EC5;&#x80FD;&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x5B50;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x800C;&#x4E0D;&#x80FD;&#x65B0;&#x5EFA;&#x6216;&#x5220;&#x9664;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">&#x4EC5;&#x5141;&#x8BB8;&#x8865;&#x5145;&#xFF08;&#x8FFD;&#x52A0;&#xFF09;&#x5185;&#x5BB9;&#xFF0C;&#x65E0;&#x6CD5;&#x8986;&#x76D6;/&#x5220;&#x9664;&#x5185;&#x5BB9;&#xFF08;Append Only&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">S</td>
+<td style="text-align:left">&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5728;&#x53D8;&#x66F4;&#x540E;&#x7ACB;&#x5373;&#x540C;&#x6B65;&#x5230;&#x786C;&#x76D8;&#xFF08;sync&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">s</td>
+<td style="text-align:left">&#x5F7B;&#x5E95;&#x4ECE;&#x786C;&#x76D8;&#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x4E0D;&#x53EF;&#x6062;&#x590D;&#xFF08;&#x7528;0&#x586B;&#x5145;&#x539F;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x786C;&#x76D8;&#x533A;&#x57DF;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">&#x4E0D;&#x518D;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x6700;&#x540E;&#x8BBF;&#x95EE;&#x65F6;&#x95F4;&#xFF08;atime&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">b</td>
+<td style="text-align:left">&#x4E0D;&#x518D;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x5B58;&#x53D6;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">&#x68C0;&#x67E5;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td style="text-align:left">d</td>
+<td style="text-align:left">&#x4F7F;&#x7528;dump&#x547D;&#x4EE4;&#x5907;&#x4EFD;&#x65F6;&#x5FFD;&#x7565;&#x672C;&#x6587;&#x4EF6;/&#x76EE;&#x5F55;</td>
+</tr>
+<tr>
+<td style="text-align:left">c</td>
+<td style="text-align:left">&#x9ED8;&#x8BA4;&#x5C06;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x538B;&#x7F29;</td>
+</tr>
+<tr>
+<td style="text-align:left">u</td>
+<td style="text-align:left">&#x5F53;&#x5220;&#x9664;&#x8BE5;&#x6587;&#x4EF6;&#x540E;&#x4F9D;&#x7136;&#x4FDD;&#x7559;&#x5176;&#x5728;&#x786C;&#x76D8;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x65B9;&#x4FBF;&#x65E5;&#x540E;&#x6062;&#x590D;</td>
+</tr>
+<tr>
+<td style="text-align:left">t</td>
+<td style="text-align:left">&#x8BA9;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x5C3E;&#x90E8;&#x5408;&#x5E76;&#xFF08;tail-merging&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">X</td>
+<td style="text-align:left">&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># echo &quot;for Test&quot; &gt; linuxprobe</span>
+[root@linuxprobe ~]<span class="hljs-comment"># rm linuxprobe</span>
+rm: remove regular file &#x2018;linuxprobe&#x2019;? y
+
+[root@linuxprobe ~]<span class="hljs-comment"># echo &quot;for Test&quot; &gt; linuxprobe</span>
+[root@linuxprobe ~]<span class="hljs-comment"># chattr +a linuxprobe</span>
+[root@linuxprobe ~]<span class="hljs-comment"># rm linuxprobe</span>
+rm: remove regular file &#x2018;linuxprobe&#x2019;? y
+rm: cannot remove &#x2018;linuxprobe&#x2019;: Operation not permitted
+</code></pre>
+<h3 id="lsattr&#x547D;&#x4EE4;-list-attribute">lsattr&#x547D;&#x4EE4; (LiSt ATTRibute)</h3>
+<p>&#x7528;&#x4E8E;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#xFF1A;<strong>lsattr [&#x53C2;&#x6570;] &#x6587;&#x4EF6;</strong></p>
+<p><strong><em>&#x6587;&#x4EF6;&#x7684;&#x9690;&#x85CF;&#x6743;&#x9650;&#x5FC5;&#x987B;&#x4F7F;&#x7528;lsattr&#x547D;&#x4EE4;&#x6765;&#x67E5;&#x770B;&#xFF0C;&#x4F7F;&#x7528;ls&#x547D;&#x4EE4;&#x5219;&#x770B;&#x4E0D;&#x51FA;&#x6765;&#x3002;</em></strong></p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># ls -al linuxprobe</span>
+-rw-r--r--. 1 root root 9 Feb 12 11:42 linuxprobe
+
+[root@linuxprobe ~]<span class="hljs-comment"># lsattr linuxprobe</span>
+----<span class="hljs-_">-a</span>---------- linuxprobe
+[root@linuxprobe ~]<span class="hljs-comment"># chattr -a linuxprobe</span>
+[root@linuxprobe ~]<span class="hljs-comment"># lsattr linuxprobe</span>
+---------------- linuxprobe
+[root@linuxprobe ~]<span class="hljs-comment"># rm linuxprobe</span>
+rm: remove regular file &#x2018;linuxprobe&#x2019;? y
+</code></pre>
+<h1 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;"><p align="center">&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<blockquote>
+<p>&#x4E00;&#x822C;&#x6743;&#x9650;&#x3001;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x3001;&#x9690;&#x85CF;&#x6743;&#x9650;&#x6709;&#x4E00;&#x4E2A;&#x5171;&#x6027;&#xFF1A;&#x6743;&#x9650;&#x662F;&#x9488;&#x5BF9;&#x67D0;&#x4E00;&#x7C7B;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x7684;&#x3002;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x5BF9;&#x67D0;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x5355;&#x72EC;&#x7684;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5217;&#x8868;&#xFF08;ACL&#xFF09;&#x4E86;&#x3002;&#x901A;&#x4FD7;&#x6765;&#x8BB2;&#xFF0C;&#x57FA;&#x4E8E;&#x666E;&#x901A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;ACL&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x9488;&#x5BF9;&#x6307;&#x5B9A;&#x7684;&#x7528;&#x6237;&#x6216;&#x7528;&#x6237;&#x7EC4;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x7684;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#x3002;&#x5982;&#x679C;&#x9488;&#x5BF9;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E86;ACL&#xFF0C;&#x5219;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x7EE7;&#x627F;&#x5176;ACL&#xFF1B;&#x82E5;&#x9488;&#x5BF9;&#x6587;&#x4EF6;&#x8BBE;&#x7F6E;&#x4E86;ACL&#xFF0C;&#x5219;&#x6587;&#x4EF6;&#x4E0D;&#x518D;&#x7EE7;&#x627F;&#x5176;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x7684;ACL&#x3002;</p>
+</blockquote>
+<p>&#x5207;&#x6362;&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x8FDB;&#x5165;root&#x7BA1;&#x7406;&#x5458;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#x4E2D;&#x3002;&#x5728;&#x6CA1;&#x6709;&#x9488;&#x5BF9;&#x666E;&#x901A;&#x7528;&#x6237;&#x5BF9;root&#x7BA1;&#x7406;&#x5458;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;ACL&#x4E4B;&#x524D;&#xFF0C;&#x5176;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Sat Mar 21 16:31:19 CST 2017 on pts/0
+[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">cd</span> /root
+-bash: <span class="hljs-built_in">cd</span>: /root: Permission denied
+[linuxprobe@linuxprobe root]$ <span class="hljs-built_in">exit</span>
+</code></pre>
+<h3 id="setfacl&#x547D;&#x4EE4;-set-file-acl">setfacl&#x547D;&#x4EE4; (SET File ACL)</h3>
+<p>&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x6587;&#x4EF6;&#x7684;ACL&#x89C4;&#x5219;&#xFF1A;<strong>setfacl [&#x53C2;&#x6570;] &#x6587;&#x4EF6;&#x540D;&#x79F0;</strong></p>
+<p>&#x6587;&#x4EF6;&#x7684;ACL&#x63D0;&#x4F9B;&#x5728;&#x6240;&#x6709;&#x8005;&#x3001;&#x6240;&#x5C5E;&#x7EC4;&#x3001;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x8BFB;/&#x5199;/&#x6267;&#x884C;&#x6743;&#x9650;&#x4E4B;&#x5916;&#x7684;&#x7279;&#x6B8A;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x4F7F;&#x7528;setfacl&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x5355;&#x4E00;&#x7528;&#x6237;&#x6216;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x5355;&#x4E00;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x6765;&#x8FDB;&#x884C;&#x8BFB;/&#x5199;/&#x6267;&#x884C;&#x6743;&#x9650;&#x7684;&#x63A7;&#x5236;&#x3002;</p>
+<p>&#x9488;&#x5BF9;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x8981;&#x4F7F;&#x7528;-R&#x9012;&#x5F52;&#x53C2;&#x6570;&#xFF1B;&#x9488;&#x5BF9;&#x666E;&#x901A;&#x6587;&#x4EF6;&#x4F7F;&#x7528;-m&#x53C2;&#x6570;&#xFF1B;&#x8981;&#x5220;&#x9664;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x7684;ACL&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-b&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6765;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x5728;/root&#x76EE;&#x5F55;&#x4E0A;&#x7684;&#x6743;&#x9650;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># setfacl -Rm u:linuxprobe:rwx /root</span>
+[root@linuxprobe ~]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Sat Mar 21 15:45:03 CST 2017 on pts/1
+[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">cd</span> /root
+[linuxprobe@linuxprobe root]$ ls
+anaconda-ks.cfg Downloads Pictures Public
+[linuxprobe@linuxprobe root]$ cat anaconda-ks.cfg
+[linuxprobe@linuxprobe root]$ <span class="hljs-built_in">exit</span>
+</code></pre>
+<p>&#x7528;ls&#x547D;&#x4EE4;&#x770B;&#x4E0D;&#x5230;ACL&#x8868;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x70B9;&#xFF08;.&#xFF09;&#x53D8;
+&#x6210;&#x4E86;&#x52A0;&#x53F7;&#xFF08;+&#xFF09;,&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x4E86;ACL&#x4E86;&#x3002;</p>
+<h3 id="getfacl&#x547D;&#x4EE4;-get-file-acl">getfacl&#x547D;&#x4EE4; (GET File ACL)</h3>
+<p>&#x7528;&#x4E8E;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x4E0A;&#x8BBE;&#x7F6E;&#x7684;ACL&#x4FE1;&#x606F;&#xFF1A;<strong>getfacl &#x6587;&#x4EF6;&#x540D;&#x79F0;</strong></p>
+<p>&#x4E0B;&#x9762;&#x7528;getfacl&#x547D;&#x4EE4;&#x663E;&#x793A;&#x5728;root&#x7BA1;&#x7406;&#x5458;&#x5BB6;&#x76EE;&#x5F55;&#x4E0A;&#x8BBE;&#x7F6E;&#x7684;&#x6240;&#x6709;ACL&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># getfacl /root</span>
+getfacl: Removing leading <span class="hljs-string">&apos;/&apos;</span> from absolute path names
+<span class="hljs-comment"># file: root</span>
+<span class="hljs-comment"># owner: root</span>
+<span class="hljs-comment"># group: root</span>
+user::r-x
+user:linuxprobe:rwx
+group::r-x
+mask::rwx
+other::---
+</code></pre>
+<h1 id="su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;"><p align="center">su&#x547D;&#x4EE4;&#x4E0E;sudo&#x670D;&#x52A1;</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x4E0E;&#x6587;&#x4EF6;&#x6743;&#x9650;"><p align="right">back to top &#x25B2;</p></a></h6>
+<p>&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x8FD8;&#x662F;&#x8981;&#x5BF9;&#x5B89;&#x5168;&#x591A;&#x4E00;&#x4EFD;&#x656C;&#x754F;&#x4E4B;&#x5FC3;&#xFF0C;&#x4E0D;&#x8981;&#x7528;root&#x7BA1;&#x7406;&#x5458;&#x53BB;&#x505A;&#x6240;&#x6709;&#x4E8B;&#x60C5;&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x6267;&#x884C;&#x4E86;&#x9519;&#x8BEF;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x76F4;&#x63A5;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x3002;</p>
+<p>Linux&#x7CFB;&#x7EDF;&#x4E3A;&#x4E86;&#x5B89;&#x5168;&#x6027;&#x8003;&#x8651;&#xFF0C;&#x4F7F;&#x5F97;&#x8BB8;&#x591A;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x548C;&#x670D;&#x52A1;&#x53EA;&#x80FD;&#x88AB;root&#x7BA1;&#x7406;&#x5458;&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x8FD9;&#x4E5F;&#x8BA9;&#x666E;&#x901A;&#x7528;&#x6237;&#x53D7;&#x5230;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x6743;&#x9650;&#x675F;&#x7F1A;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x987A;&#x5229;&#x5B8C;&#x6210;&#x7279;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x4EFB;&#x52A1;&#x3002;</p>
+<h3 id="su&#x547D;&#x4EE4;-swith-user">su&#x547D;&#x4EE4; (Swith User)</h3>
+<p>&#x4F7F;&#x5F53;&#x524D;&#x7528;&#x6237;&#x5728;&#x4E0D;&#x9000;&#x51FA;&#x767B;&#x5F55;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5207;&#x6362;&#x5230;&#x5176;&#x4ED6;&#x7528;&#x6237;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># id</span>
+uid=0(root) gid=0(root) groups=0(root)
+[root@linuxprobe ~]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Wed Jan 4 01:17:25 EST 2017 on pts/0
+[linuxprobe@linuxprobe ~]$ id
+uid=1000(linuxprobe) gid=1000(linuxprobe) groups=1000(linuxprobe) context=unconfined_
+u:unconfined_r:unconfined_t:s0<span class="hljs-_">-s</span>0:c0.c1023
+</code></pre>
+<p>su&#x547D;&#x4EE4;&#x4E0E;&#x7528;&#x6237;&#x540D;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x4E2A;&#x51CF;&#x53F7;&#xFF08;-&#xFF09;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B8C;&#x5168;&#x5207;&#x6362;&#x5230;&#x65B0;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x5373;&#x628A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4FE1;&#x606F;&#x4E5F;&#x53D8;&#x66F4;&#x4E3A;&#x65B0;&#x7528;&#x6237;&#x7684;&#x76F8;&#x5E94;&#x4FE1;&#x606F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4FDD;&#x7559;&#x539F;&#x59CB;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x5728;&#x5207;&#x6362;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x65F6;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x51CF;&#x53F7;&#xFF08;-&#xFF09;&#x3002;</p>
+<p>&#x4ECE;root&#x7BA1;&#x7406;&#x5458;&#x5207;&#x6362;&#x5230;&#x666E;&#x901A;&#x7528;&#x6237;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#xFF0C;&#x4ECE;&#x666E;&#x901A;&#x7528;&#x6237;&#x5207;&#x6362;&#x6210;root&#x7BA1;&#x7406;&#x5458;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#x3002;</p>
+<h3 id="sudo&#x547D;&#x4EE4;-superuser-do">sudo&#x547D;&#x4EE4; (SuperUser DO)</h3>
+<p>&#x7528;&#x4E8E;&#x7ED9;&#x666E;&#x901A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x989D;&#x5916;&#x7684;&#x6743;&#x9650;&#x6765;&#x5B8C;&#x6210;&#x539F;&#x672C;root&#x7BA1;&#x7406;&#x5458;&#x624D;&#x80FD;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#xFF1A;<strong>sudo [&#x53C2;&#x6570;] &#x547D;&#x4EE4;&#x540D;&#x79F0;</strong>
+|&#x53C2;&#x6570;|&#x4F5C;&#x7528;|
+|:---|:---|
+|-h|&#x5217;&#x51FA;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;|
+|-l|&#x5217;&#x51FA;&#x5F53;&#x524D;&#x7528;&#x6237;&#x53EF;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;|
+|-u|&#x7528;&#x6237;&#x540D;&#x6216;UID&#x503C; &#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x6267;&#x884C;&#x547D;&#x4EE4;|
+|-k|&#x6E05;&#x7A7A;&#x5BC6;&#x7801;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;&#xFF0C;&#x4E0B;&#x6B21;&#x6267;&#x884C;sudo&#x65F6;&#x9700;&#x8981;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;|
+|-b|&#x5728;&#x540E;&#x53F0;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x547D;&#x4EE4;|
+|-p|&#x66F4;&#x6539;&#x8BE2;&#x95EE;&#x5BC6;&#x7801;&#x7684;&#x63D0;&#x793A;&#x8BED;|</p>
+<p>sudo&#x547D;&#x4EE4;&#x5177;&#x6709;&#x5982;&#x4E0B;&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>&#x9650;&#x5236;&#x7528;&#x6237;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</li>
+<li>&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x6267;&#x884C;&#x7684;&#x6BCF;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#xFF1B;</li>
+<li>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;/etc/sudoers&#xFF09;&#x63D0;&#x4F9B;&#x96C6;&#x4E2D;&#x7684;&#x7528;&#x6237;&#x7BA1;&#x7406;&#x3001;&#x6743;&#x9650;&#x4E0E;&#x4E3B;&#x673A;&#x7B49;&#x53C2;&#x6570;&#xFF1B;</li>
+<li>&#x9A8C;&#x8BC1;&#x5BC6;&#x7801;&#x7684;&#x540E;5&#x5206;&#x949F;&#x5185;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x65E0;&#x987B;&#x518D;&#x8BA9;&#x7528;&#x6237;&#x518D;&#x6B21;&#x9A8C;&#x8BC1;&#x5BC6;&#x7801;&#x3002;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sudo&#x547D;&#x4EE4;&#x63D0;&#x4F9B;&#x7684;visudo&#x547D;&#x4EE4;&#x6765;&#x914D;&#x7F6E;&#x7528;&#x6237;&#x6743;&#x9650;&#x3002;&#x8FD9;&#x6761;&#x547D;&#x4EE4;&#x5728;&#x914D;&#x7F6E;&#x7528;&#x6237;&#x6743;&#x9650;&#x65F6;&#x5C06;&#x7981;&#x6B62;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x540C;&#x65F6;&#x4FEE;&#x6539;sudoers&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5BF9;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8BED;&#x6CD5;&#x68C0;&#x67E5;&#xFF0C;&#x5E76;&#x5728;&#x53D1;&#x73B0;&#x53C2;&#x6570;&#x9519;&#x8BEF;&#x65F6;&#x8FDB;&#x884C;&#x62A5;&#x9519;&#x3002;</p>
+<p><strong><em>&#x53EA;&#x6709;root&#x7BA1;&#x7406;&#x5458;&#x624D;&#x80FD;&#x4F7F;&#x7528;visudo&#x547D;&#x4EE4;&#x7F16;&#x8F91;sudo&#x670D;&#x52A1;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</em></strong></p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># visudo</span>
+96 <span class="hljs-comment">##</span>
+97 <span class="hljs-comment">## Allow root to run any commands anywhere</span>
+98 root ALL=(ALL) ALL
+99 linuxprobe ALL=(ALL) ALL
+</code></pre>
+<p><strong>&#x8C01;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; &#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x7684;&#x4E3B;&#x673A;=(&#x4EE5;&#x8C01;&#x7684;&#x8EAB;&#x4EFD;) &#x53EF;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x7684;&#x5217;&#x8868;</strong></p>
+<pre><code>[root@linuxprobe ~]# su - linuxprobe
+Last login: Thu Sep 3 15:12:57 CST 2017 on pts/1
+[linuxprobe@linuxprobe ~]$ sudo -l
+[sudo] password for linuxprobe: &#x8F93;&#x5165;linuxprobe&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;
+Matching Defaults entries for linuxprobe on this host:
+requiretty, !visiblepw, always_set_home, env_reset, env_keep=&quot;COLORS
+DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR LS_COLORS&quot;, 
+env_keep+=&quot;MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE&quot;, 
+env_keep+=&quot;LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES&quot;, 
+env_keep+=&quot;LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE&quot;, 
+env_keep+=&quot;LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY&quot;,
+secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+User linuxprobe may run the following commands on this host:
+(ALL) ALL
+</code></pre><p>&#x4F5C;&#x4E3A;&#x4E00;&#x540D;&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;&#x662F;&#x770B;&#x4E0D;&#x5230;root&#x7BA1;&#x7406;&#x5458;&#x7684;&#x5BB6;&#x76EE;&#x5F55;&#xFF08;/root&#xFF09;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x60F3;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;&#x524D;&#x9762;&#x52A0;&#x4E0A;sudo&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-bash">[linuxprobe@linuxprobe ~]$ ls /root
+ls: cannot open directory /root: Permission denied
+[linuxprobe@linuxprobe ~]$ sudo ls /root
+anaconda-ks.cfg Documents initial-setup-ks.cfg Pictures Templates
+Desktop Downloads Music Public Videos
+</code></pre>
+<p>&#x8981;&#x8BA9;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x53EA;&#x80FD;&#x4F7F;&#x7528;root&#x7BA1;&#x7406;&#x5458;&#x7684;&#x8EAB;&#x4EFD;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7ED9;&#x51FA;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5426;&#x5219;&#x7CFB;&#x7EDF;&#x4F1A;&#x8BC6;&#x522B;&#x4E0D;&#x51FA;&#x6765;&#xFF1A;</p>
+<pre><code class="lang-bash">[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">exit</span>
+<span class="hljs-built_in">logout</span>
+[root@linuxprobe ~]<span class="hljs-comment"># whereis cat</span>
+cat: /usr/bin/cat /usr/share/man/man1/cat.1.gz /usr/share/man/man1p/cat.1p.gz
+[root@linuxprobe ~]<span class="hljs-comment"># visudo</span>
+96 <span class="hljs-comment">##</span>
+97 <span class="hljs-comment">## Allow root to run any commands anywhere</span>
+98 root ALL=(ALL) ALL
+99 linuxprobe ALL=(ALL) /usr/bin/cat
+</code></pre>
+<p>&#x4FDD;&#x5B58;&#xFF0C;&#x9000;&#x51FA;&#xFF0C;&#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;&#x5C1D;&#x8BD5;&#x6B63;&#x5E38;&#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7CFB;&#x7EDF;&#x63D0;&#x793A;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x3002;&#x518D;&#x7528;sudo&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x987A;&#x5229;&#x5730;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-bash">[root@linuxprobe ~]<span class="hljs-comment"># su - linuxprobe</span>
+Last login: Thu Sep 3 15:51:01 CST 2017 on pts/1
+[linuxprobe@linuxprobe ~]$ cat /etc/shadow
+cat: /etc/shadow: Permission denied
+[linuxprobe@linuxprobe ~]$ sudo cat /etc/shadow
+root:<span class="hljs-variable">$6</span><span class="hljs-variable">$GV3UVtX4ZGg6ygA6</span><span class="hljs-variable">$J9pBuPGUSgZslj83jyoI7ThJla9ZAULku3BcncAYF00Uwk6Sqc4E36</span>
+MnD1hLtlG9QadCpQCNVJs/5awHd0/pi1:16626:0:99999:7:::
+bin:*:16141:0:99999:7:::
+daemon:*:16141:0:99999:7:::
+adm:*:16141:0:99999:7:::
+lp:*:16141:0:99999:7:::
+sync:*:16141:0:99999:7:::
+shutdown:*:16141:0:99999:7:::
+halt:*:16141:0:99999:7:::
+mail:*:16141:0:99999:7:::
+operator:*:16141:0:99999:7:::
+games:*:16141:0:99999:7:::
+ftp:*:16141:0:99999:7:::
+nobody:*:16141:0:99999:7:::
+&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x7701;&#x7565;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+</code></pre>
+<p>&#x6BCF;&#x6B21;&#x6267;&#x884C;sudo&#x547D;&#x4EE4;&#x540E;&#x90FD;&#x8981;&#x9A8C;&#x8BC1;&#x5F53;&#x524D;&#x767B;&#x5F55;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;NOPASSWD&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x7528;&#x6237;&#x6267;&#x884C;sudo&#x547D;&#x4EE4;&#x65F6;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-bash">[linuxprobe@linuxprobe ~]$ <span class="hljs-built_in">exit</span>
+<span class="hljs-built_in">logout</span>
+[root@linuxprobe ~]<span class="hljs-comment"># whereis poweroff</span>
+poweroff: /usr/sbin/poweroff /usr/share/man/man8/poweroff.8.gz
+[root@linuxprobe ~]<span class="hljs-comment"># visudo</span>
+&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x7701;&#x7565;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+96 <span class="hljs-comment">##</span>
+97 <span class="hljs-comment">## Allow root to run any commands anywhere</span>
+98 root ALL=(ALL) ALL
+99 linuxprobe ALL=NOPASSWD: /usr/sbin/poweroff
+&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x7701;&#x7565;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../supervisor/" class="navigation navigation-prev " aria-label="Previous page: supervisor">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../存储结构与磁盘划分/" class="navigation navigation-next " aria-label="Next page: 存储结构与磁盘划分">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"用户身份与文件权限","level":"1.7.5","depth":2,"next":{"title":"存储结构与磁盘划分","level":"1.7.6","depth":2,"path":"Linux/存储结构与磁盘划分/README.md","ref":"Linux/存储结构与磁盘划分/README.md","articles":[]},"previous":{"title":"supervisor","level":"1.7.4","depth":2,"path":"Linux/supervisor/README.md","ref":"Linux/supervisor/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/用户身份与文件权限/README.md","mtime":"2018-07-16T08:21:57.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T09:25:03.577Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

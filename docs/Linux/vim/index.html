@@ -1,0 +1,963 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vim · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tmux/" />
+    
+    
+    <link rel="prev" href="../基本命令/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../CS基础/">
+            
+                <a href="../../CS基础/">
+            
+                    
+                    CS基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../CS基础/数据结构/">
+            
+                <a href="../../CS基础/数据结构/">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../CS基础/数据结构/线性表/">
+            
+                <a href="../../CS基础/数据结构/线性表/">
+            
+                    
+                    线性表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../CS基础/数据结构/栈与队列/">
+            
+                <a href="../../CS基础/数据结构/栈与队列/">
+            
+                    
+                    栈与队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../CS基础/数据结构/树/">
+            
+                <a href="../../CS基础/数据结构/树/">
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../CS基础/算法/">
+            
+                <a href="../../CS基础/算法/">
+            
+                    
+                    算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../CS基础/算法/排序/">
+            
+                <a href="../../CS基础/算法/排序/">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../CS基础/算法/查找/">
+            
+                <a href="../../CS基础/算法/查找/">
+            
+                    
+                    查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../Git/">
+            
+                <a href="../../Git/">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../Git/常用Git命令/">
+            
+                <a href="../../Git/常用Git命令/">
+            
+                    
+                    常用Git命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../Git/Issue/">
+            
+                <a href="../../Git/Issue/">
+            
+                    
+                    Issue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../Git/工作流程及分支管理/">
+            
+                <a href="../../Git/工作流程及分支管理/">
+            
+                    
+                    工作流程及分支管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../Git/Git使用规范流程/">
+            
+                <a href="../../Git/Git使用规范流程/">
+            
+                    
+                    Git使用规范流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Front-End/">
+            
+                <a href="../../Front-End/">
+            
+                    
+                    Front-End
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Front-End/HTML/">
+            
+                <a href="../../Front-End/HTML/">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Front-End/CSS/">
+            
+                <a href="../../Front-End/CSS/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../Front-End/CSS/line-height/">
+            
+                <a href="../../Front-End/CSS/line-height/">
+            
+                    
+                    line-height
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../Front-End/JavaScript/">
+            
+                <a href="../../Front-End/JavaScript/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Front-End/ES6/">
+            
+                <a href="../../Front-End/ES6/">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../Front-End/React/">
+            
+                <a href="../../Front-End/React/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../Front-End/webpack/">
+            
+                <a href="../../Front-End/webpack/">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../Python/">
+            
+                <a href="../../Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../Python/常用内建模块/">
+            
+                <a href="../../Python/常用内建模块/">
+            
+                    
+                    常用内建模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../Python/常用第三方模块/">
+            
+                <a href="../../Python/常用第三方模块/">
+            
+                    
+                    常用第三方模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../Python/Scrapy/">
+            
+                <a href="../../Python/Scrapy/">
+            
+                    
+                    Scrapy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../Python/Django/">
+            
+                <a href="../../Python/Django/">
+            
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../Python/Flask/">
+            
+                <a href="../../Python/Flask/">
+            
+                    
+                    Flask
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../HTTP/">
+            
+                <a href="../../HTTP/">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../HTTP/TCPIP协议族/">
+            
+                <a href="../../HTTP/TCPIP协议族/">
+            
+                    
+                    TCP/IP协议族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../HTTP/HTTP报文/">
+            
+                <a href="../../HTTP/HTTP报文/">
+            
+                    
+                    HTTP报文
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../基本命令/">
+            
+                <a href="../基本命令/">
+            
+                    
+                    基本命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../tmux/">
+            
+                <a href="../tmux/">
+            
+                    
+                    tmux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../supervisor/">
+            
+                <a href="../supervisor/">
+            
+                    
+                    supervisor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../用户身份与文件权限/">
+            
+                <a href="../用户身份与文件权限/">
+            
+                    
+                    用户身份与文件权限
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../存储结构与磁盘划分/">
+            
+                <a href="../存储结构与磁盘划分/">
+            
+                    
+                    存储结构与磁盘划分
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../数据库/">
+            
+                <a href="../../数据库/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../数据库/事务/">
+            
+                <a href="../../数据库/事务/">
+            
+                    
+                    事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../数据库/索引/">
+            
+                <a href="../../数据库/索引/">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../../数据库/存储过程/">
+            
+                <a href="../../数据库/存储过程/">
+            
+                    
+                    存储过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../健身/">
+            
+                <a href="../../健身/">
+            
+                    
+                    健身
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../摄影/">
+            
+                <a href="../../摄影/">
+            
+                    
+                    摄影
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >vim</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vim"><p align="center">Vim</p></h1>
+<h4 id="vim-&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x8BBE;&#x7F6E;&#x4E86;&#x4E09;&#x79CD;&#x6A21;&#x5F0F;&#xFF1A;">Vim &#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x8BBE;&#x7F6E;&#x4E86;&#x4E09;&#x79CD;&#x6A21;&#x5F0F;&#xFF1A;</h4>
+<ul>
+<li><h5 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF1A;&#x63A7;&#x5236;&#x5149;&#x6807;&#x79FB;&#x52A8;&#xFF0C;&#x53EF;&#x5BF9;&#x6587;&#x672C;&#x8FDB;&#x884C;&#x590D;&#x5236;&#x3001;&#x7C98;&#x8D34;&#x3001;&#x5220;&#x9664;&#x548C;&#x67E5;&#x627E;&#x7B49;&#x5DE5;&#x4F5C;&#x3002;">&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF1A;&#x63A7;&#x5236;&#x5149;&#x6807;&#x79FB;&#x52A8;&#xFF0C;&#x53EF;&#x5BF9;&#x6587;&#x672C;&#x8FDB;&#x884C;&#x590D;&#x5236;&#x3001;&#x7C98;&#x8D34;&#x3001;&#x5220;&#x9664;&#x548C;&#x67E5;&#x627E;&#x7B49;&#x5DE5;&#x4F5C;&#x3002;</h5>
+</li>
+<li><h5 id="&#x8F93;&#x5165;&#x6A21;&#x5F0F;&#xFF1A;&#x6B63;&#x5E38;&#x7684;&#x6587;&#x672C;&#x5F55;&#x5165;&#x3002;">&#x8F93;&#x5165;&#x6A21;&#x5F0F;&#xFF1A;&#x6B63;&#x5E38;&#x7684;&#x6587;&#x672C;&#x5F55;&#x5165;&#x3002;</h5>
+</li>
+<li><h5 id="&#x672B;&#x884C;&#x6A21;&#x5F0F;&#xFF1A;&#x4FDD;&#x5B58;&#x6216;&#x9000;&#x51FA;&#x6587;&#x6863;&#xFF0C;&#x4EE5;&#x53CA;&#x8BBE;&#x7F6E;&#x7F16;&#x8F91;&#x73AF;&#x5883;&#x3002;">&#x672B;&#x884C;&#x6A21;&#x5F0F;&#xFF1A;&#x4FDD;&#x5B58;&#x6216;&#x9000;&#x51FA;&#x6587;&#x6863;&#xFF0C;&#x4EE5;&#x53CA;&#x8BBE;&#x7F6E;&#x7F16;&#x8F91;&#x73AF;&#x5883;&#x3002;</h5>
+</li>
+</ul>
+<p><img src="../../images/linux_vim_1.png" alt="Vim&#x4E09;&#x79CD;&#x6A21;&#x5F0F;&#x7684;&#x5207;&#x6362;"></p>
+<p>&#x6BCF;&#x6B21;&#x8FD0;&#x884C;Vim&#x7F16;&#x8F91;&#x5668;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x8FDB;&#x5165;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x5148;&#x5207;&#x6362;&#x5230;&#x8F93;&#x5165;&#x6A21;&#x5F0F;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x6587;&#x6863;&#x7F16;&#x5199;&#x5DE5;&#x4F5C;&#xFF0C;&#x800C;&#x6BCF;&#x6B21;&#x5728;&#x7F16;&#x5199;&#x5B8C;&#x6587;&#x6863;&#x540E;&#x9700;&#x8981;&#x5148;&#x8FD4;&#x56DE;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FDB;&#x5165;&#x672B;&#x884C;&#x6A21;&#x5F0F;&#xFF0C;&#x6267;&#x884C;&#x6587;&#x6863;&#x7684;&#x4FDD;&#x5B58;&#x6216;&#x9000;&#x51FA;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><strong>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x547D;&#x4EE4;&#xFF1A;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x547D;&#x4EE4;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">dd</td>
+<td style="text-align:left">&#x5220;&#x9664;&#xFF08;&#x526A;&#x5207;&#xFF09;&#x5149;&#x6807;&#x6240;&#x5728;&#x6574;&#x884C;</td>
+</tr>
+<tr>
+<td style="text-align:left">5dd</td>
+<td style="text-align:left">&#x5220;&#x9664;&#xFF08;&#x526A;&#x5207;&#xFF09;&#x4ECE;&#x5149;&#x6807;&#x5904;&#x5F00;&#x59CB;&#x7684; 5 &#x884C;</td>
+</tr>
+<tr>
+<td style="text-align:left">yy</td>
+<td style="text-align:left">&#x590D;&#x5236;&#x5149;&#x6807;&#x6240;&#x5728;&#x6574;&#x884C;</td>
+</tr>
+<tr>
+<td style="text-align:left">5yy</td>
+<td style="text-align:left">&#x590D;&#x5236;&#x4ECE;&#x5149;&#x6807;&#x5904;&#x5F00;&#x59CB;&#x7684; 5 &#x884C;</td>
+</tr>
+<tr>
+<td style="text-align:left">n</td>
+<td style="text-align:left">&#x663E;&#x793A;&#x641C;&#x7D22;&#x547D;&#x4EE4;&#x5B9A;&#x4F4D;&#x5230;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">N</td>
+<td style="text-align:left">&#x663E;&#x793A;&#x641C;&#x7D22;&#x547D;&#x4EE4;&#x5B9A;&#x4F4D;&#x5230;&#x7684;&#x4E0A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">u</td>
+<td style="text-align:left">&#x64A4;&#x9500;&#x4E0A;&#x4E00;&#x6B65;&#x7684;&#x64CD;&#x4F5C;</td>
+</tr>
+<tr>
+<td style="text-align:left">p</td>
+<td style="text-align:left">&#x5C06;&#x4E4B;&#x524D;&#x5220;&#x9664;&#xFF08;dd&#xFF09;&#x6216;&#x590D;&#x5236;&#xFF08;yy&#xFF09;&#x8FC7;&#x7684;&#x6570;&#x636E;&#x7C98;&#x8D34;&#x5230;&#x5149;&#x6807;&#x540E;&#x9762;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x672B;&#x884C;&#x6A21;&#x5F0F;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x6216;&#x9000;&#x51FA;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x53CA;&#x8BBE;&#x7F6E;Vim&#x7F16;&#x8F91;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x73AF;&#x5883;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x8BA9;&#x7528;&#x6237;&#x6267;&#x884C;&#x5916;&#x90E8;&#x7684;Linux&#x547D;&#x4EE4;&#x6216;&#x8DF3;&#x8F6C;&#x5230;&#x6240;&#x7F16;&#x5199;&#x6587;&#x6863;&#x7684;&#x7279;&#x5B9A;&#x884C;&#x6570;&#x3002;&#x5728;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4E2D;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x5192;&#x53F7;&#x5C31;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#x5230;&#x672B;&#x884C;&#x6A21;&#x5F0F;&#x3002;</p>
+<p><strong>&#x672B;&#x884C;&#x6A21;&#x5F0F;&#x4E2D;&#x53EF;&#x7528;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x547D;&#x4EE4;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:w</td>
+<td style="text-align:left">&#x4FDD;&#x5B58;</td>
+</tr>
+<tr>
+<td style="text-align:left">:q</td>
+<td style="text-align:left">&#x9000;&#x51FA;</td>
+</tr>
+<tr>
+<td style="text-align:left">:q!</td>
+<td style="text-align:left">&#x5F3A;&#x5236;&#x9000;&#x51FA;&#xFF08;&#x653E;&#x5F03;&#x5BF9;&#x6587;&#x6863;&#x7684;&#x4FEE;&#x6539;&#x5185;&#x5BB9;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">:wq!</td>
+<td style="text-align:left">&#x5F3A;&#x5236;&#x4FDD;&#x5B58;&#x9000;&#x51FA;</td>
+</tr>
+<tr>
+<td style="text-align:left">:set nu</td>
+<td style="text-align:left">&#x663E;&#x793A;&#x884C;&#x53F7;</td>
+</tr>
+<tr>
+<td style="text-align:left">:set nonu</td>
+<td style="text-align:left">&#x4E0D;&#x663E;&#x793A;&#x884C;&#x53F7;</td>
+</tr>
+<tr>
+<td style="text-align:left">:&#x547D;&#x4EE4;</td>
+<td style="text-align:left">&#x6267;&#x884C;&#x8BE5;&#x547D;&#x4EE4;</td>
+</tr>
+<tr>
+<td style="text-align:left">:s/one/two</td>
+<td style="text-align:left">&#x5C06;&#x5F53;&#x524D;&#x5149;&#x6807;&#x6240;&#x5728;&#x884C;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;one&#x66FF;&#x6362;&#x6210;two</td>
+</tr>
+<tr>
+<td style="text-align:left">:s/one/two/g</td>
+<td style="text-align:left">&#x5C06;&#x5F53;&#x524D;&#x5149;&#x6807;&#x6240;&#x5728;&#x884C;&#x7684;&#x6240;&#x6709;one&#x66FF;&#x6362;&#x6210;two</td>
+</tr>
+<tr>
+<td style="text-align:left">:%s/one/two/g</td>
+<td style="text-align:left">&#x5C06;&#x5168;&#x6587;&#x4E2D;&#x7684;&#x6240;&#x6709;one&#x66FF;&#x6362;&#x6210;two</td>
+</tr>
+<tr>
+<td style="text-align:left">?&#x5B57;&#x7B26;&#x4E32;</td>
+<td style="text-align:left">&#x5728;&#x6587;&#x672C;&#x4E2D;&#x4ECE;&#x4E0B;&#x81F3;&#x4E0A;&#x641C;&#x7D22;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td style="text-align:left">/&#x5B57;&#x7B26;&#x4E32;</td>
+<td style="text-align:left">&#x5728;&#x6587;&#x672C;&#x4E2D;&#x4ECE;&#x4E0A;&#x81F3;&#x4E0B;&#x641C;&#x7D22;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../基本命令/" class="navigation navigation-prev " aria-label="Previous page: 基本命令">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tmux/" class="navigation navigation-next " aria-label="Next page: tmux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vim","level":"1.7.2","depth":2,"next":{"title":"tmux","level":"1.7.3","depth":2,"path":"Linux/tmux/README.md","ref":"Linux/tmux/README.md","articles":[]},"previous":{"title":"基本命令","level":"1.7.1","depth":2,"path":"Linux/基本命令/README.md","ref":"Linux/基本命令/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/vim/README.md","mtime":"2018-07-16T08:14:38.368Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T09:25:03.577Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
