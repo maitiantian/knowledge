@@ -56,10 +56,10 @@
 	</tr>
 	<tr>
 		<th>堆排序（Heap Sort）</th>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
 		<td>不稳定</td>
 	</tr>
 	<tr>
@@ -72,17 +72,17 @@
 	</tr>
 	<tr>
 		<th>快速排序（Quick Sort）</th>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
 		<td>O(n<sup>2</sup>)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
+		<td>O(nlogn)</td>
 		<td>不稳定</td>
 	</tr>
 	<tr>
 		<th>归并排序（Merge Sort）</th>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
-		<td>O(nlog<sub>2</sub>n)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
+		<td>O(nlogn)</td>
 		<td>O(n)</td>
 		<td>稳定</td>
 	</tr>
