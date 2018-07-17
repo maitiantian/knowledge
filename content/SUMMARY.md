@@ -21,6 +21,7 @@
     * [JavaScript](Front-End/JavaScript/README.md)
     * [ES6](Front-End/ES6/README.md)
     * [React](Front-End/React/README.md)
+        * [从Flux到Redux](Front-End/React/从Flux到Redux/README.md)
     * [webpack](Front-End/webpack/README.md)
 * [Python](Python/README.md)
     * [常用内建模块](Python/常用内建模块/README.md)
