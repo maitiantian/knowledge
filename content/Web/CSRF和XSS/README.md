@@ -4,7 +4,7 @@
 
 **CSRF，Cross Site Request Forgery，跨站请求伪造。**
 
-### 浏览器的Cookie策略
+### 一、浏览器的Cookie策略
 
 Cookie是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。
 
@@ -34,7 +34,7 @@ res.setHeader('Set-Cookie', ['mycookie=222', 'test=3333; expires=Sat, 21 Jul 201
 
 **Cookie只会发送给设置它的服务器。**
 
-### 通过Cookie进行CSRF攻击
+### 二、通过Cookie进行CSRF攻击
 
 假设有一个bbs站点：www.c.com，当登录后的用户发起如下GET请求时，会删除ID指定的帖子：
 ```
@@ -55,7 +55,7 @@ http://www.c.com:8002/content/delete/:id
 3. 当用户A访问攻击者的网站时，浏览器会向网站www.c.com发起一个删除用户帖子的请求。（**请求是由浏览器发起的，浏览器上存有网站www.c.com设置的Cookie，浏览器向网站www.c.com发起请求时会带上这个Cookie**）
 
 
-### CSRF攻击的防范
+### 三、CSRF攻击的防范
 
 * #### 验证码（对抗CSRF攻击最简洁而有效的防御方法）
     * CSRF攻击往往是在用户不知情的情况下构造了网络请求。而验证码可以强制用户必须与应用进行交互，才能完成最终请求；
