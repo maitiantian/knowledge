@@ -4,7 +4,7 @@
 
 **CSRF，Cross Site Request Forgery，跨站请求伪造。**
 
-### 一、浏览器的Cookie策略
+#### 浏览器的Cookie策略
 
 Cookie是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。
 
@@ -34,7 +34,7 @@ res.setHeader('Set-Cookie', ['mycookie=222', 'test=3333; expires=Sat, 21 Jul 201
 
 **Cookie只会发送给设置它的服务器。**
 
-### 二、通过Cookie进行CSRF攻击
+#### 通过Cookie进行CSRF攻击
 
 假设有一个bbs站点：www.c.com，当登录后的用户发起如下GET请求时，会删除ID指定的帖子：
 ```
@@ -55,17 +55,17 @@ http://www.c.com:8002/content/delete/:id
 3. 当用户A访问攻击者的网站时，浏览器会向网站www.c.com发起一个删除用户帖子的请求。（**请求是由浏览器发起的，浏览器上存有网站www.c.com设置的Cookie，浏览器向网站www.c.com发起请求时会带上这个Cookie**）
 
 
-### 三、CSRF攻击的防范
+#### CSRF攻击的防范
 
-* #### 验证码（对抗CSRF攻击最简洁而有效的防御方法）
+* ##### 验证码（对抗CSRF攻击最简洁而有效的防御方法）
     * CSRF攻击往往是在用户不知情的情况下构造了网络请求。而验证码可以强制用户必须与应用进行交互，才能完成最终请求；
     * 缺点：不可能给网站所有的操作都加上验证码。
 
-* #### Referer Check
+* ##### Referer Check
     * HTTP报文头部有一个字段叫Referer，它记录了该HTTP请求的来源地址。通过 Referer Check，可以检查请求是否来自正确的“源”；
     * Referer Check不仅能防范CSRF攻击，还能“防止图片盗链”。
 
-* #### 添加token验证
+* ##### 添加token验证
     * CSRF攻击之所以能够成功，是因为攻击者可以完全伪造用户的请求。请求中所有的用户验证信息都是存在于Cookie中，因此攻击者可以直接利用用户自己的Cookie来通过安全验证。要抵御CSRF，关键在于在请求中放入攻击者不能伪造的信息，并且该信息不存在于Cookie之中；
     * 可以在HTTP请求中以参数的形式加入一个随机产生的token，并在服务器端建立一个拦截器来验证这个token，如果请求中没有token或者token内容不正确，则可能是CSRF攻击从而拒绝该请求。
 
@@ -77,4 +77,49 @@ http://www.c.com:8002/content/delete/:id
 
 原本缩写是CSS，为了和层叠样式表(Cascading Style Sheet)有所区分，因而在安全领域叫做XSS。
 
-> XSS攻击指攻击者在网站上注入恶意的客户端代码，通过恶意脚本对客户端网页进行篡改，从而在用户浏览网页时，对用户浏览器进行控制或者获取用户隐私数据。
+> XSS攻击指攻击者向网站注入恶意的客户端代码，通过恶意脚本对客户端网页进行篡改，从而在用户浏览网页时，对用户浏览器进行控制或者获取用户隐私数据。
+
+* #### 反射型XSS
+
+    **特点：见缝插针。**
+
+1. 发现存在反射XSS的URL；
+2. 根据输出点的环境构造XSS代码，进行编码、缩短(为了增加迷惑性，可有可无)；
+3. 发送给受害人；
+4. 受害打开后，执行XSS代码，完成hacker想要的功能(获取cookies、url、浏览器信息、IP等等)；
+
+```javascript
+const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
+
+function handleRequest(req, res){
+	//获取返回的url对象的query属性值 
+	var arg = url.parse(req.url).query;
+	//将arg参数字符串反序列化为一个对象
+	var params = querystring.parse(arg);
+	//请求的方式
+	console.log("method - " + req.method);
+	//请求的url
+	console.log("url - " + req.url);
+	//获取参数param
+	console.log("param - " + params.param);
+	//获取参数id
+	console.log("id- " + params.id);
+
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
+	res.write('<h1>某大型门户网站</h1><h3>Hello '+params.id+'</h3>');
+	res.end();
+}
+
+const server = new http.Server();
+server.listen(8001, '127.0.0.1');
+server.on('request', handleRequest);
+```
+
+* #### 持久型XSS
+
+**特点：储蓄型XSS把恶意代码保存到服务端。**
+
+比较常见的一个场景是攻击者在社区或论坛上写下一篇包含恶意JavaScript代码的文章或评论，文章或评论发表后，所有访问该文章或评论的用户，都会在他们的浏览器中执行这段恶意的JavaScript代码。
