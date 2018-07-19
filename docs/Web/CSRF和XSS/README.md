@@ -79,6 +79,10 @@ http://www.c.com:8002/content/delete/:id
 
 > XSS攻击指攻击者向网站注入恶意的客户端代码，通过恶意脚本对客户端网页进行篡改，从而在用户浏览网页时，对用户浏览器进行控制或者获取用户隐私数据。
 
+![XSS分类](../../images/web_xss_1.png)
+
+*没有反射型XSS、存储型XSS、DOM XSS这种分类，因为分类依据都不同。*
+
 * #### 反射型XSS
 
     **特点：见缝插针。**
@@ -88,7 +92,11 @@ http://www.c.com:8002/content/delete/:id
 3. 发送给受害人；
 4. 受害打开后，执行XSS代码，完成hacker想要的功能(获取cookies、url、浏览器信息、IP等等)；
 
+![反射型XSS流程](../../images/web_xss_4.png)
+
 ```javascript
+// 启动一个服务处理请求
+
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
@@ -118,8 +126,32 @@ server.listen(8001, '127.0.0.1');
 server.on('request', handleRequest);
 ```
 
+![反射型XSS实例](../../images/web_xss_2.png)
+
+![反射型XSS实例](../../images/web_xss_3.png)
+
+
 * #### 持久型XSS
 
-**特点：储蓄型XSS把恶意代码保存到服务端。**
+    又称储蓄型，存储型。
+
+    **特点：持久型XSS把恶意代码保存到服务端。**
+
+![持久型XSS流程](../../images/web_xss_6.png)
 
 比较常见的一个场景是攻击者在社区或论坛上写下一篇包含恶意JavaScript代码的文章或评论，文章或评论发表后，所有访问该文章或评论的用户，都会在他们的浏览器中执行这段恶意的JavaScript代码。
+
+![持久型XSS流程](../../images/web_xss_5.png)
+
+
+#### XSS攻击的防范
+
+* ##### HttpOnly防止劫取Cookie
+    浏览器将禁止页面的JavaScript访问带有HttpOnly属性的Cookie。
+
+* ##### 输入检查
+    * 不要相信用户的任何输入。对用户的输入进行检查、过滤和转义
+    * 输入检查一般是检查用户输入的数据中是否包含<，>等特殊字符，如果存在，则对特殊字符进行过滤或编码，这种方式也称为XSS Filter；
+
+* ##### 输出检查
+    在变量输出到HTML页面时，使用编码或转义的方式来防御XSS攻击。
