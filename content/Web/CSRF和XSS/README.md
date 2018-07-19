@@ -127,6 +127,7 @@ server.on('request', handleRequest);
 ```
 
 ![反射型XSS实例](../../images/web_xss_2.png)
+
 ![反射型XSS实例](../../images/web_xss_3.png)
 
 
@@ -144,7 +145,7 @@ server.on('request', handleRequest);
 #### XSS攻击的防范
 
 * ##### HttpOnly防止劫取Cookie
-    浏览器将禁止页面的Javascript访问带有HttpOnly属性的Cookie。
+    浏览器将禁止页面的JavaScript访问带有HttpOnly属性的Cookie。
 
 * ##### 输入检查
     * 不要相信用户的任何输入。对用户的输入进行检查、过滤和转义
