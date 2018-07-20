@@ -155,3 +155,18 @@ server.on('request', handleRequest);
 
 * ##### 输出检查
     在变量输出到HTML页面时，使用编码或转义的方式来防御XSS攻击。
+
+#### 关闭浏览器的XSS筛选器
+
+* ##### IE
+    Internet选项 > 安全 > 自定义级别 > 启动XSS筛选器 > 禁用
+
+    ![关闭IE的XSS屏蔽功能](../../images/web_xss_7.jpg)
+
+* ##### Chrome
+    "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --args --disable-xss-auditor
+
+    确认后重启Chrome。
+
+    ![关闭Chrome的XSS屏蔽功能](../../images/web_xss_8.png)
+    

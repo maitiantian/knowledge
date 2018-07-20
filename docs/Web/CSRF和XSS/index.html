@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../服务器端渲染和浏览器端渲染/" />
+    <link rel="next" href="../服务器端渲染和客户端渲染/" />
     
     
     <link rel="prev" href="../Cookie和Session/" />
@@ -335,12 +335,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../服务器端渲染和浏览器端渲染/">
+        <li class="chapter " data-level="1.4.3" data-path="../服务器端渲染和客户端渲染/">
             
-                <a href="../服务器端渲染和浏览器端渲染/">
+                <a href="../服务器端渲染和客户端渲染/">
             
                     
-                    服务器端渲染和浏览器端渲染
+                    服务器端渲染和客户端渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../浏览器工作流程/">
+            
+                <a href="../浏览器工作流程/">
+            
+                    
+                    浏览器工作流程
             
                 </a>
             
@@ -986,6 +999,18 @@ server.on(<span class="hljs-string">&apos;request&apos;</span>, handleRequest);
 <p>  &#x5728;&#x53D8;&#x91CF;&#x8F93;&#x51FA;&#x5230;HTML&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x7F16;&#x7801;&#x6216;&#x8F6C;&#x4E49;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x9632;&#x5FA1;XSS&#x653B;&#x51FB;&#x3002;</p>
 </li>
 </ul>
+<h4 id="&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;&#x7684;xss&#x7B5B;&#x9009;&#x5668;">&#x5173;&#x95ED;&#x6D4F;&#x89C8;&#x5668;&#x7684;XSS&#x7B5B;&#x9009;&#x5668;</h4>
+<ul>
+<li><h5 id="ie">IE</h5>
+<p>  Internet&#x9009;&#x9879; &gt; &#x5B89;&#x5168; &gt; &#x81EA;&#x5B9A;&#x4E49;&#x7EA7;&#x522B; &gt; &#x542F;&#x52A8;XSS&#x7B5B;&#x9009;&#x5668; &gt; &#x7981;&#x7528;</p>
+<p>  <img src="../../images/web_xss_7.jpg" alt="&#x5173;&#x95ED;IE&#x7684;XSS&#x5C4F;&#x853D;&#x529F;&#x80FD;"></p>
+</li>
+<li><h5 id="chrome">Chrome</h5>
+<p>  &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --args --disable-xss-auditor</p>
+<p>  &#x786E;&#x8BA4;&#x540E;&#x91CD;&#x542F;Chrome&#x3002;</p>
+<p>  <img src="../../images/web_xss_8.png" alt="&#x5173;&#x95ED;Chrome&#x7684;XSS&#x5C4F;&#x853D;&#x529F;&#x80FD;"></p>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -1018,7 +1043,7 @@ server.on(<span class="hljs-string">&apos;request&apos;</span>, handleRequest);
                 </a>
                 
                 
-                <a href="../服务器端渲染和浏览器端渲染/" class="navigation navigation-next " aria-label="Next page: 服务器端渲染和浏览器端渲染">
+                <a href="../服务器端渲染和客户端渲染/" class="navigation navigation-next " aria-label="Next page: 服务器端渲染和客户端渲染">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1029,7 +1054,7 @@ server.on(<span class="hljs-string">&apos;request&apos;</span>, handleRequest);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CSRF和XSS","level":"1.4.2","depth":2,"next":{"title":"服务器端渲染和浏览器端渲染","level":"1.4.3","depth":2,"path":"Web/服务器端渲染和浏览器端渲染/README.md","ref":"Web/服务器端渲染和浏览器端渲染/README.md","articles":[]},"previous":{"title":"Cookie和Session","level":"1.4.1","depth":2,"path":"Web/Cookie和Session/README.md","ref":"Web/Cookie和Session/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Web/CSRF和XSS/README.md","mtime":"2018-07-19T07:31:23.996Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-19T09:06:22.047Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CSRF和XSS","level":"1.4.2","depth":2,"next":{"title":"服务器端渲染和客户端渲染","level":"1.4.3","depth":2,"path":"Web/服务器端渲染和客户端渲染/README.md","ref":"Web/服务器端渲染和客户端渲染/README.md","articles":[]},"previous":{"title":"Cookie和Session","level":"1.4.1","depth":2,"path":"Web/Cookie和Session/README.md","ref":"Web/Cookie和Session/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Web/CSRF和XSS/README.md","mtime":"2018-07-20T01:59:21.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-20T09:11:11.084Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

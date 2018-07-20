@@ -335,12 +335,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../../Web/服务器端渲染和浏览器端渲染/">
+        <li class="chapter " data-level="1.4.3" data-path="../../Web/服务器端渲染和客户端渲染/">
             
-                <a href="../../Web/服务器端渲染和浏览器端渲染/">
+                <a href="../../Web/服务器端渲染和客户端渲染/">
             
                     
-                    服务器端渲染和浏览器端渲染
+                    服务器端渲染和客户端渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Web/浏览器工作流程/">
+            
+                <a href="../../Web/浏览器工作流程/">
+            
+                    
+                    浏览器工作流程
             
                 </a>
             
@@ -844,6 +857,417 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="supervisor">supervisor</h1>
+<p><a href="http://supervisord.org/" target="_blank">supervisor&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
+<p>supervisor&#xFF0C;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x3002;</p>
+<ul>
+<li>&#x7B80;&#x5355;<blockquote>
+<p>supervisor&#x901A;&#x8FC7;fork/exec&#x65B9;&#x5F0F;&#x628A;&#x88AB;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5F53;&#x4F5C;supervisor&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x542F;&#x52A8;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x628A;&#x8981;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x5199;&#x8FDB;&#x5728;supervisor&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x88AB;&#x7BA1;&#x7406;&#x8FDB;&#x7A0B;&#x4F5C;&#x4E3A;supervisor&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x6302;&#x6389;&#x7684;&#x65F6;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5B50;&#x8FDB;&#x7A0B;&#x6302;&#x6389;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x6302;&#x6389;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x3002;</p>
+</blockquote>
+</li>
+<li>&#x7CBE;&#x786E;<blockquote>
+<p>linux&#x5BF9;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x7684;&#x53CD;&#x9988;&#xFF0C;&#x6709;&#x65F6;&#x4E0D;&#x592A;&#x51C6;&#x786E;&#x3002;&#x800C;supervisor&#x76D1;&#x63A7;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x72B6;&#x6001;&#x662F;&#x51C6;&#x786E;&#x7684;&#x3002;</p>
+</blockquote>
+</li>
+<li>&#x8FDB;&#x7A0B;&#x7EC4;<blockquote>
+<p>supervisor&#x53EF;&#x4EE5;&#x5BF9;&#x8FDB;&#x7A0B;&#x7EC4;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EF;&#x4EE5;&#x628A;&#x9700;&#x8981;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#x5199;&#x5230;&#x4E00;&#x4E2A;&#x7EC4;&#x91CC;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E2A;&#x7EC4;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x5982;&#x542F;&#x52A8;&#xFF0C;&#x505C;&#x6B62;&#xFF0C;&#x91CD;&#x542F;&#x7B49;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x800C;linux&#x7CFB;&#x7EDF;&#x6CA1;&#x6709;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#xFF0C;&#x60F3;&#x8981;&#x505C;&#x6B62;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x53BB;&#x505C;&#x6B62;&#xFF0C;&#x6216;&#x8005;&#x5199;&#x811A;&#x672C;&#x6279;&#x91CF;&#x505C;&#x6B62;&#x3002;</p>
+</blockquote>
+</li>
+<li>&#x53EF;&#x6269;&#x5C55;&#x6027;<blockquote>
+<p>supervisor&#x662F;&#x4E2A;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x3002;supervisor&#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x529F;&#x80FD;&#x3002;event&#x673A;&#x5236;&#x548C;xml_rpc&#x3002;</p>
+</blockquote>
+</li>
+<li>&#x6743;&#x9650;<blockquote>
+<p>linux&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x4FA6;&#x542C;&#x5728;1024&#x7AEF;&#x53E3;&#x4E0B;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x6237;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x662F;&#x4E0D;&#x80FD;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x63A7;&#x5236;&#x7684;&#x3002;&#x60F3;&#x8981;&#x63A7;&#x5236;&#x5FC5;&#x987B;&#x6709;root&#x6743;&#x9650;&#x3002;&#x800C;supervisor&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;supervisord&#x6216;&#x8005;&#x6BCF;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x975E;root&#x7684;user&#xFF0C;&#x8FD9;&#x4E2A;user&#x53EF;&#x4EE5;&#x7BA1;&#x7406;&#x5B83;&#x5BF9;&#x5E94;&#x7684;&#x8FDB;&#x7A0B;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="lang-bash">[unix_http_server]            
+file=/tmp/supervisor.sock   ; socket&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;supervisorctl&#x7528;XML_RPC&#x548C;supervisord&#x901A;&#x4FE1;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x8FDB;&#x884C;&#x7684;&#xFF0C;
+                              &#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;supervisorctl&#x5C31;&#x4E0D;&#x80FD;&#x7528;&#xFF0C;
+                              &#x9ED8;&#x8BA4;&#x4E3A;none&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;chmod=0700                 ; &#x4FEE;&#x6539;&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;socket&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x4E3A;0700&#xFF0C;
+                              &#x9ED8;&#x8BA4;&#x4E3A;0700&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;chown=nobody:nogroup       ; &#x4FEE;&#x6539;&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;socket&#x6587;&#x4EF6;&#x7684;&#x5C5E;&#x7EC4;&#x4E3A;user.group&#xFF0C;
+                              &#x9ED8;&#x8BA4;&#x4E3A;&#x542F;&#x52A8;supervisord&#x8FDB;&#x7A0B;&#x7684;&#x7528;&#x6237;&#x53CA;&#x5C5E;&#x7EC4;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#xFF0C;
+;username=user              ; &#x4F7F;&#x7528;supervisorctl&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BA4;&#x8BC1;&#x7684;&#x7528;&#x6237;
+                              &#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x6237;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;password=123               ; &#x548C;&#x4E0A;&#x9762;&#x7684;&#x7528;&#x6237;&#x540D;&#x5BF9;&#x5E94;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x660E;&#x7801;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;SHA&#x52A0;&#x5BC6;&#xFF0C;
+                              &#x5982;&#xFF1A;{SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d
+                              &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+;[inet_http_server]         ; &#x4FA6;&#x542C;&#x5728;TCP&#x4E0A;&#x7684;socket&#xFF0C;Web Server&#x548C;&#x8FDC;&#x7A0B;&#x7684;supervisorctl&#x90FD;&#x8981;&#x7528;&#x5230;&#x5B83;&#xFF0C;
+                              &#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x5F00;&#x542F;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;port=127.0.0.1:9001        ; &#x4FA6;&#x542C;&#x7684;IP&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x4FA6;&#x542C;&#x6240;&#x6709;IP&#x7528;:9001&#x6216;*:9001&#xFF0C;
+                              &#x53EA;&#x8981;&#x4E0A;&#x9762;&#x7684;[inet_http_server]&#x5F00;&#x542F;&#x4E86;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x5B83;&#x3002;
+;username=user              ; &#x548C;&#x4E0A;&#x9762;&#x7684;uinx_http_server&#x4E00;&#x6837;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;password=123               ; &#x540C;&#x4E0A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+[supervisord]                ; &#x5B9A;&#x4E49;supervisord&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x7AEF;&#x8FDB;&#x7A0B;&#x7684;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;
+                               &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;supervisor&#x5C31;&#x65E0;&#x6CD5;&#x5DE5;&#x4F5C;&#x4E86;&#x3002;
+logfile=/tmp/supervisord.log ; supervisord&#x8FD9;&#x4E2A;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;&#xFF0C;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x65E5;&#x5FD7;&#x65E0;&#x5173;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;<span class="hljs-variable">$CWD</span>/supervisord.log&#xFF0C;<span class="hljs-variable">$CWD</span>&#x662F;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+logfile_maxbytes=50MB        ; &#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x5927;&#x5C0F;&#xFF0C;&#x8D85;&#x8FC7;50M&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;
+                               &#x5F53;&#x8BBE;&#x7F6E;&#x4E3A;0&#x65F6;&#xFF0C;&#x4E0D;&#x9650;&#x5236;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;50M&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;              
+logfile_backups=10           ; &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6570;&#x91CF;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5927;&#x4E8E;50M&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x6587;&#x4EF6;&#xFF0C;
+                               &#x6587;&#x4EF6;&#x6570;&#x91CF;&#x5927;&#x4E8E;10&#x65F6;&#xFF0C;&#x6700;&#x521D;&#x7684;&#x8001;&#x6587;&#x4EF6;&#x88AB;&#x65B0;&#x6587;&#x4EF6;&#x8986;&#x76D6;&#xFF0C;&#x6587;&#x4EF6;&#x6570;&#x91CF;&#x5C06;&#x4FDD;&#x6301;&#x4E3A;10&#xFF0C;
+                               &#x5F53;&#x8BBE;&#x7F6E;&#x4E3A;0&#x65F6;&#xFF0C;&#x4E0D;&#x9650;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;10&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+loglevel=info                ; &#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#xFF0C;&#x6709;critical&#xFF0C;error&#xFF0C;warn&#xFF0C;info&#xFF0C;debug&#xFF0C;trace&#xFF0C;blather&#x7B49;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;info&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+pidfile=/tmp/supervisord.pid ; supervisord&#x7684;pid&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1B;
+                               &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-variable">$CWD</span>/supervisord.pid&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+nodaemon=<span class="hljs-literal">false</span>               ; &#x5982;&#x679C;&#x662F;<span class="hljs-literal">true</span>&#xFF0C;supervisord&#x8FDB;&#x7A0B;&#x5C06;&#x5728;&#x524D;&#x53F0;&#x8FD0;&#x884C;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;supervisord&#x8FDB;&#x7A0B;&#x5728;&#x540E;&#x53F0;&#x4EE5;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+minfds=1024                  ; &#x8FD9;&#x4E2A;&#x662F;&#x6700;&#x5C11;&#x7CFB;&#x7EDF;&#x7A7A;&#x95F2;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x4F4E;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;supervisor&#x5C06;&#x4E0D;&#x4F1A;&#x542F;&#x52A8;&#xFF0C;
+                               &#x7CFB;&#x7EDF;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5728;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#xFF0C;cat /proc/sys/fs/file-max&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;1024&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+minprocs=200                 ; &#x6700;&#x5C0F;&#x53EF;&#x7528;&#x7684;&#x8FDB;&#x7A0B;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x4F4E;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;supervisor&#x4E5F;&#x4E0D;&#x4F1A;&#x6B63;&#x5E38;&#x542F;&#x52A8;&#xFF0C;
+                               <span class="hljs-built_in">ulimit</span> -u&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;linux&#x4E0B;&#x9762;&#x7528;&#x6237;&#x7684;&#x6700;&#x5927;&#x8FDB;&#x7A0B;&#x6570;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;200&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;<span class="hljs-built_in">umask</span>=022                   ; &#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x7684;&#x63A9;&#x7801;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;022&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;user=chrism                 ; &#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x975E;root&#x7528;&#x6237;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4EE5;root&#x7528;&#x6237;&#x542F;&#x52A8;supervisord&#x4E4B;&#x540E;&#xFF0C;
+                               &#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x7684;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;supervisord&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;identifier=supervisor       ; supervisord&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x4E3B;&#x8981;&#x7ED9;XML_RPC&#x7528;&#xFF0C;
+                               &#x5F53;&#x6709;&#x591A;&#x4E2A;supervisor&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x60F3;&#x8C03;&#x7528;XML_RPC&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;supervisor&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x662F;supervisord&#xFF0C;&#x975E;&#x5FC5;&#x9700;&#x8BBE;&#x7F6E;&#x3002;
+;directory=/tmp              ; supervisord&#x4F5C;&#x4E3A;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x542F;&#x52A8;supervisord&#x8FDB;&#x7A0B;&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x5148;&#x5207;&#x6362;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;nocleanup=<span class="hljs-literal">true</span>              ; &#x4E3A;<span class="hljs-literal">false</span>&#x65F6;&#xFF0C;&#x4F1A;&#x5728;supervisord&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x65F6;&#xFF0C;
+                               &#x628A;&#x4EE5;&#x524D;&#x5B50;&#x8FDB;&#x7A0B;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF08;&#x8DEF;&#x5F84;&#x4E3A;AUTO&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#x6E05;&#x9664;&#x6389;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x662F;<span class="hljs-literal">false</span>&#xFF0C;&#x6709;&#x8C03;&#x8BD5;&#x9700;&#x6C42;&#x7684;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;childlogdir=/tmp            ; &#x5B50;&#x8FDB;&#x7A0B;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;&#x4E3A;AUTO&#x65F6;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x4E3A;/tmp&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x53EF;&#x67E5;&#x770B;&#xFF1A;
+                               python -c <span class="hljs-string">&quot;import tempfile;print tempfile.gettempdir()&quot;</span>
+                               &#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;environment=KEY=<span class="hljs-string">&quot;value&quot;</span>     ; &#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;supervisord&#x5728;linux&#x4E2D;&#x542F;&#x52A8;&#x9ED8;&#x8BA4;&#x7EE7;&#x627F;&#x4E86;linux&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;
+                               &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;supervisord&#x8FDB;&#x7A0B;&#x7279;&#x6709;&#x7684;&#x5176;&#x4ED6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;
+                               supervisord&#x542F;&#x52A8;&#x5B50;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x4F1A;&#x62F7;&#x8D1D;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x5185;&#x5BB9;&#xFF0C;
+                               &#x6240;&#x4EE5;&#x8BBE;&#x7F6E;&#x7684;&#x8FD9;&#x4E9B;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E5F;&#x4F1A;&#x88AB;&#x5B50;&#x8FDB;&#x7A0B;&#x7EE7;&#x627F;&#x3002;
+                               &#x4F8B;&#xFF1A;environment=name=<span class="hljs-string">&quot;haha&quot;</span>,age=<span class="hljs-string">&quot;hehe&quot;</span>
+                               &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;strip_ansi=<span class="hljs-literal">false</span>            ; &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x4F1A;&#x6E05;&#x9664;&#x5B50;&#x8FDB;&#x7A0B;&#x65E5;&#x5FD7;&#x4E2D;&#x7684;&#x6240;&#x6709;ANSI&#x5E8F;&#x5217;&#x3002;
+                               &#x4EC0;&#x4E48;&#x662F;ANSI&#x5E8F;&#x5217;&#xFF1F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;\n&#xFF0C;\t&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#x3002;
+                               &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+; the below section must remain <span class="hljs-keyword">in</span> the config file <span class="hljs-keyword">for</span> RPC
+; (supervisorctl/web interface) to work, additional interfaces may be
+; added by defining them <span class="hljs-keyword">in</span> separate rpcinterface: sections
+
+[rpcinterface:supervisor]    ; &#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x662F;&#x7ED9;XML_RPC&#x7528;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528;supervisord&#x6216;&#x8005;web server&#xFF0C;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x5FC5;&#x987B;&#x5F00;&#x542F;
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface 
+
+[supervisorctl]              ; &#x9488;&#x5BF9;supervisorctl&#x7684;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;  
+serverurl=unix:///tmp/supervisor.sock ; supervisorctl&#x672C;&#x5730;&#x8FDE;&#x63A5;supervisord&#x65F6;&#xFF0C;&#x672C;&#x5730;UNIX socket&#x8DEF;&#x5F84;&#xFF0C;
+                                        &#x8FD9;&#x4E2A;&#x662F;&#x548C;&#x524D;&#x9762;&#x7684;[unix_http_server]&#x5BF9;&#x5E94;&#x7684;&#xFF0C;
+                                        &#x9ED8;&#x8BA4;&#x503C;&#x662F;unix:///tmp/supervisor.sock&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;serverurl=http://127.0.0.1:9001 ; supervisorctl&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;supervisord&#x65F6;&#xFF0C;&#x7528;&#x5230;&#x7684;TCP socket&#x8DEF;&#x5F84;&#xFF0C;
+                                   &#x8FD9;&#x4E2A;&#x548C;&#x524D;&#x9762;&#x7684;[inet_http_server]&#x5BF9;&#x5E94;&#xFF0C;
+                                   &#x9ED8;&#x8BA4;&#x662F;http://127.0.0.1:9001&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+;username=chris              ; &#x7528;&#x6237;&#x540D;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x7A7A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;password=123                ; &#x5BC6;&#x7801;
+                               &#x9ED8;&#x8BA4;&#x7A7A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;prompt=mysupervisor         ; &#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x65F6;&#x7684;&#x63D0;&#x793A;&#x7B26;
+                               &#x9ED8;&#x8BA4;supervisor&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;<span class="hljs-built_in">history</span>_file=~/.sc_<span class="hljs-built_in">history</span>  ; &#x548C;shell&#x4E2D;&#x7684;<span class="hljs-built_in">history</span>&#x7C7B;&#x4F3C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x4E0A;&#x4E0B;&#x952E;&#x6765;&#x67E5;&#x627E;&#x524D;&#x9762;&#x6267;&#x884C;&#x8FC7;&#x7684;&#x547D;&#x4EE4;&#xFF0C;
+                               &#x9ED8;&#x8BA4;&#x662F;no file&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x6709;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#xFF0C;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+; The below sample program section shows all possible program subsection values,
+; create one or more <span class="hljs-string">&apos;real&apos;</span> program: sections to be able to control them under
+; supervisor.
+
+;[program:theprogramname]      ; &#x8981;&#x7BA1;&#x7406;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;<span class="hljs-string">&quot;:&quot;</span>&#x540E;&#x9762;&#x662F;&#x540D;&#x5B57;&#xFF0C;&#x522B;&#x4E71;&#x5199;&#x548C;&#x5B9E;&#x9645;&#x8FDB;&#x7A0B;&#x6709;&#x70B9;&#x5173;&#x8054;&#x6700;&#x597D;&#x3002;
+                                 &#x8FD9;&#x6837;&#x7684;program&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#xFF0C;&#x4E00;&#x4E2A;program&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8981;&#x88AB;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#x3002;
+;<span class="hljs-built_in">command</span>=/bin/cat              ; &#x8981;&#x542F;&#x52A8;&#x8FDB;&#x7A0B;&#x7684;&#x8DEF;&#x5F84;&#x3001;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x53C2;&#x6570;&#xFF0C;
+                                 &#x4F8B;&#xFF1A;/home/test.py <span class="hljs-_">-a</span> <span class="hljs-string">&apos;hehe&apos;</span>&#x3002;
+                                 <span class="hljs-built_in">command</span>&#x53EA;&#x80FD;&#x662F;&#x90A3;&#x79CD;&#x5728;&#x7EC8;&#x7AEF;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E0D;&#x80FD;&#x662F;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#xFF0C;
+                                 &#x6BD4;&#x5982;&#x8BF4;<span class="hljs-built_in">command</span>=service httpd start&#xFF0C;
+                                 httpd&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x88AB;linux&#x7684;service&#x7BA1;&#x7406;&#x4E86;&#xFF0C;
+                                 supervisor&#x518D;&#x53BB;&#x542F;&#x52A8;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x8FD9;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;&#x4E25;&#x683C;&#x610F;&#x4E49;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4E86;&#x3002;
+                                 &#x8FD9;&#x4E2A;&#x662F;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x9879;&#x3002;
+;process_name=%(program_name)s ; &#x8FDB;&#x7A0B;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x4E0B;&#x9762;&#x7684;numprocs&#x53C2;&#x6570;&#x4E3A;1&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4E0D;&#x7528;&#x7BA1;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x4E86;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x503C;%(program_name)s&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;program&#x5192;&#x53F7;&#x540E;&#x9762;&#x7684;&#x540D;&#x5B57;&#xFF0C;
+                                 &#x5982;&#x679C;numprocs&#x4E3A;&#x591A;&#x4E2A;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x5C31;&#x4E0D;&#x80FD;&#x8FD9;&#x6837;&#x4E86;&#xFF0C;&#x4E0D;&#x53EF;&#x80FD;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x540D;&#x3002;
+
+
+;numprocs=1                    ; &#x542F;&#x52A8;&#x8FDB;&#x7A0B;&#x7684;&#x6570;&#x76EE;&#x3002;&#x4E0D;&#x4E3A;1&#x65F6;&#xFF0C;&#x5C31;&#x662F;&#x8FDB;&#x7A0B;&#x6C60;&#x7684;&#x6982;&#x5FF5;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;1&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;directory=/tmp                ; &#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x524D;&#xFF0C;&#x4F1A;&#x524D;&#x5207;&#x6362;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;
+                                 &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;<span class="hljs-built_in">umask</span>=022                     ; &#x8FDB;&#x7A0B;&#x63A9;&#x7801;&#xFF0C;&#x9ED8;&#x8BA4;none&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;priority=999                  ; &#x5B50;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x3001;&#x5173;&#x95ED;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#x7684;&#xFF0C;&#x6700;&#x5148;&#x542F;&#x52A8;&#xFF0C;&#x5173;&#x95ED;&#x65F6;&#x6700;&#x540E;&#x5173;&#x95ED;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;999&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;autostart=<span class="hljs-literal">true</span>                ; &#x5982;&#x679C;&#x662F;<span class="hljs-literal">true</span>&#x7684;&#x8BDD;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x5728;supervisord&#x542F;&#x52A8;&#x540E;&#x88AB;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;autorestart=unexpected        ; &#x8BBE;&#x7F6E;&#x5B50;&#x8FDB;&#x7A0B;&#x6302;&#x6389;&#x540E;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6709;&#x4E09;&#x4E2A;&#x9009;&#x9879;&#xFF0C;<span class="hljs-literal">false</span>&#xFF0C;unexpected&#x548C;<span class="hljs-literal">true</span>&#x3002;
+                                 &#x5982;&#x679C;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x65E0;&#x8BBA;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#xFF0C;
+                                 &#x5982;&#x679C;&#x4E3A;unexpected&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x8FDB;&#x7A0B;&#x7684;&#x9000;&#x51FA;&#x7801;&#x4E0D;&#x5728;&#x4E0B;&#x9762;&#x7684;exitcodes&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;
+                                 &#x4E3A;<span class="hljs-literal">true</span>&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x5B50;&#x8FDB;&#x7A0B;&#x6302;&#x6389;&#x5C31;&#x4F1A;&#x88AB;&#x65E0;&#x6761;&#x4EF6;&#x7684;&#x91CD;&#x542F;&#x3002;
+;startsecs=1                   ; &#x5B50;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x591A;&#x5C11;&#x79D2;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x72B6;&#x6001;&#x662F;running&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;&#x542F;&#x52A8;&#x6210;&#x529F;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;1&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;startretries=3                ; &#x5F53;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x6700;&#x5927;&#x5C1D;&#x8BD5;&#x542F;&#x52A8;&#x7684;&#x6B21;&#x6570;&#xFF0C;
+                                 &#x5F53;&#x8D85;&#x8FC7;&#x6B21;&#x6570;&#x540E;&#xFF0C;supervisor&#x5C06;&#x628A;&#x6B64;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x7F6E;&#x4E3A;FAIL&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;3&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;exitcodes=0,2                 ; &#x6CE8;&#x610F;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x7684;autorestart=unexpected&#x5BF9;&#x5E94;&#xFF0C;exitcodes&#x91CC;&#x9762;&#x7684;&#x5B9A;&#x4E49;&#x7684;&#x9000;&#x51FA;&#x7801;&#x662F;expected&#x7684;&#x3002;
+;stopsignal=QUIT               ; &#x8FDB;&#x7A0B;&#x505C;&#x6B62;&#x4FE1;&#x53F7;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;TERM&#xFF0C;HUP&#xFF0C;INT&#xFF0C;QUIT&#xFF0C;KILL&#xFF0C;USR1&#xFF0C;USR2&#x7B49;&#x4FE1;&#x53F7;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;TERM&#xFF0C;&#x7528;&#x8BBE;&#x5B9A;&#x7684;&#x4FE1;&#x53F7;&#x53BB;&#x5E72;&#x6389;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x9000;&#x51FA;&#x7801;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;expected&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stopwaitsecs=10               ; &#x5411;&#x5B50;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;stopsignal&#x4FE1;&#x53F7;&#x540E;&#xFF0C;&#x5230;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x4FE1;&#x606F;&#x7ED9;supervisord&#xFF0C;&#x6240;&#x7B49;&#x5F85;&#x7684;&#x6700;&#x5927;&#x65F6;&#x95F4;&#x3002;
+                                 &#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;supervisord&#x4F1A;&#x5411;&#x8BE5;&#x5B50;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x5F3A;&#x5236;<span class="hljs-built_in">kill</span>&#x7684;&#x4FE1;&#x53F7;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;10&#x79D2;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stopasgroup=<span class="hljs-literal">false</span>             ; supervisord&#x7BA1;&#x7406;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x672C;&#x8EAB;&#x8FD8;&#x6709;&#x5B50;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x5E72;&#x6389;supervisord&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;
+                                 &#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x6210;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x53EF;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x628A;&#x8BE5;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6574;&#x4E2A;&#x8FDB;&#x7A0B;&#x7EC4;&#x90FD;&#x5E72;&#x6389;&#x3002;
+                                 &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x4E00;&#x822C;killasgroup&#x4E5F;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;<span class="hljs-literal">true</span>&#x3002;
+                                 &#x8BE5;&#x9009;&#x9879;&#x53D1;&#x9001;&#x7684;&#x662F;stop&#x4FE1;&#x53F7;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;killasgroup=<span class="hljs-literal">false</span>             ; &#x548C;&#x4E0A;&#x9762;&#x7684;stopasgroup&#x7C7B;&#x4F3C;&#xFF0C;&#x53D1;&#x9001;&#x7684;&#x662F;<span class="hljs-built_in">kill</span>&#x4FE1;&#x53F7;&#x3002;
+;user=chrism                   ; &#x5982;&#x679C;supervisord&#x662F;root&#x542F;&#x52A8;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x7684;&#x975E;root&#x7528;&#x6237;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x8BE5;program&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;redirect_stderr=<span class="hljs-literal">true</span>          ; &#x5982;&#x679C;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x5219;stderr&#x7684;&#x65E5;&#x5FD7;&#x4F1A;&#x88AB;&#x5199;&#x5165;stdout&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stdout_logfile=/a/path        ; &#x5B50;&#x8FDB;&#x7A0B;&#x7684;stdout&#x7684;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#xFF0C;AUTO&#xFF0C;none&#x7B49;&#x4E09;&#x4E2A;&#x9009;&#x9879;&#x3002;
+                                 &#x8BBE;&#x7F6E;&#x4E3A;none&#xFF0C;&#x5C06;&#x6CA1;&#x6709;&#x65E5;&#x5FD7;&#x4EA7;&#x751F;&#xFF0C;
+                                 &#x8BBE;&#x7F6E;&#x4E3A;AUTO&#xFF0C;&#x5C06;&#x968F;&#x673A;&#x627E;&#x4E2A;&#x5730;&#x65B9;&#x751F;&#x6210;&#x65E5;&#x5FD7;&#xFF0C;&#x4E14;&#x5F53;supervisord&#x91CD;&#x542F;&#x65F6;&#xFF0C;&#x4EE5;&#x524D;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;
+                                 redirect_stderr=<span class="hljs-literal">true</span>&#x65F6;&#xFF0C;sterr&#x4E5F;&#x4F1A;&#x5199;&#x8FDB;&#x8FD9;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;
+;stdout_logfile_maxbytes=1MB   ; &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6700;&#x5927;&#x5927;&#x5C0F;&#xFF0C;&#x548C;[supervisord]&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x6837;&#x3002;&#x9ED8;&#x8BA4;50M&#x3002;
+;stdout_logfile_backups=10     ; &#x548C;[supervisord]&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x6837;&#x3002;&#x9ED8;&#x8BA4;10&#x3002;
+;stdout_capture_maxbytes=1MB   ; &#x8BBE;&#x5B9A;capture&#x7BA1;&#x9053;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x503C;&#x4E0D;&#x4E3A;0&#x65F6;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x4ECE;stdout&#x53D1;&#x9001;&#x4FE1;&#x606F;&#xFF0C;
+                                 &#x800C;supervisor&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4FE1;&#x606F;&#xFF0C;&#x53D1;&#x9001;&#x76F8;&#x5E94;&#x7684;event&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;&#x4E3A;0&#x7684;&#x65F6;&#x5019;&#x8868;&#x793A;&#x5173;&#x95ED;&#x7BA1;&#x9053;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stdout_events_enabled=<span class="hljs-literal">false</span>   ; &#x4E3A;ture&#x65F6;&#xFF0C;&#x5F53;&#x5B50;&#x8FDB;&#x7A0B;&#x7531;stdout&#x5411;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4E2D;&#x5199;&#x65E5;&#x5FD7;&#x65F6;&#xFF0C;
+                                 &#x5C06;&#x89E6;&#x53D1;supervisord&#x53D1;&#x9001;PROCESS_LOG_STDOUT&#x7C7B;&#x578B;&#x7684;event&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stderr_logfile=/a/path        ; &#x8BBE;&#x7F6E;stderr&#x7684;&#x65E5;&#x5FD7;&#x8DEF;&#x5F84;&#xFF0C;redirect_stderr=<span class="hljs-literal">true</span>&#x65F6;&#x8FD9;&#x4E2A;&#x5C31;&#x4E0D;&#x7528;&#x8BBE;&#x7F6E;&#x4E86;&#xFF0C;
+                                 &#x8BBE;&#x7F6E;&#x4E86;&#x4E5F;&#x6CA1;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x88AB;&#x5199;&#x5165;stdout_logfile&#x7684;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;AUTO&#xFF0C;&#x5373;&#x968F;&#x4FBF;&#x627E;&#x4E2A;&#x5730;&#x65B9;&#x5B58;&#xFF0C;supervisord&#x91CD;&#x542F;&#x88AB;&#x6E05;&#x7A7A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stderr_logfile_maxbytes=1MB
+;stderr_logfile_backups=10
+;stderr_capture_maxbytes=1MB   ; &#x548C;stdout_capture&#x4E00;&#x6837;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;&#x5173;&#x95ED;&#x72B6;&#x6001;&#x3002;
+;stderr_events_enabled=<span class="hljs-literal">false</span>   ; &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>
+;environment=A=<span class="hljs-string">&quot;1&quot;</span>,B=<span class="hljs-string">&quot;2&quot;</span>       ; &#x8BE5;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x548C;&#x522B;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4E0D;&#x5171;&#x4EAB;&#x3002;
+;serverurl=AUTO
+
+; The below sample eventlistener section shows all possible
+; eventlistener subsection values, create one or more <span class="hljs-string">&apos;real&apos;</span>
+; eventlistener: sections to be able to handle event notifications
+; sent by supervisor.
+
+;[eventlistener:theeventlistenername] ; &#x548C;program&#x7684;&#x5730;&#x4F4D;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x662F;suopervisor&#x542F;&#x52A8;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x7528;&#x6765;&#x8BA2;&#x9605;supervisord&#x53D1;&#x9001;&#x7684;event&#x3002;
+                                        &#x5B83;&#x7684;&#x540D;&#x5B57;&#x5C31;&#x53EB;listener&#xFF0C;&#x53EF;&#x4EE5;&#x5728;listener&#x91CC;&#x9762;&#x505A;&#x4E00;&#x7CFB;&#x5217;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;&#x62A5;&#x8B66;&#x7B49;&#x7B49;&#x3002;
+;<span class="hljs-built_in">command</span>=/bin/eventlistener    ; &#x548C;&#x4E0A;&#x9762;&#x7684;program&#x4E00;&#x6837;&#xFF0C;&#x8868;&#x793A;listener&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;
+;process_name=%(program_name)s ; &#x8FDB;&#x7A0B;&#x540D;&#x3002;
+;numprocs=1                    ; &#x76F8;&#x540C;&#x7684;listener&#x542F;&#x52A8;&#x7684;&#x4E2A;&#x6570;&#x3002;
+;events=EVENT                  ; event&#x4E8B;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EA;&#x6709;&#x5199;&#x5728;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x7684;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#xFF0C;&#x624D;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x3002;
+
+
+;buffer_size=10                ; &#x8FD9;&#x4E2A;&#x662F;event&#x961F;&#x5217;&#x7F13;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;
+                                 &#x5F53;buffer&#x8D85;&#x8FC7;10&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6700;&#x65E7;&#x7684;event&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#xFF0C;&#x5E76;&#x628A;&#x65B0;&#x7684;event&#x653E;&#x8FDB;&#x53BB;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;10&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;directory=/tmp                ; &#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x524D;&#xFF0C;&#x4F1A;&#x5207;&#x6362;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x5207;&#x6362;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;<span class="hljs-built_in">umask</span>=022
+;priority=-1                   ; &#x542F;&#x52A8;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;-1&#x3002;
+;autostart=<span class="hljs-literal">true</span>                ; &#x662F;&#x5426;&#x5728;supervisord&#x542F;&#x52A8;&#x65F6;&#x4E00;&#x8D77;&#x542F;&#x52A8;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">true</span>&#x3002;
+;autorestart=unexpected        ; &#x662F;&#x5426;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x548C;program&#x4E2D;&#x4E00;&#x6837;&#xFF0C;&#x5206;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;<span class="hljs-literal">false</span>&#xFF0C;unexpected&#x7B49;&#x3002;
+;startsecs=1                   ; &#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x540E;&#x8DD1;&#x51E0;&#x79D2;&#x949F;&#x624D;&#x88AB;&#x8BA4;&#x5B9A;&#x4E3A;&#x6210;&#x529F;&#x542F;&#x52A8;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1&#x3002;
+;startretries=3                ; &#x5931;&#x8D25;&#x6700;&#x5927;&#x5C1D;&#x8BD5;&#x6B21;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;3&#x3002;
+;exitcodes=0,2                 ; &#x671F;&#x671B;&#x7684;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x7801;&#x3002;
+;stopsignal=QUIT               ; &#x5E72;&#x6389;&#x8FDB;&#x7A0B;&#x7684;&#x4FE1;&#x53F7;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;TERM&#xFF0C;
+                                 &#x6BD4;&#x5982;&#x8BBE;&#x7F6E;&#x4E3A;QUIT&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x679C;QUIT&#x6765;&#x5E72;&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x90A3;&#x4E48;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6B63;&#x5E38;&#x7EF4;&#x62A4;&#xFF0C;
+                                 &#x9000;&#x51FA;&#x7801;&#x4E5F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;expected&#x4E2D;&#x7684;&#x3002;
+;stopwaitsecs=10
+;stopasgroup=<span class="hljs-literal">false</span>
+;killasgroup=<span class="hljs-literal">false</span>
+;user=chrism                   ; &#x8BBE;&#x7F6E;&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x8BE5;listener&#x8FDB;&#x7A0B;&#x3002;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;redirect_stderr=<span class="hljs-literal">true</span>          ; &#x4E3A;<span class="hljs-literal">true</span>&#x7684;&#x8BDD;&#xFF0C;stderr&#x7684;<span class="hljs-built_in">log</span>&#x4F1A;&#x5E76;&#x5165;stdout&#x7684;<span class="hljs-built_in">log</span>&#x91CC;&#x9762;&#xFF0C;
+                                 &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;stdout_logfile=/a/path
+;stdout_logfile_maxbytes=1MB
+;stdout_logfile_backups=10
+;stdout_events_enabled=<span class="hljs-literal">false</span>   ; listener&#x4E0D;&#x80FD;&#x53D1;&#x9001;event&#x3002;
+;stderr_logfile=/a/path
+;stderr_logfile_maxbytes=1MB
+;stderr_logfile_backups
+;stderr_events_enabled=<span class="hljs-literal">false</span>   ; listener&#x4E0D;&#x80FD;&#x53D1;&#x9001;event&#x3002;
+;environment=A=<span class="hljs-string">&quot;1&quot;</span>,B=<span class="hljs-string">&quot;2&quot;</span>       ; &#x8BE5;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;serverurl=AUTO
+
+; The below sample group section shows all possible group values,
+; create one or more <span class="hljs-string">&apos;real&apos;</span> group: sections to create <span class="hljs-string">&quot;heterogeneous&quot;</span>
+; process groups.
+
+;[group:thegroupname]  ; &#x7ED9;programs&#x5206;&#x7EC4;&#xFF0C;&#x5212;&#x5206;&#x5230;&#x7EC4;&#x91CC;&#x9762;&#x7684;program&#x4E0D;&#x7528;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x53BB;&#x64CD;&#x4F5C;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x7EC4;&#x540D;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+                         &#x6CE8;&#x610F;&#xFF1A;program&#x88AB;&#x5212;&#x5206;&#x5230;&#x7EC4;&#x91CC;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x539F;&#x6765;&#x7684;&#x914D;&#x7F6E;&#x4ECE;supervisor&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x91CC;&#x6D88;&#x5931;&#xFF0C;
+                         supervisor&#x53EA;&#x4F1A;&#x5BF9;&#x7EC4;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x4F1A;&#x5BF9;&#x7EC4;&#x91CC;&#x9762;&#x7684;&#x5355;&#x4E2A;program&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#x3002;
+;programs=progname1,progname2  ; &#x7EC4;&#x6210;&#x5458;&#xFF0C;&#x7528;&#x9017;&#x53F7;&#x5206;&#x5F00;&#x3002;
+                                 &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+;priority=999                  ; &#x76F8;&#x5BF9;&#x4E8E;&#x7EC4;&#x548C;&#x7EC4;&#x4E4B;&#x95F4;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3002;&#x9ED8;&#x8BA4;999&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x3002;
+
+; The [include] section can just contain the <span class="hljs-string">&quot;files&quot;</span> setting.  This
+; setting can list multiple files (separated by whitespace or
+; newlines).  It can also contain wildcards.  The filenames are
+; interpreted as relative to this file.  Included files *cannot*
+; include files themselves.
+
+;[include]                         ; &#x5F53;&#x8981;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#x5F88;&#x591A;&#x65F6;&#xFF0C;&#x5199;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x6709;&#x70B9;&#x5927;&#xFF0C;
+                                     &#x53EF;&#x4EE5;&#x628A;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x5199;&#x5230;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x7136;&#x540E;include&#x8FDB;&#x6765;&#x3002;
+;files = relative/directory/*.ini
+</code></pre>
+<h1 id="event">event</h1>
+<p>supervisor&#x7684;event&#x673A;&#x5236;&#x662F;&#x4E00;&#x4E2A;&#x76D1;&#x63A7;/&#x901A;&#x77E5;&#x6846;&#x67B6;&#x3002;</p>
+<p>event&#x662F;&#x4E00;&#x4E32;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x4E3A;header&#x3001;body&#x4E24;&#x90E8;&#x5206;&#x3002;</p>
+<ul>
+<li><h4 id="header">header</h4>
+</li>
+</ul>
+<pre><code class="lang-bash">ver:3.0 server:supervisor serial:21 pool:listener poolserial:10 eventname:PROCESS_COMMUNICATION_STDOUT len:54
+</code></pre>
+<ul>
+<li>ver&#xFF1A;event&#x534F;&#x8BAE;&#x7684;&#x7248;&#x672C;&#xFF1B;</li>
+<li>server&#xFF1A;supervisor&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x5373;[supervisord]&#x5757;&#x7684;identifier&#x9009;&#x9879;&#x4E2D;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;supervisor&#xFF1B;</li>
+<li>serial&#xFF1A;event&#x7684;&#x5E8F;&#x5217;&#x53F7;&#xFF0C;supervisord&#x5728;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x53D1;&#x9001;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;event&#x7684;&#x5E8F;&#x5217;&#x53F7;&#x5C31;&#x662F;1&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x7684;event&#x4F9D;&#x6B21;&#x7C7B;&#x63A8;&#xFF1B;</li>
+<li>pool&#xFF1A;listener&#x7684;pool&#x7684;&#x540D;&#x5B57;&#xFF0C;listener&#x53EA;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;pool&#x7684;&#x6982;&#x5FF5;&#x4E86;&#xFF0C;&#x540D;&#x5B57;&#x5C31;&#x662F;[eventlistener:theeventlistenername]&#xFF1B;</li>
+<li>poolserial&#xFF1A;serial&#x662F;supervisord&#x7ED9;&#x6BCF;&#x4E2A;event&#x7684;&#x7F16;&#x53F7;&#xFF0C;&#x800C;poolserial&#x662F;eventpool&#x7ED9;&#x53D1;&#x9001;&#x5230;&#x8FD9;&#x4E2A;pool&#x7684;event&#x7F16;&#x7684;&#x53F7;&#xFF1B;</li>
+<li>eventname&#xFF1A;event&#x7684;&#x7C7B;&#x578B;&#x540D;&#x79F0;&#xFF1B;</li>
+<li>len&#xFF1A;&#x8868;&#x793A;header&#x540E;&#x9762;&#x7684;body&#x90E8;&#x5206;&#x7684;&#x957F;&#x5EA6;&#x3002;</li>
+</ul>
+<ul>
+<li><h4 id="body">body</h4>
+</li>
+</ul>
+<p>body&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x548C;event&#x7684;&#x5177;&#x4F53;&#x7C7B;&#x578B;&#x76F8;&#x5173;&#xFF0C;&#x4E0D;&#x540C;&#x7684;event&#x7684;&#x7C7B;&#x578B;&#xFF0C;header&#x7ED3;&#x6784;&#x90FD;&#x4E00;&#x6837;&#xFF0C;&#x4F46;body&#x7684;&#x7ED3;&#x6784;&#x5927;&#x591A;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<p>PROCESS_STATE_EXITED</p>
+<p>&#x5F53;supervisord&#x7BA1;&#x7406;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x65F6;&#xFF0C;supervisord&#x5C31;&#x4F1A;&#x4EA7;&#x751F;PROCESS_STATE_EXITED&#x8FD9;&#x4E2A;event&#x3002;</p>
+<pre><code class="lang-bash">processname:cat groupname:cat from_state:RUNNING expected:0 pid:2766
+</code></pre>
+<p>processname&#xFF1A;&#x8FDB;&#x7A0B;&#x540D;&#x5B57;&#xFF0C;&#x662F;[program:x]&#x914D;&#x7F6E;&#x7684;&#x540D;&#x5B57;&#xFF1B;
+groupname&#xFF1A;&#x7EC4;&#x540D;&#xFF1B;
+from_state&#xFF1A;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x524D;&#x7684;&#x72B6;&#x6001;&#xFF1B;
+expected&#xFF1A;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;exitcodes&#x662F;0&#x548C;2&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;0&#x548C;2&#x662F;expected&#x3002;&#x5176;&#x5B83;&#x7684;&#x9000;&#x51FA;&#x7801;&#x5C31;&#x662F;unexpected&#xFF1B;
+pid&#xFF1A;&#x8FDB;&#x7A0B;&#x53F7;&#x3002;</p>
+<p>listener&#x548C;supervisord&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x8FC7;&#x7A0B;
+event&#x7684;&#x53D1;&#x8D77;&#x65B9;&#x662F;supervisord&#x8FDB;&#x7A0B;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x662F;listener&#x3002;listener&#x548C;program&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x662F;supervisord&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x5728;&#x914D;&#x7F6E;&#x4E0A;&#x5F88;&#x591A;&#x9009;&#x9879;&#x4E5F;&#x90FD;&#x4E00;&#x6837;&#x3002;program&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8981;&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53D1;&#x9001;event&#xFF0C;&#x8FDB;&#x800C;&#x548C;supervisord&#x4E3B;&#x52A8;&#x901A;&#x4FE1;&#x3002;</p>
+<p>event&#x534F;&#x8BAE;</p>
+<p>&#x5F53;supervisord&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x5982;&#x679C;listener&#x914D;&#x7F6E;&#x4E3A;autostart=true&#xFF0C;listener&#x4F1A;&#x4F5C;&#x4E3A;supervisor&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x88AB;&#x542F;&#x52A8;&#x3002;listener&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x4F1A;&#x5411;&#x81EA;&#x5DF1;&#x7684;stdout&#x5199;&#x4E00;&#x4E2A;&quot;READY&quot;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x6B64;&#x65F6;&#x7236;&#x8FDB;&#x7A0B;supervisord&#x8BFB;&#x53D6;&#x5230;&#x8FD9;&#x6761;&#x6D88;&#x606F;&#x540E;&#xFF0C;&#x4F1A;&#x8BA4;&#x4E3A;listener&#x5904;&#x4E8E;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x3002;listener&#x5904;&#x4E8E;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5F53;supervisord&#x4EA7;&#x751F;&#x7684;event&#x5728;listener&#x914D;&#x7F6E;&#x7684;&#x53EF;&#x63A5;&#x53D7;&#x7684;events&#x4E2D;&#x65F6;&#xFF0C;supervisord&#x4F1A;&#x628A;&#x8BE5;event&#x53D1;&#x9001;&#x7ED9;&#x8BE5;listener&#x3002;listener&#x63A5;&#x6536;&#x5230;event&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6839;&#x636E;event&#x7684;header&#x3001;body&#x91CC;&#x7684;&#x6570;&#x636E;&#x505A;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5904;&#x7406;&#x4E86;&#x3002;&#x5904;&#x7406;&#x5B8C;&#x540E;&#xFF0C;listener&#x5411;&#x81EA;&#x5DF1;&#x7684;stdout&#x5199;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&quot;RESULT\nOK&quot;&#xFF0C;supervisord&#x63A5;&#x6536;&#x5230;&#x8FD9;&#x6761;&#x6D88;&#x606F;&#x540E;&#x3002;&#x5C31;&#x77E5;&#x9053;listener&#x5904;&#x7406;event&#x5B8C;&#x6BD5;&#x4E86;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># !/usr/bin/env python</span>
+<span class="hljs-comment"># coding:utf-8</span>
+
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> subprocess
+<span class="hljs-comment"># childutils&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x662F;supervisor&#x7684;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x6211;&#x4EEC;&#x5904;&#x7406;event&#x6D88;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x6309;&#x7167;&#x534F;&#x8BAE;&#xFF0C;&#x7528;&#x4EFB;&#x4F55;&#x8BED;&#x8A00;&#x6765;&#x5199;listener&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x7528;childutils&#x66F4;&#x52A0;&#x7B80;&#x4FBF;&#x7F62;&#x4E86;&#x3002;</span>
+<span class="hljs-keyword">from</span> supervisor <span class="hljs-keyword">import</span> childutils
+<span class="hljs-keyword">from</span> optparse <span class="hljs-keyword">import</span> OptionParser
+<span class="hljs-keyword">import</span> socket
+<span class="hljs-keyword">import</span> fcntl
+<span class="hljs-keyword">import</span> struct
+
+__doc__ = <span class="hljs-string">&quot;\033[32m%s,&#x6355;&#x83B7;PROCESS_STATE_EXITED&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;,&#x5F53;&#x5F02;&#x5E38;&#x9000;&#x51FA;&#x65F6;&#x89E6;&#x53D1;&#x62A5;&#x8B66;\033[0m&quot;</span> % sys.argv[<span class="hljs-number">0</span>]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write_stdout</span><span class="hljs-params">(s)</span>:</span>
+    sys.stdout.write(s)
+    sys.stdout.flush()
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x5F02;&#x5E38;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallError</span><span class="hljs-params">(Exception)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,value)</span>:</span>
+        self.value = value
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> repr(self.value)
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x5904;&#x7406;event&#x7684;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProcessesMonitor</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.stdin = sys.stdin
+        self.stdout = sys.stdout
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">runforever</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#xFF0C;&#x53EF;&#x4EE5;&#x5FAA;&#x73AF;&#x5904;&#x7406;event&#xFF0C;</span>
+        <span class="hljs-comment"># &#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5FAA;&#x73AF;&#xFF0C;&#x628A;listener&#x7684;autorestart&#x914D;&#x7F6E;&#x4E3A;true&#xFF0C;</span>
+        <span class="hljs-comment"># &#x5904;&#x7406;&#x5B8C;&#x4E00;&#x6B21;event&#x5C31;&#x8BA9;&#x8BE5;listener&#x9000;&#x51FA;&#xFF0C;&#x7136;&#x540E;supervisord&#x91CD;&#x542F;&#x8BE5;listener&#xFF0C;</span>
+        <span class="hljs-comment"># &#x8FD9;&#x6837;listener&#x5C31;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x65B0;&#x7684;event&#x4E86;&#x3002;</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:
+            <span class="hljs-comment"># &#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;&#x5411;stdout&#x53D1;&#x9001;&quot;READY&quot;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x963B;&#x585E;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4E00;&#x76F4;&#x7B49;&#x5230;&#x6709;event&#x53D1;&#x8FC7;&#x6765;</span>
+            <span class="hljs-comment"># headers&#xFF0C;payload&#x5206;&#x522B;&#x63A5;&#x6536;header&#x548C;body&#x7684;&#x5185;&#x5BB9;</span>
+            headers, payload = childutils.listener.wait(self.stdin, self.stdout)
+            <span class="hljs-comment"># &#x5224;&#x65AD;event&#x662F;&#x5426;&#x662F;&#x54B1;&#x4EEC;&#x9700;&#x8981;&#x7684;&#xFF0C;</span>
+            <span class="hljs-comment"># &#x4E0D;&#x662F;&#x7684;&#x8BDD;&#xFF0C;&#x5411;stdout&#x5199;&#x5165;&quot;RESULT\nOK&quot;&#xFF0C;&#x5E76;&#x8DF3;&#x8FC7;&#x5F53;&#x524D;&#x5FAA;&#x73AF;&#x7684;&#x5269;&#x4F59;&#x90E8;&#x5206;</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> headers[<span class="hljs-string">&apos;eventname&apos;</span>] == <span class="hljs-string">&apos;PROCESS_STATE_EXITED&apos;</span>:
+                childutils.listener.ok(self.stdout)
+                <span class="hljs-keyword">continue</span>
+
+            pheaders, pdata = childutils.eventdata(payload+<span class="hljs-string">&apos;\n&apos;</span>)
+            <span class="hljs-comment"># &#x5224;&#x8BFB;event&#x662F;&#x5426;&#x662F;expected&#x7684;&#xFF0C;expected&#x7684;&#x8BDD;&#x4E3A;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0</span>
+            <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x7684;&#x5224;&#x65AD;&#x662F;&#x8FC7;&#x6EE4;&#x6389;expected&#x7684;event</span>
+            <span class="hljs-keyword">if</span> int(pheaders[<span class="hljs-string">&apos;expected&apos;</span>]):
+                childutils.listener.ok(self.stdout)
+                <span class="hljs-keyword">continue</span>
+
+            ip = self.get_ip(<span class="hljs-string">&apos;eth0&apos;</span>)
+            <span class="hljs-comment"># &#x6784;&#x9020;&#x62A5;&#x8B66;&#x4FE1;&#x606F;&#x7ED3;&#x6784;</span>
+            msg = <span class="hljs-string">&quot;[Host:%s][Process:%s][pid:%s][exited unexpectedly fromstate:%s]&quot;</span> % (ip,pheaders[<span class="hljs-string">&apos;processname&apos;</span>],pheaders[<span class="hljs-string">&apos;pid&apos;</span>],pheaders[<span class="hljs-string">&apos;from_state&apos;</span>])
+            <span class="hljs-comment"># &#x8C03;&#x7528;&#x62A5;&#x8B66;&#x63A5;&#x53E3;</span>
+            subprocess.call(<span class="hljs-string">&quot;/usr/local/bin/alert.py -m &apos;%s&apos;&quot;</span> % msg,shell=<span class="hljs-keyword">True</span>)
+            <span class="hljs-comment"># stdout&#x5199;&#x5165;&quot;RESULT\nOK&quot;&#xFF0C;&#x5E76;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;</span>
+            childutils.listener.ok(self.stdout)
+
+    <span class="hljs-string">&apos;&apos;&apos;
+    def check_user(self):
+        userName = os.environ[&apos;USER&apos;]
+        if userName != &apos;root&apos;:
+            try:
+                raise MyError(&apos;must be run by root!&apos;)
+            except MyError as e:
+                write_stderr( &quot;Error occurred,value:%s\n&quot; % e.value)
+                sys.exit(255)
+    &apos;&apos;&apos;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_ip</span><span class="hljs-params">(self,ifname)</span>:</span>
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        inet = fcntl.ioctl(s.fileno(), <span class="hljs-number">0x8915</span>, struct.pack(<span class="hljs-string">&apos;256s&apos;</span>, ifname[:<span class="hljs-number">15</span>]))
+        ret = socket.inet_ntoa(inet[<span class="hljs-number">20</span>:<span class="hljs-number">24</span>])
+        <span class="hljs-keyword">return</span> ret
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    parser = OptionParser()
+    <span class="hljs-keyword">if</span> len(sys.argv) == <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">if</span> sys.argv[<span class="hljs-number">1</span>] == <span class="hljs-string">&apos;-h&apos;</span> <span class="hljs-keyword">or</span> sys.argv[<span class="hljs-number">1</span>] == <span class="hljs-string">&apos;--help&apos;</span>:
+            <span class="hljs-keyword">print</span> __doc__
+            sys.exit(<span class="hljs-number">0</span>)
+    <span class="hljs-comment"># (options, args) = parser.parse_args()</span>
+    <span class="hljs-comment"># &#x4E0B;&#x9762;&#x8868;&#x793A;&#x53EA;&#x6709;supervisord&#x624D;&#x80FD;&#x8C03;&#x7528;&#x8BE5;listener&#xFF0C;&#x5426;&#x5219;&#x9000;&#x51FA;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-string">&apos;SUPERVISOR_SERVER_URL&apos;</span> <span class="hljs-keyword">in</span> os.environ:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">raise</span> CallError(<span class="hljs-string">&quot;%s must be run as a supervisor event&quot;</span> % sys.argv[<span class="hljs-number">0</span>])
+        <span class="hljs-keyword">except</span> CallError <span class="hljs-keyword">as</span> e:
+            write_stderr(<span class="hljs-string">&quot;Error occurred,value: %s\n&quot;</span> % e.value)
+        <span class="hljs-keyword">return</span>
+
+    prog = ProcessesMonitor()
+    prog.runforever()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    main()
+</code></pre>
+<h1 id="xmlrpc">xml_rpc</h1>
+<p>supervisor&#x63D0;&#x4F9B;&#x4E24;&#x79CD;&#x7BA1;&#x7406;&#x65B9;&#x5F0F;&#xFF1A;supervisorctl&#x548C;web&#xFF0C;&#x5B83;&#x4EEC;&#x5176;&#x5B9E;&#x90FD;&#x662F;&#x901A;&#x8FC7;xml_rpc&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<blockquote>
+<p>xml_rpc&#x662F;&#x4F7F;&#x7528;http&#x534F;&#x8BAE;&#x4F5C;&#x4E3A;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x7684;rpc&#x673A;&#x5236;&#x3002;</p>
+<p>RPC&#xFF0C;Remote Procedure Call&#xFF0C;&#x8FDC;&#x7A0B;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x5728;&#x672C;&#x5730;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x8C03;&#x7528;&#x8FDC;&#x7AEF;&#x673A;&#x5668;&#x4E0A;&#x670D;&#x52A1;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E5F;&#x88AB;&#x5927;&#x5BB6;&#x79F0;&#x4E3A;&#x201C;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x201D;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x5404;&#x4E2A;&#x5206;&#x7ACB;&#x673A;&#x5668;&#x7684;&#x201C;&#x4E92;&#x64CD;&#x4F5C;&#x6027;&#x201D;&#x800C;&#x53D1;&#x660E;&#x7684;&#x6280;&#x672F;&#x3002;</p>
+</blockquote>
+<p>&#x4E00;&#x4E2A;rpc&#x7CFB;&#x7EDF;&#x5FC5;&#x7136;&#x5305;&#x62EC;&#x4E24;&#x90E8;&#x5206;&#xFF1A;</p>
+<ol>
+<li>rpc client&#xFF0C;&#x7528;&#x6765;&#x5411;rpc server&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x63A5;&#x6536;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#xFF1B;</li>
+<li>rpc server&#xFF0C;&#x7528;&#x4E8E;&#x54CD;&#x5E94;rpc client&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x56DE;&#x9001;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;</li>
+</ol>
+<p>&#x5728;python&#x91CC;&#x53EF;&#x4EE5;&#x7528;SimpleXMLRPCServer&#x548C;xmlrpclib&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x5206;&#x522B;&#x5B9E;&#x73B0;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<p>&#x8C03;&#x7528;supervisor&#x7684;xml_rpc&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> xmlrpclib
+p = xmlrpclib.Server(<span class="hljs-string">&apos;http://localhost:9001/RPC2&apos;</span>)
+<span class="hljs-comment"># xmlrpclib.Server()&#x91CC;&#x9762;&#x7684;url&#x548C;supervisor.conf&#x91CC;&#x7684;&#x914D;&#x7F6E;&#x662F;&#x76F8;&#x5173;&#x7684;</span>
+</code></pre>
+<p><a href="https://blog.csdn.net/LHWorldBlog/article/details/78518696" target="_blank">https://blog.csdn.net/LHWorldBlog/article/details/78518696</a></p>
+<p><a href="https://blog.csdn.net/shanliangliuxing/article/details/15499891" target="_blank">https://blog.csdn.net/shanliangliuxing/article/details/15499891</a></p>
+<p><a href="https://www.jianshu.com/p/3658c963d28b" target="_blank">https://www.jianshu.com/p/3658c963d28b</a></p>
 
                                 
                                 </section>
@@ -887,7 +1311,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"supervisor","level":"1.8.4","depth":2,"next":{"title":"用户身份与文件权限","level":"1.8.5","depth":2,"path":"Linux/用户身份与文件权限/README.md","ref":"Linux/用户身份与文件权限/README.md","articles":[]},"previous":{"title":"tmux","level":"1.8.3","depth":2,"path":"Linux/tmux/README.md","ref":"Linux/tmux/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/supervisor/README.md","mtime":"2018-07-16T07:57:42.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-19T09:06:22.047Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"supervisor","level":"1.8.4","depth":2,"next":{"title":"用户身份与文件权限","level":"1.8.5","depth":2,"path":"Linux/用户身份与文件权限/README.md","ref":"Linux/用户身份与文件权限/README.md","articles":[]},"previous":{"title":"tmux","level":"1.8.3","depth":2,"path":"Linux/tmux/README.md","ref":"Linux/tmux/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/supervisor/README.md","mtime":"2018-07-20T09:10:20.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-20T09:11:11.084Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
