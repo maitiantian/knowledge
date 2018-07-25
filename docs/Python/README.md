@@ -1030,7 +1030,7 @@ Web应用的本质就是：
 
 这就是WSGI做的事情：
 
-> **WSGI，官方定义是，Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着Python程序。WSGI的任务就是把上面的数据在http server和Python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 3333](https://www.python.org/dev/peps/pep-3333/)。http server和Python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
+> **WSGI，官方定义是，Web Server Gateway Interface，从名字可以看出这东西是一个Gateway，网关，网关的作用就是在协议之间进行转换。WSGI就像是一座桥梁，一边连着http server，另一边连着Python程序。WSGI的任务就是把上面的数据在http server和Python程序之间进行简单友好地传递。WSGI是一套关于服务器端和程序端的规范，或者说统一的接口，它是一个标准，被定义在[PEP 333](https://www.python.org/dev/peps/pep-0333/)。http server和Python程序都要遵守这个标准，实现这个标准的约定内容，才能正常工作。WSGI使我们不必接触TCP连接、HTTP原始请求和响应格式，只需要专心用Python编写Web业务。**
 
 > **WSGI是服务器程序与应用程序的一个约定，它规定了双方各自需要实现什么接口，提供什么功能，以便二者能够配合使用。**
 
@@ -1040,8 +1040,8 @@ Web应用的本质就是：
 
 1. 应用程序需要是一个可调用的对象；
     * 函数
-    * 实例，它的类实现了\_\_call\_\_方法
     * 类，这时候，用这个类生成实例的过程就相当于调用这个类
+    * 实例，它的类实现了\_\_call\_\_方法    
 2. 可调用对象接收两个参数；
     ```python
     # callable function
