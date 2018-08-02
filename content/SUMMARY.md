@@ -30,6 +30,7 @@
         * [从Flux到Redux](Front-End/React/从Flux到Redux/README.md)
     * [webpack](Front-End/webpack/README.md)
 * [Python](Python/README.md)
+    * [PEP8](Python/PEP8/README.md)
     * [常用内建模块](Python/常用内建模块/README.md)
     * [常用第三方模块](Python/常用第三方模块/README.md)
     * [Scrapy](Python/Scrapy/README.md)
