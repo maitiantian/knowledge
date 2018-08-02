@@ -165,5 +165,40 @@ class Sort():
 ![快速排序](../../../images/cs_sort_quick_sort.gif)
 
 ```python
+def QuickSort(myList, start, end):
+    # 判断low是否小于high,如果为false,直接返回
+    if start < end:
+        i, j = start, end
+        # 设置枢轴
+        pivot = myList[i]
+        while i < j:
+            # 如果列表后边的数,比枢轴大或相等,则前移一位直到有比枢轴小的数出现
+            while (i < j) and (myList[j] >= pivot):
+                j = j - 1
+            # 如找到,则把第j个元素赋值给第个元素i,此时表中i,j个元素相等
+            myList[i] = myList[j]
+            # 同样的方式比较前半区
+            while (i < j) and (myList[i] <= pivot):
+                i = i + 1
+            myList[j] = myList[i]
+        # 做完第一轮比较之后,列表被分成了两个半区,并且i=j,需要将这个数设置回pivot
+        myList[j] = pivot
+        # 递归前后半区
+        QuickSort(myList, start, i - 1)
+        QuickSort(myList, j + 1, end)
+    return myList
+```
 
+## 堆排序（Heap Sort）
+###### [<p align="right">back to top ▲</p>](#目录)
+
+算法思想(以大顶堆为例)：
+
+1. 将长度为n的待排序的序列进行堆有序化构造成一个大顶堆；
+2. 将根节点与尾节点交换并输出此时的尾节点；
+3. 将剩余的n-1个节点重新进行堆有序化；
+4. 重复步骤2，步骤3直至构造成一个有序序列。
+
+```python
+def HeapSort(myList):
 ```
