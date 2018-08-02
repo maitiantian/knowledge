@@ -12,7 +12,7 @@
 
 斜杠分正斜杠（forward slash'/'）和反斜杠（back slash'\\'）。
 
-* 在windows系统中，\ 用来表示目录；
-* 在unix系统中，/ 表示目录；
+* 在windows系统中，\\用来表示目录；
+* 在unix系统中，/表示目录；
 * web遵循unix命名，所以在网址（URL）中，/表示目录。
 
