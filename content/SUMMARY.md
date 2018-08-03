@@ -9,6 +9,7 @@
     * [算法](CS基础/算法/README.md)
         * [排序](CS基础/算法/排序/README.md)
         * [查找](CS基础/算法/查找/README.md)
+    * [操作系统](CS基础/操作系统/README.md)        
 * [Git](Git/README.md)
     * [常用Git命令](Git/常用Git命令/README.md)
     * [Issue](Git/Issue/README.md)
