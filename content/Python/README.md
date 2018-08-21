@@ -5,9 +5,11 @@
 * [可变、不可变数据类型](#可变、不可变数据类型)
 * [变量、函数命名](#变量、函数命名)
 * [函数参数](#函数参数)
+* [异常](#异常)
 * [模块](#模块)
 * [类与OOP](#类与oop)
 * [装饰器](#装饰器（decorator）)
+* [with](#with)
 * [WSGI（Web Server Gateway Interface）](#wsgi（web-server-gateway-interface）)
 
 # <p align="center">IDLE</p>
@@ -252,6 +254,78 @@ def person(name, age, *, city='Beijing', job):
 ```python
 def func(a, b, c=0, *args, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+```
+
+
+
+# <p align="center">异常</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+```
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      |    +-- ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- MemoryError
+      +-- NameError
+      |    +-- UnboundLocalError
+      +-- OSError
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError
+      |    +-- FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning
 ```
 
 
@@ -966,6 +1040,52 @@ def func():
     pass
 # 相当于func = decorator(func)
 ```
+
+
+
+# <p align="center">with</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+```python
+class DummyResource:
+    def __init__(self, tag):
+        self.tag = tag
+        print('Resource [%s]' % tag)
+    def __enter__(self):
+        print('[Enter %s]: Allocate resource.' % self.tag)
+        return self   # 返回实例，赋值给as后的变量
+    def __exit__(self, exc_type, exc_value, exc_tb):    # 异常类型，异常值，异常
+        print('[Exit %s]: Free resource.' % self.tag)
+        if exc_tb is None:
+            print('[Exit %s]: Exited without exception.' % self.tag)
+        else:
+            print('[Exit %s]: Exited with exception raised.' % self.tag)
+            return False   # 可以省略，缺省的None也是被看做是False
+
+    def bar(self):
+        print("barbarbar!!!")
+
+
+
+with DummyResource('Normal') as foo:
+    print('[with-body] Run without exceptions.')
+    foo.bar()
+
+# Resource [Normal]
+# [Enter Normal]: Allocate resource.
+# [with-body] Run without exceptions.
+# barbarbar!!!
+# [Exit Normal]: Free resource.
+# [Exit Normal]: Exited without exception.
+
+
+with DummyResource('With-Exception'):
+    print('[with-body] Run with exception.')
+    raise Exception(123)
+    print('[with-body] Run with exception. Failed to finish statement-body!')
+
+```
+
 
 
 # <p align="center">WSGI（Web Server Gateway Interface）</p>
