@@ -8,6 +8,7 @@
 * [异常](#异常)
 * [模块](#模块)
 * [类与OOP](#类与oop)
+* [元类](#元类)
 * [装饰器](#装饰器（decorator）)
 * [with](#with)
 * [WSGI（Web Server Gateway Interface）](#wsgi（web-server-gateway-interface）)
@@ -1007,6 +1008,65 @@ object.attributes
 
 
 
+# <p align="center">元类</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+type()函数既可以返回一个对象的类型，又可以创建出新的类型
+
+1. class的名称；
+2. 继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；
+3. class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。
+
+除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。
+
+metaclass允许你创建类或者修改类，你可以把类看成是metaclass创建出来的“实例”。
+
+按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass：
+
+```python
+# metaclass是类的模板，所以必须从`type`类型派生：
+class ListMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs['add'] = lambda self, value: self.append(value)
+        return type.__new__(cls, name, bases, attrs)
+```
+
+有了ListMetaclass，我们在定义类的时候还要指示使用ListMetaclass来定制类，传入关键字参数metaclass：
+
+```python
+class MyList(list, metaclass=ListMetaclass):
+    pass
+```
+
+当我们传入关键字参数metaclass时，魔术就生效了，它指示Python解释器在创建MyList时，要通过ListMetaclass.__new__()来创建，在此，我们可以修改类的定义，比如，加上新的方法，然后，返回修改后的定义。
+
+__new__()方法接收到的参数依次是：
+
+1. 当前准备创建的类的对象；
+2. 类的名字；
+3. 类继承的父类集合；
+4. 类的方法集合。
+
+ORM全称“Object Relational Mapping”，即对象-关系映射，就是把关系数据库的一行映射为一个对象，也就是一个类对应一个表，这样，写代码更简单，不用直接操作SQL语句。
+
+要编写一个ORM框架，所有的类都只能动态定义，因为只有使用者才能根据表的结构定义出对应的类来。
+
+```python
+class User(Model):
+    # 定义类的属性到列的映射：
+    id = IntegerField('id')
+    name = StringField('username')
+    email = StringField('email')
+    password = StringField('password')
+
+# 创建一个实例：
+u = User(id=12345, name='Michael', email='test@orm.org', password='my-pwd')
+# 保存到数据库：
+u.save()
+```
+
+
+
 # <p align="center">装饰器（Decorator）</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
@@ -1084,6 +1144,18 @@ with DummyResource('With-Exception'):
     raise Exception(123)
     print('[with-body] Run with exception. Failed to finish statement-body!')
 
+# Traceback (most recent call last):
+# Resource [With-Exception]
+#   File "D:/MyProjects/Sort/oop.py", line 26, in <module>
+#     raise Exception(123)
+# [Enter With-Exception]: Allocate resource.
+# Exception: 123
+# [with-body] Run with exception.
+# [Exit With-Exception]: Free resource.
+# [Exit With-Exception]: Exited with exception raised.
+# <class 'Exception'> 123 <traceback object at 0x02D33F58>
+# 
+# Process finished with exit code 1
 ```
 
 
