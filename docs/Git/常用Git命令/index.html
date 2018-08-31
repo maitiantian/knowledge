@@ -1010,7 +1010,7 @@ $ git checkout [branch-name]
 $ git checkout -
 
 <span class="hljs-comment"># &#x5EFA;&#x7ACB;&#x8FFD;&#x8E2A;&#x5173;&#x7CFB;&#xFF0C;&#x5728;&#x73B0;&#x6709;&#x5206;&#x652F;&#x4E0E;&#x6307;&#x5B9A;&#x7684;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x4E4B;&#x95F4;</span>
-$ git branch --set-upstream [branch] [remote-branch]
+$ git branch --set-upstream-to [branch] [remote-branch]
 
 <span class="hljs-comment"># &#x5408;&#x5E76;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;</span>
 $ git merge [branch]
@@ -1182,6 +1182,20 @@ git update-index --assume-unchanged /path/file
 
 <span class="hljs-comment"># &#x53D6;&#x6D88;&#x5FFD;&#x7565;</span>
 git update-index --no-assume-unchanged /path/file
+
+<span class="hljs-comment"># &#x5220;&#x9664;untracked files</span>
+git clean <span class="hljs-_">-f</span>
+
+<span class="hljs-comment"># &#x8FDE;untracked&#x7684;&#x76EE;&#x5F55;&#x4E5F;&#x4E00;&#x8D77;&#x5220;&#x6389;</span>
+git clean -fd
+
+<span class="hljs-comment"># &#x8FDE;.gitignore&#x7684;untrack&#x6587;&#x4EF6;/&#x76EE;&#x5F55;&#x4E5F;&#x4E00;&#x8D77;&#x5220;&#x6389; &#xFF08;&#x614E;&#x7528;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E00;&#x822C;&#x662F;&#x7528;&#x6765;&#x5220;&#x6389;&#x7F16;&#x8BD1;&#x51FA;&#x6765;&#x7684;.o&#x4E4B;&#x7C7B;&#x7684;&#x6587;&#x4EF6;&#x7528;&#x7684;&#xFF09;</span>
+git clean -xfd
+
+<span class="hljs-comment"># &#x5728;&#x7528;&#x4E0A;&#x8FF0;git clean&#x524D;&#xFF0C;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x5148;&#x7528;-n&#x53C2;&#x6570;&#x6765;&#x770B;&#x770B;&#x4F1A;&#x5220;&#x6389;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#xFF0C;&#x9632;&#x6B62;&#x91CD;&#x8981;&#x6587;&#x4EF6;&#x88AB;&#x8BEF;&#x5220;</span>
+git clean -nxfd
+git clean -nf
+git clean -nfd
 </code></pre>
 
                                 
@@ -1226,7 +1240,7 @@ git update-index --no-assume-unchanged /path/file
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用Git命令","level":"1.3.1","depth":2,"next":{"title":"Issue","level":"1.3.2","depth":2,"path":"Git/Issue/README.md","ref":"Git/Issue/README.md","articles":[]},"previous":{"title":"Git","level":"1.3","depth":1,"path":"Git/README.md","ref":"Git/README.md","articles":[{"title":"常用Git命令","level":"1.3.1","depth":2,"path":"Git/常用Git命令/README.md","ref":"Git/常用Git命令/README.md","articles":[]},{"title":"Issue","level":"1.3.2","depth":2,"path":"Git/Issue/README.md","ref":"Git/Issue/README.md","articles":[]},{"title":"工作流程及分支管理","level":"1.3.3","depth":2,"path":"Git/工作流程及分支管理/README.md","ref":"Git/工作流程及分支管理/README.md","articles":[]},{"title":"Git使用规范流程","level":"1.3.4","depth":2,"path":"Git/Git使用规范流程/README.md","ref":"Git/Git使用规范流程/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Git/常用Git命令/README.md","mtime":"2018-07-19T04:43:57.977Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-21T02:36:56.151Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用Git命令","level":"1.3.1","depth":2,"next":{"title":"Issue","level":"1.3.2","depth":2,"path":"Git/Issue/README.md","ref":"Git/Issue/README.md","articles":[]},"previous":{"title":"Git","level":"1.3","depth":1,"path":"Git/README.md","ref":"Git/README.md","articles":[{"title":"常用Git命令","level":"1.3.1","depth":2,"path":"Git/常用Git命令/README.md","ref":"Git/常用Git命令/README.md","articles":[]},{"title":"Issue","level":"1.3.2","depth":2,"path":"Git/Issue/README.md","ref":"Git/Issue/README.md","articles":[]},{"title":"工作流程及分支管理","level":"1.3.3","depth":2,"path":"Git/工作流程及分支管理/README.md","ref":"Git/工作流程及分支管理/README.md","articles":[]},{"title":"Git使用规范流程","level":"1.3.4","depth":2,"path":"Git/Git使用规范流程/README.md","ref":"Git/Git使用规范流程/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Git/常用Git命令/README.md","mtime":"2018-08-30T03:09:26.239Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-31T00:28:56.902Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

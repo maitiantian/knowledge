@@ -112,7 +112,7 @@ $ git checkout [branch-name]
 $ git checkout -
 
 # 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
+$ git branch --set-upstream-to [branch] [remote-branch]
 
 # 合并指定分支到当前分支
 $ git merge [branch]
@@ -294,4 +294,18 @@ git update-index --assume-unchanged /path/file
 
 # 取消忽略
 git update-index --no-assume-unchanged /path/file
+
+# 删除untracked files
+git clean -f
+ 
+# 连untracked的目录也一起删掉
+git clean -fd
+ 
+# 连.gitignore的untrack文件/目录也一起删掉 （慎用，这个一般是用来删掉编译出来的.o之类的文件用的）
+git clean -xfd
+ 
+# 在用上述git clean前，强烈建议先用-n参数来看看会删掉哪些文件，防止重要文件被误删
+git clean -nxfd
+git clean -nf
+git clean -nfd
 ```

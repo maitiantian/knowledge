@@ -916,6 +916,7 @@
 <li><a href="#string">string</a></li>
 <li><a href="#time">time</a></li>
 <li><a href="#datetime">datetime</a></li>
+<li><a href="#threading">threading</a></li>
 </ul>
 <h2 id="python&#x5E38;&#x7528;&#x6A21;&#x5757;top200">Python&#x5E38;&#x7528;&#x6A21;&#x5757;Top200</h2>
 <table>
@@ -2910,6 +2911,101 @@ timedelta: <span class="hljs-number">1</span> day, <span class="hljs-number">0</
 </tr>
 </tbody>
 </table>
+<h1 id="threading"><p align="center">threading</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h4 id="&#x6B7B;&#x9501;&#x6A21;&#x578B;">&#x6B7B;&#x9501;&#x6A21;&#x578B;</h4>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> threading
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span><span class="hljs-params">(threading.Thread)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        threading.Thread.__init__(self)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;[%s]: %s is running&apos;</span> % (time.ctime(), self.name))
+        self.foo()
+        self.bar()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;[%s]: %s is trying to get LOCKA&apos;</span> % (time.ctime(), self.name))
+        LockA.acquire()
+        print(<span class="hljs-string">&apos;[%s]: %s GET LOCKA&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is trying to get LOCKB&apos;</span> % (time.ctime(), self.name))
+        LockB.acquire()
+        print(<span class="hljs-string">&apos;[%s]: %s GET LOCKB&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is gonna release LOCKB&apos;</span> % (time.ctime(), self.name))
+        LockB.release()
+        print(<span class="hljs-string">&apos;[%s]: %s LOSE LOCKB&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is going to sleep&apos;</span> % (time.ctime(), self.name))
+        time.sleep(<span class="hljs-number">1</span>)
+        print(<span class="hljs-string">&apos;[%s]: %s is awake now, runing again&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is gonna release LOCKA&apos;</span> % (time.ctime(), self.name))
+        LockA.release()
+        print(<span class="hljs-string">&apos;[%s]: %s LOSE LOCKA&apos;</span> % (time.ctime(), self.name))
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;[%s]: %s is trying to get LOCKB&apos;</span> % (time.ctime(), self.name))
+        LockB.acquire()
+        print(<span class="hljs-string">&apos;[%s]: %s GET LOCKB&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is trying to get LOCKA&apos;</span> % (time.ctime(), self.name))
+        LockA.acquire()
+        print(<span class="hljs-string">&apos;[%s]: %s GET LOCKA&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is gonna release LOCKA&apos;</span> % (time.ctime(), self.name))
+        LockA.release()
+        print(<span class="hljs-string">&apos;[%s]: I am %s LOSE LOCKA&apos;</span> % (time.ctime(), self.name))
+
+        print(<span class="hljs-string">&apos;[%s]: %s is gonna release LOCKB&apos;</span> % (time.ctime(), self.name))
+        LockB.release()
+        print(<span class="hljs-string">&apos;[%s]: I am %s LOSE LOCKB&apos;</span> % (time.ctime(), self.name))
+
+
+LockA = threading.Lock()
+LockB = threading.Lock()
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):
+    t = MyThread()
+    t.start()
+
+<span class="hljs-comment"># &#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x4E0D;&#x540C;</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 GET LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 is trying to get LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 GET LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 is gonna release LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 LOSE LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-1 is going to sleep</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-2 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-2 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-3 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-3 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-4 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-4 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-5 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-5 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-6 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-6 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-7 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-7 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-8 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-8 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-9 is running</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:15 2018]: Thread-9 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 is awake now, runing again</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 is gonna release LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 LOSE LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 is trying to get LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 GET LOCKB</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-1 is trying to get LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-2 GET LOCKA</span>
+<span class="hljs-comment"># [Wed Aug 22 10:03:16 2018]: Thread-2 is trying to get LOCKB</span>
+</code></pre>
 
                                 
                                 </section>
@@ -2953,7 +3049,7 @@ timedelta: <span class="hljs-number">1</span> day, <span class="hljs-number">0</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用内建模块","level":"1.6.2","depth":2,"next":{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},"previous":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用内建模块/README.md","mtime":"2018-06-25T12:18:11.215Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-21T02:36:56.151Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用内建模块","level":"1.6.2","depth":2,"next":{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},"previous":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用内建模块/README.md","mtime":"2018-08-22T02:37:29.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-31T00:28:56.902Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

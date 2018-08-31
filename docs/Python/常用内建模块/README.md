@@ -6,6 +6,7 @@
 * [string](#string)
 * [time](#time)
 * [datetime](#datetime)
+* [threading](#threading)
 
 ## Python常用模块Top200
 
@@ -910,3 +911,104 @@ datetime、date、time都提供了strftime()方法，该方法接收一个格式
 |%z|当前时区与格林威治标准时间的时间差，'+0800'|
 |%Z|当前时区的名称，'CST'|
 |%%|百分号，'%'|
+
+
+# <p align="center">threading</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
+
+
+#### 死锁模型
+```python
+import threading
+import time
+
+class MyThread(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+    def run(self):
+        print('[%s]: %s is running' % (time.ctime(), self.name))
+        self.foo()
+        self.bar()
+    def foo(self):
+        print('[%s]: %s is trying to get LOCKA' % (time.ctime(), self.name))
+        LockA.acquire()
+        print('[%s]: %s GET LOCKA' % (time.ctime(), self.name))
+
+        print('[%s]: %s is trying to get LOCKB' % (time.ctime(), self.name))
+        LockB.acquire()
+        print('[%s]: %s GET LOCKB' % (time.ctime(), self.name))
+
+        print('[%s]: %s is gonna release LOCKB' % (time.ctime(), self.name))
+        LockB.release()
+        print('[%s]: %s LOSE LOCKB' % (time.ctime(), self.name))
+
+        print('[%s]: %s is going to sleep' % (time.ctime(), self.name))
+        time.sleep(1)
+        print('[%s]: %s is awake now, runing again' % (time.ctime(), self.name))
+
+        print('[%s]: %s is gonna release LOCKA' % (time.ctime(), self.name))
+        LockA.release()
+        print('[%s]: %s LOSE LOCKA' % (time.ctime(), self.name))
+
+
+    def bar(self):
+        print('[%s]: %s is trying to get LOCKB' % (time.ctime(), self.name))
+        LockB.acquire()
+        print('[%s]: %s GET LOCKB' % (time.ctime(), self.name))
+
+        print('[%s]: %s is trying to get LOCKA' % (time.ctime(), self.name))
+        LockA.acquire()
+        print('[%s]: %s GET LOCKA' % (time.ctime(), self.name))
+
+        print('[%s]: %s is gonna release LOCKA' % (time.ctime(), self.name))
+        LockA.release()
+        print('[%s]: I am %s LOSE LOCKA' % (time.ctime(), self.name))
+
+        print('[%s]: %s is gonna release LOCKB' % (time.ctime(), self.name))
+        LockB.release()
+        print('[%s]: I am %s LOSE LOCKB' % (time.ctime(), self.name))
+
+
+LockA = threading.Lock()
+LockB = threading.Lock()
+
+for i in range(9):
+    t = MyThread()
+    t.start()
+
+# 运行结果可能不同
+# [Wed Aug 22 10:03:15 2018]: Thread-1 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-1 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-1 GET LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-1 is trying to get LOCKB
+# [Wed Aug 22 10:03:15 2018]: Thread-1 GET LOCKB
+# [Wed Aug 22 10:03:15 2018]: Thread-1 is gonna release LOCKB
+# [Wed Aug 22 10:03:15 2018]: Thread-1 LOSE LOCKB
+# [Wed Aug 22 10:03:15 2018]: Thread-1 is going to sleep
+# [Wed Aug 22 10:03:15 2018]: Thread-2 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-2 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-3 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-3 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-4 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-4 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-5 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-5 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-6 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-6 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-7 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-7 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-8 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-8 is trying to get LOCKA
+# [Wed Aug 22 10:03:15 2018]: Thread-9 is running
+# [Wed Aug 22 10:03:15 2018]: Thread-9 is trying to get LOCKA
+# [Wed Aug 22 10:03:16 2018]: Thread-1 is awake now, runing again
+# [Wed Aug 22 10:03:16 2018]: Thread-1 is gonna release LOCKA
+# [Wed Aug 22 10:03:16 2018]: Thread-1 LOSE LOCKA
+# [Wed Aug 22 10:03:16 2018]: Thread-1 is trying to get LOCKB
+# [Wed Aug 22 10:03:16 2018]: Thread-1 GET LOCKB
+# [Wed Aug 22 10:03:16 2018]: Thread-1 is trying to get LOCKA
+# [Wed Aug 22 10:03:16 2018]: Thread-2 GET LOCKA
+# [Wed Aug 22 10:03:16 2018]: Thread-2 is trying to get LOCKB
+```
