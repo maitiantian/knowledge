@@ -308,4 +308,11 @@ git clean -xfd
 git clean -nxfd
 git clean -nf
 git clean -nfd
+
+# 开发过程中，经常会有一些通用部分希望抽取出来做成一个公共库来提供给别的工程使用
+# 可以使用git子模块来解决这种需求
+# 为当前工程添加submodule
+git submodule add <repository> [<path>]
+# 当git clone的工程中带有submodule时，submodule的内容并不会自动下载下来的，此时需要执行如下命令：
+git submodule update --init --recursive
 ```

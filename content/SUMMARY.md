@@ -34,7 +34,6 @@
     * [webpack](Front-End/webpack/README.md)
     * [Node.js](Front-End/Node.js/README.md)
         * [npm](Front-End/Node.js/npm/README.md)
-        * [package.json](Front-End/Node.js/package.json/README.md)
 * [Python](Python/README.md)
     * [PEP8](Python/PEP8/README.md)
     * [常用内建模块](Python/常用内建模块/README.md)
