@@ -971,6 +971,7 @@
 <li><a href="#sys">sys</a></li>
 <li><a href="#os">os</a></li>
 <li><a href="#re">re</a></li>
+<li><a href="#collections">collections</a></li>
 <li><a href="#string">string</a></li>
 <li><a href="#time">time</a></li>
 <li><a href="#datetime">datetime</a></li>
@@ -2316,6 +2317,155 @@ pat.sub(<span class="hljs-string">r&apos;\2 \1&apos;</span>,s)
 <span class="hljs-comment"># &#x5373;&#x7EC4;1&#x66FF;&#x6362;&#x7EC4;2&#xFF0C;&#x7EC4;2&#x66FF;&#x6362;&#x7EC4;1&#xFF0C;&#x8C03;&#x6362;&#x4F4D;&#x7F6E;&#x3002;  </span>
 <span class="hljs-string">&apos;world hello!hz hello!&apos;</span>
 </code></pre>
+<h1 id="collections"><p align="center">collections</p></h1>
+<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h2 id="namedtuple">namedtuple</h2>
+<p><strong>namedtuple&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7684;tuple&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x89C4;&#x5B9A;&#x4E86;tuple&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x7528;&#x5C5E;&#x6027;&#x800C;&#x4E0D;&#x662F;&#x7D22;&#x5F15;&#x6765;&#x5F15;&#x7528;tuple&#x7684;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#xFF1A;</strong></p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+<span class="hljs-meta">&gt;&gt;&gt; </span>Point = namedtuple(<span class="hljs-string">&apos;Point&apos;</span>, [<span class="hljs-string">&apos;x&apos;</span>, <span class="hljs-string">&apos;y&apos;</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>p = Point(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.x
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.y
+<span class="hljs-number">2</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>isinstance(p, Point)
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>isinstance(p, tuple)
+<span class="hljs-keyword">True</span>
+
+<span class="hljs-comment"># namedtuple(&apos;&#x540D;&#x79F0;&apos;, [&#x5C5E;&#x6027;list]):</span>
+Circle = namedtuple(<span class="hljs-string">&apos;Circle&apos;</span>, [<span class="hljs-string">&apos;x&apos;</span>, <span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>])
+</code></pre>
+<p><strong>&#x7528;namedtuple&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x5730;&#x5B9A;&#x4E49;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x5177;&#x5907;tuple&#x7684;&#x4E0D;&#x53D8;&#x6027;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5C5E;&#x6027;&#x6765;&#x5F15;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x5341;&#x5206;&#x65B9;&#x4FBF;&#x3002;</strong></p>
+<h2 id="deque">deque</h2>
+<p><strong>A list-like sequence optimized for data accesses near its endpoints.</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># deque&#x9664;&#x4E86;&#x5B9E;&#x73B0;list&#x7684;append()&#x548C;pop()&#x5916;&#xFF0C;&#x8FD8;&#x652F;&#x6301;appendleft()&#x548C;popleft()&#xFF0C;</span>
+<span class="hljs-comment"># &#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x9AD8;&#x6548;&#x5730;&#x5F80;&#x5934;&#x90E8;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#x5143;&#x7D20;&#x3002;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+<span class="hljs-meta">&gt;&gt;&gt; </span>q = deque([<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.append(<span class="hljs-string">&apos;x&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.appendleft(<span class="hljs-string">&apos;y&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q
+deque([<span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-string">&apos;x&apos;</span>])
+</code></pre>
+<ul>
+<li>append: Add an element to the right side of the deque.</li>
+<li>appendleft: Add an element to the left side of the deque.</li>
+<li>clear: Remove all elements from the deque.</li>
+<li>copy: Return a shallow copy of a deque.</li>
+<li>count: D.count(value) -&gt; integer -- return number of occurrences of value.</li>
+<li>extend: Extend the right side of the deque with elements from the iterable.</li>
+<li>extendleft: Extend the left side of the deque with elements from the iterable.<pre><code class="lang-python">  &gt;&gt;&gt; a = deque([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+  &gt;&gt;&gt; a
+  deque([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+  &gt;&gt;&gt; a.extendleft([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
+  &gt;&gt;&gt; a
+  deque([<span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+</code></pre>
+</li>
+<li>index: D.index(value, [start, [stop]]) -&gt; integer -- return first index of value. Raises ValueError if the value is not present.</li>
+<li>insert: D.insert(index, object) -- insert object before index.</li>
+<li>pop: Remove and return the rightmost element.</li>
+<li>popleft: Remove and return the leftmost element.</li>
+<li>remove: D.remove(value) -- remove first occurrence of value.</li>
+<li>reverse: D.reverse() -- reverse *IN PLACE*</li>
+<li>rotate: Rotate the deque n steps to the right (default n=1).  If n is negative, rotates left.</li>
+</ul>
+<h2 id="defaultdict">defaultdict</h2>
+<p><strong>&#x4F7F;&#x7528;dict&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;Key&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4F1A;&#x629B;&#x51FA;KeyError&#xFF1B;&#x4F7F;&#x7528;defaultdict&#xFF0C;&#x5982;&#x679C;key&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;</strong></p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+<span class="hljs-meta">&gt;&gt;&gt; </span>dd = defaultdict(<span class="hljs-keyword">lambda</span>: <span class="hljs-string">&apos;N/A&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>dd[<span class="hljs-string">&apos;key1&apos;</span>] = <span class="hljs-string">&apos;abc&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>dd[<span class="hljs-string">&apos;key1&apos;</span>] <span class="hljs-comment"># key1&#x5B58;&#x5728;</span>
+<span class="hljs-string">&apos;abc&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>dd[<span class="hljs-string">&apos;key2&apos;</span>] <span class="hljs-comment"># key2&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;&#x9ED8;&#x8BA4;&#x503C;</span>
+<span class="hljs-string">&apos;N/A&apos;</span>
+</code></pre>
+<p><strong>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#xFF0C;&#x800C;&#x51FD;&#x6570;&#x5728;&#x521B;&#x5EFA;defaultdict&#x5BF9;&#x8C61;&#x65F6;&#x4F20;&#x5165;&#x3002;</strong></p>
+<p>&#x9664;&#x4E86;&#x5728;Key&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x8FD4;&#x56DE;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;defaultdict&#x7684;&#x5176;&#x4ED6;&#x884C;&#x4E3A;&#x8DDF;dict&#x662F;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<h2 id="orderddict">OrderdDict</h2>
+<p><strong>&#x4F7F;&#x7528;dict&#x65F6;&#xFF0C;Key&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;&#x8FED;&#x4EE3;dict&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;Key&#x7684;&#x987A;&#x5E8F;&#xFF1B;OrderedDict&#x7684;Key&#x4F1A;&#x6309;&#x7167;&#x63D2;&#x5165;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5217;&#xFF1A;</strong></p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+<span class="hljs-meta">&gt;&gt;&gt; </span>d = dict([(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-number">1</span>), (<span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-number">3</span>)])
+<span class="hljs-meta">&gt;&gt;&gt; </span>d <span class="hljs-comment"># dict&#x7684;Key&#x662F;&#x65E0;&#x5E8F;&#x7684;</span>
+{<span class="hljs-string">&apos;a&apos;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&apos;c&apos;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&apos;b&apos;</span>: <span class="hljs-number">2</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>od = OrderedDict([(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-number">1</span>), (<span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-number">3</span>)])
+<span class="hljs-meta">&gt;&gt;&gt; </span>od <span class="hljs-comment"># OrderedDict&#x7684;Key&#x662F;&#x6709;&#x5E8F;&#x7684;</span>
+OrderedDict([(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-number">1</span>), (<span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">&apos;c&apos;</span>, <span class="hljs-number">3</span>)])
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(od.keys()) <span class="hljs-comment"># &#x6309;&#x7167;&#x63D2;&#x5165;&#x7684;Key&#x7684;&#x987A;&#x5E8F;&#x8FD4;&#x56DE;</span>
+[<span class="hljs-string">&apos;z&apos;</span>, <span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-string">&apos;x&apos;</span>]
+</code></pre>
+<p>OrderedDict&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;FIFO&#xFF08;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#xFF09;&#x7684;dict&#xFF0C;&#x5F53;&#x5BB9;&#x91CF;&#x8D85;&#x51FA;&#x9650;&#x5236;&#x65F6;&#xFF0C;&#x5148;&#x5220;&#x9664;&#x6700;&#x65E9;&#x6DFB;&#x52A0;&#x7684;Key&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LastUpdatedOrderedDict</span><span class="hljs-params">(OrderedDict)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, capacity)</span>:</span>
+        super(LastUpdatedOrderedDict, self).__init__()
+        self._capacity = capacity
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setitem__</span><span class="hljs-params">(self, key, value)</span>:</span>
+        containsKey = <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> key <span class="hljs-keyword">in</span> self <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> len(self) - containsKey &gt;= self._capacity:
+            last = self.popitem(last=<span class="hljs-keyword">False</span>)
+            <span class="hljs-comment"># OrderdDict.popitem()</span>
+            <span class="hljs-comment"># Remove and return a (key, value) pair from the dictionary.</span>
+            <span class="hljs-comment"># Pairs are returned in LIFO order if last is true or FIFO order if false.</span>
+            print(<span class="hljs-string">&apos;remove:&apos;</span>, last)
+            <span class="hljs-comment"># dict.popitem()</span>
+            <span class="hljs-comment"># Remove and return some (key, value) pair as a 2-tuple;</span>
+            <span class="hljs-comment"># but raise KeyError if D is empty.</span>
+        <span class="hljs-keyword">if</span> containsKey:
+            <span class="hljs-keyword">del</span> self[key]
+            print(<span class="hljs-string">&apos;set:&apos;</span>, (key, value))
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">&apos;add:&apos;</span>, (key, value))
+        OrderedDict.__setitem__(self, key, value)
+</code></pre>
+<h2 id="counter">Counter</h2>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;Dict subclass for counting hashable items.  Sometimes called a bag
+or multiset.  Elements are stored as dictionary keys and their counts
+are stored as dictionary values.
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>c = Counter(&apos;abcdeabcdabcaba&apos;)  # count elements from a string
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>c.most_common(3)                # three most common elements
+[(&apos;a&apos;, 5), (&apos;b&apos;, 4), (&apos;c&apos;, 3)]
+<span class="hljs-meta">&gt;&gt;&gt; </span>sorted(c)                       # list all unique elements
+[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;]
+<span class="hljs-meta">&gt;&gt;&gt; </span>&apos;&apos;.join(sorted(c.elements()))   # list elements with repetitions
+&apos;aaaaabbbbcccdde&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum(c.values())                 # total of all counts
+15
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>c[&apos;a&apos;]                          # count of letter &apos;a&apos;
+5
+<span class="hljs-meta">&gt;&gt;&gt; </span>for elem in &apos;shazam&apos;:           # update counts from an iterable
+<span class="hljs-meta">... </span>    c[elem] += 1                # by adding 1 to each element&apos;s count
+<span class="hljs-meta">&gt;&gt;&gt; </span>c[&apos;a&apos;]                          # now there are seven &apos;a&apos;
+7
+<span class="hljs-meta">&gt;&gt;&gt; </span>del c[&apos;b&apos;]                      # remove all &apos;b&apos;
+<span class="hljs-meta">&gt;&gt;&gt; </span>c[&apos;b&apos;]                          # now there are zero &apos;b&apos;
+0
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>d = Counter(&apos;simsalabim&apos;)       # make another counter
+<span class="hljs-meta">&gt;&gt;&gt; </span>c.update(d)                     # add in the second counter
+<span class="hljs-meta">&gt;&gt;&gt; </span>c[&apos;a&apos;]                          # now there are nine &apos;a&apos;
+9
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>c.clear()                       # empty the counter
+<span class="hljs-meta">&gt;&gt;&gt; </span>c
+Counter()
+
+Note:  If a count is set to zero or reduced to zero, it will remain
+in the counter until the entry is deleted or the counter is cleared:
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>c = Counter(&apos;aaabbc&apos;)
+<span class="hljs-meta">&gt;&gt;&gt; </span>c[&apos;b&apos;] -= 2                     # reduce the count of &apos;b&apos; by two
+<span class="hljs-meta">&gt;&gt;&gt; </span>c.most_common()                 # &apos;b&apos; is still in, but its count is zero
+[(&apos;a&apos;, 3), (&apos;c&apos;, 1), (&apos;b&apos;, 0)]
+&apos;&apos;&apos;</span>
+</code></pre>
 <h1 id="string"><p align="center">string</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
 <h3 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
@@ -3107,7 +3257,7 @@ LockB = threading.Lock()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用内建模块","level":"1.6.2","depth":2,"next":{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},"previous":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用内建模块/README.md","mtime":"2018-08-22T02:37:29.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T06:17:58.410Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用内建模块","level":"1.6.2","depth":2,"next":{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},"previous":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/常用内建模块/README.md","mtime":"2018-09-07T02:29:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T02:31:25.089Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

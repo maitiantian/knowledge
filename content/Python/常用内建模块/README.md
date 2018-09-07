@@ -3,6 +3,7 @@
 * [sys](#sys)
 * [os](#os)
 * [re](#re)
+* [collections](#collections)
 * [string](#string)
 * [time](#time)
 * [datetime](#datetime)
@@ -508,6 +509,188 @@ pat.sub(r'\2 \1',s)
 # 通过正则得到组1(hello)，组2(world)，再通过sub去替换。
 # 即组1替换组2，组2替换组1，调换位置。  
 'world hello!hz hello!'
+```
+
+
+
+# <p align="center">collections</p>
+
+###### [<p align="right">back to top ▲</p>](#目录)
+
+## namedtuple
+
+__namedtuple是一个函数，用来创建自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素：__
+
+```python
+>>> from collections import namedtuple
+>>> Point = namedtuple('Point', ['x', 'y'])
+>>> p = Point(1, 2)
+>>> p.x
+1
+>>> p.y
+2
+
+>>> isinstance(p, Point)
+True
+>>> isinstance(p, tuple)
+True
+
+# namedtuple('名称', [属性list]):
+Circle = namedtuple('Circle', ['x', 'y', 'r'])
+```
+
+__用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便。__
+
+
+## deque
+
+__A list-like sequence optimized for data accesses near its endpoints.__
+
+```python
+# deque除了实现list的append()和pop()外，还支持appendleft()和popleft()，
+# 这样就可以非常高效地往头部添加或删除元素。
+>>> from collections import deque
+>>> q = deque(['a', 'b', 'c'])
+>>> q.append('x')
+>>> q.appendleft('y')
+>>> q
+deque(['y', 'a', 'b', 'c', 'x'])
+```
+
+* append: Add an element to the right side of the deque.
+* appendleft: Add an element to the left side of the deque.
+* clear: Remove all elements from the deque.
+* copy: Return a shallow copy of a deque.
+* count: D.count(value) -> integer -- return number of occurrences of value.
+* extend: Extend the right side of the deque with elements from the iterable.
+* extendleft: Extend the left side of the deque with elements from the iterable.
+    ```python
+    >>> a = deque([1,2,3])
+    >>> a
+    deque([1, 2, 3])
+    >>> a.extendleft([4,5,6])
+    >>> a
+    deque([6, 5, 4, 1, 2, 3])
+    ```
+* index: D.index(value, [start, [stop]]) -> integer -- return first index of value. Raises ValueError if the value is not present.
+* insert: D.insert(index, object) -- insert object before index.
+* pop: Remove and return the rightmost element.
+* popleft: Remove and return the leftmost element.
+* remove: D.remove(value) -- remove first occurrence of value.
+* reverse: D.reverse() -- reverse \*IN PLACE\*
+* rotate: Rotate the deque n steps to the right (default n=1).  If n is negative, rotates left.
+
+
+## defaultdict
+
+__使用dict时，如果引用的Key不存在，就会抛出KeyError；使用defaultdict，如果key不存在，则返回一个默认值：__
+
+```python
+>>> from collections import defaultdict
+>>> dd = defaultdict(lambda: 'N/A')
+>>> dd['key1'] = 'abc'
+>>> dd['key1'] # key1存在
+'abc'
+>>> dd['key2'] # key2不存在，返回默认值
+'N/A'
+```
+
+__默认值是调用函数返回的，而函数在创建defaultdict对象时传入。__
+
+除了在Key不存在时返回默认值，defaultdict的其他行为跟dict是完全一样的。
+
+
+## OrderdDict
+
+__使用dict时，Key是无序的。迭代dict无法保证Key的顺序；OrderedDict的Key会按照插入的顺序排列：__
+
+```python
+>>> from collections import OrderedDict
+>>> d = dict([('a', 1), ('b', 2), ('c', 3)])
+>>> d # dict的Key是无序的
+{'a': 1, 'c': 3, 'b': 2}
+>>> od = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+>>> od # OrderedDict的Key是有序的
+OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+>>> list(od.keys()) # 按照插入的Key的顺序返回
+['z', 'y', 'x']
+```
+
+OrderedDict可以实现一个FIFO（先进先出）的dict，当容量超出限制时，先删除最早添加的Key：
+
+```python
+from collections import OrderedDict
+
+class LastUpdatedOrderedDict(OrderedDict):
+    def __init__(self, capacity):
+        super(LastUpdatedOrderedDict, self).__init__()
+        self._capacity = capacity
+
+    def __setitem__(self, key, value):
+        containsKey = 1 if key in self else 0
+        if len(self) - containsKey >= self._capacity:
+            last = self.popitem(last=False)
+            # OrderdDict.popitem()
+            # Remove and return a (key, value) pair from the dictionary.
+            # Pairs are returned in LIFO order if last is true or FIFO order if false.
+            print('remove:', last)
+            # dict.popitem()
+            # Remove and return some (key, value) pair as a 2-tuple;
+            # but raise KeyError if D is empty.
+        if containsKey:
+            del self[key]
+            print('set:', (key, value))
+        else:
+            print('add:', (key, value))
+        OrderedDict.__setitem__(self, key, value)
+```
+
+
+## Counter
+
+```python
+'''Dict subclass for counting hashable items.  Sometimes called a bag
+or multiset.  Elements are stored as dictionary keys and their counts
+are stored as dictionary values.
+
+>>> c = Counter('abcdeabcdabcaba')  # count elements from a string
+
+>>> c.most_common(3)                # three most common elements
+[('a', 5), ('b', 4), ('c', 3)]
+>>> sorted(c)                       # list all unique elements
+['a', 'b', 'c', 'd', 'e']
+>>> ''.join(sorted(c.elements()))   # list elements with repetitions
+'aaaaabbbbcccdde'
+>>> sum(c.values())                 # total of all counts
+15
+
+>>> c['a']                          # count of letter 'a'
+5
+>>> for elem in 'shazam':           # update counts from an iterable
+...     c[elem] += 1                # by adding 1 to each element's count
+>>> c['a']                          # now there are seven 'a'
+7
+>>> del c['b']                      # remove all 'b'
+>>> c['b']                          # now there are zero 'b'
+0
+
+>>> d = Counter('simsalabim')       # make another counter
+>>> c.update(d)                     # add in the second counter
+>>> c['a']                          # now there are nine 'a'
+9
+
+>>> c.clear()                       # empty the counter
+>>> c
+Counter()
+
+Note:  If a count is set to zero or reduced to zero, it will remain
+in the counter until the entry is deleted or the counter is cleared:
+
+>>> c = Counter('aaabbc')
+>>> c['b'] -= 2                     # reduce the count of 'b' by two
+>>> c.most_common()                 # 'b' is still in, but its count is zero
+[('a', 3), ('c', 1), ('b', 0)]
+'''
 ```
 
 

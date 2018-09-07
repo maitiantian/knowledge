@@ -1872,14 +1872,27 @@ system2.utilities.function(<span class="hljs-string">&apos;eggs&apos;</span>)
 <p><img src="../images/python_oop.png" alt=""></p>
 <h1 id="&#x5143;&#x7C7B;"><p align="center">&#x5143;&#x7C7B;</p></h1>
 <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
-<p>type()&#x51FD;&#x6570;&#x65E2;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x51FA;&#x65B0;&#x7684;&#x7C7B;&#x578B;</p>
+<p><strong>type()&#x51FD;&#x6570;&#x65E2;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x51FA;&#x65B0;&#x7684;&#x7C7B;&#x578B;&#x3002;</strong></p>
+<p>&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;class&#x5BF9;&#x8C61;&#xFF0C;type()&#x51FD;&#x6570;&#x4F9D;&#x6B21;&#x4F20;&#x5165;3&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
 <ol>
-<li>class&#x7684;&#x540D;&#x79F0;&#xFF1B;</li>
-<li>&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;&#x96C6;&#x5408;&#xFF0C;&#x6CE8;&#x610F;Python&#x652F;&#x6301;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7236;&#x7C7B;&#xFF0C;&#x522B;&#x5FD8;&#x4E86;tuple&#x7684;&#x5355;&#x5143;&#x7D20;&#x5199;&#x6CD5;&#xFF1B;</li>
-<li>class&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x79F0;&#x4E0E;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x628A;&#x51FD;&#x6570;fn&#x7ED1;&#x5B9A;&#x5230;&#x65B9;&#x6CD5;&#x540D;hello&#x4E0A;&#x3002;</li>
+<li>class&#x7684;&#x540D;&#x79F0;&#xFF0C;str&#xFF1B;</li>
+<li>&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;&#x96C6;&#x5408;&#xFF0C;tuple&#xFF1B;</li>
+<li>class&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x79F0;&#x4E0E;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#xFF0C;dict&#x3002;</li>
 </ol>
-<p>&#x9664;&#x4E86;&#x4F7F;&#x7528;type()&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7C7B;&#x4EE5;&#x5916;&#xFF0C;&#x8981;&#x63A7;&#x5236;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x884C;&#x4E3A;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;metaclass&#x3002;</p>
-<p>metaclass&#x5141;&#x8BB8;&#x4F60;&#x521B;&#x5EFA;&#x7C7B;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x7C7B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x7C7B;&#x770B;&#x6210;&#x662F;metaclass&#x521B;&#x5EFA;&#x51FA;&#x6765;&#x7684;&#x201C;&#x5B9E;&#x4F8B;&#x201D;&#x3002;</p>
+<pre><code class="lang-python">&gt;&gt;&gt; def fn(self, name=&apos;world&apos;): # &#x5148;&#x5B9A;&#x4E49;&#x51FD;&#x6570;
+...     print(&apos;Hello, %s.&apos; % name)
+...
+&gt;&gt;&gt; Hello = type(&apos;Hello&apos;, (object,), dict(hello=fn)) # &#x521B;&#x5EFA;Hello class
+&gt;&gt;&gt; h = Hello()
+&gt;&gt;&gt; h.hello()
+Hello, world.
+&gt;&gt;&gt; print(type(Hello))
+&lt;class &apos;type&apos;&gt;
+&gt;&gt;&gt; print(type(h))
+&lt;class &apos;__main__.Hello&apos;&gt;
+</code></pre>
+<p><strong>&#x9664;&#x4E86;&#x4F7F;&#x7528;type()&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7C7B;&#x4EE5;&#x5916;&#xFF0C;&#x8981;&#x63A7;&#x5236;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x884C;&#x4E3A;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;metaclass&#x3002;</strong></p>
+<p>metaclass&#x5141;&#x8BB8;&#x4F60;&#x521B;&#x5EFA;&#x7C7B;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x7C7B;&#xFF0C;<strong>&#x53EF;&#x4EE5;&#x628A;&#x7C7B;&#x770B;&#x6210;&#x662F;metaclass&#x521B;&#x5EFA;&#x51FA;&#x6765;&#x7684;&#x201C;&#x5B9E;&#x4F8B;&#x201D;</strong>&#x3002;</p>
 <p>&#x6309;&#x7167;&#x9ED8;&#x8BA4;&#x4E60;&#x60EF;&#xFF0C;metaclass&#x7684;&#x7C7B;&#x540D;&#x603B;&#x662F;&#x4EE5;Metaclass&#x7ED3;&#x5C3E;&#xFF0C;&#x4EE5;&#x4FBF;&#x6E05;&#x695A;&#x5730;&#x8868;&#x793A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;metaclass&#xFF1A;</p>
 <pre><code class="lang-python"><span class="hljs-comment"># metaclass&#x662F;&#x7C7B;&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x4ECE;`type`&#x7C7B;&#x578B;&#x6D3E;&#x751F;&#xFF1A;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListMetaclass</span><span class="hljs-params">(type)</span>:</span>
@@ -1891,8 +1904,8 @@ system2.utilities.function(<span class="hljs-string">&apos;eggs&apos;</span>)
 <pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyList</span><span class="hljs-params">(list, metaclass=ListMetaclass)</span>:</span>
     <span class="hljs-keyword">pass</span>
 </code></pre>
-<p>&#x5F53;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;metaclass&#x65F6;&#xFF0C;&#x9B54;&#x672F;&#x5C31;&#x751F;&#x6548;&#x4E86;&#xFF0C;&#x5B83;&#x6307;&#x793A;Python&#x89E3;&#x91CA;&#x5668;&#x5728;&#x521B;&#x5EFA;MyList&#x65F6;&#xFF0C;&#x8981;&#x901A;&#x8FC7;ListMetaclass.<strong>new</strong>()&#x6765;&#x521B;&#x5EFA;&#xFF0C;&#x5728;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x52A0;&#x4E0A;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
-<p><strong>new</strong>()&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x7684;&#x53C2;&#x6570;&#x4F9D;&#x6B21;&#x662F;&#xFF1A;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;metaclass&#x65F6;&#xFF0C;&#x9B54;&#x672F;&#x5C31;&#x751F;&#x6548;&#x4E86;&#xFF0C;&#x5B83;&#x6307;&#x793A;Python&#x89E3;&#x91CA;&#x5668;&#x5728;&#x521B;&#x5EFA;MyList&#x65F6;&#xFF0C;&#x8981;&#x901A;&#x8FC7;ListMetaclass.__new__()&#x6765;&#x521B;&#x5EFA;&#xFF0C;&#x5728;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x52A0;&#x4E0A;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>__new__()&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x7684;&#x53C2;&#x6570;&#x4F9D;&#x6B21;&#x662F;&#xFF1A;</p>
 <ol>
 <li>&#x5F53;&#x524D;&#x51C6;&#x5907;&#x521B;&#x5EFA;&#x7684;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;</li>
 <li>&#x7C7B;&#x7684;&#x540D;&#x5B57;&#xFF1B;</li>
@@ -2286,7 +2299,7 @@ do_some_code(r)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.6","depth":1,"next":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"previous":{"title":"npm","level":"1.5.8.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-09-03T05:17:51.990Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T06:17:58.410Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.6","depth":1,"next":{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},"previous":{"title":"npm","level":"1.5.8.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Python/README.md","mtime":"2018-09-05T08:10:05.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T02:31:25.089Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

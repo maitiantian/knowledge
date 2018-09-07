@@ -1011,15 +1011,31 @@ object.attributes
 # <p align="center">元类</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
-type()函数既可以返回一个对象的类型，又可以创建出新的类型
+__type()函数既可以返回一个对象的类型，又可以创建出新的类型。__
 
-1. class的名称；
-2. 继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；
-3. class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。
+要创建一个class对象，type()函数依次传入3个参数：
 
-除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。
+1. class的名称，str；
+2. 继承的父类集合，tuple；
+3. class的方法名称与函数绑定，dict。
 
-metaclass允许你创建类或者修改类，你可以把类看成是metaclass创建出来的“实例”。
+```python
+>>> def fn(self, name='world'): # 先定义函数
+...     print('Hello, %s.' % name)
+...
+>>> Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
+>>> h = Hello()
+>>> h.hello()
+Hello, world.
+>>> print(type(Hello))
+<class 'type'>
+>>> print(type(h))
+<class '__main__.Hello'>
+```
+
+__除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。__
+
+metaclass允许你创建类或者修改类，__可以把类看成是metaclass创建出来的“实例”__。
 
 按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass：
 
@@ -1038,9 +1054,9 @@ class MyList(list, metaclass=ListMetaclass):
     pass
 ```
 
-当我们传入关键字参数metaclass时，魔术就生效了，它指示Python解释器在创建MyList时，要通过ListMetaclass.__new__()来创建，在此，我们可以修改类的定义，比如，加上新的方法，然后，返回修改后的定义。
+当我们传入关键字参数metaclass时，魔术就生效了，它指示Python解释器在创建MyList时，要通过ListMetaclass.\_\_new\_\_()来创建，在此，我们可以修改类的定义，比如，加上新的方法，然后，返回修改后的定义。
 
-__new__()方法接收到的参数依次是：
+\_\_new\_\_()方法接收到的参数依次是：
 
 1. 当前准备创建的类的对象；
 2. 类的名字；

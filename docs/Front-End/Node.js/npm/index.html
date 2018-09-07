@@ -1119,9 +1119,11 @@
 </code></pre>
 <h2 id="npm-install">npm install</h2>
 <p><strong>npm install/i/add packagename@~/^/*X.Y.Z -S/-D/-E</strong></p>
-<p>-S: --save&#xFF0C;&#x628A;&#x6A21;&#x5757;&#x7684;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;dependencies&#xFF08;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F9D;&#x8D56;&#xFF09;&#x4E2D;</p>
-<p>-D: --save-dev&#xFF0C;&#x628A;&#x6A21;&#x5757;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;devDependencies&#xFF08;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4F9D;&#x8D56;&#xFF09;&#x4E2D;</p>
-<p>-E: --save-exact&#xFF0C;&#x7CBE;&#x786E;&#x5B89;&#x88C5;&#x6A21;&#x5757;&#x7684;&#x6307;&#x5B9A;&#x7248;&#x672C;&#xFF0C;dependencies&#x5B57;&#x6BB5;&#x91CC;&#x6A21;&#x5757;&#x7248;&#x672C;&#x53F7;&#x524D;&#x9762;&#x7684;^&#x4F1A;&#x6D88;&#x5931;</p>
+<ul>
+<li>-S: --save&#xFF0C;&#x628A;&#x6A21;&#x5757;&#x7684;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;dependencies&#xFF08;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F9D;&#x8D56;&#xFF09;&#x4E2D;</li>
+<li>-D: --save-dev&#xFF0C;&#x628A;&#x6A21;&#x5757;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;devDependencies&#xFF08;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4F9D;&#x8D56;&#xFF09;&#x4E2D;</li>
+<li>-E: --save-exact&#xFF0C;&#x7CBE;&#x786E;&#x5B89;&#x88C5;&#x6A21;&#x5757;&#x7684;&#x6307;&#x5B9A;&#x7248;&#x672C;&#xFF0C;dependencies&#x5B57;&#x6BB5;&#x91CC;&#x6A21;&#x5757;&#x7248;&#x672C;&#x53F7;&#x524D;&#x9762;&#x7684;^&#x4F1A;&#x6D88;&#x5931;</li>
+</ul>
 <h4 id="---">~ | ^ | *</h4>
 <table>
 <thead>
@@ -1380,28 +1382,20 @@ npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild
 <h4 id="&#x5E38;&#x7528;&#x811A;&#x672C;&#x793A;&#x4F8B;">&#x5E38;&#x7528;&#x811A;&#x672C;&#x793A;&#x4F8B;</h4>
 <pre><code class="lang-json"><span class="hljs-comment">// &#x5220;&#x9664;&#x76EE;&#x5F55;</span>
 <span class="hljs-string">&quot;clean&quot;</span>: <span class="hljs-string">&quot;rimraf dist/*&quot;</span>,
-
 <span class="hljs-comment">// &#x672C;&#x5730;&#x642D;&#x5EFA;&#x4E00;&#x4E2A; HTTP &#x670D;&#x52A1;</span>
 <span class="hljs-string">&quot;serve&quot;</span>: <span class="hljs-string">&quot;http-server -p 9090 dist/&quot;</span>,
-
 <span class="hljs-comment">// &#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;</span>
 <span class="hljs-string">&quot;open:dev&quot;</span>: <span class="hljs-string">&quot;opener http://localhost:9090&quot;</span>,
-
 <span class="hljs-comment">// &#x5B9E;&#x65F6;&#x5237;&#x65B0;</span>
  <span class="hljs-string">&quot;livereload&quot;</span>: <span class="hljs-string">&quot;live-reload --port 9091 dist/&quot;</span>,
-
 <span class="hljs-comment">// &#x6784;&#x5EFA; HTML &#x6587;&#x4EF6;</span>
 <span class="hljs-string">&quot;build:html&quot;</span>: <span class="hljs-string">&quot;jade index.jade &gt; dist/index.html&quot;</span>,
-
 <span class="hljs-comment">// &#x53EA;&#x8981; CSS &#x6587;&#x4EF6;&#x6709;&#x53D8;&#x52A8;&#xFF0C;&#x5C31;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x6784;&#x5EFA;</span>
 <span class="hljs-string">&quot;watch:css&quot;</span>: <span class="hljs-string">&quot;watch &apos;npm run build:css&apos; assets/styles/&quot;</span>,
-
 <span class="hljs-comment">// &#x53EA;&#x8981; HTML &#x6587;&#x4EF6;&#x6709;&#x53D8;&#x52A8;&#xFF0C;&#x5C31;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x6784;&#x5EFA;</span>
 <span class="hljs-string">&quot;watch:html&quot;</span>: <span class="hljs-string">&quot;watch &apos;npm run build:html&apos; assets/html&quot;</span>,
-
 <span class="hljs-comment">// &#x90E8;&#x7F72;&#x5230; Amazon S3</span>
 <span class="hljs-string">&quot;deploy:prod&quot;</span>: <span class="hljs-string">&quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;</span>,
-
 <span class="hljs-comment">// &#x6784;&#x5EFA; favicon</span>
 <span class="hljs-string">&quot;build:favicon&quot;</span>: <span class="hljs-string">&quot;node scripts/favicon.js&quot;</span>,
 </code></pre>
@@ -1448,7 +1442,7 @@ npm run prebuild &amp;&amp; npm run build &amp;&amp; npm run postbuild
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"npm","level":"1.5.8.1","depth":3,"next":{"title":"Python","level":"1.6","depth":1,"path":"Python/README.md","ref":"Python/README.md","articles":[{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},{"title":"常用内建模块","level":"1.6.2","depth":2,"path":"Python/常用内建模块/README.md","ref":"Python/常用内建模块/README.md","articles":[]},{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},{"title":"Scrapy","level":"1.6.4","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},{"title":"Django","level":"1.6.5","depth":2,"path":"Python/Django/README.md","ref":"Python/Django/README.md","articles":[]},{"title":"Flask","level":"1.6.6","depth":2,"path":"Python/Flask/README.md","ref":"Python/Flask/README.md","articles":[]}]},"previous":{"title":"Node.js","level":"1.5.8","depth":2,"path":"Front-End/Node.js/README.md","ref":"Front-End/Node.js/README.md","articles":[{"title":"npm","level":"1.5.8.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/Node.js/npm/README.md","mtime":"2018-09-05T06:15:49.915Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T06:17:58.410Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"npm","level":"1.5.8.1","depth":3,"next":{"title":"Python","level":"1.6","depth":1,"path":"Python/README.md","ref":"Python/README.md","articles":[{"title":"PEP8","level":"1.6.1","depth":2,"path":"Python/PEP8/README.md","ref":"Python/PEP8/README.md","articles":[]},{"title":"常用内建模块","level":"1.6.2","depth":2,"path":"Python/常用内建模块/README.md","ref":"Python/常用内建模块/README.md","articles":[]},{"title":"常用第三方模块","level":"1.6.3","depth":2,"path":"Python/常用第三方模块/README.md","ref":"Python/常用第三方模块/README.md","articles":[]},{"title":"Scrapy","level":"1.6.4","depth":2,"path":"Python/Scrapy/README.md","ref":"Python/Scrapy/README.md","articles":[]},{"title":"Django","level":"1.6.5","depth":2,"path":"Python/Django/README.md","ref":"Python/Django/README.md","articles":[]},{"title":"Flask","level":"1.6.6","depth":2,"path":"Python/Flask/README.md","ref":"Python/Flask/README.md","articles":[]}]},"previous":{"title":"Node.js","level":"1.5.8","depth":2,"path":"Front-End/Node.js/README.md","ref":"Front-End/Node.js/README.md","articles":[{"title":"npm","level":"1.5.8.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/Node.js/npm/README.md","mtime":"2018-09-05T06:42:39.117Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T02:31:25.089Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
