@@ -165,6 +165,7 @@ class Sort():
 ![快速排序](../../../images/cs_sort_quick_sort.gif)
 
 ```python
+# 写法一：
 def QuickSort(myList, start, end):
     # 判断low是否小于high,如果为false,直接返回
     if start < end:
@@ -187,6 +188,16 @@ def QuickSort(myList, start, end):
         QuickSort(myList, start, i - 1)
         QuickSort(myList, j + 1, end)
     return myList
+
+# 写法二：超级直观简单！！！
+def QuickSort(myList):
+	if len(myList) < 2:
+		return myList
+	else:
+		mid = myList[0]
+		less = [i for i in myList[1:] if i <= mid]
+		more = [i for i in myList[1:] if i > mid]
+	return QuickSort(less) + [mid] + QuickSort(more)
 ```
 
 ## 堆排序（Heap Sort）

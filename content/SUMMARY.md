@@ -56,6 +56,7 @@
     * [事务](数据库/事务/README.md)
     * [索引](数据库/索引/README.md)
     * [存储过程](数据库/存储过程/README.md)
+* [Code-Puzzle](Code-Puzzle/README.md)
 * [健身](健身/README.md)
 * [摄影](摄影/README.md)
 
