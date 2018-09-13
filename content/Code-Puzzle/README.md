@@ -1,5 +1,69 @@
 # Code-Puzzle
 
+#### Q: Trapping Rain Water
+
+##### DESCRIPTION
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+For example, Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+
+![Trapping Rain Water](../images/code_puzzle_trapping_rain_water.png)
+
+```python
+
+```
+
+
+#### Q: League Table
+
+> Hard  20min   6 points
+
+##### DESCRIPTION
+
+The LeagueTable class tracks the score of each player in a league. After each game, the player records their score with the record_result function. 
+
+The player's rank in the league is calculated using the following logic:
+
+1. The player with the highest score is ranked first (rank 1). The player with the lowest score is ranked last.
+2. If two players are tied on score, then the player who has played the fewest games is ranked higher.
+3. If two players are tied on score and number of games played, then the player who was first in the list of players is ranked higher.
+
+Implement the player_rank function that returns the player at the given rank.
+
+For example:
+
+```python
+table = LeagueTable(['Mike', 'Chris', 'Arnold'])
+table.record_result('Mike', 2)
+table.record_result('Mike', 3)
+table.record_result('Arnold', 5)
+table.record_result('Chris', 5)
+print(table.player_rank(1))
+```
+
+All players have the same score. However, Arnold and Chris have played fewer games than Mike, and as Chris is before Arnold in the list of players, he is ranked first. Therefore, the code above should display "Chris".
+
+##### ANSWER
+```python
+from collections import Counter
+from collections import OrderedDict
+
+class LeagueTable:
+    def __init__(self, players):
+        self.standings = OrderedDict([(player, Counter()) for player in players])
+    
+    def record_result(self, player, score):
+        self.standings[player]['games_played'] += 1
+        self.standings[player]['score'] += score
+      
+    def player_rank(self, rank):
+        return sorted(self.standings.items(), 
+                    key=lambda k_v: (k_v[1]['score'], 
+                                     -k_v[1]['games_played'], 
+                                     -list(self.standings.keys()).index(k_v[0])))[-rank][0]
+```
+
+
 #### Q: File Owners
 
 > Easy  10min   3 points
@@ -134,58 +198,6 @@ class TwoSum:
                 return (lookup[numbers[i]], i)
         return None
 ```
-
-
-
-#### Q: League Table
-
-> Hard  20min   6 points
-
-##### DESCRIPTION
-
-The LeagueTable class tracks the score of each player in a league. After each game, the player records their score with the record_result function. 
-
-The player's rank in the league is calculated using the following logic:
-
-1. The player with the highest score is ranked first (rank 1). The player with the lowest score is ranked last.
-2. If two players are tied on score, then the player who has played the fewest games is ranked higher.
-3. If two players are tied on score and number of games played, then the player who was first in the list of players is ranked higher.
-
-Implement the player_rank function that returns the player at the given rank.
-
-For example:
-
-```python
-table = LeagueTable(['Mike', 'Chris', 'Arnold'])
-table.record_result('Mike', 2)
-table.record_result('Mike', 3)
-table.record_result('Arnold', 5)
-table.record_result('Chris', 5)
-print(table.player_rank(1))
-```
-
-All players have the same score. However, Arnold and Chris have played fewer games than Mike, and as Chris is before Arnold in the list of players, he is ranked first. Therefore, the code above should display "Chris".
-
-##### ANSWER
-```python
-from collections import Counter
-from collections import OrderedDict
-
-class LeagueTable:
-    def __init__(self, players):
-        self.standings = OrderedDict([(player, Counter()) for player in players])
-    
-    def record_result(self, player, score):
-        self.standings[player]['games_played'] += 1
-        self.standings[player]['score'] += score
-      
-    def player_rank(self, rank):
-        return sorted(self.standings.items(), 
-                    key=lambda k_v: (k_v[1]['score'], 
-                                     -k_v[1]['games_played'], 
-                                     -list(self.standings.keys()).index(k_v[0])))[-rank][0]
-```
-
 
 
 #### Q: Palindrome
