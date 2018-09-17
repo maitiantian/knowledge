@@ -10,7 +10,30 @@ For example, Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
 ![Trapping Rain Water](../images/code_puzzle_trapping_rain_water.png)
 
 ```python
+def trappingRainWater(myList):
+    max_height = max(myList)
+    lists = []
+    rains = 0
+    for i in range(max_height):
+        lists.append([(0 if item-(max_height-i-1)<0 else item-(max_height-i-1)) for item in myList])
 
+    for one_list in lists:
+        while True:
+            if one_list[0] == 0:
+                one_list = one_list[1:]
+            else:
+                break
+        while True:
+            if one_list[-1] == 0:
+                one_list = one_list[:-1]
+            else:
+                break
+
+        for rain in one_list:
+            if rain == 0:
+                rains += 1
+
+    return rains
 ```
 
 

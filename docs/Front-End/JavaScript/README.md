@@ -19,7 +19,7 @@
 
 ## 五种基本数据类型
 
-#### Undefined
+#### Undefined类型
 
 * Undefined类型只有一个值，即undefined；
 * 在使用var声明变量但未对其加以初始化时，这个变量的值就是undefined；
@@ -41,7 +41,7 @@
     alert(typeof age);  //"undefined"
     ```
 
-#### Null
+#### Null类型
 
 * Null类型只有一个值，即null；
 * null值表示一个空对象指针，所以用typeof检测null值时会返回"object"；
@@ -55,7 +55,7 @@
 
 * undefined值派生自null值，alert(null == undefined);   //true
 
-#### Boolean
+#### Boolean类型
 
 * Boolean类型有两个值，true和false；
 * Boolean类型的字面值只有两个，但ECMAScript中所有类型的值都有与这两个boolean值等价的值。要将一个值转换为其对应的boolean值，可以调用转型函数Boolean()；
@@ -73,7 +73,7 @@
 |object|任何对象|null|
 |undefined|不适用|undefined|
 
-#### Number
+#### Number类型
 
 * 整数
     * 十进制："var intNum = 55;"；
@@ -182,13 +182,124 @@
             * 空串（不包含任何字符），转换为0；
             * 包含除上述格式之外的字符，转换为NaN。
         * 对象：调用对象的valueOf()方法，然后依照前面的规则转换返回的值；如果对象没有valueOf()方法，则调用toString()方法，再前面的规则转换返回的字符串值；如果对象没有valueOf()和toString()方法，则返回NaN。
-    * parseInt()
-    * parseFloat()
+    * parseInt()：用于转换String类型，其余类型值会先转换为String类型；
+        1. 忽略字符串前面的空格，直至找到第一个非空格字符；
+        2. 如果第一个字符不是数字字符或者负号，返回NaN（parseInt("")-->NaN，Number("")-->0）；
+        3. 如果第一个字符是数字字符，则继续解析第二个字符，直到解析完所有后续字符或者遇到一个非数字字符；
+        4. parseInt()能够识别十六进制整数：如果字符串以"0x"开头且后跟数字字符，会将其当作一个十六进制整数；
+        5. 在ECMAScript 5 JavaScript引擎中，parseInt()已不具有解析八进制值的能力，parseInt("070")-->70；
+        6. 可以为parseInt()提供第二个参数：转换时使用的基数，即多少进制。
+            ```javascript
+            var num1 = parseInt("0xAF", 16);	//175
+            var num2 = parseInt("AF", 16); 		//175，指定16作第二个参数，字符串前可以不带"0x"
+            var num3 = parseInt("10", 2); 		//2 （按二进制解析）
+            var num4 = parseInt("10", 8); 		//8 （按八进制解析）
+            var num5 = parseInt("10", 10); 		//10（按十进制解析）
+            var num6 = parseInt("10", 16); 		//16（按十六进制解析）
 
-#### String
+            //不指定基数意味着让parseInt()决定如何解析输入的字符串，
+            //为了避免错误的解析，建议任何情况下都明确指定基数。
+            ```
+    * parseFloat()：用于转换String类型，其余类型值会先转换为String类型。
+        1. 从第一个字符（位置 0）开始解析每个字符；
+        2. 一直解析到字符串末尾，或遇见一个无效的浮点数字字符为止；
+        3. 字符串中第一个小数点是有效的，第二个小数点是无效的，它后面的字符串将被忽略；
+        4. parseFloat()只解析十进制值，它没有用第二个参数指定基数的用法；
+        5. 十六进制格式的字符串则始终会被转换成0；
+        6. 如果字符串是一个可解析为整数的数（没有小数点，或者小数点后都是零），parseFloat()会返回整数。
+        ```javascript
+        var num1 = parseFloat("1234blue"); 	//1234 （整数）
+        var num2 = parseFloat("0xA"); 		//0
+        var num3 = parseFloat("22.5"); 		//22.5
+        var num4 = parseFloat("22.34.5"); 	//22.34
+        var num5 = parseFloat("0908.5"); 	//908.5
+        var num6 = parseFloat("3.125e7"); 	//31250000
+        ```
+    
+
+
+#### String类型
+
+字符串：由零或多个16位Unicode字符组成的字符序列。
+
+* 字符字面量：String类型数据包含一些特殊的字符字面量，也叫转义序列，用于表示非打印字符，或者一些特殊字符。
+
+|字面量|含义|
+|:---|:---|
+|\n|换行|
+|\t|制表|
+|\b|空格|
+|\r|回车|
+|\f|进纸|
+|\\\ |斜杠|
+|\\'|单引号（'），在用单引号表示的字符串中使用。例如：'He said, \\'hey.\\' '|
+|\\"|双引号（"），在用双引号表示的字符串中使用。例如："He said, \\"hey.\\" "|
+|\xnn|以十六进制代码nn表示的一个字符（其中n为0～F）。例如， \x41表示"A"|
+|\unnnn|以十六进制代码nnnn表示的一个Unicode字符（其中n为0～F）。例如，\u03a3表示希腊字符Σ|
+
+这些字符字面量可以出现在字符串中的任意位置，而且也将被作为一个字符来解析：
+
+```javascript
+var sigma = "\u03a3";
+sigma;          //"Σ"
+sigma.length;   //1
+```
+
+* 字符串特点：ECMAScript中的字符串是不可变的，字符串一旦创建，它的值就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，再用另一个包含新值的字符串填充该变量。
+
+* 转换为字符串
+
+    要把一个值转换为一个字符串有两种方式：
+
+    1. 使用几乎每个值都有的toString()方法，改方法返回相应值的字符串表现；
+
+        ```javascript
+        true.toString();	// 字符串"true"
+        "abc".toString();	// 字符串"abc"
+
+        10.toString();	//Uncaught SyntaxError: Invalid or unexpected token
+        var num = 10;
+        var numAsString = num.toString();	// 字符串"11"
+        alert(num.toString());		// "10"
+        // 通过传递基数，toString()可以输出二、八、十六进制，乃至任意有效进制格式的字符串值。
+        alert(num.toString(2));		// "1010"
+        alert(num.toString(8));		// "12"
+        alert(num.toString(10));	// "10"
+        alert(num.toString(16));	// "a"
+        ```
+
+    2. 在不知道要转换的值是不是null或undefined的情况下，可以使用转型函数String()，这个函数能将任何类型的值转换为字符串。
+
+        * 值有toString()方法，调用该方法（没有参数）并返回相应的结果；
+        * 值是null，返回"null"；
+        * 值是undefined，返回"undefined"。
 
 
 
 ## 一种复杂数据类型
 
-#### Object
+#### Object类型
+
+ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行new操作符后跟要创建的对象类型的名称来创建：
+
+```javascript
+var obj1 = new Object();
+// 如果不给构造函数传递参数，可以省略后面的那一对圆括号，但不推荐
+var obj2 = new Object;
+```
+
+Object的每个实例都具有下列属性和方法：
+
+* constructor：保存用于创建当前对象的函数；
+* hasOwnProperty(propertyName)：用于检查给定的属性在当前对象实例中（而不是在实例的原型中）是否存在。作为参数的属性名（propertyName）必须以字符串形式指定（例如：o.hasOwnProperty("name")）；
+* isPrototypeOf(object)：用于检查传入的对象是否是传入对象的原型；
+* propertyIsEnumerable(propertyName)：用于检查给定的属性是否能够使用for-in语句来枚举。作为参数的属性名必须以字符串形式指定；
+* toLocaleString()：返回对象的字符串表示，该字符串与执行环境的地区对应；
+* toString()：返回对象的字符串表示；
+* valueOf()：返回对象的字符串、数值或布尔值表示。通常与toString()方法的返回值相同。
+
+__在ECMAScript中Object是所有对象的基础，因此所有对象都具有这些基本的属性和方法：__
+
+
+## 引用类型
+
