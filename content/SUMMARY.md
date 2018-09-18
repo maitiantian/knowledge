@@ -52,6 +52,7 @@
     * [supervisor](Linux/supervisor/README.md)
     * [用户身份与文件权限](Linux/用户身份与文件权限/README.md)
     * [存储结构与磁盘划分](Linux/存储结构与磁盘划分/README.md)
+    * [运维](Linux/运维/README.md)
 * [数据库](数据库/README.md)
     * [事务](数据库/事务/README.md)
     * [索引](数据库/索引/README.md)
