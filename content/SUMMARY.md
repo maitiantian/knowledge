@@ -26,6 +26,7 @@
     * [HTML](Front-End/HTML/README.md)
     * [CSS](Front-End/CSS/README.md)
         * [line-height](Front-End/CSS/line-height/README.md)
+    * [Bootstrap](Front-End/Bootstrap/README.md)
     * [JavaScript](Front-End/JavaScript/README.md)
     * [ES6](Front-End/ES6/README.md)
     * [React](Front-End/React/README.md)
