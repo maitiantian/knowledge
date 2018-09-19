@@ -1007,19 +1007,23 @@
                                 
                                 <h1 id="&#x8FD0;&#x7EF4;">&#x8FD0;&#x7EF4;</h1>
 <h4 id="&#x5B89;&#x88C5;go">&#x5B89;&#x88C5;go</h4>
-<p>wget <a href="https://dl.google.com/go/go1.11.linux-amd64.tar.gz" target="_blank">https://dl.google.com/go/go1.11.linux-amd64.tar.gz</a>
-tar -C /usr/local -xzf go1.11.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin</p>
+<pre><code class="lang-bash">wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.11.linux-amd64.tar.gz
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/<span class="hljs-built_in">local</span>/go/bin
+</code></pre>
 <h4 id="&#x5B89;&#x88C5;restic">&#x5B89;&#x88C5;restic</h4>
-<p>cd /opt
-git clone <a href="https://github.com/restic/restic" target="_blank">https://github.com/restic/restic</a>
-cd restic
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> /opt
+git <span class="hljs-built_in">clone</span> https://github.com/restic/restic
+<span class="hljs-built_in">cd</span> restic
 go run build.go
-export PATH=$PATH:/opt/restic</p>
-<p>&#x5907;&#x4EFD;&#xFF1A;restic -r /srv/restic-repo backup --verbose ~/workdir
-&#x5907;&#x4EFD;&#xFF0C;&#x663E;&#x793A;&#x8BE6;&#x60C5;&#xFF1A;restic -r /srv/restic-repo backup --verbose --verbose ~/workdir
-&#x663E;&#x793A;&#x6240;&#x6709;&#x5FEB;&#x7167;&#xFF1A;restic -r /srv/restic-repo snapshots
-&#x4ECE;&#x5FEB;&#x7167;&#x6062;&#x590D;&#xFF1A;restic -r /srv/restic-repo restore latest --target /tmp/restore-work</p>
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/opt/restic
+</code></pre>
+<ul>
+<li>&#x5907;&#x4EFD;&#xFF1A;restic -r /srv/restic-repo backup --verbose ~/workdir</li>
+<li>&#x5907;&#x4EFD;&#xFF0C;&#x663E;&#x793A;&#x8BE6;&#x60C5;&#xFF1A;restic -r /srv/restic-repo backup --verbose --verbose ~/workdir</li>
+<li>&#x663E;&#x793A;&#x6240;&#x6709;&#x5FEB;&#x7167;&#xFF1A;restic -r /srv/restic-repo snapshots</li>
+<li>&#x4ECE;&#x5FEB;&#x7167;&#x6062;&#x590D;&#xFF1A;restic -r /srv/restic-repo restore latest --target /tmp/restore-work</li>
+</ul>
 
                                 
                                 </section>
@@ -1063,7 +1067,7 @@ export PATH=$PATH:/opt/restic</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"运维","level":"1.8.7","depth":2,"next":{"title":"数据库","level":"1.9","depth":1,"path":"数据库/README.md","ref":"数据库/README.md","articles":[{"title":"事务","level":"1.9.1","depth":2,"path":"数据库/事务/README.md","ref":"数据库/事务/README.md","articles":[]},{"title":"索引","level":"1.9.2","depth":2,"path":"数据库/索引/README.md","ref":"数据库/索引/README.md","articles":[]},{"title":"存储过程","level":"1.9.3","depth":2,"path":"数据库/存储过程/README.md","ref":"数据库/存储过程/README.md","articles":[]}]},"previous":{"title":"存储结构与磁盘划分","level":"1.8.6","depth":2,"path":"Linux/存储结构与磁盘划分/README.md","ref":"Linux/存储结构与磁盘划分/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/运维/README.md","mtime":"2018-09-18T08:17:53.989Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-19T01:01:07.590Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"运维","level":"1.8.7","depth":2,"next":{"title":"数据库","level":"1.9","depth":1,"path":"数据库/README.md","ref":"数据库/README.md","articles":[{"title":"事务","level":"1.9.1","depth":2,"path":"数据库/事务/README.md","ref":"数据库/事务/README.md","articles":[]},{"title":"索引","level":"1.9.2","depth":2,"path":"数据库/索引/README.md","ref":"数据库/索引/README.md","articles":[]},{"title":"存储过程","level":"1.9.3","depth":2,"path":"数据库/存储过程/README.md","ref":"数据库/存储过程/README.md","articles":[]}]},"previous":{"title":"存储结构与磁盘划分","level":"1.8.6","depth":2,"path":"Linux/存储结构与磁盘划分/README.md","ref":"Linux/存储结构与磁盘划分/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Linux/运维/README.md","mtime":"2018-09-19T08:40:21.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-19T09:06:04.024Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
