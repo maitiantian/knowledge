@@ -1,6 +1,15 @@
 # 目录
+
 * [前端工程](#前端工程)
 * [大公司如何开发和部署前端](#大公司如何开发和部署前端)
+
+# <p align="center">some useful stuffs</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+* [Web安全色](http://www.bootcss.com/p/websafecolors/)
+* [开源中国在线工具](http://tool.oschina.net/)
+
+
 
 # <p align="center">前端工程</p>
 ###### [<p align="right">back to top ▲</p>](#目录)

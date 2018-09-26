@@ -1,7 +1,102 @@
 # 目录
 
+* [class](#class)
+* [箭头函数](#箭头函数)
+* [模块化](#模块化)
 * [Object.assign(target, ...sources)](#objectassigntarget-sources)
 * [Symbol](#symbol)
+
+## [阮一峰：ECMAScript 6入门](http://es6.ruanyifeng.com/)
+
+# <p align="center">class</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+
+
+
+
+# <p align="center">箭头函数</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+**ES6允许使用“箭头”（=>）定义函数。**
+
+* 如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分；
+    ```javascript
+    var f = () => 5;
+    // 等同于
+    var f = function () { return 5 };
+
+    var sum = (num1, num2) => num1 + num2;
+    // 等同于
+    var sum = function(num1, num2) {
+    return num1 + num2;
+    };
+    ```
+* 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用return语句返回；
+```javascript
+
+```
+* 大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错；
+    ```javascript
+    // 报错
+    let getTempItem = id => { id: id, name: "Temp" };
+
+    // 不报错
+    let getTempItem = id => ({ id: id, name: "Temp" });
+    ```
+* 如果箭头函数只有一行语句，且不需要返回值，可以采用下面的写法，就不用写大括号了；
+    ```javascript
+    let fn = () => void doesNotReturn();
+    ```
+* 箭头函数可以与变量解构结合使用；
+    ```javascript
+    const full = ({ first, last }) => first + ' ' + last;
+    // 等同于
+    function full(person) {
+    return person.first + ' ' + person.last;
+    }
+    ```
+* 箭头函数表达更加简洁，可以简化回调函数。
+    ```javascript
+    // 正常函数写法
+    [1,2,3].map(function (x) {
+    return x * x;
+    });
+    // 箭头函数写法
+    [1,2,3].map(x => x * x);
+
+    // 正常函数写法
+    var result = values.sort(function (a, b) {
+    return a - b;
+    });
+    // 箭头函数写法
+    var result = values.sort((a, b) => a - b);
+    ```
+
+#### 注意
+
+1. 函数体内的this对象，是定义时所在的对象，而不是使用时所在的对象；
+2. 不可以当作构造函数，即不可以使用new命令，否则会抛出一个错误；
+3. 不可以使用arguments对象，该对象在函数体内不存在，如果要用，可以用rest参数代替；
+    ```javascript
+    const numbers = (...nums) => nums;
+    numbers(1, 2, 3, 4, 5)
+    // [1,2,3,4,5]
+
+    const headAndTail = (head, ...tail) => [head, tail];
+    headAndTail(1, 2, 3, 4, 5)
+    // [1,[2,3,4,5]]
+    ```
+4. 不可以使用yield命令，因此箭头函数不能用作Generator函数。
+
+
+
+# <p align="center">模块化</p>
+###### [<p align="right">back to top ▲</p>](#目录)
+
+
+
+
 
 # <p align="center">Object.assign(target, ...sources)</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
@@ -204,6 +299,7 @@ console.log(copy);
 ###### [<p align="right">back to top ▲</p>](#目录)
 
 最初JS定义了6种基本类型：
+
 * null
 * undefined
 * boolean
