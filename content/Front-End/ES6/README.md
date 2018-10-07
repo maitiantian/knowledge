@@ -7,6 +7,8 @@
 * [Symbol](#symbol)
 
 ## [阮一峰：ECMAScript 6入门](http://es6.ruanyifeng.com/)
+## [学习ES2015](https://babel.docschina.org/docs/en/learn)
+
 
 # <p align="center">class</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
