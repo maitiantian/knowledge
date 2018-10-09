@@ -29,6 +29,7 @@
     * [Bootstrap](Front-End/Bootstrap/README.md)
     * [JavaScript](Front-End/JavaScript/README.md)
     * [ES6](Front-End/ES6/README.md)
+        * [ES6](Front-End/ES6/babel/README.md)
     * [React](Front-End/React/README.md)
         * [从Flux到Redux](Front-End/React/从Flux到Redux/README.md)
     * [gulp](Front-End/gulp/README.md)
