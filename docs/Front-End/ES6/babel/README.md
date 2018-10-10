@@ -1,4 +1,4 @@
-# ES6
+# babel
 
 babel-cli
 babel-core
@@ -43,7 +43,7 @@ babel本身不具有任何转化功能，它把转化的功能都分解到一个
 
 转译插件：在转换这一步把源码转换并输出。这也是我们使用babel最本质的需求。
 
-比起语法插件，转译插件其实更好理解，比如箭头函数`（a） => a`就会转化为`function （a） {return a}`。完成这个工作的插件叫做babel-plugin-transform-es2015-arrow-functions。
+比起语法插件，转译插件其实更好理解，比如箭头函数`(a) => a`就会转化为`function (a) {return a}`。完成这个工作的插件叫做babel-plugin-transform-es2015-arrow-functions。
 
 
 

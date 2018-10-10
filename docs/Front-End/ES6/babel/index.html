@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ES6 · GitBook</title>
+        <title>babel · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -459,6 +459,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.2.2" data-path="../../CSS/CSS3动画/">
+            
+                <a href="../../CSS/CSS3动画/">
+            
+                    
+                    CSS3动画
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -509,7 +522,7 @@
                 <a href="./">
             
                     
-                    ES6
+                    babel
             
                 </a>
             
@@ -1009,7 +1022,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >ES6</a>
+        <a href="../../.." >babel</a>
     </h1>
 </div>
 
@@ -1024,7 +1037,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="es6">ES6</h1>
+                                <h1 id="babel">babel</h1>
 <p>babel-cli
 babel-core
 babel-runtime
@@ -1046,7 +1059,7 @@ babel-polyfill</p>
 <p>&#x4E3E;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x6216;&#x8005;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E4B;&#x540E;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x589E;&#x52A0;&#x9017;&#x53F7;&#x7684;&#xFF0C;&#x5982;<code>callFoo(param1, param2,)</code>&#x5C31;&#x662F;&#x975E;&#x6CD5;&#x7684;&#x3002;&#x5982;&#x679C;&#x6E90;&#x7801;&#x662F;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x7ECF;&#x8FC7;babel&#x4E4B;&#x540E;&#x5C31;&#x4F1A;&#x63D0;&#x793A;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x3002;</p>
 <p>&#x4F46;&#x6700;&#x8FD1;&#x7684;JS&#x63D0;&#x6848;&#x4E2D;&#x5DF2;&#x7ECF;&#x5141;&#x8BB8;&#x4E86;&#x8FD9;&#x79CD;&#x65B0;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x4E3A;&#x4E86;&#x907F;&#x514D;babel&#x62A5;&#x9519;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x589E;&#x52A0;&#x8BED;&#x6CD5;&#x63D2;&#x4EF6;babel-plugin-syntax-trailing-function-commas</p>
 <p>&#x8F6C;&#x8BD1;&#x63D2;&#x4EF6;&#xFF1A;&#x5728;&#x8F6C;&#x6362;&#x8FD9;&#x4E00;&#x6B65;&#x628A;&#x6E90;&#x7801;&#x8F6C;&#x6362;&#x5E76;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;babel&#x6700;&#x672C;&#x8D28;&#x7684;&#x9700;&#x6C42;&#x3002;</p>
-<p>&#x6BD4;&#x8D77;&#x8BED;&#x6CD5;&#x63D2;&#x4EF6;&#xFF0C;&#x8F6C;&#x8BD1;&#x63D2;&#x4EF6;&#x5176;&#x5B9E;&#x66F4;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x6BD4;&#x5982;&#x7BAD;&#x5934;&#x51FD;&#x6570;<code>&#xFF08;a&#xFF09; =&gt; a</code>&#x5C31;&#x4F1A;&#x8F6C;&#x5316;&#x4E3A;<code>function &#xFF08;a&#xFF09; {return a}</code>&#x3002;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x5DE5;&#x4F5C;&#x7684;&#x63D2;&#x4EF6;&#x53EB;&#x505A;babel-plugin-transform-es2015-arrow-functions&#x3002;</p>
+<p>&#x6BD4;&#x8D77;&#x8BED;&#x6CD5;&#x63D2;&#x4EF6;&#xFF0C;&#x8F6C;&#x8BD1;&#x63D2;&#x4EF6;&#x5176;&#x5B9E;&#x66F4;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x6BD4;&#x5982;&#x7BAD;&#x5934;&#x51FD;&#x6570;<code>(a) =&gt; a</code>&#x5C31;&#x4F1A;&#x8F6C;&#x5316;&#x4E3A;<code>function (a) {return a}</code>&#x3002;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x5DE5;&#x4F5C;&#x7684;&#x63D2;&#x4EF6;&#x53EB;&#x505A;babel-plugin-transform-es2015-arrow-functions&#x3002;</p>
 <h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
 <p>&#x65E2;&#x7136;&#x63D2;&#x4EF6;&#x662F;babel&#x7684;&#x6839;&#x672C;&#xFF0C;&#x90A3;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5462;&#xFF1F;&#x603B;&#x5171;&#x5206;&#x4E3A;2&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
 <ul>
@@ -1339,7 +1352,7 @@ babel-upgrade --write
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ES6","level":"1.5.5.1","depth":3,"next":{"title":"React","level":"1.5.6","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[{"title":"从Flux到Redux","level":"1.5.6.1","depth":3,"path":"Front-End/React/从Flux到Redux/README.md","ref":"Front-End/React/从Flux到Redux/README.md","articles":[]}]},"previous":{"title":"ES6","level":"1.5.5","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[{"title":"ES6","level":"1.5.5.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/ES6/babel/README.md","mtime":"2018-10-09T06:39:44.522Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-09T06:40:17.925Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"babel","level":"1.5.5.1","depth":3,"next":{"title":"React","level":"1.5.6","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[{"title":"从Flux到Redux","level":"1.5.6.1","depth":3,"path":"Front-End/React/从Flux到Redux/README.md","ref":"Front-End/React/从Flux到Redux/README.md","articles":[]}]},"previous":{"title":"ES6","level":"1.5.5","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[{"title":"babel","level":"1.5.5.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/ES6/babel/README.md","mtime":"2018-10-09T06:48:18.696Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-10T03:15:06.185Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
