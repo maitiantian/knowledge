@@ -514,7 +514,7 @@ alert(colors.length);   // 2
 
 队列， FIFO（First-In-First-Out，先进先出），在列表末端添加项，从列表的前端移除项。
 
-结合使用 shift()和 push()方法，可以像使用队列一样使用数组。
+结合使用 shift()和 push()方法，可以像使用队列一样使用数组：
 
 ```javascript
 var colors = new Array();   // 创建一个数组
@@ -526,3 +526,223 @@ var item = colors.shift();      // 取得第一项
 alert(item);    // "red"
 alert(colors.length);   // 2
 ```
+
+unshift()，在数组前端添加任意个项并返回新数组的长度：
+
+```javascript
+var colors = new Array();   // 创建一个数组
+var count = colors.unshift("red", "green"); // 推入两项，colors，(2) ["red", "green"]
+alert(count);   // 2
+count = colors.unshift("black");    // 推入另一项，colors，(3) ["black", "red", "green"]
+alert(count);   // 3
+var item = colors.pop();    // 取得最后一项，colors，(2) ["black", "red"]
+alert(item);    // "green"
+alert(colors.length);   // 2
+```
+
+> IE7 及更早版本对 JavaScript 的实现中存在一个偏差，其 unshift()方法总是返回 undefined 而不是数组的新长度。 IE8 在非兼容模式下会返回正确的长度值。
+
+
+重排序方法
+
+reverse()：反转数组项的顺序；
+sort()：默认按升序排列数组项。
+
+**为了实现排序， sort()会调用每个数组项的 toString()方法，然后比较得到的字符串，以确定如何排序。即使数组中的每一项都是数值， sort()方法比较的也是字符串。**
+
+```javascript
+var values = [0, 1, 5, 10, 15];
+values.sort();
+alert(values);  // 0,1,10,15,5
+```
+
+sort()可以接收一个比较函数作为参数，以便指定哪个值位于哪个值的前面：
+
+* 如果第一个参数应该位于第二个之前则返回一个负数；
+* 如果两个参数相等则返回 0；
+* 如果第一个参数应该位于第二个之后则返回一个正数。
+
+```javascript
+function compare(value1, value2) {
+    if (value1 < value2) {
+        return -1;
+    } else if (value1 > value2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+// 对于数值类型或者其 valueOf()方法会返回数值类型的对象类型，
+// 可以使用一个更简单的比较函数。
+function compare(value1, value2){
+    return value2 - value1;
+}
+```
+
+
+
+操作方法
+
+concat()：先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。
+
+* 如果没有给 concat()传递参数，它只复制当前数组并返回副本；
+* 如果传递给 concat()的是一或多个数组，该方法会将这些数组中的每一项都添加到结果数组中；
+* 如果传递的值不是数组，这些值就会被简单地添加到结果数组的末尾。
+
+```javascript
+var colors = ["red", "green", "blue"];
+var colors2 = colors.concat("yellow", ["black", "brown"]);
+alert(colors);  // red,green,blue
+alert(colors2); // red,green,blue,yellow,black,brown
+```
+
+slice()：基于当前数组中的一或多个项创建一个新数组。
+
+* slice()可以接受一或两个参数，即要返回项的起始和结束位置；
+* 只有一个参数时，返回从该参数指定位置开始到当前数组末尾的所有项；
+* 如果有两个参数，返回起始和结束位置之间的项——不包括结束位置的项；
+* slice()方法不会影响原始数组。
+
+```javascript
+var colors = ["red", "green", "blue", "yellow", "purple"];
+var colors2 = colors.slice(1);
+var colors3 = colors.slice(1, 4);
+alert(colors2); // green,blue,yellow,purple
+alert(colors3); // green,blue,yellow
+```
+
+splice()：主要用途是向数组的中部插入、删除项，返回由所删除项组成的 **数组**。
+
+splice(起始位置, 要删除的项数, 插入项1, 插入项2...)；
+
+* splice(0, 2)，删除数组中的前两项。
+* splice(2, 0, "red", "green")，从数组的位置 2 处开始插入字符串"red"和"green"。
+* splice(2, 1, "red", "green")，删除数组位置 2 处的项，再从位置 2 处开始插入字符串"red"和"green"。
+
+```javascript
+var colors = ["red", "green", "blue"];
+var removed = colors.splice(0, 1);   // 删除第一项
+// removed，["red"]
+alert(colors);  // green,blue
+removed = colors.splice(1, 0, "yellow", "orange");  // 从位置 1 开始插入两项
+// removed，[]
+alert(colors);  // green,yellow,orange,blue
+removed = colors.splice(1, 1, "red", "purple"); // 插入两项，删除一项
+// removed，["yellow"]
+alert(colors);  // green,red,purple,orange,blue
+```
+
+
+位置方法
+
+indexOf()：从前向后查找；
+
+lastIndexOf()：从后向前查找。
+
+* 两个参数：要查找的项，查找起点位置的索引（可选）；
+* 两个方法都返回要查找的项在数组中的位置，没找到时返回-1。
+
+在比较第一个参数与数组中的每一项时使用全等操作符；也就是说，要求查找的项必须严格相等：
+
+```javascript
+var numbers = [1,2,3,4,5,4,3,2,1];
+alert(numbers.indexOf(4));          // 3
+alert(numbers.lastIndexOf(4));      // 5
+alert(numbers.indexOf(4, 4));       // 5
+alert(numbers.lastIndexOf(4, 4));   // 3
+
+var person = { name: "Nicholas" };
+var people = [{ name: "Nicholas" }];
+var morePeople = [person];
+alert(people.indexOf(person));      // -1
+alert(morePeople.indexOf(person));  // 0
+```
+
+迭代方法
+
+两个参数：要在每一项上运行的函数，运行该函数的作用域对象（可选）——影响 this 的值。
+
+* every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回 true，则返回 true；
+* some()：对数组中的每一项运行给定函数，如果该函数对任一项返回 true，则返回 true；
+
+    ```javascript
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    var everyResult = numbers.every(function(item, index, array){
+        return (item > 2);
+    });
+    alert(everyResult); // false
+
+    var someResult = numbers.some(function(item, index, array){
+        return (item > 2);
+    });
+    alert(someResult);  // true
+    ```
+    
+* map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。
+* filter()：对数组中的每一项运行给定函数，返回该函数会返回 true 的项组成的数组；
+* forEach()：对数组中的每一项运行给定函数，没有返回值；
+
+    ```javascript
+    var numbers = [1,2,3,4,5,4,3,2,1];
+    var mapResult = numbers.map(function(item, index, array){
+        return item * 2;
+    });
+    alert(mapResult);   // [2,4,6,8,10,8,6,4,2]
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+    var filterResult = numbers.filter(function(item, index, array){
+        return (item > 2);
+    });
+    alert(filterResult);    // [3,4,5,4,3]
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+    numbers.forEach(function(item, index, array){
+        // 执行某些操作
+    });
+    ```
+
+**以上方法都不会修改数组中的包含的值。**
+
+
+
+归并方法
+
+reduce()：从数组的第一项开始，逐个遍历到最后；
+
+reduceRight()：从数组的最后一项开始，向前遍历到第一项。
+
+* 两个参数：一个在每一项上调用的函数，作为归并基础的初始值（可选）；
+* 传给 reduce()和 reduceRight()的函数：
+    * 接收 4 个参数：前一个值、当前值、当前项的索引和数组对象；
+    * 这个函数返回的任何值都会作为第一个参数自动传给下一项。
+
+```javascript
+var values = [1,2,3,4,5];
+var sum = values.reduceRight(function(prev, cur, index, array){
+    return prev + cur;
+});
+alert(sum); // 15
+```
+
+
+#### Date 类型
+
+* Date 类型使用自 UTC（Coordinated Universal Time，国际协调时间） 1970 年 1 月 1 日午夜（零时）开始经过的毫秒数来保存日期；
+* Date 类型保存的日期能够精确到 1970 年 1 月 1 日之前或之后的 285 616 年。
+
+
+
+* 调用 Date 构造函数而不传递参数，新创建的对象自动获得当前日期和时间；
+* 要根据特定日期和时间创建日期对象，必须传入表示该日期的毫秒数（即从 UTC 时间 1970 年 1 月 1 日午夜起至该日期止经过的毫秒数）；
+* Date.parse()：接收一个表示日期的字符串参数，根据这个字符串返回相应日期的毫秒数； 
+    * “月/日/年”： 6/13/2004；
+    * “英文月名 日,年”： January 12,2004；
+    * “英文星期几 英文月名 日 年 时:分:秒 时区”： Tue May 25 2004 00:00:00 GMT-0700。
+    * ISO 8601 扩展格式： YYYY-MM-DDTHH:mm:ss.sssZ（例如 2004-05-25T00:00:00）。
+* Date.UTC()：返回表示日期的毫秒数；
+    * 参数：年份、月份（一月是 0，二月是 1……）、月中的哪一天（1 到 31）、小时（0 到 23）、分钟、秒以及毫秒数；
+    * 只有前两个参数（年和月）是必需的。
+
+日期和时间都基于本地时区而非 GMT（格林威治标准时间，Greenwich Mean Time）来创建。

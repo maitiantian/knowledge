@@ -23,6 +23,7 @@
 **ES6允许使用“箭头”（=>）定义函数。**
 
 * 如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分；
+
     ```javascript
     var f = () => 5;
     // 等同于
@@ -31,14 +32,18 @@
     var sum = (num1, num2) => num1 + num2;
     // 等同于
     var sum = function(num1, num2) {
-    return num1 + num2;
+        return num1 + num2;
     };
     ```
-* 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用return语句返回；
-```javascript
 
-```
+* 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用return语句返回；
+
+    ```javascript
+    var sum = (num1, num2) => { return num1 + num2; };
+    ```
+
 * 大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错；
+
     ```javascript
     // 报错
     let getTempItem = id => { id: id, name: "Temp" };
@@ -46,30 +51,36 @@
     // 不报错
     let getTempItem = id => ({ id: id, name: "Temp" });
     ```
+
 * 如果箭头函数只有一行语句，且不需要返回值，可以采用下面的写法，就不用写大括号了；
+
     ```javascript
     let fn = () => void doesNotReturn();
     ```
+
 * 箭头函数可以与变量解构结合使用；
+
     ```javascript
     const full = ({ first, last }) => first + ' ' + last;
     // 等同于
     function full(person) {
-    return person.first + ' ' + person.last;
+        return person.first + ' ' + person.last;
     }
     ```
+
 * 箭头函数表达更加简洁，可以简化回调函数。
+
     ```javascript
     // 正常函数写法
     [1,2,3].map(function (x) {
-    return x * x;
+        return x * x;
     });
     // 箭头函数写法
     [1,2,3].map(x => x * x);
 
     // 正常函数写法
     var result = values.sort(function (a, b) {
-    return a - b;
+        return a - b;
     });
     // 箭头函数写法
     var result = values.sort((a, b) => a - b);
@@ -78,6 +89,21 @@
 #### 注意
 
 1. 函数体内的this对象，是定义时所在的对象，而不是使用时所在的对象；
+    * this对象的指向是可变的，但是在箭头函数中，它是固定的：
+
+    ```javascript
+    function foo() {
+        setTimeout(() => {
+            console.log('id:', this.id);
+        }, 100);
+    }
+
+    var id = 21;
+
+    foo.call({ id: 42 });
+    // id: 42
+    ```
+    
 2. 不可以当作构造函数，即不可以使用new命令，否则会抛出一个错误；
 3. 不可以使用arguments对象，该对象在函数体内不存在，如果要用，可以用rest参数代替；
     ```javascript
@@ -312,6 +338,7 @@ console.log(copy);
 ### ***前五个都是有限集，Object是一个无限集，每一个Object都是独一无二的。***
 
 ES6中，新增了一种数据类型symbol：
+
 ```js
 // 判断
 typeof Symbol() === 'symbol' //true
@@ -323,6 +350,7 @@ Symbol('key') !== Symbol('key') //true
 ### ***symbol类型的对象永远不相等，即便创建它们的时候传入了相同的值。***
 
 因此，可借助此特性解决属性名的冲突问题（比如适用于多人编码的时候），这也是该数据类型存在的主要用途，意为标记。
+
 ```js
 var sym = Symbol('foo');
 var obj = {[sym] : 1};
