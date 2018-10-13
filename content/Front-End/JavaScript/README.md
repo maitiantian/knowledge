@@ -53,11 +53,11 @@
     }
     ```
 
-* undefined值派生自null值，alert(null == undefined);   //true
+* undefined值派生自null值， alert(null == undefined);   //true
 
 #### Boolean类型
 
-* Boolean类型有两个值，true和false；
+* Boolean类型有两个值， true和false；
 * Boolean类型的字面值只有两个，但ECMAScript中所有类型的值都有与这两个boolean值等价的值。要将一个值转换为其对应的boolean值，可以调用转型函数Boolean()；
 
     ```javascript
@@ -184,10 +184,10 @@
         * 对象：调用对象的valueOf()方法，然后依照前面的规则转换返回的值；如果对象没有valueOf()方法，则调用toString()方法，再前面的规则转换返回的字符串值；如果对象没有valueOf()和toString()方法，则返回NaN。
     * parseInt()：用于转换String类型，其余类型值会先转换为String类型；
         1. 忽略字符串前面的空格，直至找到第一个非空格字符；
-        2. 如果第一个字符不是数字字符或者负号，返回NaN（parseInt("")-->NaN，Number("")-->0）；
+        2. 如果第一个字符不是数字字符或者负号，返回NaN（parseInt("")-->NaN， Number("")-->0）；
         3. 如果第一个字符是数字字符，则继续解析第二个字符，直到解析完所有后续字符或者遇到一个非数字字符；
         4. parseInt()能够识别十六进制整数：如果字符串以"0x"开头且后跟数字字符，会将其当作一个十六进制整数；
-        5. 在ECMAScript 5 JavaScript引擎中，parseInt()已不具有解析八进制值的能力，parseInt("070")-->70；
+        5. 在ECMAScript 5 JavaScript引擎中， parseInt()已不具有解析八进制值的能力， parseInt("070")-->70；
         6. 可以为parseInt()提供第二个参数：转换时使用的基数，即多少进制。
             ```javascript
             var num1 = parseInt("0xAF", 16);	//175
@@ -206,7 +206,7 @@
         3. 字符串中第一个小数点是有效的，第二个小数点是无效的，它后面的字符串将被忽略；
         4. parseFloat()只解析十进制值，它没有用第二个参数指定基数的用法；
         5. 十六进制格式的字符串则始终会被转换成0；
-        6. 如果字符串是一个可解析为整数的数（没有小数点，或者小数点后都是零），parseFloat()会返回整数。
+        6. 如果字符串是一个可解析为整数的数（没有小数点，或者小数点后都是零）， parseFloat()会返回整数。
         ```javascript
         var num1 = parseFloat("1234blue"); 	//1234 （整数）
         var num2 = parseFloat("0xA"); 		//0
@@ -261,7 +261,7 @@ sigma.length;   //1
         var num = 10;
         var numAsString = num.toString();	// 字符串"11"
         alert(num.toString());		// "10"
-        // 通过传递基数，toString()可以输出二、八、十六进制，乃至任意有效进制格式的字符串值。
+        // 通过传递基数， toString()可以输出二、八、十六进制，乃至任意有效进制格式的字符串值。
         alert(num.toString(2));		// "1010"
         alert(num.toString(8));		// "12"
         alert(num.toString(10));	// "10"
@@ -280,7 +280,7 @@ sigma.length;   //1
 
 #### Object类型
 
-ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行new操作符后跟要创建的对象类型的名称来创建：
+ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行 new 操作符后跟要创建的对象类型的名称来创建：
 
 ```javascript
 var obj1 = new Object();
@@ -337,8 +337,8 @@ person.age = 29;
 
 // 2. 对象字面量表示法：
 var person = {
-name : "Nicholas",
-age : 29
+    name : "Nicholas",
+    age : 29
 };
 // 对象字面量是对象定义的一种简写形式，
 // 目的在于简化创建包含大量属性的对象的过程。
@@ -531,11 +531,11 @@ unshift()，在数组前端添加任意个项并返回新数组的长度：
 
 ```javascript
 var colors = new Array();   // 创建一个数组
-var count = colors.unshift("red", "green"); // 推入两项，colors，(2) ["red", "green"]
+var count = colors.unshift("red", "green"); // 推入两项， colors，(2) ["red", "green"]
 alert(count);   // 2
-count = colors.unshift("black");    // 推入另一项，colors，(3) ["black", "red", "green"]
+count = colors.unshift("black");    // 推入另一项， colors，(3) ["black", "red", "green"]
 alert(count);   // 3
-var item = colors.pop();    // 取得最后一项，colors，(2) ["black", "red"]
+var item = colors.pop();    // 取得最后一项， colors，(2) ["black", "red"]
 alert(item);    // "green"
 alert(colors.length);   // 2
 ```
@@ -730,6 +730,7 @@ alert(sum); // 15
 #### Date 类型
 
 * Date 类型使用自 UTC（Coordinated Universal Time，国际协调时间） 1970 年 1 月 1 日午夜（零时）开始经过的毫秒数来保存日期；
+    > UTC = GMT +/- 0.9 s
 * Date 类型保存的日期能够精确到 1970 年 1 月 1 日之前或之后的 285 616 年。
 
 
@@ -741,8 +742,620 @@ alert(sum); // 15
     * “英文月名 日,年”： January 12,2004；
     * “英文星期几 英文月名 日 年 时:分:秒 时区”： Tue May 25 2004 00:00:00 GMT-0700。
     * ISO 8601 扩展格式： YYYY-MM-DDTHH:mm:ss.sssZ（例如 2004-05-25T00:00:00）。
+* 如果直接将表示日期的字符串传递给 Date 构造函数，也会在后台调用 Date.parse()；
+    
+    ```javascript
+    var someDate = new Date("May 25, 2004");
+    // 等效于：var someDate = new Date(Date.parse("May 25, 2004"));
+    ```
+
 * Date.UTC()：返回表示日期的毫秒数；
     * 参数：年份、月份（一月是 0，二月是 1……）、月中的哪一天（1 到 31）、小时（0 到 23）、分钟、秒以及毫秒数；
     * 只有前两个参数（年和月）是必需的。
 
-日期和时间都基于本地时区而非 GMT（格林威治标准时间，Greenwich Mean Time）来创建。
+    ```javascript
+    // GMT 时间 2000 年 1 月 1 日午夜零时
+    var y2k = new Date(Date.UTC(2000, 0));
+    // GMT 时间 2005 年 5 月 5 日下午 5:55:55
+    var allFives = new Date(Date.UTC(2005, 4, 5, 17, 55, 55));
+    ```
+
+* Date 构造函数也会模仿 Date.UTC()；
+
+    ```javascript
+    // 本地时间 2000 年 1 月 1 日午夜零时
+    var y2k = new Date(2000, 0);
+    // 本地时间 2005 年 5 月 5 日下午 5:55:55
+    var allFives = new Date(2005, 4, 5, 17, 55, 55);
+    ```
+
+* Data.now()：返回表示调用这个方法时的日期和时间的毫秒数，可用于统计代码的运行时间。
+
+    ```javascript
+    // 取得开始时间
+    var start = Date.now();
+    // 调用函数
+    doSomething();
+    // 取得停止时间
+    var stop = Date.now(),
+    result = stop – start;
+    ```
+
+**日期和时间都基于本地时区来创建。**
+
+
+
+继承的方法
+
+与其他引用类型一样， Date 类型也重写了toLocaleString()、toString()和 valueOf()方法：
+
+* toLocaleString()：按照与浏览器设置的地区相适应的格式返回日期和时间；
+* toString()：返回带时区信息的日期和时间；
+* valueOf()：返回日期的毫秒表示，方便比较日期。
+
+```javascript
+var date = new Date(2018,9,13,10,30)
+date
+// Sat Oct 13 2018 10:30:00 GMT+0800 (中国标准时间)
+date.toLocaleString()
+// "2018/10/13 上午10:30:00"
+date.toString()
+// "Sat Oct 13 2018 10:30:00 GMT+0800 (中国标准时间)"
+date.valueOf()
+// 1539397800000
+```
+
+* toDateString()：显示星期几、月、日和年；
+* toTimeString()：显示时、分、秒和时区；
+* toLocaleDateString()：显示星期几、月、日和年；
+* toLocaleTimeString()：显示时、分、秒；
+* toUTCString()：显示完整的 UTC 日期。
+
+> 与 toLocaleString()和 toString()一样，以上这些字符串格式方法的输出因浏览器而异，没有哪个方法能用来在用户界面中显示一致的日期信息。
+
+```javascript
+var date = new Date(2018,9,13,10,30)
+date
+// Sat Oct 13 2018 10:30:00 GMT+0800 (中国标准时间)
+
+date.toDateString()
+// "Sat Oct 13 2018"
+date.toTimeString()
+// "10:30:00 GMT+0800 (中国标准时间)"
+date.toLocaleDateString()
+// "2018/10/13"
+date.toLocaleTimeString()
+// "上午10:30:00"
+date.toUTCString()
+// "Sat, 13 Oct 2018 02:30:00 GMT"
+```
+
+
+日期/时间组件方法
+
+直接取得和设置日期值中特定部分的方法：
+
+|方法|说明|
+|:---|:---|
+|getTime()|返回表示日期的毫秒数；与valueOf()方法返回的值相同|
+|setTime(毫秒)|以毫秒数设置日期，会改变整个日期|
+|getFullYear()|取得4位数的年份（如2007而非仅07）|
+|getUTCFullYear()|返回UTC日期的4位数年份|
+|setFullYear(年)|设置日期的年份。传入的年份值必须是4位数字（如2007而非仅07）|
+|setUTCFullYear(年)|设置UTC日期的年份。传入的年份值必须是4位数字（如2007而非仅07）|
+|getMonth()|返回日期中的月份，其中0表示一月， 11表示十二月|
+|getUTCMonth()|返回UTC日期中的月份，其中0表示一月， 11表示十二月|
+|setMonth(月)|设置日期的月份。传入的月份值必须大于0，超过11则增加年份|
+|setUTCMonth(月)|设置UTC日期的月份。传入的月份值必须大于0，超过11则增加年份|
+|getDate()|返回日期月份中的天数（1到31）|
+|getUTCDate()|返回UTC日期月份中的天数（1到31）|
+|setDate(日)|设置日期月份中的天数。如果传入的值超过了该月中应有的天数，则增加月份|
+|setUTCDate(日)|设置UTC日期月份中的天数。如果传入的值超过了该月中应有的天数，则增加月份|
+|getDay()|返回日期中星期的星期几（其中0表示星期日， 6表示星期六）|
+|getUTCDay()|返回UTC日期中星期的星期几（其中0表示星期日， 6表示星期六）|
+|getHours()|返回日期中的小时数（0到23）|
+|getUTCHours()|返回UTC日期中的小时数（0到23）|
+|setHours(时)|设置日期中的小时数。传入的值超过了23则增加月份中的天数|
+|setUTCHours(时)|设置UTC日期中的小时数。传入的值超过了23则增加月份中的天数|
+|getMinutes()|返回日期中的分钟数（0到59）|
+|getUTCMinutes()|返回UTC日期中的分钟数（0到59）|
+|setMinutes(分)|设置日期中的分钟数。传入的值超过59则增加小时数|
+|setUTCMinutes(分)|设置UTC日期中的分钟数。传入的值超过59则增加小时数|
+|getSeconds()|返回日期中的秒数（0到59）|
+|getUTCSeconds()|返回UTC日期中的秒数（0到59）|
+|setSeconds(秒)|设置日期中的秒数。传入的值超过了59会增加分钟数|
+|setUTCSeconds(秒)|设置UTC日期中的秒数。传入的值超过了59会增加分钟数|
+|getMilliseconds()|返回日期中的毫秒数|
+|getUTCMilliseconds()|返回UTC日期中的毫秒数|
+|setMilliseconds(毫秒)|设置日期中的毫秒数|
+|setUTCMilliseconds(毫秒)|设置UTC日期中的毫秒数|
+|getTimezoneOffset()|返回本地时间与UTC时间相差的分钟数。例如，美国东部标准时间返回300。在某地进入夏令时的情况下，这个值会有所变化|
+
+
+
+#### RegExp 类型
+
+ECMAScript 通过 RegExp 类型来支持正则表达式。
+
+`var expression = / pattern / flags ;`
+
+* 模式（pattern）部分可以是任何简单或复杂的正则表达式；
+* 每个正则表达式可带有一或多个标志（flags），用以标明正则表达式的行为：
+    * g：全局（global）模式，模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止；
+    * i：不区分大小写（case-insensitive）模式，在确定匹配项时忽略模式与字符串的大小写；
+    * m：多行（multiline）模式，在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
+
+
+模式中使用的所有元字符都必须转义。正则表达式中的元字符包括：`( [ { \ ^ $ | ) ? * + .]}`
+
+```javascript
+// 匹配第一个"bat"或"cat"，不区分大小写
+var pattern1 = /[bc]at/i;
+
+// 匹配第一个" [bc]at"，不区分大小写
+var pattern2 = /\[bc\]at/i;
+
+// 匹配所有以"at"结尾的 3 个字符的组合，不区分大小写
+var pattern3 = /.at/gi;
+
+// 匹配所有".at"，不区分大小写
+var pattern4 = /\.at/gi;
+```
+
+定义的正则表达式有两种方式：
+
+1. 以字面量形式定义正则表达式；
+2. 使用 RegExp 构造函数，它接收两个参数：要匹配的字符串模式，标志字符串（可选）。
+
+```javascript
+// 匹配第一个"bat"或"cat"，不区分大小写
+var pattern1 = /[bc]at/i;
+// 与 pattern1 相同，只不过是使用构造函数创建的
+var pattern2 = new RegExp("[bc]at", "i");
+```
+
+由于 RegExp 构造函数的模式参数是字符串，在某些情况下要对字符进行双重转义：
+
+```
+字面量模式           等价的字符串
+/\[bc\]at/          "\\[bc\\]at"
+/\.at/              "\\.at"
+/name\/age/         "name\\/age"
+/\d.\d{1,2}/        "\\d.\\d{1,2}"
+/\w\\hello\\123/    "\\w\\\\hello\\\\123"
+```
+
+
+RegExp 实例属性
+
+* global：布尔值，表示是否设置了 g 标志；
+* ignoreCase：布尔值，表示是否设置了 i 标志；
+* multiline：布尔值，表示是否设置了 m 标志；
+* lastIndex：整数，表示开始搜索下一个匹配项的字符位置，从 0 算起；
+* source：正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。
+
+RegExp 实例方法
+
+exec()，该方法是专门为捕获组而设计的。exec()接受一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回 null。
+
+返回的数组虽然是 Array 的实例，但包含两个额外的属性：
+
+* index 匹配项在字符串中的位置；
+* input 应用正则表达式的字符串。
+
+```javascript
+var text = "mom and dad and baby";
+var pattern = /mom( and dad( and baby)?)?/gi;
+var matches = pattern.exec(text);
+alert(matches.index);   // 0
+alert(matches.input);   // "mom and dad and baby"
+alert(matches[0]);      // "mom and dad and baby"
+alert(matches[1]);      // " and dad and baby"
+alert(matches[2]);      // " and baby
+```
+
+// 未完待续……
+
+
+#### Function 类型
+
+函数实际上是对象。每个函数都是 Function 类型的实例，而且都与其他引用类型一样具有属性和方法。函数名实际上是一个指向函数对象的指针，不会与某个函数绑定。
+
+定义函数：
+
+```javascript
+// 1. 使用 函数声明语法 定义函数：
+function sum (num1, num2) {
+    return num1 + num2;
+}
+
+// 2. 使用 函数表达式 定义函数：
+var sum = function(num1, num2){
+    return num1 + num2;
+};  // 注意末尾有一个分号，就像声明其他变量时一样。
+
+// 3. 使用 Function 构造函数定义函数：
+var sum = new Function("num1", "num2", "return num1 + num2"); // 不推荐
+// 这种语法会导致解析两次代码，从而影响性能：
+// 第一次是解析常规 ECMAScript 代码；
+// 第二次是解析传入构造函数中的字符串。
+```
+
+函数名仅仅是指向函数的指针，因此函数名与包含对象指针的其他变量没有什么不同：
+
+```javascript
+function sum(num1, num2){
+    return num1 + num2;
+}
+alert(sum(10,10));          // 20
+var anotherSum = sum;
+alert(anotherSum(10,10));   // 20
+sum = null;
+// 将 sum 设置为 null，让它与函数对象“断绝关系”
+
+alert(anotherSum(10,10));   // 20
+// 仍然可以正常调用 anotherSum()
+```
+
+函数声明与函数表达式
+
+* 解析器在向执行环境中加载数据时会率先读取函数声明（**函数声明提升， function declaration hoisting**），并使其在执行任何代码之前可用（可以访问）；
+* 而函数表达式必须等到解析器执行到它所在的代码行时，才会真正被解释执行。
+
+```javascript
+alert(sum(10,10));
+function sum(num1, num2){
+    return num1 + num2;
+}
+// 以上代码完全可以正常运行
+
+// 以下代码之所以会在运行期间产生错误
+alert(sum(10,10));
+var sum = function(num1, num2){
+    return num1 + num2;
+};
+```
+
+
+作为值的函数
+
+函数名本身就是变量，所以函数也可以作为值来使用。
+
+* 不仅可以像传递参数一样把一个函数传递给另一个函数；
+
+    ```javascript
+    function callSomeFunction(someFunction, someArgument){
+        return someFunction(someArgument);
+    }
+
+    function add10(num){
+        return num + 10;
+    }
+    var result1 = callSomeFunction(add10, 10);
+    alert(result1); // 20
+    function getGreeting(name){
+        return "Hello, " + name;
+    }
+    var result2 = callSomeFunction(getGreeting, "Nicholas");
+    alert(result2); // "Hello, Nicholas"
+    ```
+
+* 而且可以将一个函数作为另一个函数的结果返回。
+```javascript
+function createComparisonFunction(propertyName) {
+    return function(object1, object2){
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+        if (value1 < value2){
+            return -1;
+        } else if (value1 > value2){
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+
+var data = [{name: "Zachary", age: 28}, {name: "Nicholas", age: 29}];
+
+// 按照对象的 name 属性值进行排序
+data.sort(createComparisonFunction("name"));
+alert(data[0].name); //Nicholas
+
+// 按照对象的 age 属性值进行排序
+data.sort(createComparisonFunction("age"));
+alert(data[0].name); //Zachary
+```
+
+
+函数内部属性
+
+函数内部有两个特殊的对象：
+
+* arguments：
+    * 类似数组的对象，包含着传入函数中的所有参数；
+    * arguments对象有一个 callee 属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
+        * （在严格模式下，访问 arguments.callee 会导致错误）
+
+    ```javascript
+    function factorial(num){
+        if (num <=1) {
+            return 1;
+        } else {
+            return num * factorial(num-1);
+        }
+    }
+    // 在函数有名字，且名字以后也不会变的情况下，这样定义没问题；
+    // 但这个函数的执行与函数名 factorial 紧紧耦合在了一起；
+    // 为了消除这种紧密耦合的现象，可以使用 arguments.callee。
+    function factorial(num){
+        if (num <=1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num-1);
+        }
+    }
+    ```
+
+* this:
+    * this 引用的是函数据以执行的环境对象
+    * 当在网页的全局作用域中调用函数时， this 对象引用的是 window。
+
+    ```javascript
+    window.color = "red";
+    var o = { color: "blue" };
+    function sayColor(){
+        alert(this.color);
+    }
+
+    // 在调用函数前， this 的值并不确定，
+    // 因此 this 可能会在代码执行过程中引用不同的对象。
+
+    sayColor(); //"red"
+    // 相当于 window.sayColor()；
+    // 在全局作用域中调用sayColor()时， this 引用的是全局对象 window，
+    // 即对 this.color 求值会转换成对window.color 求值。
+
+    o.sayColor = sayColor;
+    o.sayColor(); //"blue"
+    // sayColor 函数赋给对象 o 并调用 o.sayColor()时， this 引用的是对象 o，
+    // 因此对 this.color 求值会转换成对 o.color 求值。
+
+    // 函数的名字仅仅是一个包含指针的变量而已，
+    // 全局的 sayColor函数（即 window.sayColor）与 o.sayColor 指向的是同一个函数。
+    ```
+
+* caller：
+    * （在严格模式不能为函数的 caller 属性赋值，否则会导致错误）
+
+    ```javascript
+    function outer(){
+        inner();
+    }
+    function inner(){
+        alert(inner.caller);
+    }
+
+    outer();
+    // function outer(){
+    //     inner();
+    // }
+
+    // 为了实现更松散的耦合：
+    // function inner(){
+    //     alert(arguments.callee.caller);
+    // }
+    ```
+
+
+函数属性和方法
+
+* length：函数希望接收的命名参数的个数；
+
+    ```javascript
+    function sayName(name){
+        alert(name);
+    }
+    function sum(num1, num2){
+        return num1 + num2;
+    }
+    function sayHi(){
+        alert("hi");
+    }
+
+    alert(sayName.length);  // 1
+    alert(sum.length);      // 2
+    alert(sayHi.length);    // 0
+    ```
+
+* prototype：
+
+对于 ECMAScript 中的引用类型而言， prototype 是保存它们所有实例方法的真正所在。
+
+诸如 toString()和 valueOf()等方法实际上都保存在 prototype 名下，只不过是通过各自对象的实例访问罢了。
+
+在 ECMAScript 5 中， prototype 属性是不可枚举的，因此使用 for-in 无法发现。
+
+每个函数都包含两个非继承而来的方法： apply()和 call()。
+
+这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 this 对象的值。
+
+apply()接收两个参数：
+
+1. 在其中运行函数的作用域；
+2. 参数数组，可以是 Array 的实例，也可以是 arguments 对象。
+
+```javascript
+function sum(num1, num2){
+    return num1 + num2;
+}
+function callSum1(num1, num2){
+    return sum.apply(this, arguments);      // 传入 arguments 对象
+}
+function callSum2(num1, num2){
+    return sum.apply(this, [num1, num2]);   // 传入数组
+}
+
+alert(callSum1(10,10)); // 20
+alert(callSum2(10,10)); // 20
+```
+
+call()与 apply()作用相同，区别仅在于接收参数的方式不同：
+
+1. 第一个参数是 this 值没有变化；
+2. 其余参数都直接传递给函数。换句话说，在使用 call()方法时，传递给函数的参数必须逐个列举出来。
+
+```javascript
+function sum(num1, num2){
+    return num1 + num2;
+}
+function callSum(num1, num2){
+    return sum.call(this, num1, num2);
+}
+alert(callSum(10,10));  // 20
+```
+
+使用 apply()还是 call()，完全取决于你采取哪种给函数传递参数的方式最方便。
+
+
+apply()和 call()真正强大的地方是能够扩充函数赖以运行的作用域：
+
+```javascript
+window.color = "red";
+var o = { color: "blue" };
+function sayColor(){
+    alert(this.color);
+}
+
+sayColor();             // red
+sayColor.call(this);    // red
+sayColor.call(window);  // red
+sayColor.call(o);       // blue
+```
+
+bind()： 创建一个函数的实例，其 this 值会被绑定到传给 bind()函数的值：
+
+```javascript
+window.color = "red";
+var o = { color: "blue" };
+function sayColor(){
+    alert(this.color);
+}
+
+var objectSayColor = sayColor.bind(o);
+objectSayColor();   // blue
+```
+
+每个函数继承的 toLocaleString()， toString()和valueOf()都返回函数的代码，返回代码的格式则因浏览器而异。这些信息在调试代码时很有用。
+
+
+#### 基本包装类型
+
+为了便于操作基本类型值， ECMAScript 提供了 3 个特殊的引用类型：
+
+1. Boolean
+2. Number
+3. String
+
+实际上，每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据。
+
+```javascript
+var s1 = "some text";
+var s2 = s1.substring(2);
+```
+
+基本类型值不是对象，因此从逻辑上讲它们不应该有方法。
+
+为了让我们能实现这种直观的操作，后台自动完成了一系列的处理。当第二行代码访问 s1 时，访问过程处于一种读取模式，也就是要从内存中读取这个字符串的值。
+
+而在读取模式中访问字符串时，后台都会自动完成下列处理：
+
+1. 创建 String 类型的一个实例；
+2. 在实例上调用指定的方法；
+3. 销毁这个实例。
+
+```javascript
+var foo = new String("some text");
+var s2 = foo.substring(2);
+foo = null;
+```
+
+经过此番处理，基本的字符串值就变得跟对象一样了。上面这三个步骤也分别适用于 Boolean 和 Number 类型对应的布尔值和数字值。
+
+引用类型与基本包装类型的主要区别就是对象的生存期。
+
+使用 new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中；
+自动创建的基本包装类型的对象，只存在于一行代码的执行瞬间，然后立即被销毁；
+所以我们不能在运行时为基本类型值添加属性和方法。
+
+```javascript
+var s1 = "some text";
+s1.color = "red";
+alert(s1.color);    // undefined
+```
+
+可以显式地调用 Boolean、 Number 和 String 创建基本包装类型的对象：
+
+* 尽量不要这样做，因为这样很容易让人分不清自己是在处理基本类型还是引用类型的值；
+* 对基本包装类型的实例调用 typeof 会返回"object"；
+* 所有基本包装类型的对象都会被转换为布尔值 true ，因为Boolean(对象) --> true。
+
+    ```javascript
+    var foo = new Number(0);
+    console.log(Boolean(foo))   // true
+    console.log(Boolean(0))     // true
+    ```
+
+Object 构造函数会根据传入值的类型返回相应基本包装类型的实例：
+
+```javascript
+var obj = new Object("some text");
+alert(obj instanceof String); //true
+```
+
+使用 new 调用基本包装类型的构造函数，与直接调用同名的转型函数是不一样的：
+
+```javascript
+var value = "25";
+var number = Number(value);     //转型函数
+alert(typeof number);           //"number"
+var obj = new Number(value);    //构造函数
+alert(typeof obj);              //"object"
+```
+
+
+Boolean 类型
+
+Boolean 类型是与布尔值对应的引用类型。
+
+`var booleanObject = new Boolean(true);`
+
+```javascript
+var falseObject = new Boolean(false);
+var result = falseObject && true;
+// 布尔表达式中的所有对象都会被转换为 true
+// Boolean(对象) --> true
+alert(result);  // true
+
+var falseValue = false;
+result = falseValue && true;
+alert(result);  // false
+
+// typeof 操作符对基本类型返回"boolean"，对引用类型返回"object"：
+alert(typeof falseObject);  // object
+alert(typeof falseValue);   // boolean
+// Boolean 对象是 Boolean 类型的实例：
+alert(falseObject instanceof Boolean);  // true
+alert(falseValue instanceof Boolean);   // false
+```
+
+**建议永远不要使用 Boolean 对象。**
+
+
+Number 类型
+
+Number 是与数字值对应的引用类型。
+
+`var numberObject = new Number(10);`
+
+Number 类型还提供了一些用于将数值格式化为字符串的方法
