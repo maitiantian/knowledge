@@ -1358,4 +1358,16 @@ Number 是与数字值对应的引用类型。
 
 `var numberObject = new Number(10);`
 
-Number 类型还提供了一些用于将数值格式化为字符串的方法
+Number 类型还提供了一些用于将数值格式化为字符串的方法：
+
+* toFixed()：按照指定的小数位返回数值的字符串表示；
+
+```javascript
+var num = 10;
+alert(num.toFixed(2));  // "10.00"
+
+var num = 10.005;
+alert(num.toFixed(2));  // "10.01"
+// 不同浏览器给这个方法设定的舍入规则可能不同
+```
+

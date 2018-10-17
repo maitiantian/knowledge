@@ -2376,7 +2376,17 @@ alert(falseValue <span class="hljs-keyword">instanceof</span> <span class="hljs-
 <p>Number &#x7C7B;&#x578B;</p>
 <p>Number &#x662F;&#x4E0E;&#x6570;&#x5B57;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x3002;</p>
 <p><code>var numberObject = new Number(10);</code></p>
-<p>Number &#x7C7B;&#x578B;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x5C06;&#x6570;&#x503C;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>Number &#x7C7B;&#x578B;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x5C06;&#x6570;&#x503C;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>toFixed()&#xFF1A;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x5C0F;&#x6570;&#x4F4D;&#x8FD4;&#x56DE;&#x6570;&#x503C;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>;
+alert(num.toFixed(<span class="hljs-number">2</span>));  <span class="hljs-comment">// &quot;10.00&quot;</span>
+
+<span class="hljs-keyword">var</span> num = <span class="hljs-number">10.005</span>;
+alert(num.toFixed(<span class="hljs-number">2</span>));  <span class="hljs-comment">// &quot;10.01&quot;</span>
+<span class="hljs-comment">// &#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x7ED9;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8BBE;&#x5B9A;&#x7684;&#x820D;&#x5165;&#x89C4;&#x5219;&#x53EF;&#x80FD;&#x4E0D;&#x540C;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -2420,7 +2430,7 @@ alert(falseValue <span class="hljs-keyword">instanceof</span> <span class="hljs-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"ES6","level":"1.5.5","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[{"title":"babel","level":"1.5.5.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2018-10-13T09:05:05.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-13T09:06:16.925Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"ES6","level":"1.5.5","depth":2,"path":"Front-End/ES6/README.md","ref":"Front-End/ES6/README.md","articles":[{"title":"babel","level":"1.5.5.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2018-10-16T08:47:11.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-17T07:00:24.844Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
