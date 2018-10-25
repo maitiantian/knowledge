@@ -1373,9 +1373,29 @@ Number 类型还提供了一些用于将数值格式化为字符串的方法：
 
 * toExponential()：返回指数表示法（e表示法）；
 
+    ```javascript
+    var num = 10;
+    alert(num.toExponential(1));    // "1.0e+1"
+    alert(num.toExponential(2));    // "1.00e+1"
+    alert(num.toExponential(3));    // "1.000e+1"
+    ```
+
+* toPrecision()：返回最适合表示这个数值的格式，接收一个参数，表示数值所有数字的位数（不含指数部分）；
+
+    ```javascript
+    var num = 99;
+    alert(num.toPrecision(1));  //"1e+2"
+    alert(num.toPrecision(2));  //"99"
+    alert(num.toPrecision(3));  //"99.0"
+
+    // toPrecision()会根据要处理的数值决定到底是调用 toFixed()还是调用 toExponential()
+    ```
+
 ```javascript
-var num = 10;
-alert(num.toExponential(1));    // "1.0e+1"
-alert(num.toExponential(2));    // "1.00e+1"
-alert(num.toExponential(3));    // "1.000e+1"
+var numberObject = new Number(10);
+var numberValue = 10;
+alert(typeof numberObject); //"object"
+alert(typeof numberValue);  //"number"
+alert(numberObject instanceof Number);  //true
+alert(numberValue instanceof Number);   //false 
 ```
