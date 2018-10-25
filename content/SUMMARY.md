@@ -12,7 +12,7 @@
     * [操作系统](CS基础/操作系统/README.md)
 * [Git](Git/README.md)
     * [常用Git命令](Git/常用Git命令/README.md)
-    * [.gitignore](Git/.gitignore/README.md)
+    * [关于.gitignore](Git/关于.gitignore/README.md)
     * [Issue](Git/Issue/README.md)
     * [工作流程及分支管理](Git/工作流程及分支管理/README.md)
     * [Git使用规范流程](Git/Git使用规范流程/README.md)
