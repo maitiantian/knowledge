@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/maitiantian/knowledge#readme",
   "devDependencies": {
-    "gitbook": "^2.6.9"
+    "gitbook-cli": "^2.3.2"
   }
 }
