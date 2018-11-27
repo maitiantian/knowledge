@@ -5,6 +5,7 @@
 **从webpack v4.0.0开始，可以不用引入一个配置文件。**
 
 四个核心概念：
+
 * 入口(entry)
 
     入口起点(entry point)指示webpack应该使用哪个模块，来作为构建其内部依赖图的开始。进入入口起点后，webpack会找出有哪些模块和库是入口起点（直接和间接）依赖的。
@@ -19,6 +20,7 @@
         entry: './path/to/my/entry/file.js'
     };
     ```
+
 * 输出(output)
 
     output属性告诉webpack在哪里输出它所创建的bundles，以及如何命名这些文件，默认值为./dist。基本上，整个应用程序结构，都会被编译到你指定的输出路径的文件夹中。可以在配置中指定output字段：
@@ -362,3 +364,40 @@ module.exports = {
     ```
     对.jade文件使用jade-loader，对.css文件使用style-loader和css-loader。
 
+
+## my webpack.config.js
+
+```javascript
+const webpack = require('webpack');
+const path = require('path');
+
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                // babel-loader 慢怎么办：尽可能转译少的文件，排除 node_modules 文件夹下的文件
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    // babel-loader 慢怎么办：配置 cacheDirectory，缓存 loader 的执行结果
+
+                    // cacheIdentifier：默认是由 babel-core 版本号，
+                    // babel-loader 版本号，.babelrc 文件内容（存在的情况下），
+                    // 环境变量 BABEL_ENV 的值（没有时降级到 NODE_ENV）组成的字符串，
+                    // 可以设置为一个自定义的值，在 identifier 改变后，强制缓存失效。
+                    loader: 'babel-loader?cacheDirectory=babel_loader_cache&cacheIdentifier',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        
+                        // babel 默认情况下会将一些辅助代码添加到每一个需要它的文件中，
+                        // 引入 babel-plugin-transform-runtime 使所有辅助代码从这里引用，从而避免重复引入。
+                        // npm install babel-plugin-transform-runtime --save-dev
+                        // npm install babel-runtime --save
+                        plugins: ['@babel/transform-runtime']
+                    }
+                }
+            }
+        ]
+    }
+}
+```

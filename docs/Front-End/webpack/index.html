@@ -264,12 +264,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../../Git/.gitignore/">
+        <li class="chapter " data-level="1.3.2" data-path="../../Git/关于.gitignore/">
             
-                <a href="../../Git/.gitignore/">
+                <a href="../../Git/关于.gitignore/">
             
                     
-                    .gitignore
+                    关于.gitignore
             
                 </a>
             
@@ -622,6 +622,19 @@
     
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../Chrome-DevTools/">
+            
+                <a href="../Chrome-DevTools/">
+            
+                    
+                    Chrome-DevTools
+            
+                </a>
+            
+
             
         </li>
     
@@ -1351,6 +1364,40 @@ npm install --save-dev ts-loader
 <p>  &#x5BF9;.jade&#x6587;&#x4EF6;&#x4F7F;&#x7528;jade-loader&#xFF0C;&#x5BF9;.css&#x6587;&#x4EF6;&#x4F7F;&#x7528;style-loader&#x548C;css-loader&#x3002;</p>
 </li>
 </ul>
+<h2 id="my-webpackconfigjs">my webpack.config.js</h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;webpack&apos;</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-built_in">module</span>: {
+        rules: [
+            {
+                test: <span class="hljs-regexp">/\.js$/</span>,
+                <span class="hljs-comment">// babel-loader &#x6162;&#x600E;&#x4E48;&#x529E;&#xFF1A;&#x5C3D;&#x53EF;&#x80FD;&#x8F6C;&#x8BD1;&#x5C11;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6392;&#x9664; node_modules &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;&#x6587;&#x4EF6;</span>
+                exclude: <span class="hljs-regexp">/(node_modules|bower_components)/</span>,
+                use: {
+                    <span class="hljs-comment">// babel-loader &#x6162;&#x600E;&#x4E48;&#x529E;&#xFF1A;&#x914D;&#x7F6E; cacheDirectory&#xFF0C;&#x7F13;&#x5B58; loader &#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;</span>
+
+                    <span class="hljs-comment">// cacheIdentifier&#xFF1A;&#x9ED8;&#x8BA4;&#x662F;&#x7531; babel-core &#x7248;&#x672C;&#x53F7;&#xFF0C;</span>
+                    <span class="hljs-comment">// babel-loader &#x7248;&#x672C;&#x53F7;&#xFF0C;.babelrc &#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF08;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#xFF0C;</span>
+                    <span class="hljs-comment">// &#x73AF;&#x5883;&#x53D8;&#x91CF; BABEL_ENV &#x7684;&#x503C;&#xFF08;&#x6CA1;&#x6709;&#x65F6;&#x964D;&#x7EA7;&#x5230; NODE_ENV&#xFF09;&#x7EC4;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;</span>
+                    <span class="hljs-comment">// &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#xFF0C;&#x5728; identifier &#x6539;&#x53D8;&#x540E;&#xFF0C;&#x5F3A;&#x5236;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x3002;</span>
+                    loader: <span class="hljs-string">&apos;babel-loader?cacheDirectory=babel_loader_cache&amp;cacheIdentifier&apos;</span>,
+                    options: {
+                        presets: [<span class="hljs-string">&apos;@babel/preset-env&apos;</span>],
+
+                        <span class="hljs-comment">// babel &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5C06;&#x4E00;&#x4E9B;&#x8F85;&#x52A9;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;</span>
+                        <span class="hljs-comment">// &#x5F15;&#x5165; babel-plugin-transform-runtime &#x4F7F;&#x6240;&#x6709;&#x8F85;&#x52A9;&#x4EE3;&#x7801;&#x4ECE;&#x8FD9;&#x91CC;&#x5F15;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x5F15;&#x5165;&#x3002;</span>
+                        <span class="hljs-comment">// npm install babel-plugin-transform-runtime --save-dev</span>
+                        <span class="hljs-comment">// npm install babel-runtime --save</span>
+                        plugins: [<span class="hljs-string">&apos;@babel/transform-runtime&apos;</span>]
+                    }
+                }
+            }
+        ]
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1394,7 +1441,7 @@ npm install --save-dev ts-loader
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"webpack","level":"1.5.8","depth":2,"next":{"title":"Node.js","level":"1.5.9","depth":2,"path":"Front-End/Node.js/README.md","ref":"Front-End/Node.js/README.md","articles":[{"title":"npm","level":"1.5.9.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]}]},"previous":{"title":"gulp","level":"1.5.7","depth":2,"path":"Front-End/gulp/README.md","ref":"Front-End/gulp/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/webpack/README.md","mtime":"2018-06-12T00:23:36.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-17T07:00:24.844Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"webpack","level":"1.5.8","depth":2,"next":{"title":"Node.js","level":"1.5.9","depth":2,"path":"Front-End/Node.js/README.md","ref":"Front-End/Node.js/README.md","articles":[{"title":"npm","level":"1.5.9.1","depth":3,"path":"Front-End/Node.js/npm/README.md","ref":"Front-End/Node.js/npm/README.md","articles":[]}]},"previous":{"title":"gulp","level":"1.5.7","depth":2,"path":"Front-End/gulp/README.md","ref":"Front-End/gulp/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/webpack/README.md","mtime":"2018-11-19T10:43:50.534Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T11:13:22.610Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

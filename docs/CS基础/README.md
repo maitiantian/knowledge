@@ -67,21 +67,24 @@ IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时�
     * 1.0.0.a100 < 1.0.0，2.1.0-dev3 < 2.1.0；
     * 1.0.0.a1 < 1.0.0.b1。
 
-一些修饰的词
+一些修饰的词：
 
-* alpha：内部版本
-* beta：测试版
-* demo：演示版
-* enhance：增强版
-* free：自由版
-* full version：完整版，即正式版
-* lts：长期维护版本
-* release：发行版
-* rc：即将作为正式版发布
-* standard：标准版
-* ultimate：旗舰版
-* upgrade：升级版
+    * alpha：内部版本
+    * beta：测试版
+    * demo：演示版
+    * enhance：增强版
+    * free：自由版
+    * full version：完整版，即正式版
+    * lts：长期维护版本
+    * release：发行版
+    * rc：即将作为正式版发布
+    * standard：标准版
+    * ultimate：旗舰版
+    * upgrade：升级版
+
 
 1. 版本一经发布，不得修改其内容，任何修改必须在新版本中发布；
 2. 在接口还没有确定下来时，应该先使用开发版本号；
 3. 业务功能 > 功能 > 接口。
+
+
