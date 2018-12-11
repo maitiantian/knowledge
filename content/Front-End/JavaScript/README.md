@@ -1397,5 +1397,120 @@ var numberValue = 10;
 alert(typeof numberObject); //"object"
 alert(typeof numberValue);  //"number"
 alert(numberObject instanceof Number);  //true
-alert(numberValue instanceof Number);   //false 
+alert(numberValue instanceof Number);   //false
+```
+
+
+## XMLHttpRequest
+
+```javascript
+var xhr = new XMLHttpRequest();
+console.log(xhr.readyState);    // 0
+
+xhr.onreadystatechange = function(){
+    console.log("readyState:", xhr.readyState);    // 1, 2, 3, 4
+
+    console.log(xhr.getResponseHeader('Server'));
+    console.log(xhr.getAllResponseHeaders());
+    // HTTP状态码，200
+    console.log(xhr.status);
+    // HTTP状态说明，OK
+    console.log(xhr.statusText);
+    // 响应内容的文本
+    console.log(xhr.responseText);
+    // 若响应内容类型为"text/xml"或"application/xml"，该属性中将保存包含响应数据的XML DOM文档
+    console.log(xhr.responseXML);
+}
+
+// xhr.open(http-method, url, isAsynchronous)
+xhr.open('GET', 'http://xxx', true);
+
+// 必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
+xhr.setRequestHeader('MyHeader', 'MyValue');
+
+// 发送请求
+xhr.send();
+```
+
+|xhr.readyState|意义|
+|:---|:---|
+|0 xhr.UNSENT|未初始化，刚刚new出xhr对象，还未调用open()方法|
+|1 xhr.OPENED|建立连接，已调用open()方法|
+|2 xhr.HEADERS_RECEIVED|已调用send()方法，所有Response Header已接收完成|
+|3 xhr.LOADING|已接收到部分Response Body|
+|4 xhr.DONE|已接收到全部Response Body，可以在客户端使用了|
+
+
+### Get
+
+```javascript
+function addURLParam(url, name, value){
+    url += (url.indexOf('?') == -1 ? '?' : '&');
+    url += encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    return url;
+}
+
+var url = "example.php";
+// 添加参数
+url = addURLParam(url, "name", "Nicholas");
+url = addURLParam(url, "book", "Professional JavaScript");
+// 初始化请求
+xhr.open("get", url, true);
+xhr.send();
+```
+
+### Post
+
+```javascript
+function serialize(form){
+	var parts = [],
+	field = null,
+	i, len, j, optLen, option, optValue;
+
+	for(i=0, len=form.elements.length; i<len; i++){
+		field = form.elements[i];
+		switch(field.type){
+			case "select-one":
+			case "select-multiple":
+				if(field.name.length){
+					for(j=0, optLen=field.options.length; j<optLen; j++){
+						option = field.options[j];
+						if (option.selected){
+							optValue = "";
+							if (option.hasAttribute){
+								optValue = (option.hasAttribute("value") ? option.value : option.text);
+							}else{
+								optValue = (option.attributes["value"].specified ? option.value : option.text);
+							}
+							parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(optValue));
+						}
+					}
+				}
+				break;
+			case undefined: // 字段集
+			case "file":	// 文件输入
+			case "submit":  // 提交按钮
+			case "reset": 	// 重置按钮
+			case "button": 	// 自定义按钮
+				break;
+			case "radio": 	// 单选按钮
+			case "checkbox":// 复选框
+				if(!field.checked){
+					break;
+				}
+			/* 执行默认操作 */
+			default:
+				// 不包含没有名字的表单字段
+				if(field.name.length){
+					parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+				}
+		}
+	}
+	return parts.join("&");
+}
+
+xhr.open("post", "example.php", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+var form = document.getElementById("form");
+xhr.send(serialize(form));
 ```
