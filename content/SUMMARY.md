@@ -38,6 +38,7 @@
     * [Node.js](Front-End/Node.js/README.md)
         * [npm](Front-End/Node.js/npm/README.md)
     * [Chrome-DevTools](Front-End/Chrome-DevTools/README.md)
+    * [Famous-API](Front-End/Famous-API/README.md)
 * [Python](Python/README.md)
     * [PEP8](Python/PEP8/README.md)
     * [常用内建模块](Python/常用内建模块/README.md)
@@ -64,5 +65,6 @@
 * [Code-Puzzle](Code-Puzzle/README.md)
 * [健身](健身/README.md)
 * [摄影](摄影/README.md)
+* [Finance](Finance/README.md)
 * [Marketing](Marketing/README.md)
 
