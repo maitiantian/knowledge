@@ -65,6 +65,6 @@
 * [Code-Puzzle](Code-Puzzle/README.md)
 * [健身](健身/README.md)
 * [摄影](摄影/README.md)
-* [Finance](Finance/README.md)
-* [Marketing](Marketing/README.md)
+* [金融](金融/README.md)
+* [市场营销](市场营销/README.md)
 
