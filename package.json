@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gitbook build ./content ./docs",
-    "serve": "gitbook serve ./content",
+    "serve": "gitbook serve ./content --port 8888",
     "publish": "gitbook build ./content ./docs && git add . && git commit -m",
     "postpublish": "git push"
   },
