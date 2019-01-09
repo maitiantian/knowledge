@@ -1,5 +1,7 @@
 # gulp
 
+[gulp workdir template](https://github.com/maitiantian/work-with-gulp)
+
 ```javascript
 // gulpfile.js
 var gulp = require('gulp');
