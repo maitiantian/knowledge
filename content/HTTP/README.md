@@ -3,3 +3,8 @@ HTTP（HyperText Transfer Protocol），超文本传输协议，是应用层协�
 HTTPS，安全增强版的HTTP，S表示TLS、SSL。HTTPS是HTTP与安全套接口层(SSL)的结合，使HTTP的协议数据在传输过程中更安全。
 
 HTTPS = HTTP + 加密 + 认证 + 完整性保护
+
+
+
+
+# HTTP 基础验证
