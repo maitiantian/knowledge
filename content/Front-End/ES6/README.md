@@ -122,9 +122,16 @@
 
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">Promise</p>
 
-* Promise基本使用：
+1. Promise.prototype.then()
+2. Promise.prototype.catch()
+3. Promise.prototype.finally()
+4. Promise.all()
+5. Promise.race()
+6. Promise.resolve()
+7. Promise.reject()
+8. Promise.try()
 
-    > Promise.prototype.then() 和 Promise.prototype.catch()
+* Promise基本使用：
 
     ```javascript
     // 执行代码
@@ -150,7 +157,7 @@
     var p3 = p2.catch(function(reason){
         console.log('失败：', reason);
     });
-    // 也可以这样写
+    // 也可以这样写，但尽量用上面的写法
     // p1.then(function(result){
     //   console.log('成功：', result);
     // }, function(reason){
@@ -209,6 +216,17 @@
     })
     ```
 
+* ES2018标准引入 finally 方法，不管Promise对象最后状态如何，都会执行 finally 指定的操作：
+
+```javascript
+var p = new Promise.then(result=>{...})
+                   .catch(error=>{...})
+                   .finally(()=>{...});
+
+// finally 本质上是 then 的特例
+
+
+```
 
 
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">解构赋值</p>
@@ -221,10 +239,7 @@
 
 
 
-
-
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">Object.assign(target, ...sources)</p>
-
 
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
