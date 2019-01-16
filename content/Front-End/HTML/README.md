@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 * [HTML转译字符](#html转译字符)
@@ -16,9 +18,7 @@
     * [编程标签](#编程标签-▲)
 
 
-# <p align="center">HTML转译字符</p>
-###### [<p align="right">back to top ▲</p>](#目录)
-
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">HTML转译字符</p>
 
 |字符|十进制|转义字符|
 |:---|:---|:---|
@@ -30,9 +30,7 @@
 [>>more](http://tool.oschina.net/commons?type=2)
 
 
-# <p align="center">HTML标签的语义</p>
-###### [<p align="right">back to top ▲</p>](#目录)
-
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">HTML标签的语义</p>
 
 |html标签|英文全称|中文释义|
 |:---|:---:|:---:|
@@ -90,10 +88,9 @@
 |iframe|inline frame|定义内联框架|
 |optgroup|option group|定义选项组|
 
-# <p align="center">HTML标签列表</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">HTML标签列表</p>
 
-### 基础标签 [▲](#目录)
+### 基础标签
 
 |基础标签|描述|详细说明|
 |:---|:---|:---|
@@ -107,7 +104,7 @@
 |&lt;hr&gt;|定义水平线（horizontal）。|可在页面中创建一条水平线。|
 |&lt;!\-\-...\-\-&gt;|用于在源代码中插入注释（notes）。|注释不会显示在浏览器中。您可使用注释对您的代码进行解释，这样做有助于您在以后的时间对代码的编辑。当您编写了大量代码时尤其有用。使用注释标签来隐藏浏览器不支持的脚本也是一个好习惯（这样就不会把脚本显示为纯文本）。|
 
-### 元信息标签 [▲](#目录)
+### 元信息标签
 
 |元信息标签|描述|详细说明|
 |:---|:---|:---|
@@ -117,7 +114,7 @@
 |&lt;basefont&gt;|不赞成使用。定义页面中文本的默认字体、颜色或尺寸。|该标签可以为文档中的所有文本定义默认字体颜色、字体大小和字体系列。|
 
 
-### 格式标签 [▲](#目录)
+### 格式标签
 
 |格式标签|描述|详细说明|
 |:---|:---|:---|
@@ -161,7 +158,7 @@
 |&lt;wbr&gt;|定义可能的换行符（word break）。|用来指定软换行（或单词换行）。即使用&lt;nobr&gt;禁止了换行，使用&lt;wbr&gt;仍然可以换行，但是又不是强制换行，这点和&lt;br&gt;不一样。换不换行要看浏览器的横幅。例如：像“北京市海淀区黄浦区”这种表示地址的语句，允许在“北京市”和“海淀区”的中间换行，但不允许在“北京市海”和“淀区”的中间换行，那就要这样写：&lt;nobr&gt;北京市&lt;wbr&gt;海淀区&lt;/nobr&gt;。另外，像URL这种不含空格的全是半角英文数字的语句，通常在浏览器里显示的时候，会保持它的完整性。|
 
 
-### 表单标签 [▲](#目录)
+### 表单标签
 
 |表单标签|描述|详细说明|
 |:---|:---|:---|
@@ -180,7 +177,7 @@
 |&lt;isindex&gt;|定义与文档相关的可搜索索引（index）。|不赞成使用。|
 |&lt;keygen&gt;|定义生成（generate）密钥（key）。|当提交表单时，私钥存储在本地，公钥发送到服务器。|
 
-### 表格标签 [▲](#目录)
+### 表格标签
 
 |表格标签|描述|详细说明|
 |:---|:---|:---|
@@ -195,7 +192,7 @@
 |&lt;col&gt;|定义表格中一个或多个列（column）的属性值。|请为&lt;col&gt;标签添加class属性。这样就可以使用CSS来负责对齐方式、宽度和颜色等等。
 |&lt;colgroup&gt;|用于对表格中的列（column）进行组合（group），以便对其进行格式化。|请为&lt;colgroup&gt;标签添加class属性。这样就可以使用CSS来负责对齐方式、宽度和颜色等。|
 
-### 框架标签 [▲](#目录)
+### 框架标签
 
 |框架标签|描述|详细说明|
 |:---|:---|:---|
@@ -204,7 +201,7 @@
 |&lt;noframes&gt;|定义针对不支持框架的用户的替代内容。|如果您需要为不支持框架的浏览器添加一个&lt;noframes&gt;标签，请务必将此标签放置在&lt;body&gt;&lt;/body&gt; 标签中。|
 |&lt;iframe&gt;|创建包含另外一个文档的内联（inline）框架（frame）。|Inline：内联的。插入的地图就是一个iframe。|
 
-### 图像标签 [▲](#目录)
+### 图像标签
 
 |图像标签|描述|详细说明|
 |:---|:---|:---|
@@ -215,7 +212,7 @@
 |&lt;figure&gt;|规定独立的流内容（图像、图表、照片、代码等）|&lt;figure&gt;标签是HTML5中的新标签。figure用于对元素进行组合，多用于图片不图片描述组合。而img只是一个图片元素而已，可以嵌套在figure中使用。&lt;img&gt;标签创建的是被引用图像的占位空间，不会在网页中插入图像，而是从网页上链接图像。|
 |&lt;figcaption&gt;|定义figure元素的标题。|使用&lt;figcaption&gt;元素为figure添加标题（caption）。|
 
-### 音频/视频标签 [▲](#目录)
+### 音频/视频标签
 
 |音频/视频标签|描述|详细说明|
 |:---|:---|:---|
@@ -224,7 +221,7 @@
 |&lt;track&gt;|定义用在媒体播放器中的文本轨道（track）。|&lt;track&gt;标签是HTML5中的新标签。|
 |&lt;video&gt;|定义视频（video），比如电影片段或其他视频流。|&lt;video&gt; 标签是HTML5的新标签。
 
-### 链接标签 [▲](#目录)
+### 链接标签
 
 |链接标签|描述|详细说明|
 |:---|:---|:---|
@@ -232,7 +229,7 @@
 |&lt;link&gt;|定义文档与外部资源的关系（link连接）。|&lt;link&gt; 标签最常见的用途是链接样式表（css）。link元素是空元素，它仅包含属性。此元素只能存在于head部分，不过它可出现任何次数。|
 |&lt;nav&gt;|定义导航（navigator）链接。|&lt;nav&gt;标签是HTML5中的新标签。如果文档中有“前后”按钮，则应该把它放到&lt;nav&gt;元素中。|
 
-### 列表标签 [▲](#目录)
+### 列表标签
 
 |列表标签|描述|详细说明|
 |:---|:---|:---|
@@ -247,7 +244,7 @@
 |&lt;menuitem&gt;|定义用户可以从弹出菜单（menu）调用的命令/菜单项目（item）。|&lt;menuitem&gt;标签是HTML5中的新标签。|
 |&lt;command&gt;|定义命令（command）按钮。|&lt;command&gt; 标签是HTML5中的新标签。|
 
-### 样式/节标签 [▲](#目录)
+### 样式/节标签
 
 |样式/节标签|描述|详细说明|
 |:---|:---|:---|
@@ -263,7 +260,7 @@
 |&lt;summary&gt;|为&lt;details&gt;元素定义可见的标题。|&lt;summary&gt;标签是HTML5中的新标签。&lt;summary&gt;标签包含details元素的标题，"details"元素用于描述有关文档或文档片段的详细信息。请与&lt;details&gt;标签一起使用。标题是可见的，当用户点击标题时会显示出详细信息。"summary"元素应该是"details"元素的第一个子元素。|
 |&lt;dialog&gt;|定义对话（dialog），比如交谈（conversation）。|&lt;dialog&gt;标签是HTML5中的新标签。对话中的每个句子都必须属于&lt;dt&gt;标签所定义的部分。|
 
-### 编程标签 [▲](#目录)
+### 编程标签
 
 |编程标签|描述|详细说明|
 |:---|:---|:---|

@@ -1,4 +1,7 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
+
 * [数据类型](#数据类型)
 
 
@@ -13,9 +16,7 @@
 * 函数内部判断某个变量是否存在用typeof myVar === 'undefined'。
 
 
-# <p align="center">数据类型</p>
-
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">数据类型</p>
 
 ## 五种基本数据类型
 

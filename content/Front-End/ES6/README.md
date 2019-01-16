@@ -1,8 +1,12 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 * [class](#class)
+* [解构赋值](#解构赋值)
 * [箭头函数](#箭头函数)
 * [Promise](#Promise)
+* [解构赋值](#解构赋值)
 * [模块化](#模块化)
 * [Object.assign(target, ...sources)](#objectassigntarget-sources)
 * [Symbol](#symbol)
@@ -11,15 +15,11 @@
 ## [学习ES2015](https://babel.docschina.org/docs/en/learn)
 
 
-# <p align="center">class</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">class</p>
 
 
 
-
-
-# <p align="center">箭头函数</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">箭头函数</p>
 
 **ES6允许使用“箭头”（=>）定义函数。**
 
@@ -120,10 +120,11 @@
 
 
 
-# <p align="center">Promise</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Promise</p>
 
-* Promise例子：
+* Promise基本使用：
+
+    > Promise.prototype.then() 和 Promise.prototype.catch()
 
     ```javascript
     // 执行代码
@@ -149,6 +150,12 @@
     var p3 = p2.catch(function(reason){
         console.log('失败：', reason);
     });
+    // 也可以这样写
+    // p1.then(function(result){
+    //   console.log('成功：', result);
+    // }, function(reason){
+    //   console.log('失败：', reason);
+    // })
 
     // ↓↓↓ 可简化为 ↓↓↓
     new Promese(test).then(function(result){
@@ -156,6 +163,11 @@
     }).catch(function(reason){
         console.log('失败：', reason);
     });
+    // new Promese(test).then(function(result){
+    //   console.log('成功：', result);
+    // }, function(reason){
+    //   console.log('失败：', reason);
+    // })
 
     // Promise最大的好处可以把“执行代码”和“处理结果的代码”清晰的分离开来。
     ```
@@ -199,16 +211,20 @@
 
 
 
-
-# <p align="center">模块化</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">解构赋值</p>
 
 
 
 
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">模块化</p>
 
-# <p align="center">Object.assign(target, ...sources)</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+
+
+
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Object.assign(target, ...sources)</p>
+
 
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
@@ -404,8 +420,8 @@ console.log(copy);
 // { foo: 1, get bar() { return 2 } }
 ```
 
-# <p align="center">Symbol</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Symbol</p>
+
 
 最初JS定义了6种基本类型：
 
