@@ -1,4 +1,7 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
+
 * [IDLE](#idle)
 * [运行Python](#运行python)
 * [Python标准文档模板](#python标准文档模板)
@@ -13,16 +16,16 @@
 * [with](#with)
 * [WSGI（Web Server Gateway Interface）](#wsgi（web-server-gateway-interface）)
 
-# <p align="center">IDLE</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">IDLE</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 IDLE是Python自带的简单的**集成开发环境**（**IDE**, Integrated Development Environment），是一个可以用来编辑、运行、浏览和调试Python程序的GUI。
 
 > IDLE是IDE的一个官方变形，是为了纪念Monty Python成员Eirc Idle而命名的。
 
-# <p align="center">运行Python</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">运行Python</p>
+
 
 ## 命令行模式
 python *.py
@@ -38,8 +41,8 @@ python *.py
 
 
 
-# <p align="center">Python标准文档模板</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Python标准文档模板</p>
+
 
 ```python
 #!/usr/bin/env python
@@ -61,8 +64,8 @@ __author__ = 'Michael Liao'
 
 
 
-# <p align="center">可变、不可变数据类型</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">可变、不可变数据类型</p>
+
 
 ***Python，一切皆为对象，一切皆为对象的引用***
 * ***可变数据类型：*** list、dict、set
@@ -168,8 +171,8 @@ __author__ = 'Michael Liao'
 
 
 
-# <p align="center">变量、函数命名</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">变量、函数命名</p>
+
 
 ## 公开的（public）：
 abc、x123、PI
@@ -181,8 +184,8 @@ abc、x123、PI
 ## 非公开的（private）：
 \_xxx , \_\_xxx
 不应该被直接引用(“不应该”但不是“不能”)
-# <p align="center">函数参数</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">函数参数</p>
+
 
 ## 位置参数（必选参数）
 ***调用函数时，按照位置顺序传递参数。***
@@ -259,8 +262,8 @@ def func(a, b, c=0, *args, **kw):
 
 
 
-# <p align="center">异常</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">异常</p>
+
 
 ```
 BaseException
@@ -331,8 +334,8 @@ BaseException
 
 
 
-# <p align="center">模块</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">模块</p>
+
 
 ## 模块导入
 ```python
@@ -967,8 +970,8 @@ mypkg\
 
 
 
-# <p align="center">类与OOP</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">类与OOP</p>
+
 
 OOP（Object Oriented Programming，面向对象的程序设计）
 
@@ -1008,8 +1011,8 @@ object.attributes
 
 
 
-# <p align="center">元类</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">元类</p>
+
 
 __type()函数既可以返回一个对象的类型，又可以创建出新的类型。__
 
@@ -1083,8 +1086,8 @@ u.save()
 
 
 
-# <p align="center">装饰器（Decorator）</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">装饰器（Decorator）</p>
+
 
 
 * 实质：是一个返回函数的高阶函数
@@ -1119,8 +1122,8 @@ def func():
 
 
 
-# <p align="center">with</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">with</p>
+
 
 ```python
 class DummyResource:
@@ -1176,8 +1179,8 @@ with DummyResource('With-Exception'):
 
 
 
-# <p align="center">WSGI（Web Server Gateway Interface）</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">WSGI（Web Server Gateway Interface）</p>
+
 
 Web应用的本质就是：
 
@@ -1433,8 +1436,8 @@ def urlrouting(url_app_mapping):
 
 
 
-# <p align="center">异步IO</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">异步IO</p>
+
 
 
 解决CPU的高速执行能力和IO设备的龟速严重不匹配的问题，多线程和多进程是一种方法。

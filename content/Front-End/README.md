@@ -1,9 +1,11 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 * [前端工程](#前端工程)
 * [大公司如何开发和部署前端](#大公司如何开发和部署前端)
 
-# <p align="center">some useful stuffs</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">some useful stuffs</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
 * [Web安全色](http://www.bootcss.com/p/websafecolors/)
@@ -11,7 +13,7 @@
 
 
 
-# <p align="center">前端工程</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">前端工程</p>
 ###### [<p align="right">back to top ▲</p>](#目录)
 
 > 从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。
@@ -191,5 +193,5 @@ Facebook的一些产品数据：
 * **如何加载资源**
 
 
-# <p align="center">大公司如何开发和部署前端</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">大公司如何开发和部署前端</p>
 ###### [<p align="right">back to top ▲</p>](#目录)

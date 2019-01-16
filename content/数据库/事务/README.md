@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 事务
 
 * [事务四大特性](#事务四大特性)
@@ -7,8 +9,8 @@
 
 数据库事务(Database Transaction)，是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。
 
-# <p align="center">事务四大特性</p>
-###### [<p align="right">back to top ▲</p>](#事务)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">事务四大特性</p>
+
 
 一个逻辑工作单元要成为事务，必须满足所谓的ACID（原子性、一致性、隔离性和持久性）属性。
 
@@ -30,8 +32,8 @@
     *一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。*
 
 
-# <p align="center">隔离级别</p>
-###### [<p align="right">back to top ▲</p>](#事务)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">隔离级别</p>
+
 
 SET Transaction Isolation Level { READ COMMITTED | READ UNCOMMITTED | REPEATABLE READ | SERIALIZABLE };
 

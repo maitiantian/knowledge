@@ -1,4 +1,4 @@
-# <p align="center">Git使用规范流程</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Git使用规范流程</p>
 
 ![Git使用规范流程](../../images/git_use_flows.png)
 

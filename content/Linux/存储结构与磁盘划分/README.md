@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#存储结构与磁盘划分)
+
 # 存储结构与磁盘划分
 
 * [物理设备的命名规则](#物理设备的命名规则)
@@ -46,8 +48,8 @@ Linux系统中的文件和目录名称严格区分大小写，root、rOOt、Root
 绝对路径（absolute path）是从根目录（/）开始写起的文件或目录名称，相对路径（relative path）是相对于当前路径的写法。
 
 
-# <p align="center">物理设备的命名规则</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">物理设备的命名规则</p>
+
 
 Linux系统中一切都是文件，硬件设备也不例外。
 
@@ -92,8 +94,8 @@ udev设备管理器的服务会一直以守护进程的形式运行，并侦听�
 ![硬盘分区的规划](../../images/linux_file_system_sd_2.png)
 
 
-# <p align="center">文件系统与数据资料</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件系统与数据资料</p>
+
 
 用户在硬件存储设备中执行的文件建立、写入、读取、修改、转存与控制等操作都是依靠文件系统完成的。文件系统的作用是合理规划硬盘，以保证用户正常的使用需求。
 
@@ -127,8 +129,8 @@ Linux系统支持数十种的文件系统，而最常见的文件系统有：
 ![VFS的架构示意图](../../images/linux_file_system_VFS.png)
 
 
-# <p align="center">挂载硬件设备</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">挂载硬件设备</p>
+
 
 当用户需要使用硬盘设备或分区中的数据时，需要先将其与一个已存在的目录文件进行关联，这个关联动作就是“挂载”。
 
@@ -191,8 +193,8 @@ UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
 ```
 
 
-# <p align="center">添加硬盘设备</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">添加硬盘设备</p>
+
 
 ### fdisk命令
 用于管理磁盘分区：**fdisk [磁盘名称]**
@@ -341,8 +343,8 @@ tmpfs                   914M    0       914M    0%      /sys/fs/cgroup
 可以使用du -sh /*命令查看Linux系统根目录下所有一级目录分别占用的空间大小。
 
 
-# <p align="center">添加交换分区</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">添加交换分区</p>
+
 
 > SWAP（交换）分区是一种通过在硬盘中预先划分一定的空间，然后将把内存中暂时不常用的数据临时存放到硬盘中，以便腾出物理内存空间让更活跃的程序服务来使用的技术，其设计目的是为了解决真实物理内存不足的问题。只有当真实的物理内存耗尽后才会调用交换分区的资源。
 
@@ -422,5 +424,4 @@ Accessible filesystems, by reference, are maintained under '/dev/disk'
 /dev/sdb2               swap    swap    defaults 0 0
 ```
 
-# <p align="center">磁盘容量配额</p>
-###### [<p align="right">back to top ▲</p>](#存储结构与磁盘划分)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">磁盘容量配额</p>

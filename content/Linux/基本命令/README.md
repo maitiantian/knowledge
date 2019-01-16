@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#基本命令)
+
 # 基本命令
 
 * [执行查看帮助命令](#执行查看帮助命令)
@@ -31,9 +33,9 @@ __命令名称 [命令参数] [命令对象]__
 
 在系统终端中执行一个命令后想立即停止它，可以同时按下Ctrl + C，这样将立即终止该命令的进程。有些命令在执行时不断在屏幕上输出信息，影响后续命令输入，可以在执行命令时在末尾加上一个&符号，这样命令会进入系统后台来执行。
 
-# <p align="center">执行查看帮助命令</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">执行查看帮助命令</p>
 
-###### [<p align="right">back to top ▲</p>](#基本命令)
+
 
 * #### man (MANual pages)
 
@@ -68,9 +70,7 @@ man命令帮助信息的结构以及意义
 |SEE ALSO|相关的资料|
 |HISTORY|维护历史与联系方式|
 
-# <p align="center">常用系统工作命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">常用系统工作命令</p>
 
 * #### echo
 用于在终端输出字符串或变量提取后的值：**echo [字符串 | $变量]**
@@ -206,9 +206,7 @@ top能够动态地查看系统运维状态，可以它看作Linux中的“强化
 [root@linuxprobe ~]#
 ```
 
-# <p align="center">系统状态检测命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">系统状态检测命令</p>
 
 * #### ifconfig
 用于获取网卡配置与网络状态等信息：**ifconfig [网络设备] [参数]**
@@ -319,9 +317,7 @@ Desktop Downloads Music Public Videos
 Linux系统出现故障需要联系技术支持人员时，大多数时候都要先用这个命令来简单收集系统的运行状态和服务配置信息，以便让技术支持人员能够远程解决一些小问题，亦或让他们能提前了解某些复杂问题。
 
 
-# <p align="center">工作目录切换命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">工作目录切换命令</p>
 
 * #### pwd (Print Working Directory)
 用于显示用户当前所处的工作目录：**pwd [选项]**
@@ -360,9 +356,7 @@ drwxr-xr-x. 132 root root 8192 Jul 10 10:48 /etc
 ```
 
 
-# <p align="center">文本文件编辑命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文本文件编辑命令</p>
 
 * #### cat (CATenate)
 用于查看纯文本文件（内容较少的）：**cat [选项] [文件]**
@@ -480,9 +474,7 @@ diff是判断文件是否被篡改的有力神器：
 使用-c参数可以详细比较出多个文件的差异之处。
 
 
-# <p align="center">文件目录管理命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件目录管理命令</p>
 
 * #### touch
 用于创建空白文件或设置文件的时间：**touch [选项] [文件]**
@@ -625,9 +617,7 @@ anaconda-ks.cfg: ASCII text
 |-x|将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外|
 
 
-# <p align="center">打包压缩与搜索命令</p>
-
-###### [<p align="right">back to top ▲</p>](#基本命令)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">打包压缩与搜索命令</p>
 
 * #### tar (Tape ARchive)
 用于对文件进行打包压缩或解压：**tar [选项] [文件]**

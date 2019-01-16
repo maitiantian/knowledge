@@ -1,4 +1,4 @@
-# <p align="center">Vim</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Vim</p>
 
 #### Vim 编辑器中设置了三种模式：
 * ##### 命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作。
