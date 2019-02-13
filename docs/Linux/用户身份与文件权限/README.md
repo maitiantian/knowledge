@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#用户身份与文件权限)
+
 # 用户身份与文件权限
 
 * [用户身份与能力](#用户身份与能力)
@@ -8,8 +10,8 @@
 * [su命令与sudo服务](#su命令与sudo服务)
 
 
-# <p align="center">用户身份与能力</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">用户身份与能力</p>
+
 
 > 设计Linux系统的初衷之一就是为了满足多个用户同时工作的需求。在安装Linux操作系统时特别要求设置root管理员密码，root管理员就是存在于所有类UNIX系统中的超级用户。它拥有最高的系统所有权，能够管理系统的各项功能，如添加/删除用户、启动/关闭服务进程、开启/禁用硬件设备等。以root管理员的身份工作时不会受到系统的限制。
 
@@ -84,8 +86,8 @@ userdel用于删除用户：**userdel [选项] 用户名**
 
 如果某位用户后续不再会登录到系统中，则可以通过userdel命令删除该用户的所有信息。在执行删除操作时，该用户的家目录默认会保留下来，此时可以使用-r参数将其删除。
 
-# <p align="center">文件权限与归属</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件权限与归属</p>
+
 
 Linux系统中一切都是文件，Linux系统使用不同的字符来区分不同的文件类型：
 * -：普通文件
@@ -160,8 +162,8 @@ Linux系统中一切都是文件，Linux系统使用不同的字符来区分不�
 该文件的类型为普通文件，数量为1（如果是目录则表示目录下的文件数量），所有者权限为可读、可写（rw-），所属组权限为可读（r--），除此以外的其他人也只有可读权限（r--），文件的磁盘占用大小是34298字节，最近一次的修改时间为4月2日的凌晨23分，文件的名称为install.log。
 
 
-# <p align="center">文件的特殊权限</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件的特殊权限</p>
+
 
 SUID、SGID与SBIT是对文件权限进行设置的特殊权限位，可以与一般权限同时使用，以弥补一般权限不能实现的功能。
 
@@ -285,8 +287,8 @@ drwxr-xr-t. 2 root root 6 Feb 11 19:34 linux/
 ```
 
 
-# <p align="center">文件的隐藏属性</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件的隐藏属性</p>
+
 
 Linux系统中的文件除了具备一般权限和特殊权限之外，还有一种隐藏权限，即被隐藏起来的权限，默认情况下不能直接被用户发觉。
 
@@ -344,8 +346,8 @@ rm: remove regular file ‘linuxprobe’? y
 ```
 
 
-# <p align="center">文件访问控制列表</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">文件访问控制列表</p>
+
 
 > 一般权限、特殊权限、隐藏权限有一个共性：权限是针对某一类用户设置的。如果希望对某个指定的用户进行单独的权限控制，就需要用到文件的访问控制列表（ACL）了。通俗来讲，基于普通文件或目录设置ACL其实就是针对指定的用户或用户组设置文件或目录的操作权限。如果针对某个目录设置了ACL，则目录中的文件会继承其ACL；若针对文件设置了ACL，则文件不再继承其所在目录的ACL。
 
@@ -397,8 +399,8 @@ mask::rwx
 other::---
 ```
 
-# <p align="center">su命令与sudo服务</p>
-###### [<p align="right">back to top ▲</p>](#用户身份与文件权限)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">su命令与sudo服务</p>
+
 
 在生产环境中还是要对安全多一份敬畏之心，不要用root管理员去做所有事情。因为一旦执行了错误的命令，可能会直接导致系统崩溃。
 

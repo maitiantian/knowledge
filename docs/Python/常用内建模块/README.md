@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 * [sys](#sys)
@@ -116,9 +118,9 @@
 
 
 
-# <p align="center">sys</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">sys</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 > This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
 
@@ -307,9 +309,9 @@ exited
 ```
 
 
-# <p align="center">os</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">os</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 > This module provides a portable way of using operating system dependent functionality.
 
@@ -347,9 +349,9 @@ exited
 
 
 
-# <p align="center">re</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">re</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 ## re模块下的函数
 
@@ -513,9 +515,9 @@ pat.sub(r'\2 \1',s)
 
 
 
-# <p align="center">collections</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">collections</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 ## namedtuple
 
@@ -695,9 +697,9 @@ in the counter until the entry is deleted or the counter is cleared:
 
 
 
-# <p align="center">string</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">string</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 ### 常用方法
 
@@ -854,9 +856,9 @@ print sql
 
 
 
-# <p align="center">time</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">time</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 在Python中，有三种方式表示时间：
 1. **时间戳(timestamp)**：时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。运行type(time.time())，返回float类型的timestamp
@@ -929,9 +931,9 @@ time.struct_time(tm_year=2018, tm_mon=6, tm_mday=25, tm_hour=5, tm_min=44, tm_se
 
 
 
-# <p align="center">datetime</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">datetime</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 datetime模块定义了以下几个类：
 
@@ -1096,9 +1098,9 @@ datetime、date、time都提供了strftime()方法，该方法接收一个格式
 |%%|百分号，'%'|
 
 
-# <p align="center">threading</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">threading</p>
 
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 
 #### 死锁模型

@@ -1,7 +1,12 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 * [class](#class)
+* [解构赋值](#解构赋值)
 * [箭头函数](#箭头函数)
+* [Promise](#Promise)
+* [解构赋值](#解构赋值)
 * [模块化](#模块化)
 * [Object.assign(target, ...sources)](#objectassigntarget-sources)
 * [Symbol](#symbol)
@@ -10,15 +15,11 @@
 ## [学习ES2015](https://babel.docschina.org/docs/en/learn)
 
 
-# <p align="center">class</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">class</p>
 
 
 
-
-
-# <p align="center">箭头函数</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">箭头函数</p>
 
 **ES6允许使用“箭头”（=>）定义函数。**
 
@@ -119,15 +120,126 @@
 
 
 
-# <p align="center">模块化</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Promise</p>
+
+1. Promise.prototype.then()
+2. Promise.prototype.catch()
+3. Promise.prototype.finally()
+4. Promise.all()
+5. Promise.race()
+6. Promise.resolve()
+7. Promise.reject()
+8. Promise.try()
+
+* Promise基本使用：
+
+    ```javascript
+    // 执行代码
+    function test(resolve, reject){
+        var timeOut = Math.random() * 2;
+        console.log('set timeout to:', timeOut, 'seconds.');
+        setTimeout(function(){
+            if(timeOut < 1){
+                console.log('call resolve()...');
+                resolve('200 OK');
+            }else{
+                console.log('call reject()...');
+                reject('timeout in' + timeOut + 'seconds.');
+            }
+        }, timeOut * 1000);
+    }
+
+    var p1 = new Promise(test);
+    // 处理结果的代码
+    var p2 = p1.then(function(result){
+        console.log('成功：', result);
+    });
+    var p3 = p2.catch(function(reason){
+        console.log('失败：', reason);
+    });
+    // 也可以这样写，但尽量用上面的写法
+    // p1.then(function(result){
+    //   console.log('成功：', result);
+    // }, function(reason){
+    //   console.log('失败：', reason);
+    // })
+
+    // ↓↓↓ 可简化为 ↓↓↓
+    new Promese(test).then(function(result){
+        console.log('成功：', result);
+    }).catch(function(reason){
+        console.log('失败：', reason);
+    });
+    // new Promese(test).then(function(result){
+    //   console.log('成功：', result);
+    // }, function(reason){
+    //   console.log('失败：', reason);
+    // })
+
+    // Promise最大的好处可以把“执行代码”和“处理结果的代码”清晰的分离开来。
+    ```
+
+* 有若干个异步任务，需要先做任务1，1成功后再做任务2，2成功后再做任务3，任何任务失败则不再继续并执行错误处理函数：
+
+    ```javascript
+    // job1、job2、job3都是Promise对象
+    job1.then(job2).then(job3).catch(handleError);
+    ```
+
+* Promise还可以并行执行异步任务：
+
+    ```javascript
+    var p1 = new Promise(function(resolve, reject){
+        setTimeout(resolve, 800, 'P1');
+    })
+    var p2 = new Promise(function(resolve, reject){
+        setTimeout(resolve, 600, 'P2');
+    })
+    // 同时执行p1和p2，当它们都完成后执行then:
+    Promise.all([p1, p2]).then(function(results){
+        console.log(results);   // 获得一个数组['P1', 'P2']
+    })
+    ```
+
+    ```javascript
+    var p1 = new Promise(function(resolve, reject){
+        setTimeout(resolve, 800, 'P1');
+    })
+    var p2 = new Promise(function(resolve, reject){
+        setTimeout(resolve, 600, 'P2');
+    })
+    // 同时执行p1和p2，
+    // p2执行较快，Promise的then()将获得结果'P2'，
+    // p1仍在继续执行，但执行结果将被丢弃:
+    Promise.race([p1, p2]).then(function(result){
+        console.log(result);    // 'P2'
+    })
+    ```
+
+* ES2018标准引入 finally 方法，不管Promise对象最后状态如何，都会执行 finally 指定的操作：
+
+```javascript
+var p = new Promise.then(result=>{...})
+                   .catch(error=>{...})
+                   .finally(()=>{...});
+
+// finally 本质上是 then 的特例
+
+
+```
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">解构赋值</p>
 
 
 
 
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">模块化</p>
 
-# <p align="center">Object.assign(target, ...sources)</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Object.assign(target, ...sources)</p>
 
 
 * 用于将所有***可枚举属性***的值从一个或多个源对象sources复制到目标对象target
@@ -323,8 +435,8 @@ console.log(copy);
 // { foo: 1, get bar() { return 2 } }
 ```
 
-# <p align="center">Symbol</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">Symbol</p>
+
 
 最初JS定义了6种基本类型：
 

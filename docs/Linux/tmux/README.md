@@ -1,4 +1,4 @@
-# <p align="center">tmux</p>
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">tmux</p>
 
 ***终端复用命令行工具***
 

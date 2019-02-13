@@ -3,8 +3,8 @@
 * [使用restic备份](#使用restic备份)
 
 
-# <p align="center">使用restic备份</p>
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">使用restic备份</p>
+
 
 #### 安装go
 

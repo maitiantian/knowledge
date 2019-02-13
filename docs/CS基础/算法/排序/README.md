@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
 
 <sub>（带*标的属于八大排序）</sub>
@@ -155,7 +157,7 @@ class Sort():
 ```
 
 ## 快速排序（Quick Sort）
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 快速排序使用分治策略（Divide and Conquer）来把一个序列分为两个子序列：
 1. 从序列中挑一个元素作为“基准”（pivot）；
@@ -201,7 +203,7 @@ def QuickSort(myList):
 ```
 
 ## 堆排序（Heap Sort）
-###### [<p align="right">back to top ▲</p>](#目录)
+
 
 算法思想(以大顶堆为例)：
 

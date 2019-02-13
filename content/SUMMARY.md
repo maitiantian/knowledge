@@ -33,6 +33,7 @@
         * [jQuery](Front-End/常用库/jQuery/README.md)
         * [axios](Front-End/常用库/axios/README.md)
         * [lodash](Front-End/常用库/lodash/README.md)
+        * [socket.io](Front-End/常用库/socket.io/README.md)
     * [ES6](Front-End/ES6/README.md)
         * [babel](Front-End/ES6/babel/README.md)
     * [React](Front-End/React/README.md)

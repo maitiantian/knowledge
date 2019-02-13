@@ -4,8 +4,6 @@ animates.css
 
 [demo](https://daneden.github.io/animate.css/) | [github](https://github.com/daneden/animate.css)
 
-
-
 magic.css
 
 [demo](https://minimamente.com/example/magic_animations/) | [github](https://github.com/miniMAC/magic)

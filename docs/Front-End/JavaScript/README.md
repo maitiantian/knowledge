@@ -1,5 +1,9 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#目录)
+
 # 目录
+
 * [数据类型](#数据类型)
+* [变量、作用域和内存问题](#变量、作用域和内存问题)
 
 
 * 不要使用new Number()、new Boolean()、new String()创建包装对象；
@@ -13,9 +17,7 @@
 * 函数内部判断某个变量是否存在用typeof myVar === 'undefined'。
 
 
-# <p align="center">数据类型</p>
-
-###### [<p align="right">back to top ▲</p>](#目录)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">数据类型</p>
 
 ## 五种基本数据类型
 
@@ -1514,3 +1516,43 @@ xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 var form = document.getElementById("form");
 xhr.send(serialize(form));
 ```
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">变量、作用域和内存问题</p>
+
+## 执行环境及作用域
+
+* 执行环境（execution context，亦可简称“环境”）：执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为；
+    * 全局执行环境：最外围的执行环境。在浏览器中，全局执行环境是 window 对象，所有全局变量和函数都是作为 window 对象的属性和方法创建的。
+    * 某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出——例如关闭网页或浏览器时才会被销毁）。
+* 变量对象（variable object）：每个执行环境都关联了一个变量对象，执行环境中定义的所有变量和函数都保存在这个对象中；
+* 作用域链（scope chain）：当代码在一个环境中执行时，会创建一个由变量对象组成的作用域链，以保证对执行环境有权访问的所有变量和函数的有序访问。
+    * 作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（activation object）作为变量对象。活动对象在最开始时只包含一个变量，即 arguments 对象（这个对象在全局环境中是不存在的）；
+    * 作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境；
+    * 全局执行环境的变量对象始终都是作用域链中的最后一个对象。
+
+每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境会被推入一个环境栈中，函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。
+
+__标识符解析__：沿着作用域链一级一级地搜索标识符的过程。从作用域链的前端开始，然后逐级地向后回溯，直至找到标识符为止（如果找不到标识符，会导致错误发生）。
+
+
+#### 延长作用域链
+
+以下两个语句会在作用域链前端添加一个变量对象：
+
+* try-catch 语句的 catch 块：创建一个新的变量对象，其中包含的是被抛出的错误对象的声明；
+* with 语句：将指定的对象添加到作用域链中。
+
+    ```javascript
+    function buildUrl(){
+        var qs = "?debug=true";
+        // with 语句接收到 location 对象，
+        // 其变量对象中包含了 location 对象的所有属性和方法，
+        // 这个变量对象被添加到了作用域链的前端。
+        with(location){
+            var url = href + qs;
+        }
+        return url;
+    }
+    ```
+

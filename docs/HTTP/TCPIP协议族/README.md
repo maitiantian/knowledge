@@ -1,3 +1,5 @@
+###### [<p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top ▲</p>](#TCP/IP协议族)
+
 # TCP/IP协议族
 
 * [TCP/IP四层模型](#tcpip四层模型)
@@ -12,8 +14,8 @@
 
 
 
-# <p align="center">TCP/IP四层模型</p>
-###### [<p align="right">back to top ▲</p>](#tcpip协议族)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">TCP/IP四层模型</p>
+
 
 tcpip协议族是分层的，它借鉴了OSI（Open System Interconnection）七层网络模型建立TCP/IP四层模型：
 * 应用层：决定了向用户提供应用服务时的通信的活动；
@@ -79,8 +81,8 @@ IMAP4: Internet Mail Access Protocol
 ![TCP/IP基础：数据封装](../../images/http_tcpip_3.jpg)
 
 
-# <p align="center">负责域名解析的DNS服务</p>
-###### [<p align="right">back to top ▲</p>](#tcpip协议族)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">负责域名解析的DNS服务</p>
+
 
 DNS（Domain Name System，域名系统），位于应用层，提供域名到IP地址之间的解析服务。
 
@@ -91,8 +93,8 @@ DNS（Domain Name System，域名系统），位于应用层，提供域名到IP
 ![DNS服务](../../images/http_tcpip_dns.png)
 
 
-# <p align="center">确保可靠性的TCP协议</p>
-###### [<p align="right">back to top ▲</p>](#tcpip协议族)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">确保可靠性的TCP协议</p>
+
 
 TCP（Transmission Control Protocol，传输控制协议），位于传输层，提供可靠地字节流服务。
 
@@ -111,8 +113,8 @@ TCP（Transmission Control Protocol，传输控制协议），位于传输层，
 ![TCP三次握手](../../images/http_tcpip_three-way_handshaking.png)
 
 
-# <p align="center">负责传输的IP协议</p>
-###### [<p align="right">back to top ▲</p>](#tcpip协议族)
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">负责传输的IP协议</p>
+
 
 IP（Internet Protocol，网际协议），位于网络层。可能有人会把“IP”和“IP地址”搞混，“IP”其实是一种协议名称。
 

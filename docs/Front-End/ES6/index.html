@@ -60,7 +60,7 @@
     <link rel="next" href="babel/" />
     
     
-    <link rel="prev" href="../常用库/axios/" />
+    <link rel="prev" href="../常用库/socket.io/README.md" />
     
 
     </head>
@@ -543,6 +543,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.5.3" data-path="../常用库/lodash/README.md">
+            
+                <span>
+            
+                    
+                    lodash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4" data-path="../常用库/socket.io/README.md">
+            
+                <span>
+            
+                    
+                    socket.io
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -683,12 +709,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="../有用的API/">
+        <li class="chapter " data-level="1.5.12" data-path="../第三方平台/">
             
-                <a href="../有用的API/">
+                <a href="../第三方平台/">
             
                     
-                    有用的API
+                    第三方平台
             
                 </a>
             
@@ -1134,20 +1160,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h1>
+                                <h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right" style="position: fixed; bottom: 20px; right: 30px; background-color: #797979; line-height: 20px; z-index: 100; color: white; border-radius: 5px; padding: 5px; font-size: 12px; vertical-align: middle;">back to top &#x25B2;</p></a></h6>
+<h1 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h1>
 <ul>
 <li><a href="#class">class</a></li>
+<li><a href="#&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x89E3;&#x6784;&#x8D4B;&#x503C;</a></li>
 <li><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;">&#x7BAD;&#x5934;&#x51FD;&#x6570;</a></li>
+<li><a href="#Promise">Promise</a></li>
+<li><a href="#&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x89E3;&#x6784;&#x8D4B;&#x503C;</a></li>
 <li><a href="#&#x6A21;&#x5757;&#x5316;">&#x6A21;&#x5757;&#x5316;</a></li>
 <li><a href="#objectassigntarget-sources">Object.assign(target, ...sources)</a></li>
 <li><a href="#symbol">Symbol</a></li>
 </ul>
 <h2 id="&#x962E;&#x4E00;&#x5CF0;&#xFF1A;ecmascript-6&#x5165;&#x95E8;"><a href="http://es6.ruanyifeng.com/" target="_blank">&#x962E;&#x4E00;&#x5CF0;&#xFF1A;ECMAScript 6&#x5165;&#x95E8;</a></h2>
 <h2 id="&#x5B66;&#x4E60;es2015"><a href="https://babel.docschina.org/docs/en/learn" target="_blank">&#x5B66;&#x4E60;ES2015</a></h2>
-<h1 id="class"><p align="center">class</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
-<h1 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;"><p align="center">&#x7BAD;&#x5934;&#x51FD;&#x6570;</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h1 id="class"><p align="center" style="border-bottom: 3px solid #e7e7e7;">class</p></h1>
+<h1 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;"><p align="center" style="border-bottom: 3px solid #e7e7e7;">&#x7BAD;&#x5934;&#x51FD;&#x6570;</p></h1>
 <p><strong>ES6&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x201C;&#x7BAD;&#x5934;&#x201D;&#xFF08;=&gt;&#xFF09;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x3002;</strong></p>
 <ul>
 <li><p>&#x5982;&#x679C;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0D;&#x9700;&#x8981;&#x53C2;&#x6570;&#x6216;&#x9700;&#x8981;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5C31;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5706;&#x62EC;&#x53F7;&#x4EE3;&#x8868;&#x53C2;&#x6570;&#x90E8;&#x5206;&#xFF1B;</p>
@@ -1236,10 +1264,106 @@ foo.call({ id: <span class="hljs-number">42</span> });
 </li>
 <li>&#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;yield&#x547D;&#x4EE4;&#xFF0C;&#x56E0;&#x6B64;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;Generator&#x51FD;&#x6570;&#x3002;</li>
 </ol>
-<h1 id="&#x6A21;&#x5757;&#x5316;"><p align="center">&#x6A21;&#x5757;&#x5316;</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
-<h1 id="objectassigntarget-sources"><p align="center">Object.assign(target, ...sources)</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h1 id="promise"><p align="center" style="border-bottom: 3px solid #e7e7e7;">Promise</p></h1>
+<ol>
+<li>Promise.prototype.then()</li>
+<li>Promise.prototype.catch()</li>
+<li>Promise.prototype.finally()</li>
+<li>Promise.all()</li>
+<li>Promise.race()</li>
+<li>Promise.resolve()</li>
+<li>Promise.reject()</li>
+<li><p>Promise.try()</p>
+</li>
+<li><p>Promise&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-javascript">  <span class="hljs-comment">// &#x6267;&#x884C;&#x4EE3;&#x7801;</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+      <span class="hljs-keyword">var</span> timeOut = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">2</span>;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;set timeout to:&apos;</span>, timeOut, <span class="hljs-string">&apos;seconds.&apos;</span>);
+      setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="hljs-keyword">if</span>(timeOut &lt; <span class="hljs-number">1</span>){
+              <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;call resolve()...&apos;</span>);
+              resolve(<span class="hljs-string">&apos;200 OK&apos;</span>);
+          }<span class="hljs-keyword">else</span>{
+              <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;call reject()...&apos;</span>);
+              reject(<span class="hljs-string">&apos;timeout in&apos;</span> + timeOut + <span class="hljs-string">&apos;seconds.&apos;</span>);
+          }
+      }, timeOut * <span class="hljs-number">1000</span>);
+  }
+
+  <span class="hljs-keyword">var</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(test);
+  <span class="hljs-comment">// &#x5904;&#x7406;&#x7ED3;&#x679C;&#x7684;&#x4EE3;&#x7801;</span>
+  <span class="hljs-keyword">var</span> p2 = p1.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x6210;&#x529F;&#xFF1A;&apos;</span>, result);
+  });
+  <span class="hljs-keyword">var</span> p3 = p2.catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reason</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5931;&#x8D25;&#xFF1A;&apos;</span>, reason);
+  });
+  <span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;&#xFF0C;&#x4F46;&#x5C3D;&#x91CF;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x5199;&#x6CD5;</span>
+  <span class="hljs-comment">// p1.then(function(result){</span>
+  <span class="hljs-comment">//   console.log(&apos;&#x6210;&#x529F;&#xFF1A;&apos;, result);</span>
+  <span class="hljs-comment">// }, function(reason){</span>
+  <span class="hljs-comment">//   console.log(&apos;&#x5931;&#x8D25;&#xFF1A;&apos;, reason);</span>
+  <span class="hljs-comment">// })</span>
+
+  <span class="hljs-comment">// &#x2193;&#x2193;&#x2193; &#x53EF;&#x7B80;&#x5316;&#x4E3A; &#x2193;&#x2193;&#x2193;</span>
+  <span class="hljs-keyword">new</span> Promese(test).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x6210;&#x529F;&#xFF1A;&apos;</span>, result);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reason</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5931;&#x8D25;&#xFF1A;&apos;</span>, reason);
+  });
+  <span class="hljs-comment">// new Promese(test).then(function(result){</span>
+  <span class="hljs-comment">//   console.log(&apos;&#x6210;&#x529F;&#xFF1A;&apos;, result);</span>
+  <span class="hljs-comment">// }, function(reason){</span>
+  <span class="hljs-comment">//   console.log(&apos;&#x5931;&#x8D25;&#xFF1A;&apos;, reason);</span>
+  <span class="hljs-comment">// })</span>
+
+  <span class="hljs-comment">// Promise&#x6700;&#x5927;&#x7684;&#x597D;&#x5904;&#x53EF;&#x4EE5;&#x628A;&#x201C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x201D;&#x548C;&#x201C;&#x5904;&#x7406;&#x7ED3;&#x679C;&#x7684;&#x4EE3;&#x7801;&#x201D;&#x6E05;&#x6670;&#x7684;&#x5206;&#x79BB;&#x5F00;&#x6765;&#x3002;</span>
+</code></pre>
+</li>
+<li><p>&#x6709;&#x82E5;&#x5E72;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x505A;&#x4EFB;&#x52A1;1&#xFF0C;1&#x6210;&#x529F;&#x540E;&#x518D;&#x505A;&#x4EFB;&#x52A1;2&#xFF0C;2&#x6210;&#x529F;&#x540E;&#x518D;&#x505A;&#x4EFB;&#x52A1;3&#xFF0C;&#x4EFB;&#x4F55;&#x4EFB;&#x52A1;&#x5931;&#x8D25;&#x5219;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x5E76;&#x6267;&#x884C;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-javascript">  <span class="hljs-comment">// job1&#x3001;job2&#x3001;job3&#x90FD;&#x662F;Promise&#x5BF9;&#x8C61;</span>
+  job1.then(job2).then(job3).catch(handleError);
+</code></pre>
+</li>
+<li><p>Promise&#x8FD8;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF1A;</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">var</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+      setTimeout(resolve, <span class="hljs-number">800</span>, <span class="hljs-string">&apos;P1&apos;</span>);
+  })
+  <span class="hljs-keyword">var</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+      setTimeout(resolve, <span class="hljs-number">600</span>, <span class="hljs-string">&apos;P2&apos;</span>);
+  })
+  <span class="hljs-comment">// &#x540C;&#x65F6;&#x6267;&#x884C;p1&#x548C;p2&#xFF0C;&#x5F53;&#x5B83;&#x4EEC;&#x90FD;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;then:</span>
+  <span class="hljs-built_in">Promise</span>.all([p1, p2]).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">results</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(results);   <span class="hljs-comment">// &#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;[&apos;P1&apos;, &apos;P2&apos;]</span>
+  })
+</code></pre>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">var</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+      setTimeout(resolve, <span class="hljs-number">800</span>, <span class="hljs-string">&apos;P1&apos;</span>);
+  })
+  <span class="hljs-keyword">var</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+      setTimeout(resolve, <span class="hljs-number">600</span>, <span class="hljs-string">&apos;P2&apos;</span>);
+  })
+  <span class="hljs-comment">// &#x540C;&#x65F6;&#x6267;&#x884C;p1&#x548C;p2&#xFF0C;</span>
+  <span class="hljs-comment">// p2&#x6267;&#x884C;&#x8F83;&#x5FEB;&#xFF0C;Promise&#x7684;then()&#x5C06;&#x83B7;&#x5F97;&#x7ED3;&#x679C;&apos;P2&apos;&#xFF0C;</span>
+  <span class="hljs-comment">// p1&#x4ECD;&#x5728;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x4F46;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5C06;&#x88AB;&#x4E22;&#x5F03;:</span>
+  <span class="hljs-built_in">Promise</span>.race([p1, p2]).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(result);    <span class="hljs-comment">// &apos;P2&apos;</span>
+  })
+</code></pre>
+</li>
+<li><p>ES2018&#x6807;&#x51C6;&#x5F15;&#x5165; finally &#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x7BA1;Promise&#x5BF9;&#x8C61;&#x6700;&#x540E;&#x72B6;&#x6001;&#x5982;&#x4F55;&#xFF0C;&#x90FD;&#x4F1A;&#x6267;&#x884C; finally &#x6307;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;</p>
+</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>.then(result=&gt;{...})
+                   .catch(error=&gt;{...})
+                   .finally(()=&gt;{...});
+
+<span class="hljs-comment">// finally &#x672C;&#x8D28;&#x4E0A;&#x662F; then &#x7684;&#x7279;&#x4F8B;</span>
+</code></pre>
+<h1 id="&#x89E3;&#x6784;&#x8D4B;&#x503C;"><p align="center" style="border-bottom: 3px solid #e7e7e7;">&#x89E3;&#x6784;&#x8D4B;&#x503C;</p></h1>
+<h1 id="&#x6A21;&#x5757;&#x5316;"><p align="center" style="border-bottom: 3px solid #e7e7e7;">&#x6A21;&#x5757;&#x5316;</p></h1>
+<h1 id="objectassigntarget-sources"><p align="center" style="border-bottom: 3px solid #e7e7e7;">Object.assign(target, ...sources)</p></h1>
 <ul>
 <li>&#x7528;&#x4E8E;&#x5C06;&#x6240;&#x6709;<strong><em>&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;</em></strong>&#x7684;&#x503C;&#x4ECE;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6E90;&#x5BF9;&#x8C61;sources&#x590D;&#x5236;&#x5230;&#x76EE;&#x6807;&#x5BF9;&#x8C61;target</li>
 <li>&#x5B83;&#x5C06;&#x8FD4;&#x56DE;&#x76EE;&#x6807;&#x5BF9;&#x8C61;target</li>
@@ -1418,8 +1542,7 @@ test();
 <span class="hljs-built_in">console</span>.log(copy);
 <span class="hljs-comment">// { foo: 1, get bar() { return 2 } }</span>
 </code></pre>
-<h1 id="symbol"><p align="center">Symbol</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x76EE;&#x5F55;"><p align="right">back to top &#x25B2;</p></a></h6>
+<h1 id="symbol"><p align="center" style="border-bottom: 3px solid #e7e7e7;">Symbol</p></h1>
 <p>&#x6700;&#x521D;JS&#x5B9A;&#x4E49;&#x4E86;6&#x79CD;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF1A;</p>
 <ul>
 <li>null</li>
@@ -1470,7 +1593,7 @@ obj[sym] === <span class="hljs-number">1</span> <span class="hljs-comment">//tru
 
             
                 
-                <a href="../常用库/axios/" class="navigation navigation-prev " aria-label="Previous page: axios">
+                <a href="../常用库/socket.io/README.md" class="navigation navigation-prev " aria-label="Previous page: socket.io">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1486,7 +1609,7 @@ obj[sym] === <span class="hljs-number">1</span> <span class="hljs-comment">//tru
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ES6","level":"1.5.6","depth":2,"next":{"title":"babel","level":"1.5.6.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]},"previous":{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/ES6/README.md","mtime":"2018-10-24T10:55:37.188Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T08:15:42.693Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ES6","level":"1.5.6","depth":2,"next":{"title":"babel","level":"1.5.6.1","depth":3,"path":"Front-End/ES6/babel/README.md","ref":"Front-End/ES6/babel/README.md","articles":[]},"previous":{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/ES6/README.md","mtime":"2019-01-16T09:03:22.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T11:06:55.294Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
