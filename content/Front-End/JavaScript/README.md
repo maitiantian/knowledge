@@ -3,6 +3,19 @@
 # 目录
 
 * [数据类型](#数据类型)
+    * [五种基本数据类型](##五种基本数据类型)
+        * [Undefined类型](####Undefined类型)
+        * [Null类型](####Null类型)
+        * [Boolean类型](####Boolean类型)
+        * [Number类型](####Number类型)
+        * [String类型](####String类型)
+    * [一种复杂数据类型](##一种复杂数据类型)
+    * [引用类型](##引用类型)
+        * [Object类型](####Object类型)
+        * [Array类型](####Array类型)
+        * [Date类型](####Date类型)
+        * [RegExp类型](####RegExp类型)
+        * [Function类型](####Function类型)
 * [变量、作用域和内存问题](#变量、作用域和内存问题)
 
 
@@ -1443,7 +1456,7 @@ xhr.send();
 |4 xhr.DONE|已接收到全部Response Body，可以在客户端使用了|
 
 
-### Get
+#### Get
 
 ```javascript
 function addURLParam(url, name, value){
@@ -1461,7 +1474,7 @@ xhr.open("get", url, true);
 xhr.send();
 ```
 
-### Post
+#### Post
 
 ```javascript
 function serialize(form){
@@ -1520,6 +1533,10 @@ xhr.send(serialize(form));
 
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">变量、作用域和内存问题</p>
 
+## 基本类型和引用类型的值
+
+
+
 ## 执行环境及作用域
 
 * 执行环境（execution context，亦可简称“环境”）：执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为；
@@ -1528,10 +1545,32 @@ xhr.send(serialize(form));
 * 变量对象（variable object）：每个执行环境都关联了一个变量对象，执行环境中定义的所有变量和函数都保存在这个对象中；
 * 作用域链（scope chain）：当代码在一个环境中执行时，会创建一个由变量对象组成的作用域链，以保证对执行环境有权访问的所有变量和函数的有序访问。
     * 作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（activation object）作为变量对象。活动对象在最开始时只包含一个变量，即 arguments 对象（这个对象在全局环境中是不存在的）；
-    * 作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境；
+    * 作用域链中的下一个变量对象来自包含（外部）环境，再下一个变量对象则来自下一个包含环境，这样一直延续到全局执行环境；
     * 全局执行环境的变量对象始终都是作用域链中的最后一个对象。
 
 每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境会被推入一个环境栈中，函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。
+
+```javascript
+var color = "blue";
+function changeColor(){
+    var anotherColor = "red";
+    function swapColors(){
+        var tempColor = anotherColor;
+        anotherColor = color;
+        color = tempColor;
+        // 这里可以访问 color、anotherColor 和 tempColor
+    }
+    // 这里可以访问 color 和 anotherColor，但不能访问 tempColor
+    swapColors();
+}
+// 这里只能访问 color
+changeColor();
+```
+
+![](../../images/fe_js_scope_chain.jpg)
+
+> 矩形表示特定的执行环境。每个环境都可以向上搜索作用域链，以查询变量和函数名；但任何环境都不能通过向下搜索作用域链进入另一个执行环境。
+
 
 __标识符解析__：沿着作用域链一级一级地搜索标识符的过程。从作用域链的前端开始，然后逐级地向后回溯，直至找到标识符为止（如果找不到标识符，会导致错误发生）。
 
@@ -1540,8 +1579,8 @@ __标识符解析__：沿着作用域链一级一级地搜索标识符的过程�
 
 以下两个语句会在作用域链前端添加一个变量对象：
 
-* try-catch 语句的 catch 块：创建一个新的变量对象，其中包含的是被抛出的错误对象的声明；
-* with 语句：将指定的对象添加到作用域链中。
+* try-catch 语句的 catch 块：将被抛出的错误对象添加到作用域链前端；
+* with 语句：将指定的对象添加到作用域链前端。
 
     ```javascript
     function buildUrl(){
@@ -1556,3 +1595,165 @@ __标识符解析__：沿着作用域链一级一级地搜索标识符的过程�
     }
     ```
 
+#### 没有块级作用域
+
+```javascript
+if(true){
+    var color = "blue";
+}
+alert(color);   //"blue"
+
+for(var i=0; i<10; i++){
+    doSomething(i);
+}
+alert(i);       //10
+```
+
+1. __声明变量__
+
+使用 var 声明的变量会自动被添加到最接近的环境中：
+
+* 在函数内部，最接近的环境是函数的局部环境；
+* 在 with 语句中，最接近的环境是最近的函数环境；
+* 如果初始化变量时没用 var 声明，该变量会被添加到全局环境；
+* 严格模式下，初始化未经声明的变量会导致错误。
+
+```javascript
+function add(num1, num2) {
+    var sum = num1 + num2;
+    return sum;
+}
+var result = add(10, 20); //30
+alert(sum); //Uncaught ReferenceError: sum is not defined
+```
+
+```javascript
+function add(num1, num2) {
+    sum = num1 + num2;
+    return sum;
+}
+var result = add(10, 20); //30
+alert(sum); //30 
+```
+
+2. __查询标识符__
+
+![](../../images/fe_js_search_scope_chain.jpg)
+
+```javascript
+var color = "blue";
+function getColor(){
+    return color;
+}
+alert(getColor()); //"blue"
+
+// 搜索过程从作用域链的前端开始，向上逐级查询与给定名字匹配的标识符。
+
+// 首先，搜索 getColor()的变量对象，查找其中是否包含名为 color 的标识符；
+// 没找到，搜索下一个变量对象（全局环境的变量对象）；
+// 找到名为 color 的标识符，搜索过程结束。
+```
+
+```javascript
+var color = "blue";
+function getColor(){
+    var color = "red";
+    return color;
+}
+alert(getColor()); //"red" 
+```
+
+#### 垃圾收集
+
+1. __标记清除（mark-and-sweep）__
+
+最常用，不同浏览器的垃圾收集的时间间隔不同。
+
+    1. 垃圾收集器给内存中的所有变量都加上标记；
+    2. 然后去掉环境中的变量以及被环境中的变量引用的变量的标记；
+    3. 在此之后仍被标记的变量被视为准备删除的变量，因为环境中的变量已经无法访问到这些变量了；
+    4. 最后，垃圾收集器销毁那些带标记的值并回收它们所占用的内存空间。
+
+
+2. __引用计数（reference counting）__
+
+跟踪每个值被引用的次数。
+
+    1. 当声明一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是 1；
+    2. 如果同一个值又被赋给另一个变量，则该值的引用次数加 1；
+    3. 相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1；
+    4. 当这个值的引用次数变成 0 时，说明没有办法再访问这个值，可以将其占用的内存空间回收回来；
+    5. 这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。
+
+循环引用问题：
+
+对象 A 中包含一个指向对象 B 的指针，而对象 B 中也包含一个指向对象 A 的引用：
+
+```javascript
+function problem(){
+    var objectA = new Object();
+    var objectB = new Object();
+    objectA.someOtherObject = objectB;
+    objectB.anotherObject = objectA;
+}
+//objectA和objectB通过各自的属性相互引用，这两个对象的引用次数都是2；
+//如果采用标记清除策略：函数执行后，这两个对象都离开了作用域，因此这种相互引用不是问题。
+```
+
+3. __性能问题__
+
+__垃圾收集器是周期性运行的，确定垃圾收集的时间间隔是个非常重要的问题。__
+
+IE的垃圾收集器是根据内存分配量运行的：
+
+256个变量、4096个对象（或数组）字面量和数组元素（slot）或者64KB的字符串，达到任何一个临界值，垃圾收集器就会运行。
+
+问题：
+
+如果一个脚本中包含那么多变量，那么该脚本可能会在其生命周期中一直保有那么多变量，垃圾收集器就不得不频繁地运行。
+
+解决：
+
+IE7的JavaScript引擎的垃圾收集例程改变了工作方式，触发垃圾收集的变量分配、字面量和（或）数组元素的临界值被调整为动态修正：
+
+    1. 各项临界值在初始时与 IE6 相等；
+    2. 如果垃圾收集例程回收的内存分配量低于 15%，则变量、字面量和（或）数组元素的临界值就会加倍；
+    3. 如果例程回收了 85%的内存分配量，则将各种临界值重置回默认值。
+
+这一调整极大地提升了IE在运行包含大量 JavaScript 的页面时的性能。
+
+4. __管理内存__
+
+确保占用最少的内存可以让页面获得更好的性能。
+
+优化内存占用的最佳方式，就是为执行中的代码只保存必要的数据。一旦数据不再有用，最好通过将其值设置为 null 来释放其引用——这个做法叫做解除引用（dereferencing）。
+
+```javascript
+function createPerson(name){
+    var localPerson = new Object();
+    localPerson.name = name;
+    return localPerson;
+}
+var globalPerson = createPerson("Nicholas");
+// 手工解除 globalPerson 的引用
+globalPerson = null;
+
+// localPerson在createPerson()函数执行完毕后就离开了其执行环境，无需显式地去解除引用，
+// 但是全局变量globalPerson需要在不使用它时手动解除引用。
+
+// 解除一个值的引用并不意味着自动回收该值所占用的内存，
+// 解除引用的作用是让值脱离执行环境，以便垃圾收集器下次运行时将其回收。
+```
+
+#### 小结
+
+JavaScript 变量可以保存两种类型的值：基本类型值和引用类型值。
+
+基本类型的值源自以下 5 种基本数据类型：Undefined、Null、Boolean、Number 和 String。
+
+* 基本类型值在内存中占据固定大小的空间，保存在栈内存中；
+* 从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；
+* 引用类型的值是对象，保存在堆内存中；
+* 包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针；
+* 从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终都指向同一个对象；
+* 确定一个值是哪种基本类型可以使用 typeof 操作符，而确定一个值是哪种引用类型可以使用 instanceof 操作符。
