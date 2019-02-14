@@ -1165,22 +1165,28 @@
 <ul>
 <li><a href="#&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x6570;&#x636E;&#x7C7B;&#x578B;</a><ul>
 <li><a href="#&#x4E94;&#x79CD;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x4E94;&#x79CD;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</a><ul>
-<li><a href="#Undefined&#x7C7B;&#x578B;">Undefined&#x7C7B;&#x578B;</a></li>
-<li><a href="#Null&#x7C7B;&#x578B;">Null&#x7C7B;&#x578B;</a></li>
-<li><a href="#Boolean&#x7C7B;&#x578B;">Boolean&#x7C7B;&#x578B;</a></li>
-<li><a href="#Number&#x7C7B;&#x578B;">Number&#x7C7B;&#x578B;</a></li>
-<li><a href="#String&#x7C7B;&#x578B;">String&#x7C7B;&#x578B;</a></li>
+<li><a href="#undefined&#x7C7B;&#x578B;">Undefined&#x7C7B;&#x578B;</a></li>
+<li><a href="#null&#x7C7B;&#x578B;">Null&#x7C7B;&#x578B;</a></li>
+<li><a href="#boolean&#x7C7B;&#x578B;">Boolean&#x7C7B;&#x578B;</a></li>
+<li><a href="#number&#x7C7B;&#x578B;">Number&#x7C7B;&#x578B;</a></li>
+<li><a href="#string&#x7C7B;&#x578B;">String&#x7C7B;&#x578B;</a></li>
 </ul>
 </li>
 <li><a href="#&#x4E00;&#x79CD;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x4E00;&#x79CD;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
 <li><a href="#&#x5F15;&#x7528;&#x7C7B;&#x578B;">&#x5F15;&#x7528;&#x7C7B;&#x578B;</a><ul>
-<li><a href="#Object%20&#x7C7B;&#x578B;">Object &#x7C7B;&#x578B;</a></li>
-<li><a href="#Array%20&#x7C7B;&#x578B;">Array &#x7C7B;&#x578B;</a></li>
-<li><a href="#Date%20&#x7C7B;&#x578B;">Date &#x7C7B;&#x578B;</a></li>
-<li><a href="#RegExp%20&#x7C7B;&#x578B;">RegExp &#x7C7B;&#x578B;</a></li>
-<li><a href="#Function%20&#x7C7B;&#x578B;">Function &#x7C7B;&#x578B;</a></li>
+<li><a href="#object&#x7C7B;&#x578B;">Object&#x7C7B;&#x578B;</a></li>
+<li><a href="#array&#x7C7B;&#x578B;">Array&#x7C7B;&#x578B;</a></li>
+<li><a href="#date&#x7C7B;&#x578B;">Date&#x7C7B;&#x578B;</a></li>
+<li><a href="#regexp&#x7C7B;&#x578B;">RegExp&#x7C7B;&#x578B;</a></li>
+<li><a href="#function&#x7C7B;&#x578B;">Function&#x7C7B;&#x578B;</a></li>
+<li><a href="#&#x57FA;&#x672C;&#x5305;&#x88C5;&#x7C7B;&#x578B;">&#x57FA;&#x672C;&#x5305;&#x88C5;&#x7C7B;&#x578B;</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#XMLHttpRequest">XMLHttpRequest</a><ul>
+<li><a href="#get">Get</a></li>
+<li><a href="#post">Post</a></li>
 </ul>
 </li>
 <li><a href="#&#x53D8;&#x91CF;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5185;&#x5B58;&#x95EE;&#x9898;">&#x53D8;&#x91CF;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5185;&#x5B58;&#x95EE;&#x9898;</a></li>
@@ -1518,7 +1524,7 @@ sigma.length;   <span class="hljs-comment">//1</span>
 </li>
 </ul>
 <h2 id="&#x4E00;&#x79CD;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x4E00;&#x79CD;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2>
-<h4 id="object&#x7C7B;&#x578B;">Object&#x7C7B;&#x578B;</h4>
+<h4 id="object-&#x7C7B;&#x578B;">Object &#x7C7B;&#x578B;</h4>
 <p>ECMAScript&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x7EC4;&#x6570;&#x636E;&#x548C;&#x529F;&#x80FD;&#x7684;&#x96C6;&#x5408;&#x3002;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6267;&#x884C; new &#x64CD;&#x4F5C;&#x7B26;&#x540E;&#x8DDF;&#x8981;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#x540D;&#x79F0;&#x6765;&#x521B;&#x5EFA;&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> obj1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
 <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x540E;&#x9762;&#x7684;&#x90A3;&#x4E00;&#x5BF9;&#x5706;&#x62EC;&#x53F7;&#xFF0C;&#x4F46;&#x4E0D;&#x63A8;&#x8350;</span>
@@ -1549,7 +1555,7 @@ sigma.length;   <span class="hljs-comment">//1</span>
 <span class="hljs-comment">// Object &#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E3A;&#x65B0;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x4E86;&#x9ED8;&#x8BA4;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</span>
 <span class="hljs-comment">// ECMAScript &#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x539F;&#x751F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF08;&#x4F8B;&#x5982; Object&#xFF09;&#xFF0C;&#x4EE5;&#x4FBF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7528;&#x4EE5;&#x5B9E;&#x73B0;&#x5E38;&#x89C1;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x3002;</span>
 </code></pre>
-<h4 id="object-&#x7C7B;&#x578B;">Object &#x7C7B;&#x578B;</h4>
+<h4 id="object&#x7C7B;&#x578B;">Object&#x7C7B;&#x578B;</h4>
 <p>&#x867D;&#x7136; Object &#x7684;&#x5B9E;&#x4F8B;&#x4E0D;&#x5177;&#x5907;&#x591A;&#x5C11;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x5B58;&#x50A8;&#x548C;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x4EEC;&#x786E;&#x5B9E;&#x662F;&#x975E;&#x5E38;&#x7406;&#x60F3;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
 <p>&#x521B;&#x5EFA; Object &#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// 1. new &#x64CD;&#x4F5C;&#x7B26;&#x540E;&#x8DDF; Object &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</span>
@@ -1585,7 +1591,7 @@ person[<span class="hljs-string">&quot;first name&quot;</span>] = <span class="h
 
 <span class="hljs-comment">// &#x9664;&#x975E;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x6765;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x4E00;&#x822C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x70B9;&#x8868;&#x793A;&#x6CD5;&#x3002;</span>
 </code></pre>
-<h4 id="array-&#x7C7B;&#x578B;">Array &#x7C7B;&#x578B;</h4>
+<h4 id="array&#x7C7B;&#x578B;">Array&#x7C7B;&#x578B;</h4>
 <p>&#x6570;&#x7EC4;&#xFF0C;&#x6709;&#x5E8F;&#xFF0C;&#x6700;&#x591A;&#x53EF;&#x5305;&#x542B;4,294,967,295&#x4E2A;&#x9879;&#x3002;</p>
 <ol>
 <li>ECMAScript &#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF1B;</li>
@@ -1877,7 +1883,7 @@ alert(morePeople.indexOf(person));  <span class="hljs-comment">// 0</span>
 });
 alert(sum); <span class="hljs-comment">// 15</span>
 </code></pre>
-<h4 id="date-&#x7C7B;&#x578B;">Date &#x7C7B;&#x578B;</h4>
+<h4 id="date&#x7C7B;&#x578B;">Date&#x7C7B;&#x578B;</h4>
 <ul>
 <li>Date &#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x81EA; UTC&#xFF08;Coordinated Universal Time&#xFF0C;&#x56FD;&#x9645;&#x534F;&#x8C03;&#x65F6;&#x95F4;&#xFF09; 1970 &#x5E74; 1 &#x6708; 1 &#x65E5;&#x5348;&#x591C;&#xFF08;&#x96F6;&#x65F6;&#xFF09;&#x5F00;&#x59CB;&#x7ECF;&#x8FC7;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x6765;&#x4FDD;&#x5B58;&#x65E5;&#x671F;&#xFF1B;<blockquote>
 <p>UTC = GMT +/- 0.9 s</p>
@@ -2117,7 +2123,7 @@ date.toUTCString()
 </tr>
 </tbody>
 </table>
-<h4 id="regexp-&#x7C7B;&#x578B;">RegExp &#x7C7B;&#x578B;</h4>
+<h4 id="regexp&#x7C7B;&#x578B;">RegExp&#x7C7B;&#x578B;</h4>
 <p>ECMAScript &#x901A;&#x8FC7; RegExp &#x7C7B;&#x578B;&#x6765;&#x652F;&#x6301;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
 <p><code>var expression = / pattern / flags ;</code></p>
 <ul>
@@ -2184,7 +2190,7 @@ alert(matches[<span class="hljs-number">1</span>]);      <span class="hljs-comme
 alert(matches[<span class="hljs-number">2</span>]);      <span class="hljs-comment">// &quot; and baby</span>
 </code></pre>
 <p>// &#x672A;&#x5B8C;&#x5F85;&#x7EED;&#x2026;&#x2026;</p>
-<h4 id="function-&#x7C7B;&#x578B;">Function &#x7C7B;&#x578B;</h4>
+<h4 id="function&#x7C7B;&#x578B;">Function&#x7C7B;&#x578B;</h4>
 <p>&#x51FD;&#x6570;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5BF9;&#x8C61;&#x3002;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x662F; Function &#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x4E14;&#x90FD;&#x4E0E;&#x5176;&#x4ED6;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x4E00;&#x6837;&#x5177;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x51FD;&#x6570;&#x540D;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E0E;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#x3002;</p>
 <p>&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// 1. &#x4F7F;&#x7528; &#x51FD;&#x6570;&#x58F0;&#x660E;&#x8BED;&#x6CD5; &#x5B9A;&#x4E49;&#x51FD;&#x6570;&#xFF1A;</span>
@@ -2554,7 +2560,7 @@ alert(<span class="hljs-keyword">typeof</span> numberValue);  <span class="hljs-
 alert(numberObject <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>);  <span class="hljs-comment">//true</span>
 alert(numberValue <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>);   <span class="hljs-comment">//false</span>
 </code></pre>
-<h2 id="xmlhttprequest">XMLHttpRequest</h2>
+<h1 id="xmlhttprequest"><p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p></h1>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 <span class="hljs-built_in">console</span>.log(xhr.readyState);    <span class="hljs-comment">// 0</span>
 
@@ -2612,7 +2618,7 @@ xhr.send();
 </tr>
 </tbody>
 </table>
-<h4 id="get">Get</h4>
+<h2 id="get">Get</h2>
 <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addURLParam</span>(<span class="hljs-params">url, name, value</span>)</span>{
     url += (url.indexOf(<span class="hljs-string">&apos;?&apos;</span>) == <span class="hljs-number">-1</span> ? <span class="hljs-string">&apos;?&apos;</span> : <span class="hljs-string">&apos;&amp;&apos;</span>);
     url += <span class="hljs-built_in">encodeURIComponent</span>(name) + <span class="hljs-string">&apos;=&apos;</span> + <span class="hljs-built_in">encodeURIComponent</span>(value);
@@ -2627,7 +2633,7 @@ url = addURLParam(url, <span class="hljs-string">&quot;book&quot;</span>, <span 
 xhr.open(<span class="hljs-string">&quot;get&quot;</span>, url, <span class="hljs-literal">true</span>);
 xhr.send();
 </code></pre>
-<h4 id="post">Post</h4>
+<h2 id="post">Post</h2>
 <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">serialize</span>(<span class="hljs-params">form</span>)</span>{
     <span class="hljs-keyword">var</span> parts = [],
     field = <span class="hljs-literal">null</span>,
@@ -2911,7 +2917,7 @@ globalPerson = <span class="hljs-literal">null</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-02-14T08:54:48.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-14T08:55:19.598Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-02-14T09:06:57.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-14T09:08:13.756Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

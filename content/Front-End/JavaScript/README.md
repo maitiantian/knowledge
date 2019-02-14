@@ -4,18 +4,22 @@
 
 * [数据类型](#数据类型)
     * [五种基本数据类型](#五种基本数据类型)
-        * [Undefined类型](#Undefined类型)
-        * [Null类型](#Null类型)
-        * [Boolean类型](#Boolean类型)
-        * [Number类型](#Number类型)
-        * [String类型](#String类型)
+        * [Undefined类型](#undefined类型)
+        * [Null类型](#null类型)
+        * [Boolean类型](#boolean类型)
+        * [Number类型](#number类型)
+        * [String类型](#string类型)
     * [一种复杂数据类型](#一种复杂数据类型)
     * [引用类型](#引用类型)
-        * [Object 类型](#Object 类型)
-        * [Array 类型](#Array 类型)
-        * [Date 类型](#Date 类型)
-        * [RegExp 类型](#RegExp 类型)
-        * [Function 类型](#Function 类型)
+        * [Object类型](#object类型)
+        * [Array类型](#array类型)
+        * [Date类型](#date类型)
+        * [RegExp类型](#regexp类型)
+        * [Function类型](#function类型)
+        * [基本包装类型](#基本包装类型)
+* [XMLHttpRequest](#XMLHttpRequest)
+    * [Get](#get)
+    * [Post](#post)
 * [变量、作用域和内存问题](#变量、作用域和内存问题)
 
 
@@ -293,7 +297,7 @@ sigma.length;   //1
 
 ## 一种复杂数据类型
 
-#### Object类型
+#### Object 类型
 
 ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行 new 操作符后跟要创建的对象类型的名称来创建：
 
@@ -338,7 +342,7 @@ var person = new Object();
 ```
 
 
-#### Object 类型
+#### Object类型
 
 虽然 Object 的实例不具备多少功能，但对于在应用程序中存储和传输数据而言，它们确实是非常理想的选择。
 
@@ -383,7 +387,7 @@ person["first name"] = "Nicholas";
 ```
 
 
-#### Array 类型
+#### Array类型
 
 数组，有序，最多可包含4,294,967,295个项。
 
@@ -742,7 +746,7 @@ alert(sum); // 15
 ```
 
 
-#### Date 类型
+#### Date类型
 
 * Date 类型使用自 UTC（Coordinated Universal Time，国际协调时间） 1970 年 1 月 1 日午夜（零时）开始经过的毫秒数来保存日期；
     > UTC = GMT +/- 0.9 s
@@ -888,7 +892,7 @@ date.toUTCString()
 
 
 
-#### RegExp 类型
+#### RegExp类型
 
 ECMAScript 通过 RegExp 类型来支持正则表达式。
 
@@ -972,7 +976,7 @@ alert(matches[2]);      // " and baby
 // 未完待续……
 
 
-#### Function 类型
+#### Function类型
 
 函数实际上是对象。每个函数都是 Function 类型的实例，而且都与其他引用类型一样具有属性和方法。函数名实际上是一个指向函数对象的指针，不会与某个函数绑定。
 
@@ -1416,7 +1420,7 @@ alert(numberValue instanceof Number);   //false
 ```
 
 
-## XMLHttpRequest
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -1456,7 +1460,7 @@ xhr.send();
 |4 xhr.DONE|已接收到全部Response Body，可以在客户端使用了|
 
 
-#### Get
+## Get
 
 ```javascript
 function addURLParam(url, name, value){
@@ -1474,7 +1478,7 @@ xhr.open("get", url, true);
 xhr.send();
 ```
 
-#### Post
+## Post
 
 ```javascript
 function serialize(form){
