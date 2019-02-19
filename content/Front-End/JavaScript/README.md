@@ -17,7 +17,7 @@
         * [RegExp类型](#regexp类型)
         * [Function类型](#function类型)
         * [基本包装类型](#基本包装类型)
-* [XMLHttpRequest](#XMLHttpRequest)
+* [XMLHttpRequest](#xmlhttprequest)
     * [Get](#get)
     * [Post](#post)
 * [变量、作用域和内存问题](#变量、作用域和内存问题)
@@ -1538,6 +1538,19 @@ xhr.send(serialize(form));
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">变量、作用域和内存问题</p>
 
 ## 基本类型和引用类型的值
+
+变量可能包含两种不同数据类型的值：基本类型值和引用类型值。
+
+基本类型值指简单的数据段，引用类型值指那些可能由多个值构成的对象。
+
+五种基本数据类型：Undefined、Null、Boolean、Number 和 String，按值访问，变量中保存实际的值。
+
+引用类型，值是保存在内存中的对象。JavaScript不允许直接访问内存中的位置。变量中保存对象的引用。所以引用类型的值是按引用访问的。
+
+当复制保存着对象的某个变量时，操作的是对象的引用。但在为对象添加属性时，操作的是实际的对象。
+
+![](../../images/fe_js_variable_1.jpg)
+![](../../images/fe_js_variable_2.jpg)
 
 
 
