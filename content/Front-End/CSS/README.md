@@ -32,16 +32,17 @@ font-family: Times New Roman, open-sans, 微软雅黑, sans-serif;
 * sans-serif：调用浏览器设置的 sans-serif 字体。
 
 
-在Chrome浏览器中设置字体：
-
-设置->自定义字体
-
-![Chrome浏览器中自定义字体](../../images/fe_css_font_family.jpg)
-
 ##### 衬线字体和无衬线字体
 
-serif： 有衬线字体，在字的笔画开始、结束处有额外的装饰，笔画粗细会有所不同；
+serif： 有衬线字体，在字的笔画开始、结束处有额外装饰，笔画粗细会有不同；
 sans-serif： 无衬线字体，没有这些额外的装饰，笔画粗细差不多。
 
 * sans-serif 容易造成字母辨认的困扰（I 和 l）；
 * 在小字体的场合，通常 sans-serif 比 serif 更清晰。
+
+
+##### 在Chrome浏览器中设置字体：
+
+设置->自定义字体
+
+![Chrome浏览器中自定义字体](../../images/fe_css_font_family.jpg)
