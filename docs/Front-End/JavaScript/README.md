@@ -1343,7 +1343,7 @@ alert(typeof obj);              //"object"
 ```
 
 
-Boolean 类型
+##### Boolean 类型
 
 Boolean 类型是与布尔值对应的引用类型。
 
@@ -1371,7 +1371,7 @@ alert(falseValue instanceof Boolean);   // false
 **建议永远不要使用 Boolean 对象。**
 
 
-Number 类型
+##### Number 类型
 
 Number 是与数字值对应的引用类型。
 
@@ -1418,6 +1418,159 @@ alert(typeof numberValue);  //"number"
 alert(numberObject instanceof Number);  //true
 alert(numberValue instanceof Number);   //false
 ```
+
+##### String 类型
+
+String 类型是字符串的对象包装类型。
+
+`var stringObject = new String("hello world");`
+
+String 类型提供了很多字符串的解析和操作的方法：
+
+* charAt()：返回给定位置的那个字符，接受一个参数，基于0的字符位置；
+
+    ```javascript
+    var stringValue = "hello world";
+    alert(stringValue.charAt(1));   //"e"
+    ```
+
+* charCodeAt()：返回给定位置的那个字符的字符编码，接受一个参数，基于0的字符位置；
+
+    ```javascript
+    var stringValue = "hello world";
+    alert(stringValue.charCodeAt(1));   //"101"
+    ```
+
+* concat(): 将一或多个字符串拼接起来，返回拼接后的新字符串；
+
+    ```javascript
+    var stringValue = "hello ";
+    var result = stringValue.concat("world", "!");
+    alert(result);      //"hello world!"
+    alert(stringValue); //"hello"
+    ```
+
+    > 实践中拼接字符串使用更多的是加号操作符（+）
+
+* slice() 和 substring()：返回被操作字符串的一个子字符串。接受一或两个参数，第一个参数为子字符串的开始位置，第二个参数（如果有）为子字符串最后一个字符后面的位置；
+
+    ```javascript
+    var stringValue = "hello world";
+    // slice()方法会将负值与字符串的长度相加
+    alert(stringValue.slice(3));        //"lo world"
+    alert(stringValue.slice(-3));       //"rld"
+    alert(stringValue.slice(3, 7));     //"lo w"
+    alert(stringValue.slice(3, -4));    //"lo w"
+
+    // substring()方法会把所有负值参数都转换为0
+    alert(stringValue.substring(3));    //"lo world"
+    alert(stringValue.substring(-3));   //"hello world"
+    alert(stringValue.substring(3, 7)); //"lo w"
+    alert(stringValue.substring(3, -4));//"hel"
+    ```
+
+* substr()：返回被操作字符串的一个子字符串。接受一或两个参数，第一个参数为子字符串的开始位置，第二个参数（如果有）为返回的字符个数；
+
+    ```javascript
+    var stringValue = "hello world";
+    // substr()方法将负的第一个参数加上字符串的长度，而将负的第二个参数转换为0
+    alert(stringValue.substr(3));       //"lo world"
+    alert(stringValue.substr(-3));      //"rld"
+    alert(stringValue.substr(3, 7));    //"lo worl"
+    alert(stringValue.substr(3, -4));   //""（空字符串）
+    ```
+
+* indexOf()：从前向后得在字符串中搜索给定的子串，然后返该子串的位置（没有找到则返回-1）；
+
+    ```javascript
+    var stringValue = "hello world";
+    alert(stringValue.indexOf("o"));        //4
+    alert(stringValue.indexOf("o", 6));     //7，第二个参数表示从字符串中哪个位置开始搜索
+    ```
+
+* lastIndexOf()：从后向前得在字符串中搜索给定的子串，然后返该子串的位置（没有找到则返回-1）；
+
+    ```javascript
+    var stringValue = "hello world";
+    alert(stringValue.lastIndexOf("o"));    //7
+    alert(stringValue.lastIndexOf("o", 6)); //4，第二个参数表示从字符串中哪个位置开始搜索
+    ```
+
+* trim()：创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果；
+
+    ```javascript
+    var stringValue = " hello world ";
+    var trimmedStringValue = stringValue.trim();
+    alert(stringValue);         //" hello world "
+    alert(trimmedStringValue);  //"hello world"
+    // Firefox 3.5+、Safari 5+和Chrome 8+还支持非标准的trimLeft()和trimRight()方法，
+    // 分别用于删除字符串开头和末尾的空格。
+    ```
+
+* toLowerCase()、toLocaleLowerCase()、toUpperCase()和toLocaleUpperCase()：
+
+    ```javascript
+    var stringValue = "hello world";
+    alert(stringValue.toLocaleUpperCase()); //"HELLO WORLD"
+    alert(stringValue.toUpperCase());       //"HELLO WORLD"
+    alert(stringValue.toLocaleLowerCase()); //"hello world"
+    alert(stringValue.toLowerCase());       //"hello world"
+    // toLocaleLowerCase()和toLocaleUpperCase()是针对特定地区的实现，
+    // 少数语言（如土耳其语）会为 Unicode 大小写转换应用特殊规则，
+    // 这时必须使用针对地区的方法来保证实现正确的转换。
+    // 一般来说，如果不知道代码将在哪种语言环境中运行，使用针对地区的方法会更稳妥。
+    ```
+
+* match()：本质上与调用 RegExp 的exec()方法相同，接受一个参数，正则表达式或RegExp对象；
+
+    ```javascript
+    var text = "cat, bat, sat, fat";
+    var pattern = /.at/;
+    //与 pattern.exec(text)相同
+    var matches = text.match(pattern);
+    alert(matches.index);       //0
+    alert(matches[0]);          //"cat"
+    alert(pattern.lastIndex);   //0
+    ```
+
+* search()：接受一个正则表达式或RegExp对象为参数，从前向后查找，返回字符串中第一个匹配项的索引，如果没有匹配项，返回-1；
+
+```javascript
+var text = "cat, bat, sat, fat";
+var pos = text.search(/at/);
+alert(pos); //1
+```
+
+* replace()：接受两个参数，参数一可以是一个RegExp对象或字符串，参数二可以是一个字符串或函数。
+
+```javascript
+// 如果参数一是字符串，则只会替换第一个匹配的子字符串；
+// 要想替换所有子字符串，参数一必须是正则表达式，而且要指定全局（g）标志。
+var text = "cat, bat, sat, fat";
+var result = text.replace("at", "ond");
+alert(result); //"cond, bat, sat, fat"
+result = text.replace(/at/g, "ond");
+alert(result); //"cond, bond, sond, fond" 
+
+// 如果参数二是字符串，还可以使用一些特殊的字符序列，
+// 将正则表达式操作得到的值插入到结果字符串中。
+var text = "cat, bat, sat, fat";
+result = text.replace(/(.at)/g, "word ($1)");
+alert(result); //word (cat), word (bat), word (sat), word (fat)
+```
+
+|字符序列|替换文本|
+|:---|:---|
+|$$|$|
+|$&|匹配整个模式的子字符串。与RegExp.lastMatch的值相同|
+|$'|匹配的子字符串之前的子字符串。与RegExp.leftContext的值相同|
+|$`|匹配的子字符串之后的子字符串。与RegExp.rightContext的值相同|
+|$n|匹配第n个捕获组的子字符串，其中n等于0～9。例如，$1是匹配第一个捕获组的子字符串，$2是匹配第二个捕获组的子字符串，以此类推。如果正则表达式中没有定义捕获组，则使用空字符串|
+|$nn|匹配第nn个捕获组的子字符串，其中nn等于01～99。例如，$01是匹配第一个捕获组的子字符串，$02是匹配第二个捕获组的子字符串，以此类推。如果正则表达式中没有定义捕获组，则使用空字符串|
+
+// 未完待续......
+
+
 
 
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>
