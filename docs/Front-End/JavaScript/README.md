@@ -17,10 +17,10 @@
         * [RegExp类型](#regexp类型)
         * [Function类型](#function类型)
         * [基本包装类型](#基本包装类型)
+* [变量、作用域和内存问题](#变量、作用域和内存问题)
 * [XMLHttpRequest](#xmlhttprequest)
     * [Get](#get)
     * [Post](#post)
-* [变量、作用域和内存问题](#变量、作用域和内存问题)
 
 
 * 不要使用new Number()、new Boolean()、new String()创建包装对象；
@@ -1572,122 +1572,6 @@ alert(result); //word (cat), word (bat), word (sat), word (fat)
 
 
 
-
-# <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>
-
-```javascript
-var xhr = new XMLHttpRequest();
-console.log(xhr.readyState);    // 0
-
-xhr.onreadystatechange = function(){
-    console.log("readyState:", xhr.readyState);    // 1, 2, 3, 4
-
-    console.log(xhr.getResponseHeader('Server'));
-    console.log(xhr.getAllResponseHeaders());
-    // HTTP状态码，200
-    console.log(xhr.status);
-    // HTTP状态说明，OK
-    console.log(xhr.statusText);
-    // 响应内容的文本
-    console.log(xhr.responseText);
-    // 若响应内容类型为"text/xml"或"application/xml"，该属性中将保存包含响应数据的XML DOM文档
-    console.log(xhr.responseXML);
-}
-
-// xhr.open(http-method, url, isAsynchronous)
-xhr.open('GET', 'http://xxx', true);
-
-// 必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
-xhr.setRequestHeader('MyHeader', 'MyValue');
-
-// 发送请求
-xhr.send();
-```
-
-|xhr.readyState|意义|
-|:---|:---|
-|0 xhr.UNSENT|未初始化，刚刚new出xhr对象，还未调用open()方法|
-|1 xhr.OPENED|建立连接，已调用open()方法|
-|2 xhr.HEADERS_RECEIVED|已调用send()方法，所有Response Header已接收完成|
-|3 xhr.LOADING|已接收到部分Response Body|
-|4 xhr.DONE|已接收到全部Response Body，可以在客户端使用了|
-
-
-## Get
-
-```javascript
-function addURLParam(url, name, value){
-    url += (url.indexOf('?') == -1 ? '?' : '&');
-    url += encodeURIComponent(name) + '=' + encodeURIComponent(value);
-    return url;
-}
-
-var url = "example.php";
-// 添加参数
-url = addURLParam(url, "name", "Nicholas");
-url = addURLParam(url, "book", "Professional JavaScript");
-// 初始化请求
-xhr.open("get", url, true);
-xhr.send();
-```
-
-## Post
-
-```javascript
-function serialize(form){
-	var parts = [],
-	field = null,
-	i, len, j, optLen, option, optValue;
-
-	for(i=0, len=form.elements.length; i<len; i++){
-		field = form.elements[i];
-		switch(field.type){
-			case "select-one":
-			case "select-multiple":
-				if(field.name.length){
-					for(j=0, optLen=field.options.length; j<optLen; j++){
-						option = field.options[j];
-						if (option.selected){
-							optValue = "";
-							if (option.hasAttribute){
-								optValue = (option.hasAttribute("value") ? option.value : option.text);
-							}else{
-								optValue = (option.attributes["value"].specified ? option.value : option.text);
-							}
-							parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(optValue));
-						}
-					}
-				}
-				break;
-			case undefined: // 字段集
-			case "file":	// 文件输入
-			case "submit":  // 提交按钮
-			case "reset": 	// 重置按钮
-			case "button": 	// 自定义按钮
-				break;
-			case "radio": 	// 单选按钮
-			case "checkbox":// 复选框
-				if(!field.checked){
-					break;
-				}
-			/* 执行默认操作 */
-			default:
-				// 不包含没有名字的表单字段
-				if(field.name.length){
-					parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
-				}
-		}
-	}
-	return parts.join("&");
-}
-
-xhr.open("post", "example.php", true);
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-var form = document.getElementById("form");
-xhr.send(serialize(form));
-```
-
-
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">变量、作用域和内存问题</p>
 
 ## 基本类型和引用类型的值
@@ -1924,6 +1808,153 @@ JavaScript 变量可以保存两种类型的值：基本类型值和引用类型
 * 基本类型值在内存中占据固定大小的空间，保存在栈内存中；
 * 从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；
 * 引用类型的值是对象，保存在堆内存中；
-* 包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针；
-* 从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终都指向同一个对象；
-* 确定一个值是哪种基本类型可以使用 typeof 操作符，而确定一个值是哪种引用类型可以使用 instanceof 操作符。
+* 包含引用类型值的变量实际上包含的不是对象本身，而是指向该对象的指针；
+* 从一个变量向另一个变量复制引用类型的值，复制的是指针，两个变量最终指向同一对象；
+* 确定一个值是哪种基本类型可以使用 typeof 操作符，确定一个值是哪种引用类型可以使用 instanceof 操作符。
+
+
+所有变量都存在于一个执行环境（也称作用域）中，执行环境决定了变量的生命周期，以及哪一部分代码可以访问其中的变量：
+
+* 执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；
+* 每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；
+* 函数的局部环境不仅有权访问函数作用域中的变量，而且有权访问其包含（父）环境和全局环境；
+* 全局环境只能访问在全局环境中定义的变量和函数，不能直接访问局部环境中的任何数据；
+* 变量的执行环境有助于确定应该何时释放内存。
+
+
+JavaScript 有自动垃圾收集机制，开发人员不必关心内存分配和回收问题：
+
+* 离开作用域的值将被自动标记为可回收，将在垃圾收集期间被删除；
+* “标记清除”是主流的垃圾收集算法：给当前不使用的值加上标记，然后再回收其内存；
+* 另一种垃圾收集算法是“引用计数”：跟踪记录所有值被引用的次数。JavaScript引擎目前都不再使用这种算法；
+* 当代码中存在循环引用时，“引用计数”算法会导致问题；
+* 解除变量的引用不仅有助于消除循环引用现象，而且对垃圾收集也有好处。为了确保有效地回收内存，应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。
+
+
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">面向对象的程序设计</p>
+
+面向对象（Object-Oriented， OO）
+
+ECMA-262 把对象定义为：无序属性的集合，其属性可以包含基本值、对象或者函数。
+
+
+
+
+
+
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>
+
+```javascript
+var xhr = new XMLHttpRequest();
+console.log(xhr.readyState);    // 0
+
+xhr.onreadystatechange = function(){
+    console.log("readyState:", xhr.readyState);    // 1, 2, 3, 4
+
+    console.log(xhr.getResponseHeader('Server'));
+    console.log(xhr.getAllResponseHeaders());
+    // HTTP状态码，200
+    console.log(xhr.status);
+    // HTTP状态说明，OK
+    console.log(xhr.statusText);
+    // 响应内容的文本
+    console.log(xhr.responseText);
+    // 若响应内容类型为"text/xml"或"application/xml"，该属性中将保存包含响应数据的XML DOM文档
+    console.log(xhr.responseXML);
+}
+
+// xhr.open(http-method, url, isAsynchronous)
+xhr.open('GET', 'http://xxx', true);
+
+// 必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
+xhr.setRequestHeader('MyHeader', 'MyValue');
+
+// 发送请求
+xhr.send();
+```
+
+|xhr.readyState|意义|
+|:---|:---|
+|0 xhr.UNSENT|未初始化，刚刚new出xhr对象，还未调用open()方法|
+|1 xhr.OPENED|建立连接，已调用open()方法|
+|2 xhr.HEADERS_RECEIVED|已调用send()方法，所有Response Header已接收完成|
+|3 xhr.LOADING|已接收到部分Response Body|
+|4 xhr.DONE|已接收到全部Response Body，可以在客户端使用了|
+
+
+## Get
+
+```javascript
+function addURLParam(url, name, value){
+    url += (url.indexOf('?') == -1 ? '?' : '&');
+    url += encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    return url;
+}
+
+var url = "example.php";
+// 添加参数
+url = addURLParam(url, "name", "Nicholas");
+url = addURLParam(url, "book", "Professional JavaScript");
+// 初始化请求
+xhr.open("get", url, true);
+xhr.send();
+```
+
+## Post
+
+```javascript
+function serialize(form){
+	var parts = [],
+	field = null,
+	i, len, j, optLen, option, optValue;
+
+	for(i=0, len=form.elements.length; i<len; i++){
+		field = form.elements[i];
+		switch(field.type){
+			case "select-one":
+			case "select-multiple":
+				if(field.name.length){
+					for(j=0, optLen=field.options.length; j<optLen; j++){
+						option = field.options[j];
+						if (option.selected){
+							optValue = "";
+							if (option.hasAttribute){
+								optValue = (option.hasAttribute("value") ? option.value : option.text);
+							}else{
+								optValue = (option.attributes["value"].specified ? option.value : option.text);
+							}
+							parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(optValue));
+						}
+					}
+				}
+				break;
+			case undefined: // 字段集
+			case "file":	// 文件输入
+			case "submit":  // 提交按钮
+			case "reset": 	// 重置按钮
+			case "button": 	// 自定义按钮
+				break;
+			case "radio": 	// 单选按钮
+			case "checkbox":// 复选框
+				if(!field.checked){
+					break;
+				}
+			/* 执行默认操作 */
+			default:
+				// 不包含没有名字的表单字段
+				if(field.name.length){
+					parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+				}
+		}
+	}
+	return parts.join("&");
+}
+
+xhr.open("post", "example.php", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+var form = document.getElementById("form");
+xhr.send(serialize(form));
+```
+
