@@ -1839,7 +1839,48 @@ JavaScript 有自动垃圾收集机制，开发人员不必关心内存分配和
 
 ECMA-262 把对象定义为：无序属性的集合，其属性可以包含基本值、对象或者函数。
 
+对象是一组没有顺序的值。对象的每个属性或方法都有一个名字，而每个名字都映射到一个值。可以把 ECMAScript 的对象想象成散列表：一组键值对，其中值可以是数据或函数。
 
+每个对象都是基于一个引用类型创建的。
+
+## 创建对象
+
+* new Object()
+
+```javascript
+var person = new Object();
+person.name = "Nicholas";
+person.age = 29;
+person.job = "Software Engineer";
+person.sayName = function(){
+    alert(this.name);
+};
+```
+
+* 对象字面量方法
+
+```javascript
+var person = {
+    name: "Nicholas",
+    age: 29,
+    job: "Software Engineer",
+    sayName: function(){
+        alert(this.name);
+    }
+};
+```
+
+#### 属性类型
+
+ECMA-262 第 5 版用的特性（attribute）描述属性（property）的各种特征。这些特性是为了实现 JavaScript 引擎用的，在 JavaScript 中不能直接访问它们。特性用两对儿方括号表示，例如[[Enumerable]]。
+
+ECMAScript中有两种属性：数据属性和访问器属性。
+
+* 数据属性
+
+[[Configurable]]：
+
+* 访问器属性
 
 
 
