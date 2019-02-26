@@ -1845,7 +1845,7 @@ ECMA-262 把对象定义为：无序属性的集合，其属性可以包含基�
 
 ## 创建对象
 
-* new Object()
+* Object构造函数方法
 
 ```javascript
 var person = new Object();
@@ -1872,15 +1872,221 @@ var person = {
 
 #### 属性类型
 
-ECMA-262 第 5 版用的特性（attribute）描述属性（property）的各种特征。这些特性是为了实现 JavaScript 引擎用的，在 JavaScript 中不能直接访问它们。特性用两对儿方括号表示，例如[[Enumerable]]。
+ECMA-262 第 5 版用的特性（attribute）描述属性（property）的各种特征。这些特性是为了实现 JavaScript 引擎用的，在 JavaScript 中不能直接访问它们。特性用两对儿方括号表示，例如[[enumerable]]。
 
 ECMAScript中有两种属性：数据属性和访问器属性。
 
-* 数据属性
+* __数据属性__，数据属性有 4 个描述其行为的特性：
 
-[[Configurable]]：
+    1. [[configurable]]：能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。默认值为 true；
+    2. [[enumerable]]：能否通过 for-in 循环返回属性。默认值为 true；
+    3. [[writable]]：示能否修改属性的值。默认值为 true；
+    4. [[value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。默认值为 undefined。
 
-* 访问器属性
+    > 要修改属性的特性，必须使用 Object.defineProperty() 方法，它接收三个参数：属性所在对象、属性名和一个描述符对象。描述符（descriptor）对象的属性必须是：configurable、enumerable、writable 和 value。
+
+    ```javascript
+    var person = {};
+    Object.defineProperty(person, "name", {
+        writable: false,
+        value: "Nicholas"
+    });
+    alert(person.name); //"Nicholas"
+    person.name = "Greg";
+    // 非严格模式下，赋值操作将被忽略；
+    // 严格模式下，赋值操作将会导致抛出错误。
+    alert(person.name); //"Nicholas"
+    ```
+
+    ```javascript
+    var person = {};
+    Object.defineProperty(person, "name", {
+        configurable: false,
+        value: "Nicholas"
+    });
+    alert(person.name); //"Nicholas"
+    delete person.name;
+    // 对这个属性调用 delete，非严格模式下什么也不会发生，
+    // 严格模式下会导致抛出错误。
+    alert(person.name); //"Nicholas"
+
+    // 而且一旦把属性定义为不可配置，就不能再把它变回可配置了，
+    // 此时，再调用 Object.defineProperty()方法会导致错误。
+    Object.defineProperty(person, "name", {
+        configurable: true,
+        value: "Nicholas"
+    }); 
+    ```
+
+    > 多数情况下都没有必要利用 Object.defineProperty() 方法提供的这些高级功能。不过，理解这些概念对理解 JavaScript 对象非常有用。
+
+
+* __访问器属性__，访问器属性有 4 个描述其行为的特性：
+
+    1. [[configurable]]：能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为数据属性。默认值为 true；
+    2. [[enumerable]]：能否通过 for-in 循环返回属性。默认值为 true；
+    3. [[get]]：在读取属性时调用的函数。默认值为 undefined；
+    4. [[set]]：在写入属性时调用的函数。默认值为 undefined。
+
+    > 访问器属性不包含数据值，它包含一对儿 getter 和 setter 函数（都不是必需的）。在读取访问器属性时，调用 getter 函数，返回有效的值；在写入访问器属性时，调用 setter 函数并传入新值，这个函数负责决定如何处理数据。
+
+    访问器属性不能直接定义，必须用 Object.defineProperty()定义：
+
+    ```javascript
+    // 访问器属性的常见用法：设置一个属性的值会导致其他属性发生变化
+
+    var book = {
+        _year: 2004,
+        edition: 1
+    };
+    Object.defineProperty(book, "year", {
+        get: function(){
+            return this._year;
+        },
+        set: function(newValue){
+            if (newValue > 2004) {
+                this._year = newValue;
+                this.edition += newValue - 2004;
+            }
+        }
+    });
+    book.year = 2005;
+    alert(book.edition); //2
+    ```
+
+    > 在严格模式下，尝试写入只指定了 getter 函数的属性会抛出错误。只指定 setter 函数的属性也不能读，否则非严格模式下会返回 undefined，严格模式下会抛出错误。
+
+
+#### 定义多个属性
+
+ECMAScript 5 定义了 Object.defineProperties()方法，可以通过描述符一次定义多个属性。
+
+这个方法接收两个对象参数：
+
+1. 目标对象；
+2. 第二个对象的属性与目标对象中要添加或修改的属性对应。
+
+```javascript
+// 在 book 对象上定义了两个数据属性（_year 和 edition）和一个访问器属性（year）
+var book = {};
+Object.defineProperties(book, {
+	_year: { value: 2004 },
+	edition: { value: 1 },
+	year: {
+		get: function(){
+			return this._year;
+		},
+		set: function(newValue){
+			if(newValue > 2004){
+				this._year = newValue;
+				this.edition += newValue - 2004;
+			}
+		}
+	}
+}); 
+```
+
+#### 读取属性的特性
+
+使用 ECMAScript 5 的 Object.getOwnPropertyDescriptor()方法可以取得给定属性的描述符。
+
+这个方法接收两个参数：
+
+1. 属性所在的对象；
+2. 要读取其描述符的属性名称。
+
+返回值是一个对象。
+
+```javascript
+var book = {};
+Object.defineProperties(book, {
+    _year: { value: 2004 },
+    edition: { value: 1 },
+    year: {
+        get: function(){
+            return this._year;
+        },
+        set: function(newValue){
+            if(newValue > 2004){
+                this._year = newValue;
+                this.edition += newValue - 2004;
+            }
+        }
+    }
+});
+var descriptor = Object.getOwnPropertyDescriptor(book, "_year");
+alert(descriptor.value);        //2004
+alert(descriptor.configurable); //false 
+alert(typeof descriptor.get);   //"undefined"
+var descriptor = Object.getOwnPropertyDescriptor(book, "year");
+alert(descriptor.value);        //undefined
+alert(descriptor.enumerable);   //false
+alert(typeof descriptor.get);   //"function" 
+```
+
+
+## 创建对象
+
+使用Object构造函数或对象字面量创建单个对象有个明显的缺点：__创建很多对象时会产生大量重复代码__。
+
+
+#### 工厂模式
+
+工厂模式抽象了创建具体对象的过程。
+
+在 ECMAScript 中无法创建类，开发人员就发明了一种函数，用函数来封装以特定接口创建对象的细节：
+
+```javascript
+
+function createPerson(name, age, job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o;
+}
+var person1 = createPerson("Nicholas", 29, "Software Engineer");
+var person2 = createPerson("Greg", 27, "Doctor"); 
+```
+
+
+#### 构造函数模式
+
+ECMAScript 中的构造函数可用来创建特定类型的对象。
+
+```javascript
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function(){
+        alert(this.name);
+    };
+}
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
+```
+
+Person()函数与createPerson()函数的区别：
+nom
+* 没有显式地创建对象；
+* 直接将属性和方法赋给了 this 对象；
+* 没有 return 语句。
+
+> 按照惯例，构造函数应该以一个大写字母开头，非构造函数应该以一个小写字母开头。
+
+构造函数本身也是函数，只不过可以用来创建对象而已。
+
+要创建 Person 的实例，必须使用 new 操作符。以这种方式调用构造函数会经历 4 个步骤：
+
+1. 创建一个新对象；
+2. 将构造函数的作用域赋给新对象（this 就指向了这个新对象）；
+3. 执行构造函数中的代码（为这个新对象添加属性）；
+4. 返回新对象。
+
 
 
 

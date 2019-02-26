@@ -2929,7 +2929,7 @@ globalPerson = <span class="hljs-literal">null</span>;
 <p>&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x521B;&#x5EFA;&#x7684;&#x3002;</p>
 <h2 id="&#x521B;&#x5EFA;&#x5BF9;&#x8C61;">&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</h2>
 <ul>
-<li>new Object()</li>
+<li>Object&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x6CD5;</li>
 </ul>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
 person.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
@@ -2952,15 +2952,200 @@ person.sayName = <span class="hljs-function"><span class="hljs-keyword">function
 };
 </code></pre>
 <h4 id="&#x5C5E;&#x6027;&#x7C7B;&#x578B;">&#x5C5E;&#x6027;&#x7C7B;&#x578B;</h4>
-<p>ECMA-262 &#x7B2C; 5 &#x7248;&#x7528;&#x7684;&#x7279;&#x6027;&#xFF08;attribute&#xFF09;&#x63CF;&#x8FF0;&#x5C5E;&#x6027;&#xFF08;property&#xFF09;&#x7684;&#x5404;&#x79CD;&#x7279;&#x5F81;&#x3002;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0; JavaScript &#x5F15;&#x64CE;&#x7528;&#x7684;&#xFF0C;&#x5728; JavaScript &#x4E2D;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5B83;&#x4EEC;&#x3002;&#x7279;&#x6027;&#x7528;&#x4E24;&#x5BF9;&#x513F;&#x65B9;&#x62EC;&#x53F7;&#x8868;&#x793A;&#xFF0C;&#x4F8B;&#x5982;[[Enumerable]]&#x3002;</p>
+<p>ECMA-262 &#x7B2C; 5 &#x7248;&#x7528;&#x7684;&#x7279;&#x6027;&#xFF08;attribute&#xFF09;&#x63CF;&#x8FF0;&#x5C5E;&#x6027;&#xFF08;property&#xFF09;&#x7684;&#x5404;&#x79CD;&#x7279;&#x5F81;&#x3002;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0; JavaScript &#x5F15;&#x64CE;&#x7528;&#x7684;&#xFF0C;&#x5728; JavaScript &#x4E2D;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5B83;&#x4EEC;&#x3002;&#x7279;&#x6027;&#x7528;&#x4E24;&#x5BF9;&#x513F;&#x65B9;&#x62EC;&#x53F7;&#x8868;&#x793A;&#xFF0C;&#x4F8B;&#x5982;[[enumerable]]&#x3002;</p>
 <p>ECMAScript&#x4E2D;&#x6709;&#x4E24;&#x79CD;&#x5C5E;&#x6027;&#xFF1A;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x548C;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x3002;</p>
 <ul>
-<li>&#x6570;&#x636E;&#x5C5E;&#x6027;</li>
+<li><p><strong>&#x6570;&#x636E;&#x5C5E;&#x6027;</strong>&#xFF0C;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x6709; 4 &#x4E2A;&#x63CF;&#x8FF0;&#x5176;&#x884C;&#x4E3A;&#x7684;&#x7279;&#x6027;&#xFF1A;</p>
+<ol>
+<li>[[configurable]]&#xFF1A;&#x80FD;&#x5426;&#x901A;&#x8FC7; delete &#x5220;&#x9664;&#x5C5E;&#x6027;&#x4ECE;&#x800C;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#xFF0C;&#x80FD;&#x5426;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x80FD;&#x5426;&#x628A;&#x5C5E;&#x6027;&#x4FEE;&#x6539;&#x4E3A;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; true&#xFF1B;</li>
+<li>[[enumerable]]&#xFF1A;&#x80FD;&#x5426;&#x901A;&#x8FC7; for-in &#x5FAA;&#x73AF;&#x8FD4;&#x56DE;&#x5C5E;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; true&#xFF1B;</li>
+<li>[[writable]]&#xFF1A;&#x793A;&#x80FD;&#x5426;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; true&#xFF1B;</li>
+<li><p>[[value]]&#xFF1A;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x6570;&#x636E;&#x503C;&#x3002;&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ECE;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x8BFB;&#xFF1B;&#x5199;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x628A;&#x65B0;&#x503C;&#x4FDD;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; undefined&#x3002;</p>
+<blockquote>
+<p>&#x8981;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528; Object.defineProperty() &#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x5C5E;&#x6027;&#x6240;&#x5728;&#x5BF9;&#x8C61;&#x3001;&#x5C5E;&#x6027;&#x540D;&#x548C;&#x4E00;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x5BF9;&#x8C61;&#x3002;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;descriptor&#xFF09;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x662F;&#xFF1A;configurable&#x3001;enumerable&#x3001;writable &#x548C; value&#x3002;</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {};
+<span class="hljs-built_in">Object</span>.defineProperty(person, <span class="hljs-string">&quot;name&quot;</span>, {
+ writable: <span class="hljs-literal">false</span>,
+ value: <span class="hljs-string">&quot;Nicholas&quot;</span>
+});
+alert(person.name); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+person.name = <span class="hljs-string">&quot;Greg&quot;</span>;
+<span class="hljs-comment">// &#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#xFF1B;</span>
+<span class="hljs-comment">// &#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</span>
+alert(person.name); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {};
+<span class="hljs-built_in">Object</span>.defineProperty(person, <span class="hljs-string">&quot;name&quot;</span>, {
+ configurable: <span class="hljs-literal">false</span>,
+ value: <span class="hljs-string">&quot;Nicholas&quot;</span>
+});
+alert(person.name); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+<span class="hljs-keyword">delete</span> person.name;
+<span class="hljs-comment">// &#x5BF9;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x8C03;&#x7528; delete&#xFF0C;&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#xFF0C;</span>
+<span class="hljs-comment">// &#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</span>
+alert(person.name); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+
+<span class="hljs-comment">// &#x800C;&#x4E14;&#x4E00;&#x65E6;&#x628A;&#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x4E3A;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x628A;&#x5B83;&#x53D8;&#x56DE;&#x53EF;&#x914D;&#x7F6E;&#x4E86;&#xFF0C;</span>
+<span class="hljs-comment">// &#x6B64;&#x65F6;&#xFF0C;&#x518D;&#x8C03;&#x7528; Object.defineProperty()&#x65B9;&#x6CD5;&#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x3002;</span>
+<span class="hljs-built_in">Object</span>.defineProperty(person, <span class="hljs-string">&quot;name&quot;</span>, {
+ configurable: <span class="hljs-literal">true</span>,
+ value: <span class="hljs-string">&quot;Nicholas&quot;</span>
+});
+</code></pre>
+<blockquote>
+<p>&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5229;&#x7528; Object.defineProperty() &#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x7684;&#x8FD9;&#x4E9B;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x7406;&#x89E3;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x5BF9;&#x7406;&#x89E3; JavaScript &#x5BF9;&#x8C61;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p>
+</blockquote>
+</li>
+</ol>
+</li>
 </ul>
-<p>[[Configurable]]&#xFF1A;</p>
 <ul>
-<li>&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;</li>
+<li><p><strong>&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;</strong>&#xFF0C;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x6709; 4 &#x4E2A;&#x63CF;&#x8FF0;&#x5176;&#x884C;&#x4E3A;&#x7684;&#x7279;&#x6027;&#xFF1A;</p>
+<ol>
+<li>[[configurable]]&#xFF1A;&#x80FD;&#x5426;&#x901A;&#x8FC7; delete &#x5220;&#x9664;&#x5C5E;&#x6027;&#x4ECE;&#x800C;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#xFF0C;&#x80FD;&#x5426;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x80FD;&#x5426;&#x628A;&#x5C5E;&#x6027;&#x4FEE;&#x6539;&#x4E3A;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; true&#xFF1B;</li>
+<li>[[enumerable]]&#xFF1A;&#x80FD;&#x5426;&#x901A;&#x8FC7; for-in &#x5FAA;&#x73AF;&#x8FD4;&#x56DE;&#x5C5E;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; true&#xFF1B;</li>
+<li>[[get]]&#xFF1A;&#x5728;&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; undefined&#xFF1B;</li>
+<li><p>[[set]]&#xFF1A;&#x5728;&#x5199;&#x5165;&#x5C5E;&#x6027;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; undefined&#x3002;</p>
+<blockquote>
+<p>&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x4E0D;&#x5305;&#x542B;&#x6570;&#x636E;&#x503C;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E00;&#x5BF9;&#x513F; getter &#x548C; setter &#x51FD;&#x6570;&#xFF08;&#x90FD;&#x4E0D;&#x662F;&#x5FC5;&#x9700;&#x7684;&#xFF09;&#x3002;&#x5728;&#x8BFB;&#x53D6;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x8C03;&#x7528; getter &#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x6709;&#x6548;&#x7684;&#x503C;&#xFF1B;&#x5728;&#x5199;&#x5165;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x8C03;&#x7528; setter &#x51FD;&#x6570;&#x5E76;&#x4F20;&#x5165;&#x65B0;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8D1F;&#x8D23;&#x51B3;&#x5B9A;&#x5982;&#x4F55;&#x5904;&#x7406;&#x6570;&#x636E;&#x3002;</p>
+</blockquote>
+<p>&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#xFF0C;&#x5FC5;&#x987B;&#x7528; Object.defineProperty()&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#x7684;&#x5E38;&#x89C1;&#x7528;&#x6CD5;&#xFF1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x53D1;&#x751F;&#x53D8;&#x5316;</span>
+
+<span class="hljs-keyword">var</span> book = {
+ _year: <span class="hljs-number">2004</span>,
+ edition: <span class="hljs-number">1</span>
+};
+<span class="hljs-built_in">Object</span>.defineProperty(book, <span class="hljs-string">&quot;year&quot;</span>, {
+ get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._year;
+ },
+ set: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>)</span>{
+     <span class="hljs-keyword">if</span> (newValue &gt; <span class="hljs-number">2004</span>) {
+         <span class="hljs-keyword">this</span>._year = newValue;
+         <span class="hljs-keyword">this</span>.edition += newValue - <span class="hljs-number">2004</span>;
+     }
+ }
+});
+book.year = <span class="hljs-number">2005</span>;
+alert(book.edition); <span class="hljs-comment">//2</span>
+</code></pre>
+<blockquote>
+<p>&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5C1D;&#x8BD5;&#x5199;&#x5165;&#x53EA;&#x6307;&#x5B9A;&#x4E86; getter &#x51FD;&#x6570;&#x7684;&#x5C5E;&#x6027;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;&#x53EA;&#x6307;&#x5B9A; setter &#x51FD;&#x6570;&#x7684;&#x5C5E;&#x6027;&#x4E5F;&#x4E0D;&#x80FD;&#x8BFB;&#xFF0C;&#x5426;&#x5219;&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4F1A;&#x8FD4;&#x56DE; undefined&#xFF0C;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+</li>
+</ol>
+</li>
 </ul>
+<h4 id="&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;">&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;</h4>
+<p>ECMAScript 5 &#x5B9A;&#x4E49;&#x4E86; Object.defineProperties()&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x63CF;&#x8FF0;&#x7B26;&#x4E00;&#x6B21;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x53C2;&#x6570;&#xFF1A;</p>
+<ol>
+<li>&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E0E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E2D;&#x8981;&#x6DFB;&#x52A0;&#x6216;&#x4FEE;&#x6539;&#x7684;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x3002;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5728; book &#x5BF9;&#x8C61;&#x4E0A;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5C5E;&#x6027;&#xFF08;_year &#x548C; edition&#xFF09;&#x548C;&#x4E00;&#x4E2A;&#x8BBF;&#x95EE;&#x5668;&#x5C5E;&#x6027;&#xFF08;year&#xFF09;</span>
+<span class="hljs-keyword">var</span> book = {};
+<span class="hljs-built_in">Object</span>.defineProperties(book, {
+    _year: { value: <span class="hljs-number">2004</span> },
+    edition: { value: <span class="hljs-number">1</span> },
+    year: {
+        get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._year;
+        },
+        set: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>)</span>{
+            <span class="hljs-keyword">if</span>(newValue &gt; <span class="hljs-number">2004</span>){
+                <span class="hljs-keyword">this</span>._year = newValue;
+                <span class="hljs-keyword">this</span>.edition += newValue - <span class="hljs-number">2004</span>;
+            }
+        }
+    }
+});
+</code></pre>
+<h4 id="&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6027;">&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6027;</h4>
+<p>&#x4F7F;&#x7528; ECMAScript 5 &#x7684; Object.getOwnPropertyDescriptor()&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x7ED9;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
+<ol>
+<li>&#x5C5E;&#x6027;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x8981;&#x8BFB;&#x53D6;&#x5176;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#x3002;</li>
+</ol>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> book = {};
+<span class="hljs-built_in">Object</span>.defineProperties(book, {
+    _year: { value: <span class="hljs-number">2004</span> },
+    edition: { value: <span class="hljs-number">1</span> },
+    year: {
+        get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._year;
+        },
+        set: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>)</span>{
+            <span class="hljs-keyword">if</span>(newValue &gt; <span class="hljs-number">2004</span>){
+                <span class="hljs-keyword">this</span>._year = newValue;
+                <span class="hljs-keyword">this</span>.edition += newValue - <span class="hljs-number">2004</span>;
+            }
+        }
+    }
+});
+<span class="hljs-keyword">var</span> descriptor = <span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(book, <span class="hljs-string">&quot;_year&quot;</span>);
+alert(descriptor.value);        <span class="hljs-comment">//2004</span>
+alert(descriptor.configurable); <span class="hljs-comment">//false </span>
+alert(<span class="hljs-keyword">typeof</span> descriptor.get);   <span class="hljs-comment">//&quot;undefined&quot;</span>
+<span class="hljs-keyword">var</span> descriptor = <span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(book, <span class="hljs-string">&quot;year&quot;</span>);
+alert(descriptor.value);        <span class="hljs-comment">//undefined</span>
+alert(descriptor.enumerable);   <span class="hljs-comment">//false</span>
+alert(<span class="hljs-keyword">typeof</span> descriptor.get);   <span class="hljs-comment">//&quot;function&quot;</span>
+</code></pre>
+<h2 id="&#x521B;&#x5EFA;&#x5BF9;&#x8C61;">&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</h2>
+<p>&#x4F7F;&#x7528;Object&#x6784;&#x9020;&#x51FD;&#x6570;&#x6216;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x6709;&#x4E2A;&#x660E;&#x663E;&#x7684;&#x7F3A;&#x70B9;&#xFF1A;<strong>&#x521B;&#x5EFA;&#x5F88;&#x591A;&#x5BF9;&#x8C61;&#x65F6;&#x4F1A;&#x4EA7;&#x751F;&#x5927;&#x91CF;&#x91CD;&#x590D;&#x4EE3;&#x7801;</strong>&#x3002;</p>
+<h4 id="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h4>
+<p>&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x62BD;&#x8C61;&#x4E86;&#x521B;&#x5EFA;&#x5177;&#x4F53;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x5728; ECMAScript &#x4E2D;&#x65E0;&#x6CD5;&#x521B;&#x5EFA;&#x7C7B;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5C31;&#x53D1;&#x660E;&#x4E86;&#x4E00;&#x79CD;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x51FD;&#x6570;&#x6765;&#x5C01;&#x88C5;&#x4EE5;&#x7279;&#x5B9A;&#x63A5;&#x53E3;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x7EC6;&#x8282;&#xFF1A;</p>
+<pre><code class="lang-javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPerson</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-keyword">var</span> o = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        alert(<span class="hljs-keyword">this</span>.name);
+    };
+    <span class="hljs-keyword">return</span> o;
+}
+<span class="hljs-keyword">var</span> person1 = createPerson(<span class="hljs-string">&quot;Nicholas&quot;</span>, <span class="hljs-number">29</span>, <span class="hljs-string">&quot;Software Engineer&quot;</span>);
+<span class="hljs-keyword">var</span> person2 = createPerson(<span class="hljs-string">&quot;Greg&quot;</span>, <span class="hljs-number">27</span>, <span class="hljs-string">&quot;Doctor&quot;</span>);
+</code></pre>
+<h4 id="&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;">&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;</h4>
+<p>ECMAScript &#x4E2D;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EF;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x7279;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.job = job;
+    <span class="hljs-keyword">this</span>.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        alert(<span class="hljs-keyword">this</span>.name);
+    };
+}
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Nicholas&quot;</span>, <span class="hljs-number">29</span>, <span class="hljs-string">&quot;Software Engineer&quot;</span>);
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Greg&quot;</span>, <span class="hljs-number">27</span>, <span class="hljs-string">&quot;Doctor&quot;</span>);
+</code></pre>
+<p>Person()&#x51FD;&#x6570;&#x4E0E;createPerson()&#x51FD;&#x6570;&#x7684;&#x533A;&#x522B;&#xFF1A;
+nom</p>
+<ul>
+<li>&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5730;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x76F4;&#x63A5;&#x5C06;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x8D4B;&#x7ED9;&#x4E86; this &#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x6CA1;&#x6709; return &#x8BED;&#x53E5;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x6309;&#x7167;&#x60EF;&#x4F8B;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x4EE5;&#x4E00;&#x4E2A;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x5F00;&#x5934;&#xFF0C;&#x975E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x4EE5;&#x4E00;&#x4E2A;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#x5F00;&#x5934;&#x3002;</p>
+</blockquote>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x800C;&#x5DF2;&#x3002;</p>
+<p>&#x8981;&#x521B;&#x5EFA; Person &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528; new &#x64CD;&#x4F5C;&#x7B26;&#x3002;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F1A;&#x7ECF;&#x5386; 4 &#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x8D4B;&#x7ED9;&#x65B0;&#x5BF9;&#x8C61;&#xFF08;this &#x5C31;&#x6307;&#x5411;&#x4E86;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#xFF09;&#xFF1B;</li>
+<li>&#x6267;&#x884C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#xFF08;&#x4E3A;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#xFF09;&#xFF1B;</li>
+<li>&#x8FD4;&#x56DE;&#x65B0;&#x5BF9;&#x8C61;&#x3002;</li>
+</ol>
 <h1 id="xmlhttprequest"><p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p></h1>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 <span class="hljs-built_in">console</span>.log(xhr.readyState);    <span class="hljs-comment">// 0</span>
@@ -3130,7 +3315,7 @@ xhr.send(serialize(form));
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-02-25T11:15:55.600Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T11:16:29.778Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-02-26T11:22:28.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-26T11:22:43.872Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
