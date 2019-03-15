@@ -10,6 +10,7 @@
         * [排序](CS基础/算法/排序/README.md)
         * [查找](CS基础/算法/查找/README.md)
     * [操作系统](CS基础/操作系统/README.md)
+    * [计算机组成原理](CS基础/计算机组成原理/README.md)
 * [Git](Git/README.md)
     * [常用Git命令](Git/常用Git命令/README.md)
     * [关于.gitignore](Git/关于.gitignore/README.md)

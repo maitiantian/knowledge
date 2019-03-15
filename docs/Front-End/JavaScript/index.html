@@ -232,6 +232,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.4" data-path="../../CS基础/计算机组成原理/">
+            
+                <a href="../../CS基础/计算机组成原理/">
+            
+                    
+                    计算机组成原理
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -543,9 +556,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.3" data-path="../常用库/lodash/README.md">
+        <li class="chapter " data-level="1.5.5.3" data-path="../常用库/lodash/">
             
-                <span>
+                <a href="../常用库/lodash/">
             
                     
                     lodash
@@ -556,9 +569,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.4" data-path="../常用库/socket.io/README.md">
+        <li class="chapter " data-level="1.5.5.4" data-path="../常用库/socket.io/">
             
-                <span>
+                <a href="../常用库/socket.io/">
             
                     
                     socket.io
@@ -3146,12 +3159,358 @@ nom</p>
 <li>&#x6267;&#x884C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#xFF08;&#x4E3A;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#xFF09;&#xFF1B;</li>
 <li>&#x8FD4;&#x56DE;&#x65B0;&#x5BF9;&#x8C61;&#x3002;</li>
 </ol>
+<p>&#x4E0A;&#x9762;&#x7684; person1 &#x548C; person2 &#x5206;&#x522B;&#x4FDD;&#x5B58;&#x7740; Person &#x7684;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x6709;&#x4E00;&#x4E2A; constructor&#xFF08;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09;&#x5C5E;&#x6027;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x6307;&#x5411; Person&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5BF9;&#x8C61;&#x7684; constructor &#x5C5E;&#x6027;&#x7528;&#x6765;&#x6807;&#x8BC6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</span>
+alert(person1.constructor == Person); <span class="hljs-comment">//true</span>
+alert(person2.constructor == Person); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x8981;&#x68C0;&#x6D4B;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF0C;&#x8FD8;&#x662F; instanceof &#x64CD;&#x4F5C;&#x7B26;&#x8981;&#x66F4;&#x53EF;&#x9760;&#x4E9B;&#xFF1A;</p>
+<pre><code class="lang-javascript">alert(person1 <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>); <span class="hljs-comment">//true</span>
+alert(person1 <span class="hljs-keyword">instanceof</span> Person); <span class="hljs-comment">//true</span>
+alert(person2 <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>); <span class="hljs-comment">//true</span>
+alert(person2 <span class="hljs-keyword">instanceof</span> Person); <span class="hljs-comment">//true</span>
+</code></pre>
+<p><strong>&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x7684;&#x5B9E;&#x4F8B;&#x6807;&#x8BC6;&#x4E3A;&#x4E00;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x6B63;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x80DC;&#x8FC7;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x7684;&#x5730;&#x65B9;&#x3002;</strong></p>
+<h5 id="&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x51FD;&#x6570;">&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x51FD;&#x6570;</h5>
+<ul>
+<li>&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0E;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#xFF1B;</li>
+<li>&#x4E0D;&#x5B58;&#x5728;&#x5B9A;&#x4E49;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7279;&#x6B8A;&#x8BED;&#x6CD5;&#xFF1B;</li>
+<li>&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x53EA;&#x8981;&#x7528; new &#x64CD;&#x4F5C;&#x7B26;&#x8C03;&#x7528;&#xFF0C;&#x90A3;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+<h5 id="&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x95EE;&#x9898;">&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x95EE;&#x9898;</h5>
+<p><strong>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4E3B;&#x8981;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x8981;&#x5728;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E0A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x904D;&#x3002;</strong></p>
+<p>ECMAScript &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x6BCF;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x5B9E;&#x4F8B;&#x5316;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.job = job;
+    <span class="hljs-keyword">this</span>.sayName = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">&quot;alert(this.name)&quot;</span>); <span class="hljs-comment">//&#x4E0E;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x5728;&#x903B;&#x8F91;&#x4E0A;&#x662F;&#x7B49;&#x4EF7;&#x7684;</span>
+}
+</code></pre>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x4E0D;&#x540C;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684;&#x540C;&#x540D;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x76F8;&#x7B49;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-javascript">alert(person1.sayName == person2.sayName); <span class="hljs-comment">//false</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x628A;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x79FB;&#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5916;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.job = job;
+    <span class="hljs-keyword">this</span>.sayName = sayName;
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayName</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-keyword">this</span>.name);
+}
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Nicholas&quot;</span>, <span class="hljs-number">29</span>, <span class="hljs-string">&quot;Software Engineer&quot;</span>);
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Greg&quot;</span>, <span class="hljs-number">27</span>, <span class="hljs-string">&quot;Doctor&quot;</span>);
+</code></pre>
+<p>&#x65B0;&#x95EE;&#x9898;&#xFF1A;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x8981;&#x5B9A;&#x4E49;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x8981;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x5168;&#x5C40;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x6BEB;&#x65E0;&#x5C01;&#x88C5;&#x6027;&#x53EF;&#x8A00;&#x3002;</p>
+<h4 id="&#x539F;&#x578B;&#x6A21;&#x5F0F;">&#x539F;&#x578B;&#x6A21;&#x5F0F;</h4>
+<p>&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A; prototype&#xFF08;&#x539F;&#x578B;&#xFF09;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7528;&#x6765;&#x5305;&#x542B;&#x53EF;&#x4EE5;&#x7531;&#x7279;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
+Person.prototype.age = <span class="hljs-number">29</span>;
+Person.prototype.job = <span class="hljs-string">&quot;Software Engineer&quot;</span>;
+Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-keyword">this</span>.name);
+};
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person();
+person1.sayName(); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person();
+person2.sayName(); <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+alert(person1.sayName == person2.sayName); <span class="hljs-comment">//true</span>
+</code></pre>
+<h5 id="&#x7406;&#x89E3;&#x539F;&#x578B;&#x5BF9;&#x8C61;">&#x7406;&#x89E3;&#x539F;&#x578B;&#x5BF9;&#x8C61;</h5>
+<ul>
+<li>&#x53EA;&#x8981;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x4E3A;&#x8BE5;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; prototype &#x5C5E;&#x6027;&#xFF0C;&#x5305;&#x542B;&#x6307;&#x5411;&#x51FD;&#x6570;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x9488;&#xFF1B;</li>
+<li>&#x9ED8;&#x8BA4;&#x7684;&#xFF0C;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4F1A;&#x81EA;&#x52A8;&#x83B7;&#x5F97;&#x4E00;&#x4E2A; constructor &#xFF08;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09;&#x5C5E;&#x6027;&#xFF0C;&#x5305;&#x542B;&#x6307;&#x5411; prototype &#x5C5E;&#x6027;&#x6240;&#x5728;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF1B;</li>
+<li>&#x5F53;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x540E;&#xFF0C;&#x8BE5;&#x5B9E;&#x4F8B;&#x5185;&#x90E8;&#x5C06;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF08;&#x5185;&#x90E8;&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;<ul>
+<li>&#x8FD9;&#x4E2A;&#x6307;&#x9488;&#x53EB;[[Prototype]]&#xFF0C;&#x811A;&#x672C;&#x4E2D;&#x6CA1;&#x6709;&#x8BBF;&#x95EE;[[Prototype]]&#x7684;&#x6807;&#x51C6;&#x65B9;&#x5F0F;&#x3002;Firefox&#x3001;Safari &#x548C; Chrome &#x5728;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x90FD;&#x652F;&#x6301;&#x4E00;&#x4E2A;__proto__&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x5728;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;[[Prototype]]&#x5C5E;&#x6027;&#x5BF9;&#x811A;&#x672C;&#x5B8C;&#x5168;&#x4E0D;&#x53EF;&#x89C1;&#x3002;</li>
+<li>&#x771F;&#x6B63;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF1A;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x5B58;&#x5728;&#x4E8E;&#x5B9E;&#x4F8B;&#x4E0E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;&#x4E0E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../images/fe_js_oo.jpg" alt=""></p>
+<p><strong>&#x521B;&#x5EFA;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x5176;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x9ED8;&#x8BA4;&#x53EA;&#x4F1A;&#x53D6;&#x5F97; constructor &#x5C5E;&#x6027;&#xFF0C;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x4ECE; Object &#x7EE7;&#x627F;&#x800C;&#x6765;&#x7684;&#x3002;</strong></p>
+<p>&#x5B9E;&#x4F8B;person1 &#x548C; person2&#x90FD;&#x4E0D;&#x5305;&#x542B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x5374;&#x53EF;&#x4EE5;&#x8C03;&#x7528; person1.sayName()&#x3002;&#x8FD9;&#x662F;&#x901A;&#x8FC7;<strong>&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;</strong>&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6BCF;&#x5F53;&#x4EE3;&#x7801;&#x8BFB;&#x53D6;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x641C;&#x7D22;&#xFF0C;&#x76EE;&#x6807;&#x662F;&#x5177;&#x6709;&#x7ED9;&#x5B9A;&#x540D;&#x5B57;&#x7684;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x641C;&#x7D22;&#x9996;&#x5148;&#x4ECE;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x672C;&#x8EAB;&#x5F00;&#x59CB;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x627E;&#x5230;&#x76EE;&#x6807;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x641C;&#x7D22;[[Prototype]]&#x6307;&#x9488;&#x6307;&#x5411;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x5728;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E2D;&#x627E;&#x5230;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript">alert(Person.prototype.isPrototypeOf(person1)); <span class="hljs-comment">//true</span>
+alert(Person.prototype.isPrototypeOf(person2)); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>ECMAScript 5 &#x65B0;&#x589E;&#x4E86; Object.getPrototypeOf() &#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x6240;&#x6709;&#x652F;&#x6301;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;[[Prototype]]&#xFF1A;</p>
+<pre><code class="lang-javascript">alert(<span class="hljs-built_in">Object</span>.getPrototypeOf(person1) == Person.prototype);  <span class="hljs-comment">//true</span>
+alert(<span class="hljs-built_in">Object</span>.getPrototypeOf(person1).name);                 <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+<span class="hljs-comment">// &#x652F;&#x6301;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x6709; IE9+&#x3001;Firefox 3.5+&#x3001;Safari 5+&#x3001;Opera 12+&#x548C; Chrome</span>
+</code></pre>
+<p>&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8BBF;&#x95EE;&#x4FDD;&#x5B58;&#x5728;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x91CD;&#x5199;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x503C;&#xFF1A;</p>
+<ul>
+<li>&#x6DFB;&#x52A0;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x53EA;&#x4F1A;&#x963B;&#x6B62;&#x6211;&#x4EEC;&#x8BBF;&#x95EE;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x540C;&#x540D;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;&#xFF1B;</li>
+<li>&#x5373;&#x4F7F;&#x5C06;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A; null&#xFF0C;&#x4E5F;&#x53EA;&#x662F;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x4F1A;&#x6062;&#x590D;&#x5176;&#x6307;&#x5411;&#x539F;&#x578B;&#x7684;&#x8FDE;&#x63A5;&#xFF1B;</li>
+<li>&#x4F7F;&#x7528; delete &#x64CD;&#x4F5C;&#x7B26;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x5220;&#x9664;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x91CD;&#x65B0;&#x8BBF;&#x95EE;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
+Person.prototype.age = <span class="hljs-number">29</span>;
+Person.prototype.job = <span class="hljs-string">&quot;Software Engineer&quot;</span>;
+Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-keyword">this</span>.name);
+};
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person();
+person1.name = <span class="hljs-string">&quot;Greg&quot;</span>;
+alert(person1.name); <span class="hljs-comment">//&quot;Greg&quot;&#xFF0C;&#x6765;&#x81EA;&#x5B9E;&#x4F8B;</span>
+alert(person2.name); <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+<span class="hljs-keyword">delete</span> person1.name;
+alert(person1.name); <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+</code></pre>
+<p>hasOwnProperty()&#x65B9;&#x6CD5;&#xFF08;&#x7EE7;&#x627F;&#x81EA; Object&#xFF09;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x5C5E;&#x6027;&#x662F;&#x5B58;&#x5728;&#x4E8E;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x8FD8;&#x662F;&#x5B58;&#x5728;&#x4E8E;&#x539F;&#x578B;&#x4E2D;&#x3002;&#x53EA;&#x6709;&#x5728;&#x7ED9;&#x5B9A;&#x5C5E;&#x6027;&#x5B58;&#x5728;&#x4E8E;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x4E2D;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x8FD4;&#x56DE; true&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
+Person.prototype.age = <span class="hljs-number">29</span>;
+Person.prototype.job = <span class="hljs-string">&quot;Software Engineer&quot;</span>;
+Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-keyword">this</span>.name);
+};
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person();
+alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>));  <span class="hljs-comment">//false</span>
+person1.name = <span class="hljs-string">&quot;Greg&quot;</span>;
+alert(person1.name);    <span class="hljs-comment">//&quot;Greg&quot;&#xFF0C;&#x6765;&#x81EA;&#x5B9E;&#x4F8B;</span>
+alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>));  <span class="hljs-comment">//true</span>
+alert(person2.name);    <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+alert(person2.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>));  <span class="hljs-comment">//false</span>
+<span class="hljs-keyword">delete</span> person1.name;
+alert(person1.name);    <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>));  <span class="hljs-comment">//false</span>
+</code></pre>
+<p><img src="../../images/fe_js_oo_hasOwnProperty.jpg" alt=""></p>
+<h5 id="&#x539F;&#x578B;&#x4E0E;-in-&#x64CD;&#x4F5C;&#x7B26;">&#x539F;&#x578B;&#x4E0E; in &#x64CD;&#x4F5C;&#x7B26;</h5>
+<p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x4F7F;&#x7528; in &#x64CD;&#x4F5C;&#x7B26;&#xFF1A;</p>
+<ul>
+<li><p>&#x5355;&#x72EC;&#x4F7F;&#x7528;&#xFF1A;in &#x64CD;&#x4F5C;&#x7B26;&#x4F1A;&#x5728;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x7ED9;&#x5B9A;&#x5C5E;&#x6027;&#x65F6;&#x8FD4;&#x56DE; true&#xFF0C;&#x65E0;&#x8BBA;&#x8BE5;&#x5C5E;&#x6027;&#x5B58;&#x5728;&#x4E8E;&#x5B9E;&#x4F8B;&#x4E2D;&#x8FD8;&#x662F;&#x539F;&#x578B;&#x4E2D;&#x3002;</p>
+<pre><code class="lang-javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+  Person.prototype.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
+  Person.prototype.age = <span class="hljs-number">29</span>;
+  Person.prototype.job = <span class="hljs-string">&quot;Software Engineer&quot;</span>;
+  Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      alert(<span class="hljs-keyword">this</span>.name);
+  };
+  <span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person();
+  <span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person();
+  alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">//false</span>
+  alert(<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-keyword">in</span> person1); <span class="hljs-comment">//true</span>
+  person1.name = <span class="hljs-string">&quot;Greg&quot;</span>;
+  alert(person1.name); <span class="hljs-comment">//&quot;Greg&quot;&#xFF0C;&#x6765;&#x81EA;&#x5B9E;&#x4F8B;</span>
+  alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">//true</span>
+  alert(<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-keyword">in</span> person1); <span class="hljs-comment">//true</span>
+  alert(person2.name); <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+  alert(person2.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">//false</span>
+  alert(<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-keyword">in</span> person2); <span class="hljs-comment">//true</span>
+  <span class="hljs-keyword">delete</span> person1.name;
+  alert(person1.name); <span class="hljs-comment">//&quot;Nicholas&quot;&#xFF0C;&#x6765;&#x81EA;&#x539F;&#x578B;</span>
+  alert(person1.hasOwnProperty(<span class="hljs-string">&quot;name&quot;</span>)); <span class="hljs-comment">//false</span>
+  alert(<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-keyword">in</span> person1); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>  &#x540C;&#x65F6;&#x4F7F;&#x7528; hasOwnProperty()&#x65B9;&#x6CD5;&#x548C; in &#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x786E;&#x5B9A;&#x5C5E;&#x6027;&#x5230;&#x5E95;&#x662F;&#x5B58;&#x5728;&#x4E8E;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#x8FD8;&#x662F;&#x539F;&#x578B;&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasPrototypeProperty</span>(<span class="hljs-params">object, name</span>)</span>{
+      <span class="hljs-keyword">return</span> !object.hasOwnProperty(name) &amp;&amp; (name <span class="hljs-keyword">in</span> object);
+  }
+</code></pre>
+</li>
+<li><p>&#x5728; for-in &#x5FAA;&#x73AF;&#x4E2D;&#x4F7F;&#x7528;&#xFF1A;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x7684;&#x3001;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#xFF08;enumerated&#xFF09;&#x5C5E;&#x6027;&#xFF0C;&#x65E2;&#x5305;&#x62EC;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x5305;&#x62EC;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x5C4F;&#x853D;&#x4E86;&#x539F;&#x578B;&#x4E2D;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#xFF08;&#x5373;&#x5C06;[[Enumerable]]&#x6807;&#x8BB0;&#x4E3A; false &#x7684;&#x5C5E;&#x6027;&#xFF09;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x5728; for-in &#x5FAA;&#x73AF;&#x4E2D;&#x8FD4;&#x56DE;&#xFF0C;&#x56E0;&#x4E3A;&#x6839;&#x636E;&#x89C4;&#x5B9A;&#xFF0C;&#x6240;&#x6709;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x3002;</p>
+<ul>
+<li><p>Object.keys()&#xFF1A;&#x7528;&#x4E8E;&#x53D6;&#x5F97;&#x5BF9;&#x8C61;&#x4E0A;&#x6240;&#x6709;<strong>&#x53EF;&#x679A;&#x4E3E;</strong>&#x7684;<strong>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</strong>&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x5305;&#x542B;&#x6240;&#x6709;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;</p>
+<pre><code class="lang-javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+  Person.prototype.name = <span class="hljs-string">&quot;Nicholas&quot;</span>;
+  Person.prototype.age = <span class="hljs-number">29</span>;
+  Person.prototype.job = <span class="hljs-string">&quot;Software Engineer&quot;</span>;
+  Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      alert(<span class="hljs-keyword">this</span>.name);
+  };
+  <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(Person.prototype);
+  alert(keys);
+  <span class="hljs-comment">//&quot;name,age,job,sayName&quot;</span>
+  <span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x987A;&#x5E8F;&#x4E5F;&#x662F;&#x5B83;&#x4EEC;&#x5728; for-in &#x5FAA;&#x73AF;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x3002;</span>
+
+  <span class="hljs-keyword">var</span> p1 = <span class="hljs-keyword">new</span> Person();
+  p1.name = <span class="hljs-string">&quot;Rob&quot;</span>;
+  p1.age = <span class="hljs-number">31</span>;
+  <span class="hljs-keyword">var</span> p1keys = <span class="hljs-built_in">Object</span>.keys(p1);
+  alert(p1keys);  <span class="hljs-comment">//&quot;name,age&quot;</span>
+</code></pre>
+</li>
+<li><p>Object.getOwnPropertyNames()&#xFF1A;&#x7528;&#x4E8E;&#x83B7;&#x5F97;&#x6240;&#x6709;<strong>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</strong>&#xFF0C;&#x65E0;&#x8BBA;&#x5B83;&#x662F;&#x5426;&#x53EF;&#x679A;&#x4E3E;&#x3002;</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.getOwnPropertyNames(Person.prototype);
+  alert(keys);    <span class="hljs-comment">//&quot;constructor,name,age,job,sayName&quot;</span>
+</code></pre>
+<p>Object.keys()&#x548C; Object.getOwnPropertyNames()&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x66FF;&#x4EE3; for-in &#x5FAA;&#x73AF;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="&#x66F4;&#x7B80;&#x5355;&#x7684;&#x539F;&#x578B;&#x8BED;&#x6CD5;">&#x66F4;&#x7B80;&#x5355;&#x7684;&#x539F;&#x578B;&#x8BED;&#x6CD5;</h5>
+<p>&#x7528;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x91CD;&#x5199;&#x6574;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype = {
+    name : <span class="hljs-string">&quot;Nicholas&quot;</span>,
+    age : <span class="hljs-number">29</span>,
+    job: <span class="hljs-string">&quot;Software Engineer&quot;</span>,
+    sayName : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+};
+</code></pre>
+<p>&#x5C06; Person.prototype &#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4EE5;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x5F62;&#x5F0F;&#x521B;&#x5EFA;&#x7684;&#x65B0;&#x5BF9;&#x8C61;&#x3002;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x6709;&#x4E00;&#x4E2A;&#x4F8B;&#x5916;&#xFF1A;constructor &#x5C5E;&#x6027;&#x4E0D;&#x518D;&#x6307;&#x5411; Person &#x4E86;&#x3002;</p>
+<p>&#x524D;&#x9762;&#x66FE;&#x4ECB;&#x7ECD;&#x8FC7;&#xFF0C;&#x6BCF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x5B83;&#x7684; prototype &#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4F1A;&#x81EA;&#x52A8;&#x83B7;&#x5F97; constructor &#x5C5E;&#x6027;&#x3002;&#x800C;&#x8FD9;&#x91CC;&#x5B8C;&#x5168;&#x91CD;&#x5199;&#x4E86;&#x9ED8;&#x8BA4;&#x7684; prototype &#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64; constructor &#x5C5E;&#x6027;&#x4E5F;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x65B0;&#x5BF9;&#x8C61;&#x7684; constructor &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5411; Object &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x4E0D;&#x518D;&#x6307;&#x5411; Person &#x51FD;&#x6570;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x5C3D;&#x7BA1; instanceof &#x64CD;&#x4F5C;&#x7B26;&#x8FD8;&#x80FD;&#x8FD4;&#x56DE;&#x6B63;&#x786E;&#x7ED3;&#x679C;&#xFF0C;&#x4F46;&#x5DF2;&#x65E0;&#x6CD5;&#x901A;&#x8FC7; constructor &#x786E;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> friend = <span class="hljs-keyword">new</span> Person();
+alert(friend <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>);    <span class="hljs-comment">//true</span>
+alert(friend <span class="hljs-keyword">instanceof</span> Person);    <span class="hljs-comment">//true</span>
+alert(friend.constructor == Person);<span class="hljs-comment">//false</span>
+alert(friend.constructor == <span class="hljs-built_in">Object</span>);<span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x5982;&#x679C; constructor &#x7684;&#x503C;&#x771F;&#x7684;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7279;&#x610F;&#x5C06;&#x5B83;&#x8BBE;&#x7F6E;&#x56DE;&#x9002;&#x5F53;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype = {
+    <span class="hljs-keyword">constructor</span> : Person,
+    // &#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x91CD;&#x8BBE; <span class="hljs-keyword">constructor</span> &#x5C5E;&#x6027;&#x4F1A;&#x5BFC;&#x81F4;&#x5B83;&#x7684;[[Enumerable]]&#x7279;&#x6027;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; true
+    // &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x539F;&#x751F;&#x7684; <span class="hljs-keyword">constructor</span> &#x5C5E;&#x6027;&#x662F;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684;
+    name : &quot;Nicholas&quot;,
+    age : 29,
+    job: &quot;Software Engineer&quot;,
+    sayName : function () {
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+};
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype = {
+    name : <span class="hljs-string">&quot;Nicholas&quot;</span>,
+    age : <span class="hljs-number">29</span>,
+    job : <span class="hljs-string">&quot;Software Engineer&quot;</span>,
+    sayName : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+};
+<span class="hljs-comment">//&#x91CD;&#x8BBE;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x9002;&#x7528;&#x4E8E; ECMAScript 5 &#x517C;&#x5BB9;&#x7684;&#x6D4F;&#x89C8;&#x5668;</span>
+<span class="hljs-built_in">Object</span>.defineProperty(Person.prototype, <span class="hljs-string">&quot;constructor&quot;</span>, {
+    enumerable: <span class="hljs-literal">false</span>,
+    value: Person
+});
+</code></pre>
+<h5 id="&#x539F;&#x578B;&#x7684;&#x52A8;&#x6001;&#x6027;">&#x539F;&#x578B;&#x7684;&#x52A8;&#x6001;&#x6027;</h5>
+<p>&#x5728;&#x539F;&#x578B;&#x4E2D;&#x67E5;&#x627E;&#x503C;&#x662F;&#x4E00;&#x6B21;&#x641C;&#x7D22;&#x8FC7;&#x7A0B;&#xFF0C;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x6240;&#x505A;&#x7684;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#x90FD;&#x80FD;&#x591F;&#x7ACB;&#x5373;&#x4ECE;&#x5B9E;&#x4F8B;&#x4E0A;&#x53CD;&#x6620;&#x51FA;&#x6765;&#x2014;&#x2014;&#x5373;&#x4F7F;&#x662F;&#x5148;&#x521B;&#x5EFA;&#x4E86;&#x5B9E;&#x4F8B;&#x540E;&#x4FEE;&#x6539;&#x539F;&#x578B;&#x4E5F;&#x7167;&#x6837;&#x5982;&#x6B64;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> friend = <span class="hljs-keyword">new</span> Person();
+Person.prototype.sayHi = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    alert(<span class="hljs-string">&quot;hi&quot;</span>);
+};
+friend.sayHi(); <span class="hljs-comment">//&quot;hi&quot;</span>
+</code></pre>
+<p>&#x5C3D;&#x7BA1;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x4E3A;&#x539F;&#x578B;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x4FEE;&#x6539;&#x80FD;&#x591F;&#x7ACB;&#x5373;&#x5728;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x4E2D;&#x53CD;&#x6620;&#x51FA;&#x6765;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x91CD;&#x5199;&#x6574;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x60C5;&#x51B5;&#x5C31;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#x3002;</p>
+<p>&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x4E3A;&#x5B9E;&#x4F8B;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x6700;&#x521D;&#x539F;&#x578B;&#x7684;[[Prototype]]&#x6307;&#x9488;&#xFF0C;&#x800C;&#x628A;&#x539F;&#x578B;&#x4FEE;&#x6539;&#x4E3A;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5C31;&#x7B49;&#x4E8E;&#x5207;&#x65AD;&#x4E86;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0E;&#x6700;&#x521D;&#x539F;&#x578B;&#x4E4B;&#x95F4;&#x7684;&#x8054;&#x7CFB;&#x3002;</p>
+<p><strong>&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x6307;&#x9488;&#x4EC5;&#x6307;&#x5411;&#x539F;&#x578B;&#xFF0C;&#x800C;&#x4E0D;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+<span class="hljs-keyword">var</span> friend = <span class="hljs-keyword">new</span> Person();
+Person.prototype = {
+    <span class="hljs-keyword">constructor</span>: Person,
+    name : &quot;Nicholas&quot;,
+    age : 29,
+    job : &quot;Software Engineer&quot;,
+    sayName : function () {
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+};
+friend.sayName();   <span class="hljs-comment">//error</span>
+<span class="hljs-comment">// &#x91CD;&#x5199;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5207;&#x65AD;&#x4E86;&#x73B0;&#x6709;&#x539F;&#x578B;&#x4E0E;&#x4EFB;&#x4F55;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x7684;&#x8054;&#x7CFB;&#xFF0C;</span>
+<span class="hljs-comment">// &#x5B83;&#x4EEC;&#x5F15;&#x7528;&#x7684;&#x4ECD;&#x7136;&#x662F;&#x6700;&#x521D;&#x7684;&#x539F;&#x578B;&#x3002;</span>
+</code></pre>
+<p><img src="../../images/fe_js_oo_prototype.jpg" alt=""></p>
+<h5 id="&#x539F;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;">&#x539F;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;</h5>
+<p>&#x6240;&#x6709;&#x539F;&#x751F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF08;Object&#x3001;Array&#x3001;String&#xFF0C;&#x7B49;&#x7B49;&#xFF09;&#x90FD;&#x5728;&#x5176;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x4E0A;&#x5B9A;&#x4E49;&#x4E86;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x539F;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x6240;&#x6709;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x65B0;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript">alert(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Array</span>.prototype.sort);         <span class="hljs-comment">//&quot;function&quot;</span>
+alert(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">String</span>.prototype.substring);   <span class="hljs-comment">//&quot;function&quot;</span>
+
+<span class="hljs-built_in">String</span>.prototype.startsWith = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">text</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.indexOf(text) == <span class="hljs-number">0</span>;
+};
+<span class="hljs-keyword">var</span> msg = <span class="hljs-string">&quot;Hello world!&quot;</span>;
+alert(msg.startsWith(<span class="hljs-string">&quot;Hello&quot;</span>)); <span class="hljs-comment">//true</span>
+</code></pre>
+<h5 id="&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x95EE;&#x9898;">&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x95EE;&#x9898;</h5>
+<ul>
+<li>&#x5B83;&#x7701;&#x7565;&#x4E86;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;&#x8FD9;&#x4E00;&#x73AF;&#x8282;&#xFF0C;&#x7ED3;&#x679C;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x5C06;&#x53D6;&#x5F97;&#x76F8;&#x540C;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF1B;</li>
+<li>&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x6700;&#x5927;&#x95EE;&#x9898;&#x662F;&#x7531;&#x5176;&#x5171;&#x4EAB;&#x7684;&#x672C;&#x6027;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x8FD9;&#x79CD;&#x5171;&#x4EAB;&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#x975E;&#x5E38;&#x5408;&#x9002;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x5305;&#x542B;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x7684;&#x5C5E;&#x6027;&#x6765;&#x8BF4;&#xFF0C;&#x95EE;&#x9898;&#x5C31;&#x6BD4;&#x8F83;&#x7A81;&#x51FA;&#x4E86;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>{}
+Person.prototype = {
+    <span class="hljs-keyword">constructor</span>: Person,
+    name: &quot;Nicholas&quot;,
+    age: 29,
+    job: &quot;Software Engineer&quot;,
+    friends: [&quot;Shelby&quot;, &quot;Court&quot;],
+    sayName: function(){
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+};
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person();
+person1.friends.push(<span class="hljs-string">&quot;Van&quot;</span>);
+alert(person1.friends); <span class="hljs-comment">//&quot;Shelby,Court,Van&quot;</span>
+alert(person2.friends); <span class="hljs-comment">//&quot;Shelby,Court,Van&quot;</span>
+alert(person1.friends === person2.friends); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x5B9E;&#x4F8B;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x8981;&#x6709;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x5168;&#x90E8;&#x5C5E;&#x6027;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5F88;&#x5C11;&#x6709;&#x4EBA;&#x5355;&#x72EC;&#x4F7F;&#x7528;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x3002;</p>
+<h4 id="&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x548C;&#x539F;&#x578B;&#x6A21;&#x5F0F;">&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x548C;&#x539F;&#x578B;&#x6A21;&#x5F0F;</h4>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x548C;&#x5171;&#x4EAB;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.job = job;
+    <span class="hljs-keyword">this</span>.friends = [<span class="hljs-string">&quot;Shelby&quot;</span>, <span class="hljs-string">&quot;Court&quot;</span>];
+}
+Person.prototype = {
+    <span class="hljs-keyword">constructor</span>: Person,
+    sayName: function(){
+        alert(<span class="hljs-keyword">this</span>.name);
+    }
+}
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Nicholas&quot;</span>, <span class="hljs-number">29</span>, <span class="hljs-string">&quot;Software Engineer&quot;</span>);
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Greg&quot;</span>, <span class="hljs-number">27</span>, <span class="hljs-string">&quot;Doctor&quot;</span>);
+person1.friends.push(<span class="hljs-string">&quot;Van&quot;</span>);
+alert(person1.friends); <span class="hljs-comment">//&quot;Shelby,Count,Van&quot;</span>
+alert(person2.friends); <span class="hljs-comment">//&quot;Shelby,Count&quot;</span>
+alert(person1.friends === person2.friends); <span class="hljs-comment">//false</span>
+alert(person1.sayName === person2.sayName); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0E;&#x539F;&#x578B;&#x6DF7;&#x6210;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4F7F;&#x7528;&#x6700;&#x5E7F;&#x6CDB;&#x3001;&#x8BA4;&#x540C;&#x5EA6;&#x6700;&#x9AD8;&#x7684;&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="&#x52A8;&#x6001;&#x539F;&#x578B;&#x6A21;&#x5F0F;">&#x52A8;&#x6001;&#x539F;&#x578B;&#x6A21;&#x5F0F;</h4>
+<p>&#x6709;&#x5176;&#x4ED6; OO &#x8BED;&#x8A00;&#x7ECF;&#x9A8C;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5728;&#x770B;&#x5230;&#x72EC;&#x7ACB;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x539F;&#x578B;&#x65F6;&#x53EF;&#x80FD;&#x4F1A;&#x611F;&#x5230;&#x56F0;&#x60D1;&#x3002;&#x52A8;&#x6001;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x662F;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6848;&#xFF1A;&#x628A;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x90FD;&#x5C01;&#x88C5;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#x539F;&#x578B;&#x3002;&#x901A;&#x8FC7;&#x68C0;&#x67E5;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x539F;&#x578B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>)</span>{
+    <span class="hljs-comment">//&#x5C5E;&#x6027;</span>
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.job = job;
+    <span class="hljs-comment">//&#x65B9;&#x6CD5;</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span>.sayName != <span class="hljs-string">&quot;function&quot;</span>){
+        Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            alert(<span class="hljs-keyword">this</span>.name);
+        };
+    }
+}
+<span class="hljs-keyword">var</span> friend = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Nicholas&quot;</span>, <span class="hljs-number">29</span>, <span class="hljs-string">&quot;Software Engineer&quot;</span>);
+friend.sayName();   <span class="hljs-comment">//&quot;Nicholas&quot;</span>
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x53EA;&#x5728;sayName()&#x65B9;&#x6CD5;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x624D;&#x4F1A;&#x5C06;&#x5B83;&#x6DFB;&#x52A0;&#x5230;&#x539F;&#x578B;&#x4E2D;&#x3002;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x53EA;&#x4F1A;&#x5728;&#x521D;&#x6B21;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x6B64;&#x540E;&#xFF0C;&#x539F;&#x578B;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x505A;&#x4EC0;&#x4E48;&#x4FEE;&#x6539;&#x4E86;&#x3002;&#x8FD9;&#x91CC;&#x5BF9;&#x539F;&#x578B;&#x6240;&#x505A;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x80FD;&#x591F;&#x7ACB;&#x5373;&#x5728;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x4E2D;&#x5F97;&#x5230;&#x53CD;&#x6620;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x786E;&#x5B9E;&#x53EF;&#x4EE5;&#x8BF4;&#x975E;&#x5E38;&#x5B8C;&#x7F8E;&#x4E86;&#x3002;</p>
+<h4 id="&#x5BC4;&#x751F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;">&#x5BC4;&#x751F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;</h4>
 <h1 id="xmlhttprequest"><p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p></h1>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 <span class="hljs-built_in">console</span>.log(xhr.readyState);    <span class="hljs-comment">// 0</span>
 
 xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;readyState:&quot;</span>, xhr.readyState);    <span class="hljs-comment">// 1, 2, 3, 4</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;readyState:&quot;</span>, xhr.readyState); <span class="hljs-comment">// 1, 2, 3, 4</span>
 
     <span class="hljs-built_in">console</span>.log(xhr.getResponseHeader(<span class="hljs-string">&apos;Server&apos;</span>));
     <span class="hljs-built_in">console</span>.log(xhr.getAllResponseHeaders());
@@ -3315,7 +3674,7 @@ xhr.send(serialize(form));
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-02-26T11:22:28.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-26T11:22:43.872Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-03-15T11:16:36.003Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T11:28:29.159Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
