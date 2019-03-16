@@ -2522,6 +2522,45 @@ friend.sayName();   //"Nicholas"
 
 #### 寄生构造函数模式
 
+创建一个函数，寄生（parasitic）构造函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象。
+
+```javascript
+function Person(name, age, job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o;
+}
+var friend = new Person("Nicholas", 29, "Software Engineer");
+friend.sayName(); //"Nicholas"
+```
+
+除了使用 new 操作符并把使用的包装函数叫做构造函数之外，这个模式跟工厂模式其实是一模一样的。
+
+普通的构造函数中没有 return 语句，默认返回新对象实例，通过在构造函数末尾添加一个 return 语句，可以重写调用构造函数时返回的值。
+
+假设我们想创建一个具有额外方法的特殊数组。由于不能直接修改 Array 构造函数，因此可以使用这个模式。
+
+```javascript
+function SpecialArray(){
+    var values = new Array(); //创建数组
+    values.push.apply(values, arguments); //添加值
+    values.toPipedString = function(){ //添加方法
+        return this.join("|");
+    };
+    return values; //返回数组
+}
+
+var colors = new SpecialArray("red", "blue", "green");
+alert(colors.toPipedString()); //"red|blue|green"
+Array.prototype.toPipedString; //undefined，证明没有修改Array的原型对象
+```
+
+返回的对象与构造函数或者与构造函数的原型属性之间没有关系；也就是说，构造函数返回的对象与在构造函数外部创建的对象没有什么不同。为此，不能依赖 instanceof 操作符来确定对象类型。由于存在上述问题，我们建议在可以使用其他模式的情况下，不要使用这种模式。
 
 
 
