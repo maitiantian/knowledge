@@ -71,6 +71,9 @@
 * [Code-Puzzle](Code-Puzzle/README.md)
 * [健身](健身/README.md)
 * [摄影](摄影/README.md)
+    * [相机参数](摄影/相机参数/README.md)
+    * [构图](摄影/构图/README.md)
+    * [后期](摄影/后期/README.md)
 * [金融](金融/README.md)
 * [市场营销](市场营销/README.md)
 

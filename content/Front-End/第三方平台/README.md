@@ -18,3 +18,5 @@ https://api-portal.etoro.com/
 https://icons8.com/
 
 http://code.ciaoca.com/
+
+https://www.drlinkcheck.com/

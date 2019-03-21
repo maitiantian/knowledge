@@ -2547,21 +2547,207 @@ friend.sayName(); //"Nicholas"
 
 ```javascript
 function SpecialArray(){
-    var values = new Array(); //创建数组
-    values.push.apply(values, arguments); //添加值
-    values.toPipedString = function(){ //添加方法
+    var values = new Array();   //创建数组
+    values.push.apply(values, arguments);//添加值
+    values.toPipedString = function(){   //添加方法
         return this.join("|");
     };
-    return values; //返回数组
+    return values;  //返回数组
 }
 
 var colors = new SpecialArray("red", "blue", "green");
-alert(colors.toPipedString()); //"red|blue|green"
-Array.prototype.toPipedString; //undefined，证明没有修改Array的原型对象
+alert(colors.toPipedString());          //"red|blue|green"
+alert(Array.prototype.toPipedString);   //undefined，证明没有修改Array的原型对象
+alert(colors instanceof SpecialArray);  //false
 ```
 
-返回的对象与构造函数或者与构造函数的原型属性之间没有关系；也就是说，构造函数返回的对象与在构造函数外部创建的对象没有什么不同。为此，不能依赖 instanceof 操作符来确定对象类型。由于存在上述问题，我们建议在可以使用其他模式的情况下，不要使用这种模式。
+缺点：不能依赖 instanceof 操作符来确定对象类型。因此，在可以使用其他模式的情况下，不要使用这种模式。
 
+
+#### 稳妥构造函数模式
+
+稳妥对象（durable objects）：没有公共属性，且其方法也不引用 this 的对象。
+
+适合在一些安全的环境中（这些环境中会禁止使用 this 和 new）使用。
+
+```javascript
+function Person(name, age, job){
+    //创建要返回的对象
+    var o = new Object();
+    //可以在这里定义私有变量和函数
+    //添加方法
+    o.sayName = function(){
+        alert(name);
+    };
+    //返回对象
+    return o;
+}
+
+var friend = Person("Nicholas", 29, "Software Engineer");
+friend.sayName();   //"Nicholas"
+```
+
+以这种模式创建的对象，除了使用 sayName()，没有其他办法访问 name。
+
+即使有其他代码会给这个对象添加方法或数据成员，但也不可能有别的办法访问传入到构造函数中的原始数据。
+
+
+## 继承
+
+许多 OO 语言都支持两种继承方式：
+
+* 接口继承：继承方法签名；
+* 实现继承：继承实际的方法。
+
+由于函数没有签名，ECMAScript 中无法实现接口继承，只支持实现继承，其实现继承主要是依靠原型链来实现的。
+
+#### 原型链
+
+构造函数、原型和实例的关系：
+
+每个构造函数都有一个原型对象，原型对象包含一个指向构造函数的指针，实例包含一个指向原型对象的内部指针。
+
+让原型对象等于另一个类型的实例,此时的原型对象将包含一个指向另一个原型的指针，相应地，另一个原型中也包含着一个指向另一个构造函数的指针。假如另一个原型又是另一个类型的实例，上述关系依然成立，如此层层递进，就构成了实例与原型的链条。
+
+```javascript
+function SuperType(){
+    this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+function SubType(){
+    this.subproperty = false;
+}
+//继承了 SuperType
+SubType.prototype = new SuperType();
+SubType.prototype.getSubValue = function (){
+    return this.subproperty;
+};
+var instance = new SubType();
+alert(instance.getSuperValue()); //true
+```
+
+![](../../images/fe_js_oo_prototype_chain.jpg)
+
+这里我们没有使用 SubType 默认提供的原型，而是给它换了一个新原型；这个新原型就是 SuperType 的实例。新原型不仅具有作为一个 SuperType 的实例所拥有的全部属性和方法，而且其内部还有一个指针，指向了 SuperType 的原型。
+
+调用 instance.getSuperValue()会经历三个搜索步骤：
+
+1. 搜索实例；
+2. 搜索 SubType.prototype；
+3. 搜索 SuperType.prototype.
+
+最后一步才会找到该方法。在找不到属性或方法的情况下，搜索过程总是要一环一环地前行到原型链末端才会停下来。
+
+
+##### 别忘记默认的原型
+
+所有引用类型默认都继承了 Object，这个继承也是通过原型链实现的。
+
+这正是所有自定义类型都会继承 toString()、valueOf()等默认方法的根本原因。
+
+![](../../images/fe_js_oo_prototype_chain_2.jpg)
+
+
+##### 确定原型和实例的关系
+
+1. 使用 instanceof 操作符
+
+```javascript
+alert(instance instanceof Object);      //true
+alert(instance instanceof SuperType);   //true
+alert(instance instanceof SubType);     //true
+```
+
+由于原型链的关系，instance 是 Object、SuperType 或 SubType 中任何一个类型的实例。
+
+2. 使用 isPrototypeOf()方法
+
+```javascript
+alert(Object.prototype.isPrototypeOf(instance));    //true
+alert(SuperType.prototype.isPrototypeOf(instance)); //true
+alert(SubType.prototype.isPrototypeOf(instance));   //true 
+```
+
+只要是原型链中出现过的原型，都可以说是该原型链所派生的实例的原型。
+
+3. 谨慎地定义方法
+
+给原型添加方法的代码一定要放在替换原型的语句之后：
+
+```javascript
+function SuperType(){
+    this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+function SubType(){
+    this.subproperty = false;
+}
+//继承了 SuperType
+SubType.prototype = new SuperType();
+//添加新方法
+SubType.prototype.getSubValue = function (){
+    return this.subproperty;
+};
+//重写超类型中的方法
+SubType.prototype.getSuperValue = function (){
+    return false;
+};
+var instance = new SubType();
+alert(instance.getSuperValue());    //false
+```
+
+在通过原型链实现继承时，不能使用对象字面量创建原型方法，因为这样会重写原型链：
+
+```javascript
+function SuperType(){
+    this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+};
+function SubType(){
+    this.subproperty = false;
+}
+//继承了 SuperType
+SubType.prototype = new SuperType();
+//使用字面量添加新方法，会导致上一行代码无效
+//此时原型链被切断，SubType 和 SuperType 之间已没有关系
+SubType.prototype = {
+    getSubValue : function(){
+        return this.subproperty;
+    },
+    someOtherMethod : function(){
+        return false;
+    }
+};
+var instance = new SubType();
+alert(instance.getSuperValue());    //error!
+```
+
+4. 原型链的问题
+
+原型链的主要问题来自包含引用类型值的原型：
+
+在通过原型来实现继承时，原型会变成另一个类型的实例。于是，原先的实例属性也就变成了现在的原型属性了。
+
+```javascript
+function SuperType(){
+    this.colors = ["red", "blue", "green"];
+}
+function SubType(){}
+
+//继承了 SuperType
+SubType.prototype = new SuperType();
+var instance1 = new SubType();
+instance1.colors.push("black");
+alert(instance1.colors);    //"red,blue,green,black"
+var instance2 = new SubType();
+alert(instance2.colors);    //"red,blue,green,black"
+```
 
 
 
