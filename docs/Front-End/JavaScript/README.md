@@ -2751,6 +2751,7 @@ alert(instance2.colors);    //"red,blue,green,black"
 
 
 
+
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>
 
 ```javascript
