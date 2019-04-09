@@ -2750,6 +2750,98 @@ alert(instance2.colors);    //"red,blue,green,black"
 ```
 
 
+# <p align="center" style="border-bottom: 3px solid #e7e7e7;">DOM</p>
+
+DOM（Document Object Model，文档对象模型）是针对 HTML 和 XML 文档的一个 API（Application Program Interface，应用程序编程接口）。DOM 描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分。
+
+
+## 节点层次
+
+DOM 可以将任何 HTML 或 XML 文档描绘成一个由多层节点构成的结构。
+
+节点分为几种不同的类型，每种类型分别表示文档中不同的信息及（或）标记。每个节点都拥有各自的特点、数据和方法，另外也与其他节点存在某种关系。
+
+节点之间的关系构成了层次，所有页面标记则表现为一个以特定节点为根节点的树形结构。
+
+以下面的 HTML 为例：
+
+```html
+<html>
+    <head>
+        <title>Sample Page</title>
+    </head>
+    <body>
+        <p>Hello World!</p>
+    </body>
+</html> 
+```
+
+1. 文档节点是每个文档的根节点；
+2. 这个例子中，文档节点只有一个子节点，即<html>元素，称之为文档元素；
+3. 文档元素是文档的最外层元素，文档中的其他所有元素都包含在文档元素中；
+4. 每个文档只能有一个文档元素；
+5. 在 HTML 页面中文档元素始终都是<html>元素；
+6. 在 XML 中，任何元素都可能成为文档元素。
+
+
+每一段标记都可以通过树中的一个节点来表示：
+
+1. HTML 元素通过元素节点表示；
+2. 特性（attribute）通过特性节点表示；
+3. 文档类型通过文档类型节点表示；
+4. 注释通过注释节点表示。
+
+总共有 12 种节点类型，这些类型都继承自一个基类型。
+
+![](../../images/fe_js_dom.png)
+
+#### Node类型
+
+DOM1 级定义了一个 Node 接口，这个接口在 JavaScript 通过 Node 类型实现，JavaScript 中的所有节点类型都继承自这个 Node 类型，因此所有节点类型都共享着相同的基本属性和方法。
+
+每个节点都有一个 nodeType 属性，用于表明节点的类型。节点类型由在 Node 类型中定义的下列 12 个数值常量来表示，任何节点类型必居其一：
+
+* Node.ELEMENT\_NODE, 1
+* Node.ATTRIBUTE\_NODE, 2
+* Node.TEXT\_NODE, 3
+* Node.CDATA\_SECTION\_NODE, 4
+* Node.ENTITY\_REFERENCE\_NODE, 5
+* Node.ENTITY\_NODE, 6
+* Node.PROCESSING\_INSTRUCTION\_NODE, 7
+* Node.COMMENT\_NODE, 8
+* Node.DOCUMENT\_NODE, 9
+* Node.DOCUMENT\_TYPE\_NODE, 10
+* Node.DOCUMENT\_FRAGMENT\_NODE, 11
+* Node.NOTATION\_NODE, 12
+
+```javascript
+if(someNode.nodeType == Node.ELEMENT_NODE){    //在低版本 IE 中可能不兼容
+    alert("Node is an element.");
+}
+
+if(someNode.nodeType == 1){    //适用于所有浏览器
+    alert("Node is an element.");
+}
+```
+
+##### nodeName 和 nodeValue 属性
+
+```javascript
+if(someNode.nodeType == 1){
+    value = someNode.nodeName;  //nodeName 的值是元素的标签名
+}
+// 对于元素节点，nodeName 中保存的始终都是元素的标签名，
+// 而 nodeValue 的值则始终为 null。
+```
+
+##### 节点关系
+
+
+
+
+
+
+
 
 
 # <p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p>

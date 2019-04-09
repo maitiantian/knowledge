@@ -459,7 +459,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.2.1" data-path="../CSS/line-height/">
+        <li class="chapter " data-level="1.5.2.1" data-path="../CSS/移动端适配/">
+            
+                <a href="../CSS/移动端适配/">
+            
+                    
+                    移动端适配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../CSS/line-height/">
             
                 <a href="../CSS/line-height/">
             
@@ -472,7 +485,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2.2" data-path="../CSS/CSS3动画/">
+        <li class="chapter " data-level="1.5.2.3" data-path="../CSS/CSS3动画/">
             
                 <a href="../CSS/CSS3动画/">
             
@@ -3774,6 +3787,72 @@ alert(instance1.colors);    <span class="hljs-comment">//&quot;red,blue,green,bl
 <span class="hljs-keyword">var</span> instance2 = <span class="hljs-keyword">new</span> SubType();
 alert(instance2.colors);    <span class="hljs-comment">//&quot;red,blue,green,black&quot;</span>
 </code></pre>
+<h1 id="dom"><p align="center" style="border-bottom: 3px solid #e7e7e7;">DOM</p></h1>
+<p>DOM&#xFF08;Document Object Model&#xFF0C;&#x6587;&#x6863;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#xFF09;&#x662F;&#x9488;&#x5BF9; HTML &#x548C; XML &#x6587;&#x6863;&#x7684;&#x4E00;&#x4E2A; API&#xFF08;Application Program Interface&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7F16;&#x7A0B;&#x63A5;&#x53E3;&#xFF09;&#x3002;DOM &#x63CF;&#x7ED8;&#x4E86;&#x4E00;&#x4E2A;&#x5C42;&#x6B21;&#x5316;&#x7684;&#x8282;&#x70B9;&#x6811;&#xFF0C;&#x5141;&#x8BB8;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6DFB;&#x52A0;&#x3001;&#x79FB;&#x9664;&#x548C;&#x4FEE;&#x6539;&#x9875;&#x9762;&#x7684;&#x67D0;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<h2 id="&#x8282;&#x70B9;&#x5C42;&#x6B21;">&#x8282;&#x70B9;&#x5C42;&#x6B21;</h2>
+<p>DOM &#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x4F55; HTML &#x6216; XML &#x6587;&#x6863;&#x63CF;&#x7ED8;&#x6210;&#x4E00;&#x4E2A;&#x7531;&#x591A;&#x5C42;&#x8282;&#x70B9;&#x6784;&#x6210;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x8282;&#x70B9;&#x5206;&#x4E3A;&#x51E0;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x5206;&#x522B;&#x8868;&#x793A;&#x6587;&#x6863;&#x4E2D;&#x4E0D;&#x540C;&#x7684;&#x4FE1;&#x606F;&#x53CA;&#xFF08;&#x6216;&#xFF09;&#x6807;&#x8BB0;&#x3002;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x62E5;&#x6709;&#x5404;&#x81EA;&#x7684;&#x7279;&#x70B9;&#x3001;&#x6570;&#x636E;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x53E6;&#x5916;&#x4E5F;&#x4E0E;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x5B58;&#x5728;&#x67D0;&#x79CD;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x6784;&#x6210;&#x4E86;&#x5C42;&#x6B21;&#xFF0C;&#x6240;&#x6709;&#x9875;&#x9762;&#x6807;&#x8BB0;&#x5219;&#x8868;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;&#x4EE5;&#x7279;&#x5B9A;&#x8282;&#x70B9;&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x9762;&#x7684; HTML &#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Sample Page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<ol>
+<li>&#x6587;&#x6863;&#x8282;&#x70B9;&#x662F;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x6839;&#x8282;&#x70B9;&#xFF1B;</li>
+<li>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6587;&#x6863;&#x8282;&#x70B9;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5373;<html>&#x5143;&#x7D20;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;&#x6587;&#x6863;&#x5143;&#x7D20;&#xFF1B;</html></li>
+<li>&#x6587;&#x6863;&#x5143;&#x7D20;&#x662F;&#x6587;&#x6863;&#x7684;&#x6700;&#x5916;&#x5C42;&#x5143;&#x7D20;&#xFF0C;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x5305;&#x542B;&#x5728;&#x6587;&#x6863;&#x5143;&#x7D20;&#x4E2D;&#xFF1B;</li>
+<li>&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x5143;&#x7D20;&#xFF1B;</li>
+<li>&#x5728; HTML &#x9875;&#x9762;&#x4E2D;&#x6587;&#x6863;&#x5143;&#x7D20;&#x59CB;&#x7EC8;&#x90FD;&#x662F;<html>&#x5143;&#x7D20;&#xFF1B;</html></li>
+<li>&#x5728; XML &#x4E2D;&#xFF0C;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x90FD;&#x53EF;&#x80FD;&#x6210;&#x4E3A;&#x6587;&#x6863;&#x5143;&#x7D20;&#x3002;</li>
+</ol>
+<p>&#x6BCF;&#x4E00;&#x6BB5;&#x6807;&#x8BB0;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6811;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6765;&#x8868;&#x793A;&#xFF1A;</p>
+<ol>
+<li>HTML &#x5143;&#x7D20;&#x901A;&#x8FC7;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x8868;&#x793A;&#xFF1B;</li>
+<li>&#x7279;&#x6027;&#xFF08;attribute&#xFF09;&#x901A;&#x8FC7;&#x7279;&#x6027;&#x8282;&#x70B9;&#x8868;&#x793A;&#xFF1B;</li>
+<li>&#x6587;&#x6863;&#x7C7B;&#x578B;&#x901A;&#x8FC7;&#x6587;&#x6863;&#x7C7B;&#x578B;&#x8282;&#x70B9;&#x8868;&#x793A;&#xFF1B;</li>
+<li>&#x6CE8;&#x91CA;&#x901A;&#x8FC7;&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#x8868;&#x793A;&#x3002;</li>
+</ol>
+<p>&#x603B;&#x5171;&#x6709; 12 &#x79CD;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x578B;&#x3002;</p>
+<p><img src="../../images/fe_js_dom.png" alt=""></p>
+<h4 id="node&#x7C7B;&#x578B;">Node&#x7C7B;&#x578B;</h4>
+<p>DOM1 &#x7EA7;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; Node &#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5728; JavaScript &#x901A;&#x8FC7; Node &#x7C7B;&#x578B;&#x5B9E;&#x73B0;&#xFF0C;JavaScript &#x4E2D;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x8FD9;&#x4E2A; Node &#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#x90FD;&#x5171;&#x4EAB;&#x7740;&#x76F8;&#x540C;&#x7684;&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x4E00;&#x4E2A; nodeType &#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x8868;&#x660E;&#x8282;&#x70B9;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#x7531;&#x5728; Node &#x7C7B;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E0B;&#x5217; 12 &#x4E2A;&#x6570;&#x503C;&#x5E38;&#x91CF;&#x6765;&#x8868;&#x793A;&#xFF0C;&#x4EFB;&#x4F55;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#x5FC5;&#x5C45;&#x5176;&#x4E00;&#xFF1A;</p>
+<ul>
+<li>Node.ELEMENT_NODE, 1</li>
+<li>Node.ATTRIBUTE_NODE, 2</li>
+<li>Node.TEXT_NODE, 3</li>
+<li>Node.CDATA_SECTION_NODE, 4</li>
+<li>Node.ENTITY_REFERENCE_NODE, 5</li>
+<li>Node.ENTITY_NODE, 6</li>
+<li>Node.PROCESSING_INSTRUCTION_NODE, 7</li>
+<li>Node.COMMENT_NODE, 8</li>
+<li>Node.DOCUMENT_NODE, 9</li>
+<li>Node.DOCUMENT_TYPE_NODE, 10</li>
+<li>Node.DOCUMENT_FRAGMENT_NODE, 11</li>
+<li>Node.NOTATION_NODE, 12</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span>(someNode.nodeType == Node.ELEMENT_NODE){    <span class="hljs-comment">//&#x5728;&#x4F4E;&#x7248;&#x672C; IE &#x4E2D;&#x53EF;&#x80FD;&#x4E0D;&#x517C;&#x5BB9;</span>
+    alert(<span class="hljs-string">&quot;Node is an element.&quot;</span>);
+}
+
+<span class="hljs-keyword">if</span>(someNode.nodeType == <span class="hljs-number">1</span>){    <span class="hljs-comment">//&#x9002;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x6D4F;&#x89C8;&#x5668;</span>
+    alert(<span class="hljs-string">&quot;Node is an element.&quot;</span>);
+}
+</code></pre>
+<h5 id="nodename-&#x548C;-nodevalue-&#x5C5E;&#x6027;">nodeName &#x548C; nodeValue &#x5C5E;&#x6027;</h5>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span>(someNode.nodeType == <span class="hljs-number">1</span>){
+    value = someNode.nodeName;  <span class="hljs-comment">//nodeName &#x7684;&#x503C;&#x662F;&#x5143;&#x7D20;&#x7684;&#x6807;&#x7B7E;&#x540D;</span>
+}
+<span class="hljs-comment">// &#x5BF9;&#x4E8E;&#x5143;&#x7D20;&#x8282;&#x70B9;&#xFF0C;nodeName &#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x59CB;&#x7EC8;&#x90FD;&#x662F;&#x5143;&#x7D20;&#x7684;&#x6807;&#x7B7E;&#x540D;&#xFF0C;</span>
+<span class="hljs-comment">// &#x800C; nodeValue &#x7684;&#x503C;&#x5219;&#x59CB;&#x7EC8;&#x4E3A; null&#x3002;</span>
+</code></pre>
+<h5 id="&#x8282;&#x70B9;&#x5173;&#x7CFB;">&#x8282;&#x70B9;&#x5173;&#x7CFB;</h5>
 <h1 id="xmlhttprequest"><p align="center" style="border-bottom: 3px solid #e7e7e7;">XMLHttpRequest</p></h1>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
 <span class="hljs-built_in">console</span>.log(xhr.readyState);    <span class="hljs-comment">// 0</span>
@@ -3943,7 +4022,7 @@ xhr.send(serialize(form));
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-03-25T08:11:46.035Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T09:18:13.000Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5.4","depth":2,"next":{"title":"常用库","level":"1.5.5","depth":2,"path":"Front-End/常用库/README.md","ref":"Front-End/常用库/README.md","articles":[{"title":"jQuery","level":"1.5.5.1","depth":3,"path":"Front-End/常用库/jQuery/README.md","ref":"Front-End/常用库/jQuery/README.md","articles":[]},{"title":"axios","level":"1.5.5.2","depth":3,"path":"Front-End/常用库/axios/README.md","ref":"Front-End/常用库/axios/README.md","articles":[]},{"title":"lodash","level":"1.5.5.3","depth":3,"path":"Front-End/常用库/lodash/README.md","ref":"Front-End/常用库/lodash/README.md","articles":[]},{"title":"socket.io","level":"1.5.5.4","depth":3,"path":"Front-End/常用库/socket.io/README.md","ref":"Front-End/常用库/socket.io/README.md","articles":[]}]},"previous":{"title":"Bootstrap","level":"1.5.3","depth":2,"path":"Front-End/Bootstrap/README.md","ref":"Front-End/Bootstrap/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/JavaScript/README.md","mtime":"2019-04-09T11:03:39.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-09T11:04:18.281Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
