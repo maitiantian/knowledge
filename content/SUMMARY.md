@@ -20,6 +20,8 @@
 * [Web](Web/README.md)
     * [Cookie和Session](Web/Cookie和Session/README.md)
     * [CSRF和XSS](Web/CSRF和XSS/README.md)
+    * [域名](Web/域名/README.md)
+    * [跨域](Web/跨域/README.md)
     * [服务器端渲染和客户端渲染](Web/服务器端渲染和客户端渲染/README.md)
     * [浏览器工作流程](Web/浏览器工作流程/README.md)
     * [socket](Web/socket/README.md)
