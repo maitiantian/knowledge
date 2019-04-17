@@ -131,7 +131,7 @@ export default Counter;
         > componentWilJMount发生在“将要装载”时，这个时候没有任何渲染出来的结果，即使调用this.setState修改状态也不会引发重新绘制。
         
         > 换句话说，所有可以在componentWillMount 中做的事情，都可以提前到constructor中做，可以认为这个函数存在的主要目的就是为了和componentDidMount对称。
-        
+
     * render
         * render函数是React组件中最重要的函数
         > 一个React组件可以忽略其他所有函数都不实现，但是一定要实现 render 函数，因为所有 React 组件的父类 React.Component类对除render之外的生命周期函数都有默认实现。
@@ -207,6 +207,9 @@ export default Counter;
     * componentWillUnmount
         * componentWillUnmount中的工作往往和componentDidMount有关。
         > 在componentDidMount中用非React的方法创造的一些DOM元素，如果撒手不管可能会造成内存泄露，那就需要在componentWillUnmount中把这些创造的DOM元素清理掉。
+
+![](../../images/fe_react_lifecircle.jpg)
+
 
 ## 组件通过prop向外传递数据
 * 父组件通过prop传递数据给子组件

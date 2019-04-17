@@ -3147,13 +3147,13 @@ if (element.tagName.toLowerCase() == "div"){ //适用于任何文档
 
 1. HTML 元素
 
-所有 HTML 元素都由 HTMLElement 类型或它的子类型来表示，HTMLElement 类型直接继承自 Element 并添加了一些属性，添加的属性分别对应于 HTML 元素的下列标准特性：
+所有 HTML 元素都由 HTMLElement 类型或它的子类型来表示，HTMLElement 类型直接继承自 Element 并添加了一些属性：
 
-* id：元素在文档中的唯一标识符；
-* title：元素的附加说明信息，一般通过工具提示条显示出来；
-* lang：元素内容的语言代码，很少用；
-* dir：语言的方向，值为"ltr"（left-to-right，从左至右）或"rtl"（right-to-left，从右至左），很少用；
-* className：元素的 class。没有将这个属性命名为 class，因为 class 是 ECMAScript 的保留字。
+* id 属性：对应元素的 id；
+* title 属性：对应元素的 title，附加说明信息，一般通过工具提示条显示出来；
+* lang 属性：对应元素的 lang，内容的语言代码，很少用；
+* dir 属性：对应元素的 dir，语言的方向，值为"ltr"（left-to-right，从左至右）或"rtl"（right-to-left，从右至左），很少用；
+* className 属性：对应元素的 class。没把这个属性命名为 class 是因为 class 是 ECMAScript 的保留字。
 
 上述属性都可以用来取得或修改相应的特性值：
 
@@ -3173,6 +3173,105 @@ div.title = "Some other text";
 div.lang = "fr";
 div.dir = "rtl";
 ```
+
+所有 HTML 元素都是由 HTMLElement 或者其更具体的子类型来表示的。下表列出了所有 HTML 元素以及与之关联的类型：
+
+|元素|类型|元素|类型|
+|:---|:---|:---|:---|
+|A|HTMLAnchorElement|INPUT|HTMLInputElement|
+|ABBR|HTMLElement|INS|HTMLModElement|
+|ACRONYM|HTMLElement|KBD|HTMLElement|
+|ADDRESS|HTMLElement|LABEL|HTMLLabelElement|
+|AREA|HTMLAreaElement|LEGEND|HTMLLegendElement|
+|B|HTMLElement|LI|HTMLLIElement|
+|BASE|HTMLBaseElement|LINK|HTMLLinkElement|
+|BDO|HTMLElement|MAP|HTMLMapElement|
+|BIG|HTMLElement|META|HTMLMetaElement|
+|BLOCKQUOTE|HTMLQuoteElement|NOFRAMES|HTMLElement|
+|BODY|HTMLBodyElement|NOSCRIPT|HTMLElement|
+|BR|HTMLBRElement|OBJECT|HTMLObjectElement|
+|BUTTON|HTMLButtonElement|OL|HTMLOListElement|
+|CAPTION|HTMLTableCaptionElement|OPTGROUP|HTMLOptGroupElement|
+|CITE|HTMLElement|OPTION|HTMLOptionElement|
+|CODE|HTMLElement|P|HTMLParagraphElement|
+|COL|HTMLTableColElement|PARAM|HTMLParamElement|
+|COLGROUP|HTMLTableColElement|PRE|HTMLPreElement|
+|DD|HTMLElement|Q|HTMLQuoteElement|
+|DEL|HTMLModElement|SAMP|HTMLElement|
+|DFN|HTMLElement|SCRIPT|HTMLScriptElement|
+|DIV|HTMLDivElement|SELECT|HTMLSelectElement|
+|DL|HTMLDListElement|SMALL|HTMLElement|
+|DT|HTMLElement|SPAN|HTMLElement|
+|EM|HTMLElement|STRONG|HTMLElement|
+|FIELDSET|HTMLFieldSetElement|STYLE|HTMLStyleElement|
+|FORM|HTMLFormElement|SUB|HTMLElement|
+|FRAME|HTMLFrameElement|SUP|HTMLElement|
+|FRAMESET|HTMLFrameSetElement|TABLE|HTMLTableElement|
+|H1|HTMLHeadingElement|TBODY|HTMLTableSectionElement|
+|H2|HTMLHeadingElement|TD|HTMLTableCellElement|
+|H3|HTMLHeadingElement|TEXTAREA|HTMLTextAreaElement|
+|H4|HTMLHeadingElement|TFOOT|HTMLTableSectionElement|
+|H5|HTMLHeadingElement|TH|HTMLTableCellElement|
+|H6|HTMLHeadingElement|THEAD|HTMLTableSectionElement|
+|HEAD|HTMLHeadElement|TITLE|HTMLTitleElement|
+|HR|HTMLHRElement|TR|HTMLTableRowElement|
+|HTML|HTMLHtmlElement|TT|HTMLElement|
+|I|HTMLElement|UL|HTMLUListElement|
+|IFRAME|HTMLIFrameElement|VAR|HTMLElement|
+|IMG|HTMLImageElement|||
+
+每种类型都有与之相关的特性和方法。
+
+2. 取得特性
+
+每个元素都有一或多个特性，操作特性的 DOM 方法有三个：
+
+1. getAttribute()
+2. setAttribute()
+3. removeAttribute()
+
+这三个方法可以针对任何特性使用，包括那些以 HTMLElement 类型属性的形式定义的特性：
+
+```javascript
+var div = document.getElementById("myDiv");
+alert(div.getAttribute("id"));      //"myDiv"
+alert(div.getAttribute("class"));   //"bd"
+alert(div.getAttribute("title"));   //"Body text"
+alert(div.getAttribute("lang"));    //"en"
+alert(div.getAttribute("dir"));     //"ltr"
+```
+
+传给 getAttribute()的特性名与实际的特性名相同。因此要想得到 class 特性值，应该传入"class"而不是"className"，后者只在通过对象属性访问特性时才用。如果给定名称的特性不存在，getAttribute()返回 null。
+
+通过 getAttribute()方法也可以取得自定义特性（即标准 HTML 语言中没有的特性）的值：
+
+```javascript
+// <div id="myDiv" my_special_attribute="hello!"></div>
+alert(div.getAttribute("my_special_attribute")); //"hello!"
+alert(div.id); //"myDiv"
+alert(div.my_special_attribute); //undefined
+alert(div.align); //"left"
+```
+
+    * __特性的名称不区分大小写，"ID"、"id"、"iD"和"Id"代表同一个特性；__
+    * __根据 HTML5 规范，自定义特性应该加上 data-前缀以便验证。__
+
+
+有两类特殊的特性，虽然有对应的属性名，但属性的值与通过 getAttribute()返回的值并不相同。
+
+    1. style
+        * 通过 getAttribute()访问时，返回 style 特性值中包含的 CSS 文本；
+        * 通过属性访问时，返回一个对象。
+    2. onclick
+        * 通过 getAttribute()访问时，返回 HTML 元素 onclick 中包含的字符串；
+        * 通过 onclick 属性访问时，返回一个 JavaScript 函数（如果未在元素中指定相应特性，返回 null），因为 onclick 及其他事件处理程序属性本身就应该被赋予函数值。
+
+由于存在这些差别，在操作 DOM 时，常常不使用 getAttribute()，只使用对象的属性。只有在取得自定义特性值的情况下，才用 getAttribute()方法。
+
+3. 设置特性
+
+
+
 
 
 
