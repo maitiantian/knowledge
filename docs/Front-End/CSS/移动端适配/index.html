@@ -1392,48 +1392,64 @@ document.body.clientHeight</p>
 <li>height: layout viewport &#x7684;&#x9AD8;&#x5EA6;&#xFF1B;</li>
 <li>device-width: ideal viewport &#x7684;&#x5BBD;&#x5EA6;&#xFF1B;</li>
 <li>device-height: ideal viewport &#x7684;&#x9AD8;&#x5EA6;&#xFF1B;</li>
-<li>orientation: &#x68C0;&#x6D4B;&#x8BBE;&#x5907;&#x76EE;&#x524D;&#x5904;&#x4E8E;&#x6A2A;&#x5411;&#x8FD8;&#x662F;&#x7EB5;&#x5411;&#x72B6;&#x6001;&#xFF1B;</li>
-<li>aspect-ratio: &#x68C0;&#x6D4B;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x89C6;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x4F8B;&#x3002;(&#x4F8B;&#x5982;&#xFF1A;aspect-ratio:16/9)&#xFF1B;</li>
+<li>orientation: &#x68C0;&#x6D4B;&#x8BBE;&#x5907;&#x76EE;&#x524D;&#x5904;&#x4E8E;&#x6A2A;&#x5411;&#xFF08;landscape&#xFF09;&#x8FD8;&#x662F;&#x7EB5;&#x5411;&#xFF08;portrait&#xFF09;&#x72B6;&#x6001;&#xFF1B;</li>
+<li>aspect-ratio: &#x68C0;&#x6D4B;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x89C6;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x4F8B;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;aspect-ratio:16/9&#xFF09;&#xFF1B;</li>
 <li>device-aspect-ratio: &#x68C0;&#x6D4B;&#x8BBE;&#x5907;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x4F8B;&#xFF1B;</li>
 <li>color: &#x68C0;&#x6D4B;&#x989C;&#x8272;&#x7684;&#x4F4D;&#x6570;&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;min-color:32&#x5C31;&#x4F1A;&#x68C0;&#x6D4B;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x62E5;&#x6709;32&#x4F4D;&#x989C;&#x8272;&#xFF09;&#xFF1B;</li>
 <li>color-index: &#x68C0;&#x67E5;&#x8BBE;&#x5907;&#x989C;&#x8272;&#x7D22;&#x5F15;&#x8868;&#x4E2D;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x4ED6;&#x7684;&#x503C;&#x4E0D;&#x80FD;&#x662F;&#x8D1F;&#x6570;&#xFF1B;</li>
-<li>monochrome: &#x68C0;&#x6D4B;&#x5355;&#x8272;&#x6968;&#x7F13;&#x51B2;&#x533A;&#x57DF;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x7684;&#x4F4D;&#x6570;&#x3002;&#xFF08;&#x8FD9;&#x4E2A;&#x592A;&#x9AD8;&#x7EA7;&#xFF0C;&#x4F30;&#x8BA1;&#x54B1;&#x5F88;&#x5C11;&#x4F1A;&#x7528;&#x7684;&#x5230;)&#xFF1B;</li>
-<li>resolution: &#x68C0;&#x6D4B;&#x5C4F;&#x5E55;&#x6216;&#x6253;&#x5370;&#x673A;&#x7684;&#x5206;&#x8FA8;&#x7387;&#xFF1B;(&#x4F8B;&#x5982;&#xFF1A;min-resolution:300dpi&#x6216;min-resolution:118dpcm)&#xFF1B;</li>
-<li>grid: &#x68C0;&#x6D4B;&#x8F93;&#x51FA;&#x7684;&#x8BBE;&#x5907;&#x662F;&#x7F51;&#x683C;&#x7684;&#x8FD8;&#x662F;&#x4F4D;&#x56FE;&#x8BBE;&#x5907;&#xFF1B;</li>
+<li>resolution: &#x68C0;&#x6D4B;&#x5C4F;&#x5E55;&#x6216;&#x6253;&#x5370;&#x673A;&#x7684;&#x5206;&#x8FA8;&#x7387;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;min-resolution:300dpi&#x6216;min-resolution:118dpcm&#xFF09;&#xFF1B;</li>
+<li>grid: &#x68C0;&#x6D4B;&#x8BBE;&#x5907;&#x662F;&#x7F51;&#x683C;&#x7684;&#x8FD8;&#x662F;&#x4F4D;&#x56FE;&#x8BBE;&#x5907;&#x3002;</li>
 </ul>
-<p>aspect-ratio: visual viewport &#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x7387;&#xFF08;iPhone 5: 320/568&#xFF09;&#xFF1B;
-color: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5F69;&#x8272;&#x8BBE;&#x5907;&#xFF0C;&#x5219;&#x503C;&#x7B49;&#x4E8E;0&#xFF1B;
-color-index: &#x5B9A;&#x4E49;&#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6761;&#x76EE;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#xFF0C;&#x5219;&#x503C;&#x7B49;&#x4E8E;0&#xFF1B;
-device-aspect-ratio: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x7387;&#xFF1B;
-device-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x9AD8;&#x5EA6;&#xFF1B;
-device-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;
-grid: &#x7528;&#x6765;&#x67E5;&#x8BE2;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6805;&#x683C;&#x6216;&#x70B9;&#x9635;&#xFF1B;
-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;
-max-aspect-ratio: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x6BD4;&#x7387;&#xFF1B;
-max-color: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x4E2A;&#x6570;&#xFF1B;
-max-color-index: &#x5B9A;&#x4E49;&#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x6761;&#x76EE;&#x6570;&#xFF1B;
-max-device-aspect-ratio: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x6BD4;&#x7387;&#xFF1B;
-max-device-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x7684;&#x6700;&#x5927;&#x9AD8;&#x5EA6;&#xFF1B;
-max-device-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;
-max-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;
-max-monochrome: &#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x8272;&#x6846;&#x67B6;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x6BCF;&#x50CF;&#x7D20;&#x5305;&#x542B;&#x7684;&#x6700;&#x5927;&#x5355;&#x8272;&#x539F;&#x4EF6;&#x4E2A;&#x6570;&#xFF1B;
-max-resolution: &#x5B9A;&#x4E49;&#x8BBE;&#x5907;&#x7684;&#x6700;&#x5927;&#x5206;&#x8FA8;&#x7387;&#xFF1B;
-max-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#xFF1B;
-min-aspect-ratio: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5C0F;&#x6BD4;&#x7387;&#xFF1B;
-min-color: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x6700;&#x5C0F;&#x4E2A;&#x6570;&#xFF1B;
-min-color-index: &#x5B9A;&#x4E49;&#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x6761;&#x76EE;&#x6570;&#xFF1B;
-min-device-aspect-ratio: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5C0F;&#x6BD4;&#x7387;&#xFF1B;
-min-device-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;
-min-device-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x7684;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x9AD8;&#x5EA6;&#xFF1B;
-min-height: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;
-min-monochrome: &#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x8272;&#x6846;&#x67B6;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x6BCF;&#x50CF;&#x7D20;&#x5305;&#x542B;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x8272;&#x539F;&#x4EF6;&#x4E2A;&#x6570;&#xFF1B;
-min-resolution: &#x5B9A;&#x4E49;&#x8BBE;&#x5907;&#x7684;&#x6700;&#x5C0F;&#x5206;&#x8FA8;&#x7387;&#xFF1B;
-min-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#xFF1B;
-monochrome: &#x5B9A;&#x4E49;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x8272;&#x6846;&#x67B6;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x6BCF;&#x50CF;&#x7D20;&#x5305;&#x542B;&#x7684;&#x5355;&#x8272;&#x539F;&#x4EF6;&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5355;&#x8272;&#x8BBE;&#x5907;&#xFF0C;&#x5219;&#x503C;&#x7B49;&#x4E8E;0&#xFF1B;
-orientation: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#x662F;&#x5426;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5BBD;&#x5EA6;&#xFF1B;
-resolution: &#x5B9A;&#x4E49;&#x8BBE;&#x5907;&#x7684;&#x5206;&#x8FA8;&#x7387;&#xFF0C;&#x5982;&#xFF1A;96dpi&#x3001;300dpi&#x3001;118dpcm&#xFF1B;
-scan: &#x5B9A;&#x4E49;&#x7535;&#x89C6;&#x7C7B;&#x8BBE;&#x5907;&#x7684;&#x626B;&#x63CF;&#x5DE5;&#x5E8F;&#xFF1B;
-width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#x3002;</p>
+<ul>
+<li>orientation: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#x662F;&#x5426;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5BBD;&#x5EA6;&#xFF1B;</li>
+<li>scan: &#x7535;&#x89C6;&#x7C7B;&#x8BBE;&#x5907;&#x7684;&#x626B;&#x63CF;&#x5DE5;&#x5E8F;&#xFF1B;</li>
+<li>grid: &#x7528;&#x6765;&#x67E5;&#x8BE2;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6805;&#x683C;&#x6216;&#x70B9;&#x9635;&#xFF1B;</li>
+<li>width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#xFF1B;<ul>
+<li>min-width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#xFF1B;</li>
+<li>max-width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#xFF1B;</li>
+</ul>
+</li>
+<li>height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;<ul>
+<li>min-height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;</li>
+<li>max-height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x9AD8;&#x5EA6;&#xFF1B;</li>
+</ul>
+</li>
+<li>device-width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;<ul>
+<li>min-device-width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;</li>
+<li>max-device-width: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x6700;&#x5927;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#xFF1B;</li>
+</ul>
+</li>
+<li>device-height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x9AD8;&#x5EA6;&#xFF1B;<ul>
+<li>min-device-height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x7684;&#x6700;&#x5C0F;&#x53EF;&#x89C1;&#x9AD8;&#x5EA6;&#xFF1B;</li>
+<li>max-device-height: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x7684;&#x6700;&#x5927;&#x9AD8;&#x5EA6;&#xFF1B;</li>
+</ul>
+</li>
+<li>aspect-ratio: visual viewport &#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x7387;&#xFF08;iPhone 5: 320/568&#xFF09;&#xFF1B;<ul>
+<li>min-aspect-ratio: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&#x9762;&#x53EF;&#x89C1;&#x533A;&#x57DF;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5C0F;&#x6BD4;&#x7387;&#xFF1B;</li>
+<li>max-aspect-ratio: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x6BD4;&#x7387;&#xFF1B;</li>
+</ul>
+</li>
+<li>device-aspect-ratio: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6BD4;&#x7387;&#xFF1B;<ul>
+<li>min-device-aspect-ratio: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5C0F;&#x6BD4;&#x7387;&#xFF1B;</li>
+<li>max-device-aspect-ratio: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5C4F;&#x5E55;&#x53EF;&#x89C1;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x6BD4;&#x7387;&#xFF1B;</li>
+</ul>
+</li>
+<li>resolution: &#x8BBE;&#x5907;&#x7684;&#x5206;&#x8FA8;&#x7387;&#xFF0C;&#x5982;&#xFF1A;96dpi&#x3001;300dpi&#x3001;118dpcm&#xFF1B;<ul>
+<li>min-resolution: &#x8BBE;&#x5907;&#x7684;&#x6700;&#x5C0F;&#x5206;&#x8FA8;&#x7387;&#xFF1B;</li>
+<li>max-resolution: &#x8BBE;&#x5907;&#x7684;&#x6700;&#x5927;&#x5206;&#x8FA8;&#x7387;&#xFF1B;</li>
+</ul>
+</li>
+<li>color: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5F69;&#x8272;&#x8BBE;&#x5907;&#xFF0C;&#x5219;&#x503C;&#x7B49;&#x4E8E;0&#xFF1B;<ul>
+<li>min-color: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x6700;&#x5C0F;&#x4E2A;&#x6570;&#xFF1B;</li>
+<li>max-color: &#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x6BCF;&#x4E00;&#x7EC4;&#x5F69;&#x8272;&#x539F;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x4E2A;&#x6570;&#xFF1B;</li>
+</ul>
+</li>
+<li>color-index: &#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6761;&#x76EE;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#xFF0C;&#x5219;&#x503C;&#x7B49;&#x4E8E;0&#xFF1B;<ul>
+<li>min-color-index: &#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x6761;&#x76EE;&#x6570;&#xFF1B;</li>
+<li>max-color-index: &#x5728;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x5F69;&#x8272;&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x6761;&#x76EE;&#x6570;&#x3002;</li>
+</ul>
+</li>
+</ul>
 <hr>
 <p><a href="https://blog.csdn.net/VhWfR2u02Q/article/details/78737075" target="_blank">&#x4E00;&#x7BC7;&#x771F;&#x6B63;&#x6559;&#x4F1A;&#x4F60;&#x5F00;&#x53D1;&#x79FB;&#x52A8;&#x7AEF;&#x9875;&#x9762;&#x7684;&#x6587;&#x7AE0;(&#x4E00;)</a></p>
 <p><a href="http://web.jobbole.com/93253/" target="_blank">&#x4E00;&#x7BC7;&#x771F;&#x6B63;&#x6559;&#x4F1A;&#x4F60;&#x5F00;&#x53D1;&#x79FB;&#x52A8;&#x7AEF;&#x9875;&#x9762;&#x7684;&#x6587;&#x7AE0;(&#x4E8C;)</a></p>
@@ -1497,7 +1513,7 @@ width: &#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x4E2D;&#x7684;&#x9875;&
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"移动端适配","level":"1.5.2.1","depth":3,"next":{"title":"line-height","level":"1.5.2.2","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]},"previous":{"title":"CSS","level":"1.5.2","depth":2,"path":"Front-End/CSS/README.md","ref":"Front-End/CSS/README.md","articles":[{"title":"移动端适配","level":"1.5.2.1","depth":3,"path":"Front-End/CSS/移动端适配/README.md","ref":"Front-End/CSS/移动端适配/README.md","articles":[]},{"title":"line-height","level":"1.5.2.2","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]},{"title":"CSS3动画","level":"1.5.2.3","depth":3,"path":"Front-End/CSS/CSS3动画/README.md","ref":"Front-End/CSS/CSS3动画/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/CSS/移动端适配/README.md","mtime":"2019-04-09T07:30:39.434Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T03:38:50.056Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"移动端适配","level":"1.5.2.1","depth":3,"next":{"title":"line-height","level":"1.5.2.2","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]},"previous":{"title":"CSS","level":"1.5.2","depth":2,"path":"Front-End/CSS/README.md","ref":"Front-End/CSS/README.md","articles":[{"title":"移动端适配","level":"1.5.2.1","depth":3,"path":"Front-End/CSS/移动端适配/README.md","ref":"Front-End/CSS/移动端适配/README.md","articles":[]},{"title":"line-height","level":"1.5.2.2","depth":3,"path":"Front-End/CSS/line-height/README.md","ref":"Front-End/CSS/line-height/README.md","articles":[]},{"title":"CSS3动画","level":"1.5.2.3","depth":3,"path":"Front-End/CSS/CSS3动画/README.md","ref":"Front-End/CSS/CSS3动画/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/CSS/移动端适配/README.md","mtime":"2019-04-17T11:07:29.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-22T11:54:49.997Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -105,48 +105,46 @@ ideal viewport并没有固定尺寸，不同设备拥有有不同的ideal viewpo
 * height: layout viewport 的高度；
 * device-width: ideal viewport 的宽度；
 * device-height: ideal viewport 的高度；
-* orientation: 检测设备目前处于横向还是纵向状态；
-* aspect-ratio: 检测浏览器可视宽度和高度的比例。(例如：aspect-ratio:16/9)；
+* orientation: 检测设备目前处于横向（landscape）还是纵向（portrait）状态；
+* aspect-ratio: 检测浏览器可视宽度和高度的比例（例如：aspect-ratio:16/9）；
 * device-aspect-ratio: 检测设备的宽度和高度的比例；
 * color: 检测颜色的位数。（例如：min-color:32就会检测设备是否拥有32位颜色）；
 * color-index: 检查设备颜色索引表中的颜色，他的值不能是负数；
-* monochrome: 检测单色楨缓冲区域中的每个像素的位数。（这个太高级，估计咱很少会用的到)；
-* resolution: 检测屏幕或打印机的分辨率；(例如：min-resolution:300dpi或min-resolution:118dpcm)；
-* grid: 检测输出的设备是网格的还是位图设备；
+* resolution: 检测屏幕或打印机的分辨率（例如：min-resolution:300dpi或min-resolution:118dpcm）；
+* grid: 检测设备是网格的还是位图设备。
 
-aspect-ratio: visual viewport 宽度与高度的比率（iPhone 5: 320/568）；
-color: 输出设备每一组彩色原件的个数，如果不是彩色设备，则值等于0；
-color-index: 定义在输出设备的彩色查询表中的条目数，如果没有使用彩色查询表，则值等于0；
-device-aspect-ratio: 定义输出设备的屏幕可见宽度与高度的比率；
-device-height: 定义输出设备的屏幕可见高度；
-device-width: 定义输出设备的屏幕可见宽度；
-grid: 用来查询输出设备是否使用栅格或点阵；
-height: 定义输出设备中的页面可见区域高度；
-max-aspect-ratio: 定义输出设备的屏幕可见宽度与高度的最大比率；
-max-color: 定义输出设备每一组彩色原件的最大个数；
-max-color-index: 定义在输出设备的彩色查询表中的最大条目数；
-max-device-aspect-ratio: 定义输出设备的屏幕可见宽度与高度的最大比率；
-max-device-height: 定义输出设备的屏幕可见的最大高度；
-max-device-width: 定义输出设备的屏幕最大可见宽度；
-max-height: 定义输出设备中的页面最大可见区域高度；
-max-monochrome: 定义在一个单色框架缓冲区中每像素包含的最大单色原件个数；
-max-resolution: 定义设备的最大分辨率；
-max-width: 定义输出设备中的页面最大可见区域宽度；
-min-aspect-ratio: 定义输出设备中的页面可见区域宽度与高度的最小比率；
-min-color: 定义输出设备每一组彩色原件的最小个数；
-min-color-index: 定义在输出设备的彩色查询表中的最小条目数；
-min-device-aspect-ratio: 定义输出设备的屏幕可见宽度与高度的最小比率；
-min-device-width: 定义输出设备的屏幕最小可见宽度；
-min-device-height: 定义输出设备的屏幕的最小可见高度；
-min-height: 定义输出设备中的页面最小可见区域高度；
-min-monochrome: 定义在一个单色框架缓冲区中每像素包含的最小单色原件个数；
-min-resolution: 定义设备的最小分辨率；
-min-width: 定义输出设备中的页面最小可见区域宽度；
-monochrome: 定义在一个单色框架缓冲区中每像素包含的单色原件个数，如果不是单色设备，则值等于0；
-orientation: 定义输出设备中的页面可见区域高度是否大于或等于宽度；
-resolution: 定义设备的分辨率，如：96dpi、300dpi、118dpcm；
-scan: 定义电视类设备的扫描工序；
-width: 定义输出设备中的页面可见区域宽度。
+
+* orientation: 输出设备中的页面可见区域高度是否大于或等于宽度；
+* scan: 电视类设备的扫描工序；
+* grid: 用来查询输出设备是否使用栅格或点阵；
+* width: 输出设备中的页面可见区域宽度；
+	* min-width: 输出设备中的页面最小可见区域宽度；
+	* max-width: 输出设备中的页面最大可见区域宽度；
+* height: 输出设备中的页面可见区域高度；
+	* min-height: 输出设备中的页面最小可见区域高度；
+	* max-height: 输出设备中的页面最大可见区域高度；
+* device-width: 输出设备的屏幕可见宽度；
+	* min-device-width: 输出设备的屏幕最小可见宽度；
+	* max-device-width: 输出设备的屏幕最大可见宽度；
+* device-height: 输出设备的屏幕可见高度；
+	* min-device-height: 输出设备的屏幕的最小可见高度；
+	* max-device-height: 输出设备的屏幕可见的最大高度；
+* aspect-ratio: visual viewport 宽度与高度的比率（iPhone 5: 320/568）；
+	* min-aspect-ratio: 输出设备中的页面可见区域宽度与高度的最小比率；
+	* max-aspect-ratio: 输出设备的屏幕可见宽度与高度的最大比率；
+* device-aspect-ratio: 输出设备的屏幕可见宽度与高度的比率；
+	* min-device-aspect-ratio: 输出设备的屏幕可见宽度与高度的最小比率；
+	* max-device-aspect-ratio: 输出设备的屏幕可见宽度与高度的最大比率；
+* resolution: 设备的分辨率，如：96dpi、300dpi、118dpcm；
+	* min-resolution: 设备的最小分辨率；
+	* max-resolution: 设备的最大分辨率；
+* color: 输出设备每一组彩色原件的个数，如果不是彩色设备，则值等于0；
+	* min-color: 输出设备每一组彩色原件的最小个数；
+	* max-color: 输出设备每一组彩色原件的最大个数；
+* color-index: 在输出设备的彩色查询表中的条目数，如果没有使用彩色查询表，则值等于0；
+	* min-color-index: 在输出设备的彩色查询表中的最小条目数；
+	* max-color-index: 在输出设备的彩色查询表中的最大条目数。
+
 
 
 ----------------------------------------------------------------------------------------------------------
