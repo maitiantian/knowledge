@@ -1,3 +1,8 @@
+<div style="position: fixed; bottom: 20px; right: 39px; border-radius: 5px; background-color: #797979; z-index: 100;">
+    <a href="#目录" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
+    <a href="javascript:void(0)" style="color: white; border-right: 1px solid white; text-decoration: none; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;" onclick="(function(){document.querySelector('.btn.pull-left.js-toolbar-action').click()})()"><i class="fa fa-align-justify"></i></a>
+</div>
+
 # 服务器端渲染和客户端渲染
 
 「服务器端渲染」指传统的ASP、Java或PHP的渲染机制；「客户端渲染」指使用JS来渲染页面大部分内容，代表是现在流行的SPA（Signal-Page Application，单页面应用）；「同构渲染」指前后端共用JS，首次渲染时使用Node.js来直出HTML。

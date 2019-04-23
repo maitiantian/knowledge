@@ -1,3 +1,8 @@
+<div style="position: fixed; bottom: 20px; right: 39px; border-radius: 5px; background-color: #797979; z-index: 100;">
+    <a href="#目录" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
+    <a href="javascript:void(0)" style="color: white; border-right: 1px solid white; text-decoration: none; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;" onclick="(function(){document.querySelector('.btn.pull-left.js-toolbar-action').click()})()"><i class="fa fa-align-justify"></i></a>
+</div>
+
 # 工作流程及分支管理
 
 * [Git flow](#git-flow)
@@ -9,7 +14,6 @@
 > **功能驱动式开发（feature-driven development，FDD）**：需求是开发的起点，先有需求再有功能分支（feature branch）或者补丁分支（hotfix branch）。完成开发后，该分支就合并到主分支，然后被删除。
 
 # <p align="center">Git flow</p>
-###### [<p align="right">back to top ▲</p>](#工作流程及分支管理)
 
 ### 特点一：
 
@@ -110,7 +114,6 @@ git branch -d fixbug-0.1
 
 
 # <p align="center">GitHub flow</p>
-###### [<p align="right">back to top ▲</p>](#工作流程及分支管理)
 
 GitHub flow是Git flow的简化版，专门配合"持续发布"，是github.com使用的工作流程。
 
@@ -125,7 +128,6 @@ GitHub flow是Git flow的简化版，专门配合"持续发布"，是github.com�
 
 
 # <p align="center">GitLab flow</p>
-###### [<p align="right">back to top ▲</p>](#工作流程及分支管理)
 
 GitLab flow是Git flow与GitHub flow的综合，它吸取了两者的优点，既有适应不同开发环境的弹性，又有单一主分支的简单和便利，是Gitlab.com推荐的做法。
 

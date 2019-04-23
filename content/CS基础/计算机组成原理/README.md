@@ -1,3 +1,8 @@
+<div style="position: fixed; bottom: 20px; right: 39px; border-radius: 5px; background-color: #797979; z-index: 100;">
+    <a href="#目录" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
+    <a href="javascript:void(0)" style="color: white; border-right: 1px solid white; text-decoration: none; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;" onclick="(function(){document.querySelector('.btn.pull-left.js-toolbar-action').click()})()"><i class="fa fa-align-justify"></i></a>
+</div>
+
 # 计算机组成原理
 
 CPU执行一条指令的过程：
@@ -20,13 +25,22 @@ MIPS（Million Instructions Per Second）：计算机每秒钟执行的百万指
 指令周期 = 若干个机器周期
 
 
-简述时钟周期、机器周期、指令周期的概念及三者之间的关系：https://wenku.baidu.com/view/1a29d43543323968011c92e6.html
-简述CPU执行一条指令的过程：https://zhidao.baidu.com/question/124425422.html
-延迟图示：https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html / https://gist.github.com/hellerbarde/2843375
-让 CPU 告诉你硬盘和网络到底有多慢：http://cizixs.com/2017/01/03/how-slow-is-disk-and-network/
-牛人博客：http://cizixs.com/
-CPU主频、倍频与外频：https://zhidao.baidu.com/question/29974153.html
-Why do CPUs have multiple cache levels?：https://fgiesen.wordpress.com/2016/08/07/why-do-cpus-have-multiple-cache-levels/
-Von Neumann bottleneck：https://en.wikipedia.org/wiki/Von_Neumann_architecture#Von_Neumann_bottleneck
-Why is it faster to process a sorted array than an unsorted array?What is Branch Prediction?
-：https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array
+[简述时钟周期、机器周期、指令周期的概念及三者之间的关系](https://wenku.baidu.com/view/1a29d43543323968011c92e6.html)
+
+[简述CPU执行一条指令的过程](https://zhidao.baidu.com/question/124425422.html)
+
+[延迟图示](https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html)
+
+[延迟图示](https://gist.github.com/hellerbarde/2843375)
+
+[让 CPU 告诉你硬盘和网络到底有多慢](http://cizixs.com/2017/01/03/how-slow-is-disk-and-network/)
+
+[牛人博客](http://cizixs.com/)
+
+[CPU主频、倍频与外频](https://zhidao.baidu.com/question/29974153.html)
+
+[Why do CPUs have multiple cache levels?](https://fgiesen.wordpress.com/2016/08/07/why-do-cpus-have-multiple-cache-levels/)
+
+[Von Neumann bottleneck](https://en.wikipedia.org/wiki/Von_Neumann_architecture#Von_Neumann_bottleneck)
+
+[Why is it faster to process a sorted array than an unsorted array?What is Branch Prediction?](https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
