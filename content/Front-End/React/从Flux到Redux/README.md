@@ -15,8 +15,10 @@
 
 # <p align="center">Flux</p>
 
-###### [<p align="right">back to top ▲</p>](#从flux到redux)
+
 在MVC( Model-View-Controller）的世界里，React相当于V（也就是View）的部分，只涉及页面的渲染，一旦涉及应用的数据管理部分，还是交给Model和Controller。
+
+![MVC框架](../../../images/flux_mvc.png)
 
 MVC框架提出的数据流很理想，用户请求先到达Controller，由Controller调用Model获得数据，然后把数据交给View，**但是，在实际框架实现中，总是允许View和Model可以直接通信**：
 
@@ -27,7 +29,7 @@ MVC框架提出的数据流很理想，用户请求先到达Controller，由Cont
 
 > 对于MVC框架，为了让数据流可控，Controller应该是中心，当View要传递消息给Model时，应该调用Controller的方法，同样，当Model要更新View时，也应该通过Controller引发新的渲染。
 
-### **Flux的特点：更严格的数据流控制。**
+#### __Flux的特点：更严格的数据流控制。__
 
 ![Flux的单向数据流](../../../images/flux_1.png)
 
@@ -40,7 +42,7 @@ __一个Flux应用包含四个部分：__
 > 当需要扩充应用所能处理的“请求”时，MVC方法需要增加新的Controller，而Flux则是增加新的Action。
 
 
-## 创建一个Flux应用 [▲](#从flux到redux)
+## 创建一个Flux应用
 **1、Dispatcher**
 ```js
 // src/AppDispatcher.js
@@ -113,8 +115,7 @@ const counterValues = {
 // 一个EventEmitter实例对象支持下列相关函数：
 // 1.emit(事件名称)，广播一个特定事件；
 // 2.on(事件名称, 处理函数)，增加一个挂在这个EventEmitter对象特定事件上的处理函数；
-// 3.removeListener(事件名称, 处理函数)，和on相反，
-// 删除挂在这个EventEmitter对象特定事件上的处理函数。
+// 3.removeListener(事件名称, 处理函数)，和on相反，删除挂在这个EventEmitter对象特定事件上的处理函数。
 
 // CounterStore对象的emitChange、addChangeListener和removeChangeListener函数，
 // 就是利用EventEmitter上述的三个函数完成对CounterStore状态更新的广播、添加监听函数和删除监听函数等操作。
@@ -369,7 +370,7 @@ class Summary extends Component{
 export default Summary;
 ```
 
-## Flux的优势 [▲](#从flux到redux)
+## Flux的优势
 
 > Flux的架构下，应用的状态被放在Store中，React组件只是扮演View的作用，被动根据Store的状态来渲染。React组件依然有自己的状态，但是已经完全沦为Store组件的一个映射，而不是主动变化的数据。
 
@@ -384,7 +385,7 @@ export default Summary;
 **在Flux体系下，驱动界面改变始于一个动作的派发，除此之外，别无他法。**
 
 
-## Flux的不足 [▲](#从flux到redux)
+## Flux的不足
 
 1. Store之间依赖关系 
     1. 在Flux体系中，如果两个Store之间有逻辑依赖关系，就必须要用Dispatcher的waitFor函数；
@@ -402,9 +403,9 @@ export default Summary;
 
 # <p align="center">Redux</p>
 
-###### [<p align="right">back to top ▲</p>](#从flux到redux)
 
-### Redux基本原则
+
+## Redux基本原则
 1. 唯一数据源（Single Source of Truth）
     
     **应用的状态数据应该只存储在唯一的一个Store上**

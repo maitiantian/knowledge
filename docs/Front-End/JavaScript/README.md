@@ -3230,9 +3230,9 @@ div.dir = "rtl";
 
 每个元素都有一或多个特性，操作特性的 DOM 方法有三个：
 
-1. getAttribute()
-2. setAttribute()
-3. removeAttribute()
+    1. getAttribute()
+    2. setAttribute()
+    3. removeAttribute()
 
 这三个方法可以针对任何特性使用，包括那些以 HTMLElement 类型属性的形式定义的特性：
 
@@ -3273,6 +3273,66 @@ alert(div.align); //"left"
 由于存在这些差别，在操作 DOM 时，常常不使用 getAttribute()，只使用对象的属性。只有在取得自定义特性值的情况下，才用 getAttribute()方法。
 
 3. 设置特性
+
+setAttribute()，接受两个参数：要设置的特性名和值。
+
+* 如果特性已存在，setAttribute()以指定值替换现有值；
+* 如果特性不存在，setAttribute()创建该属性并设置相应的值。
+
+setAttribute()既可以操作 HTML 特性也可以操作自定义特性。
+
+__通过这个方法设置的特性名会被统一转换为小写形式，即"ID"会变成"id"。__
+
+所有特性都是属性，所以直接给属性赋值可以设置特性的值：
+
+```javascript
+div.id = "someOtherId";
+div.align = "left"; 
+// 不过，像下面这样为 DOM 元素添加自定义属性，该属性不会自动成为元素的特性
+div.mycolor = "red";
+alert(div.getAttribute("mycolor")); //null
+```
+
+removeAttribute()，用于彻底删除元素的特性，调用这个方法不仅会清除特性值，也会从元素中完全删除特性：
+
+```javascript
+div.removeAttribute("class");
+```
+
+4. attributes 属性
+
+Element 类型是唯一一个使用 attributes 属性的 DOM 节点类型。
+
+attributes 属性中包含一个 NamedNodeMap，与 NodeList 类似，也是一个“动态”的集合。
+
+元素的每一个特性都由一个 Attr 节点表示，每个节点都保存在 NamedNodeMap 对象中。NamedNodeMap 对象拥有下列方法：
+
+* getNamedItem(name)：返回 nodeName 属性等于 name 的节点；
+* removeNamedItem(name)：从列表中移除 nodeName 属性等于 name 的节点；
+* setNamedItem(node)：向列表中添加节点，以节点的 nodeName 属性为索引；
+* item(pos)：返回位于数字 pos 位置处的节点。
+
+![](../../images/fe_js_dom_attributes.png)
+
+attributes 属性中包含一系列节点，每个节点的 nodeName 就是特性的名称，而节点的 nodeValue 就是特性的值。
+
+要取得元素的 id 特性，可以使用以下代码：
+
+```javascript
+var id = element.attributes.getNamedItem("id").nodeValue;
+
+// 以下是使用方括号语法通过特性名称访问节点的简写方式
+var id = element.attributes["id"].nodeValue;
+```
+
+也可以使用这种语法来设置特性的值：
+
+```javascript
+// 先取得特性节点，再将其 nodeValue 设置为新值
+element.attributes["id"].nodeValue = "someOtherId";
+var oldAttr = element.attributes.removeNamedItem("id");
+```
+
 
 
 
@@ -3395,3 +3455,15 @@ var form = document.getElementById("form");
 xhr.send(serialize(form));
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+[JS阻止冒泡和取消默认事件(默认行为)](http://caibaojian.com/javascript-stoppropagation-preventdefault.html)

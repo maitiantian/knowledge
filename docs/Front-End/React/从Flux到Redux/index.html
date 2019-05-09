@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../gulp/" />
+    <link rel="next" href="../Redux/" />
     
     
     <link rel="prev" href="../" />
@@ -621,6 +621,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.5.5" data-path="../../常用库/ESLint/">
+            
+                <a href="../../常用库/ESLint/">
+            
+                    
+                    ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -678,6 +691,19 @@
             
                     
                     从Flux到Redux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../Redux/">
+            
+                <a href="../Redux/">
+            
+                    
+                    Redux
             
                 </a>
             
@@ -935,6 +961,19 @@
             
                     
                     HTTPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../../../HTTP/集成点：网关、隧道及中继/">
+            
+                <a href="../../../HTTP/集成点：网关、隧道及中继/">
+            
+                    
+                    集成点：网关、隧道及中继
             
                 </a>
             
@@ -1319,8 +1358,8 @@
 <li><a href="#redux">Redux</a></li>
 </ul>
 <h1 id="flux"><p align="center">Flux</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x4ECE;flux&#x5230;redux"><p align="right">back to top &#x25B2;</p></a></h6>
 <p>&#x5728;MVC( Model-View-Controller&#xFF09;&#x7684;&#x4E16;&#x754C;&#x91CC;&#xFF0C;React&#x76F8;&#x5F53;&#x4E8E;V&#xFF08;&#x4E5F;&#x5C31;&#x662F;View&#xFF09;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x53EA;&#x6D89;&#x53CA;&#x9875;&#x9762;&#x7684;&#x6E32;&#x67D3;&#xFF0C;&#x4E00;&#x65E6;&#x6D89;&#x53CA;&#x5E94;&#x7528;&#x7684;&#x6570;&#x636E;&#x7BA1;&#x7406;&#x90E8;&#x5206;&#xFF0C;&#x8FD8;&#x662F;&#x4EA4;&#x7ED9;Model&#x548C;Controller&#x3002;</p>
+<p><img src="../../../images/flux_mvc.png" alt="MVC&#x6846;&#x67B6;"></p>
 <p>MVC&#x6846;&#x67B6;&#x63D0;&#x51FA;&#x7684;&#x6570;&#x636E;&#x6D41;&#x5F88;&#x7406;&#x60F3;&#xFF0C;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x5148;&#x5230;&#x8FBE;Controller&#xFF0C;&#x7531;Controller&#x8C03;&#x7528;Model&#x83B7;&#x5F97;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6570;&#x636E;&#x4EA4;&#x7ED9;View&#xFF0C;<strong>&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x6846;&#x67B6;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x603B;&#x662F;&#x5141;&#x8BB8;View&#x548C;Model&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x4FE1;</strong>&#xFF1A;</p>
 <p><img src="../../../images/flux_mvc_1.png" alt="MVC&#x7684;&#x7F3A;&#x70B9;"></p>
 <ul>
@@ -1330,7 +1369,7 @@
 <blockquote>
 <p>&#x5BF9;&#x4E8E;MVC&#x6846;&#x67B6;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA9;&#x6570;&#x636E;&#x6D41;&#x53EF;&#x63A7;&#xFF0C;Controller&#x5E94;&#x8BE5;&#x662F;&#x4E2D;&#x5FC3;&#xFF0C;&#x5F53;View&#x8981;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x7ED9;Model&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x8C03;&#x7528;Controller&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x6837;&#xFF0C;&#x5F53;Model&#x8981;&#x66F4;&#x65B0;View&#x65F6;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x901A;&#x8FC7;Controller&#x5F15;&#x53D1;&#x65B0;&#x7684;&#x6E32;&#x67D3;&#x3002;</p>
 </blockquote>
-<h3 id="flux&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x66F4;&#x4E25;&#x683C;&#x7684;&#x6570;&#x636E;&#x6D41;&#x63A7;&#x5236;&#x3002;"><strong>Flux&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x66F4;&#x4E25;&#x683C;&#x7684;&#x6570;&#x636E;&#x6D41;&#x63A7;&#x5236;&#x3002;</strong></h3>
+<h4 id="flux&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x66F4;&#x4E25;&#x683C;&#x7684;&#x6570;&#x636E;&#x6D41;&#x63A7;&#x5236;&#x3002;"><strong>Flux&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x66F4;&#x4E25;&#x683C;&#x7684;&#x6570;&#x636E;&#x6D41;&#x63A7;&#x5236;&#x3002;</strong></h4>
 <p><img src="../../../images/flux_1.png" alt="Flux&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;"></p>
 <p><strong>&#x4E00;&#x4E2A;Flux&#x5E94;&#x7528;&#x5305;&#x542B;&#x56DB;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;</strong></p>
 <ul>
@@ -1342,7 +1381,7 @@
 <blockquote>
 <p>&#x5F53;&#x9700;&#x8981;&#x6269;&#x5145;&#x5E94;&#x7528;&#x6240;&#x80FD;&#x5904;&#x7406;&#x7684;&#x201C;&#x8BF7;&#x6C42;&#x201D;&#x65F6;&#xFF0C;MVC&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x589E;&#x52A0;&#x65B0;&#x7684;Controller&#xFF0C;&#x800C;Flux&#x5219;&#x662F;&#x589E;&#x52A0;&#x65B0;&#x7684;Action&#x3002;</p>
 </blockquote>
-<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;flux&#x5E94;&#x7528;-&#x25B2;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Flux&#x5E94;&#x7528; <a href="#&#x4ECE;flux&#x5230;redux">&#x25B2;</a></h2>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;flux&#x5E94;&#x7528;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Flux&#x5E94;&#x7528;</h2>
 <p><strong>1&#x3001;Dispatcher</strong></p>
 <pre><code class="lang-js"><span class="hljs-comment">// src/AppDispatcher.js</span>
 <span class="hljs-keyword">import</span> {Dispatcher} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;flux&apos;</span>;
@@ -1413,8 +1452,7 @@
 <span class="hljs-comment">// &#x4E00;&#x4E2A;EventEmitter&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x652F;&#x6301;&#x4E0B;&#x5217;&#x76F8;&#x5173;&#x51FD;&#x6570;&#xFF1A;</span>
 <span class="hljs-comment">// 1.emit(&#x4E8B;&#x4EF6;&#x540D;&#x79F0;)&#xFF0C;&#x5E7F;&#x64AD;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#xFF1B;</span>
 <span class="hljs-comment">// 2.on(&#x4E8B;&#x4EF6;&#x540D;&#x79F0;, &#x5904;&#x7406;&#x51FD;&#x6570;)&#xFF0C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6302;&#x5728;&#x8FD9;&#x4E2A;EventEmitter&#x5BF9;&#x8C61;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#x4E0A;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF1B;</span>
-<span class="hljs-comment">// 3.removeListener(&#x4E8B;&#x4EF6;&#x540D;&#x79F0;, &#x5904;&#x7406;&#x51FD;&#x6570;)&#xFF0C;&#x548C;on&#x76F8;&#x53CD;&#xFF0C;</span>
-<span class="hljs-comment">// &#x5220;&#x9664;&#x6302;&#x5728;&#x8FD9;&#x4E2A;EventEmitter&#x5BF9;&#x8C61;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#x4E0A;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;</span>
+<span class="hljs-comment">// 3.removeListener(&#x4E8B;&#x4EF6;&#x540D;&#x79F0;, &#x5904;&#x7406;&#x51FD;&#x6570;)&#xFF0C;&#x548C;on&#x76F8;&#x53CD;&#xFF0C;&#x5220;&#x9664;&#x6302;&#x5728;&#x8FD9;&#x4E2A;EventEmitter&#x5BF9;&#x8C61;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#x4E0A;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;</span>
 
 <span class="hljs-comment">// CounterStore&#x5BF9;&#x8C61;&#x7684;emitChange&#x3001;addChangeListener&#x548C;removeChangeListener&#x51FD;&#x6570;&#xFF0C;</span>
 <span class="hljs-comment">// &#x5C31;&#x662F;&#x5229;&#x7528;EventEmitter&#x4E0A;&#x8FF0;&#x7684;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x5B8C;&#x6210;&#x5BF9;CounterStore&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x7684;&#x5E7F;&#x64AD;&#x3001;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x548C;&#x5220;&#x9664;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x7B49;&#x64CD;&#x4F5C;&#x3002;</span>
@@ -1661,7 +1699,7 @@ export default ControlPanel;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Summary;
 </code></pre>
-<h2 id="flux&#x7684;&#x4F18;&#x52BF;-&#x25B2;">Flux&#x7684;&#x4F18;&#x52BF; <a href="#&#x4ECE;flux&#x5230;redux">&#x25B2;</a></h2>
+<h2 id="flux&#x7684;&#x4F18;&#x52BF;">Flux&#x7684;&#x4F18;&#x52BF;</h2>
 <blockquote>
 <p>Flux&#x7684;&#x67B6;&#x6784;&#x4E0B;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x653E;&#x5728;Store&#x4E2D;&#xFF0C;React&#x7EC4;&#x4EF6;&#x53EA;&#x662F;&#x626E;&#x6F14;View&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x88AB;&#x52A8;&#x6839;&#x636E;Store&#x7684;&#x72B6;&#x6001;&#x6765;&#x6E32;&#x67D3;&#x3002;React&#x7EC4;&#x4EF6;&#x4F9D;&#x7136;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x6CA6;&#x4E3A;Store&#x7EC4;&#x4EF6;&#x7684;&#x4E00;&#x4E2A;&#x6620;&#x5C04;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E3B;&#x52A8;&#x53D8;&#x5316;&#x7684;&#x6570;&#x636E;&#x3002;</p>
 </blockquote>
@@ -1670,7 +1708,7 @@ export default ControlPanel;
 <p><strong>MVC&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x65E0;&#x6CD5;&#x7981;&#x7EDD;View&#x548C;Model&#x4E4B;&#x95F4;&#x76F4;&#x63A5;&#x5BF9;&#x8BDD;</strong>&#xFF0C;Flux&#x4E2D;&#x7684;View&#x5BF9;&#x5E94;&#x4E8E;MVC&#x4E2D;&#x7684;View&#xFF0C;Flux&#x4E2D;&#x7684;Store&#x5BF9;&#x5E94;&#x4E8E;MVC&#x4E2D;&#x7684;Model&#xFF0C;&#x5728;Flux&#x4E2D;&#xFF0C;Store&#x53EA;&#x6709;get&#x65B9;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;set&#x65B9;&#x6CD5;&#xFF0C;&#x6839;&#x672C;&#x4E0D;&#x53EF;&#x80FD;&#x76F4;&#x63A5;&#x53BB;&#x4FEE;&#x6539;&#x5176;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF0C;View&#x53EA;&#x80FD;&#x901A;&#x8FC7;get&#x65B9;&#x6CD5;&#x83B7;&#x53D6;Store&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x53BB;&#x4FEE;&#x6539;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;View&#x60F3;&#x8981;&#x4FEE;&#x6539;Store&#x72B6;&#x6001;&#xFF0C;&#x53EA;&#x6709;&#x6D3E;&#x53D1;&#x4E00;&#x4E2A;action&#x5BF9;&#x8C61;&#x7ED9;Dispatcher&#x3002;</p>
 <p><strong>&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x662F;&#x4E00;&#x4E2A;&#x201C;&#x9650;&#x5236;&#x201D;&#xFF0C;&#x4F46;&#x5374;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x201C;&#x9650;&#x5236;&#x201D;&#xFF0C;&#x675C;&#x7EDD;&#x4E86;&#x6570;&#x636E;&#x6D41;&#x6DF7;&#x4E71;&#x7684;&#x53EF;&#x80FD;&#x3002;</strong></p>
 <p><strong>&#x5728;Flux&#x4F53;&#x7CFB;&#x4E0B;&#xFF0C;&#x9A71;&#x52A8;&#x754C;&#x9762;&#x6539;&#x53D8;&#x59CB;&#x4E8E;&#x4E00;&#x4E2A;&#x52A8;&#x4F5C;&#x7684;&#x6D3E;&#x53D1;&#xFF0C;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x522B;&#x65E0;&#x4ED6;&#x6CD5;&#x3002;</strong></p>
-<h2 id="flux&#x7684;&#x4E0D;&#x8DB3;-&#x25B2;">Flux&#x7684;&#x4E0D;&#x8DB3; <a href="#&#x4ECE;flux&#x5230;redux">&#x25B2;</a></h2>
+<h2 id="flux&#x7684;&#x4E0D;&#x8DB3;">Flux&#x7684;&#x4E0D;&#x8DB3;</h2>
 <ol>
 <li><p>Store&#x4E4B;&#x95F4;&#x4F9D;&#x8D56;&#x5173;&#x7CFB; </p>
 <ol>
@@ -1693,8 +1731,7 @@ export default ControlPanel;
 </li>
 </ol>
 <h1 id="redux"><p align="center">Redux</p></h1>
-<h6 id="back-to-top-&#x25B2;"><a href="#&#x4ECE;flux&#x5230;redux"><p align="right">back to top &#x25B2;</p></a></h6>
-<h3 id="redux&#x57FA;&#x672C;&#x539F;&#x5219;">Redux&#x57FA;&#x672C;&#x539F;&#x5219;</h3>
+<h2 id="redux&#x57FA;&#x672C;&#x539F;&#x5219;">Redux&#x57FA;&#x672C;&#x539F;&#x5219;</h2>
 <ol>
 <li><p>&#x552F;&#x4E00;&#x6570;&#x636E;&#x6E90;&#xFF08;Single Source of Truth&#xFF09;</p>
 <p> <strong>&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x53EA;&#x5B58;&#x50A8;&#x5728;&#x552F;&#x4E00;&#x7684;&#x4E00;&#x4E2A;Store&#x4E0A;</strong></p>
@@ -1747,7 +1784,7 @@ export default ControlPanel;
                 </a>
                 
                 
-                <a href="../../gulp/" class="navigation navigation-next " aria-label="Next page: gulp">
+                <a href="../Redux/" class="navigation navigation-next " aria-label="Next page: Redux">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1758,7 +1795,7 @@ export default ControlPanel;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"从Flux到Redux","level":"1.5.7.1","depth":3,"next":{"title":"gulp","level":"1.5.8","depth":2,"path":"Front-End/gulp/README.md","ref":"Front-End/gulp/README.md","articles":[]},"previous":{"title":"React","level":"1.5.7","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[{"title":"从Flux到Redux","level":"1.5.7.1","depth":3,"path":"Front-End/React/从Flux到Redux/README.md","ref":"Front-End/React/从Flux到Redux/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/React/从Flux到Redux/README.md","mtime":"2019-04-23T04:39:17.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T04:48:32.661Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"从Flux到Redux","level":"1.5.7.1","depth":3,"next":{"title":"Redux","level":"1.5.7.2","depth":3,"path":"Front-End/React/Redux/README.md","ref":"Front-End/React/Redux/README.md","articles":[]},"previous":{"title":"React","level":"1.5.7","depth":2,"path":"Front-End/React/README.md","ref":"Front-End/React/README.md","articles":[{"title":"从Flux到Redux","level":"1.5.7.1","depth":3,"path":"Front-End/React/从Flux到Redux/README.md","ref":"Front-End/React/从Flux到Redux/README.md","articles":[]},{"title":"Redux","level":"1.5.7.2","depth":3,"path":"Front-End/React/Redux/README.md","ref":"Front-End/React/Redux/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Front-End/React/从Flux到Redux/README.md","mtime":"2019-04-23T08:15:27.246Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-09T11:12:16.097Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

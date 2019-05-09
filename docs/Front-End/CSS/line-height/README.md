@@ -54,3 +54,40 @@ vertical-align 的默认值是 baseline，即基线对齐，而基线的定义�
 
 在 CSS 世界中，凡是百分比值，均是需要一个相对计算的值，例如， margin 和 padding
 是相对于父元素的宽度计算的， line-height 是相对于 font-size 计算的，而这里的 verticalalign 属性的百分比值则是相对于 line-height 的计算值计算的。
+
+
+
+
+
+
+
+---------------------------------------------
+20190430
+
+
+在各种内联相关模型中，凡是涉及垂直方向的排版或者对齐的，都离不开最基本的基线（baseline）。例如，line-height 行高的定义就是两基线的间距，vertical-align 的默认值就是基线，其他中线顶线一类的定义也离不开基线，基线甚至衍生出了很多其他基线概念（如图 5-1 所示）。
+
+基线（baseline）
+
+* line-height 行高的定义是两基线的间距
+* vertical-align 的默认值就是基线
+* 字母 x 的下边缘（线）就是基线
+
+
+x-height
+
+* 小写字母 x 的高度；
+* 术语描述就是基线和等分线（mean line）（也称作中线，midline）之间的距离。
+
+![x-height 示意](../../../images/fe_css_x_height.png)
+
+* ascender height：上下线高度；
+* cap height：大写字母高度；
+* median：中线；
+* descender height：下行线高度。
+
+verticalalign: middle
+
+这里的 middle 是中间的意思。注意，跟上面的 median（中线）不是一个意思。
+
+在 CSS 世界中，middle 指基线往上 1/2 x-height 高度。可以近似理解为字母 x 交叉点位置。
