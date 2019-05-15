@@ -6,19 +6,22 @@
 # 目录
 
 [iOS开发培训之十大编程算法助程序员走上大神路](http://www.sohu.com/a/66747709_252502)
+[The Algorithms](https://github.com/TheAlgorithms)
+
+[一个算法可视化网站](https://visualgo.net/zh/sorting)
 
 <sub>（带*标的属于八大排序）</sub>
 
 * [比较排序](#比较排序)
-    * [直接插入排序（Straight Insertion Sort）*](#直接插入排序（straight-insertion-sort）)
-    * [希尔排序（Shell Sort）*](#希尔排序（shell-sort）)
-    * [简单选择排序（Simple Select Sort）*](#简单选择排序（simple-select-sort）)
-    * [堆排序（Heap Sort）*](#堆排序（heap-sort）)
-    * [冒泡排序（Bubble Sort）*](#冒泡排序（bubble-sort）)
-    * [快速排序（Quick Sort）*](#快速排序（quick-sort）)
-    * [归并排序（Merge Sort）*](#归并排序（merge-sort）)
+    * [直接插入排序（Straight Insertion Sort）*](#直接插入排序（straight-insertion-sort）*)
+    * [希尔排序（Shell Sort）*](#希尔排序（shell-sort）*)
+    * [简单选择排序（Simple Select Sort）*](#简单选择排序（simple-select-sort）*)
+    * [堆排序（Heap Sort）*](#堆排序（heap-sort）*)
+    * [冒泡排序（Bubble Sort）*](#冒泡排序（bubble-sort）*)
+    * [快速排序（Quick Sort）*](#快速排序（quick-sort）*)
+    * [归并排序（Merge Sort）*](#归并排序（merge-sort）*)
 * [非比较排序](#非比较排序)
-    * [基数排序（Radix Sort）*](#基数排序（radix-sort）)
+    * [基数排序（Radix Sort）*](#基数排序（radix-sort）*)
     * [计数排序（Counting Sort）](#计数排序（counting-sort）)
     * [桶排序（Bucket Sort）](#桶排序（bucket-sort）)
 
@@ -161,15 +164,16 @@ class Sort():
             self.show()
 ```
 
-## 直接插入排序（straight-insertion-sort）
+## 直接插入排序（straight-insertion-sort）*
 
 直接插入排序中，我们把初始的未排序序列分成两部分：已排序部分 和 未排序部分。
 
-1. 最开始，排序部分只有一个元素；
-2. 然后把未排序部分的元素一个一个拿出来插入到已排序部分的对应位置；
-3. 已排序部分（未排序部分）每次增加（减少）一个元素。
+1. 最开始，已排序部分只有一个元素；
+2. 然后把未排序部分的元素一个一个拿出来插入到已排序部分的对应位置。
 
-![直接插入排序](../../../images/cs_straight_insertion_sort.png)
+已排序部分（未排序部分）每次增加（减少）一个元素。
+
+![直接插入排序](../../../images/cs_sort_straight_insertion_sort.png)
 
 ##### JavaScript 实现
 
@@ -201,7 +205,7 @@ def straightInsertionSort(myList):
 	return myList
 ```
 
-## 希尔排序（Shell Sort）
+## 希尔排序（Shell Sort）*
 
 * 直接插入排序在操作时几乎已经排好序的数据时，效率更高；
 * 直接插入排序低效是因为每次只能将数据移动一位。
@@ -216,7 +220,7 @@ __设置步长是为了可以将元素交换到较远的位置。__
 * 目前已知的最好的步长序列，由 Marcin Ciura 设计：[1, 4, 10, 23, 57, 132, 301, 701, 1750, ...]
 * 另一个在大数组中表现优异的步长序列：[1, 9, 34, 182, 836, 4025, 19001, 90358, 428481, ...]
 
-![希尔排序](../../../images/cs_shell_sort.gif)
+![希尔排序](../../../images/cs_sort_shell_sort.gif)
 
 ##### JavaScript 实现
 
@@ -265,7 +269,162 @@ def shell_sort(myList):
 
 
 
-## 快速排序（Quick Sort）
+## 简单选择排序（simple-select-sort）*
+
+简单选择排序中，我们把初始的未排序序列分成两部分：已排序部分 和 未排序部分。
+
+1. 最开始，已排序部分为空；
+2. 然后找出未排序部分中的最小（大）元素，放到已排序部分的末尾；
+4. 重复第2步，直到所有元素均排序完毕。
+
+已排序部分（未排序部分）每次增加（减少）一个元素。
+
+![简单选择排序](../../../images/cs_sort_simple_select_sort.gif)
+
+##### JavaScript 实现
+
+```javascript
+function simpleSelectionSort(arr){
+    var length = arr.length;
+    for(var i=0; i<length-1; i++){
+        var min = i;
+        for(var j=i+1; j<length; j++){
+            if(arr[j] < arr[min]){
+                min = j;
+            }
+        }
+        if(min != i){
+            var tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
+        }
+    }
+}
+```
+
+##### Python 实现
+
+```python
+def simpleSelectionSort(myList):
+    length = len(myList)
+    for i in range(length - 1):
+        least = i
+        for k in range(i + 1, length):
+            if myList[k] < myList[least]:
+                least = k
+        myList[least], myList[i] = myList[i], myList[least]
+    return myList
+```
+
+
+
+## 堆排序（Heap Sort）*
+
+算法思想(以大顶堆为例)：
+
+1. 将长度为n的待排序的序列进行堆有序化构造成一个大顶堆；
+2. 将根节点与尾节点交换并输出此时的尾节点；
+3. 将剩余的n-1个节点重新进行堆有序化；
+4. 重复步骤2，步骤3直至构造成一个有序序列。
+
+![堆排序](../../../images/cs_sort_heap_sort.gif)
+
+##### JavaScript 实现
+
+```javascript
+function heapSort(arr) {
+
+ let length = arr.length;
+
+  for (let i = Math.floor(length / 2) - 1; i > -1; i--) {
+    arr.heapify(i, length);
+  }
+  for (let j = length -1; j > 0; j--) {
+    let tmp = arr[0];
+    arr[0] = arr[j];
+    arr[j] = tmp;
+    arr.heapify(0, j);
+  }
+  return arr;
+}
+```
+
+
+##### Python 实现
+
+```python
+def heapify(myList, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and myList[left_index] > myList[largest]:
+        largest = left_index
+
+    if right_index < heap_size and myList[right_index] > myList[largest]:
+        largest = right_index
+
+    if largest != index:
+        myList[largest], myList[index] = myList[index], myList[largest]
+        heapify(myList, largest, heap_size)
+
+def heapSort(myList):
+    n = len(myList)
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(myList, i, n)
+    for i in range(n - 1, 0, -1):
+        myList[0], myList[i] = myList[i], myList[0]
+        heapify(myList, 0, i)
+    return myList
+```
+
+
+
+## 冒泡排序（bubble-sort）*
+
+重复遍历待排序序列，一次比较两个元素，如果顺序错误就把它们交换过来。当某趟遍历没有发生交换，说明该序列已排序完成。
+
+这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
+
+![冒泡排序](../../../images/cs_sort_bubble_sort.png)
+
+##### JavaScript 实现
+
+```javascript
+function bubbleSort(arr){
+    let swapped = true;
+    while(swapped){
+        swapped = false;
+        for(let i=0; i<arr.length-1; i++){
+            if(arr[i] > arr[i + 1]){
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    }
+    return arr;
+}
+```
+
+##### Python 实现
+
+```python
+def bubbleSort(myList):
+    length = len(myList)
+    for i in range(length-1):
+        swapped = False
+        for j in range(length-1-i):
+            if myList[j] > myList[j+1]:
+                swapped = True
+                myList[j], myList[j+1] = myList[j+1], myList[j]
+        if not swapped: break
+    return myList
+```
+
+
+
+## 快速排序（Quick Sort）*
 
 
 快速排序使用分治策略（Divide and Conquer）来把一个序列分为两个子序列：
@@ -338,33 +497,44 @@ def quickSort(myList):
 	return QuickSort(less) + [mid] + QuickSort(more)
 ```
 
-## 堆排序（Heap Sort）
 
 
-算法思想(以大顶堆为例)：
+## 归并排序（Merge Sort）*
 
-1. 将长度为n的待排序的序列进行堆有序化构造成一个大顶堆；
-2. 将根节点与尾节点交换并输出此时的尾节点；
-3. 将剩余的n-1个节点重新进行堆有序化；
-4. 重复步骤2，步骤3直至构造成一个有序序列。
+
+
+![归并排序](../../../images/cs_sort_merge_sort_1.gif)
+
+![归并排序](../../../images/cs_sort_merge_sort_2.png)
+
+
 
 ##### JavaScript 实现
 
 ```javascript
-function heapSort(arr) {
+function merge(arr1, arr2){
+	var results = [];
 
- let length = arr.length;
+	while(arr1.length && arr2.length){
+		if(arr1[0] <= arr2[0]){
+			results.push(arr1.shift());
+		}else{
+			results.push(arr2.shift());
+		}
+	}
+	return results.concat(arr1, arr2);
+}
 
-  for (let i = Math.floor(length / 2) - 1; i > -1; i--) {
-    arr.heapify(i, length);
-  }
-  for (let j = length -1; j > 0; j--) {
-    let tmp = arr[0];
-    arr[0] = arr[j];
-    arr[j] = tmp;
-    arr.heapify(0, j);
-  }
-  return arr;
+function mergeSort(arr){
+	if(arr.length < 2){
+		return arr
+	};
+
+	var arrHalf = Math.floor(arr.length/2);
+	var subArr1 = arr.slice(0, arrHalf);
+	var subArr2 = arr.slice(arrHalf, arr.length);
+
+	return merge(mergeSort(subArr1), mergeSort(subArr2));
 }
 ```
 
@@ -372,5 +542,163 @@ function heapSort(arr) {
 ##### Python 实现
 
 ```python
-def heapSort(myList):
+def mergeSort(myList):
+    def merge(left, right):
+        result = []
+        while left and right:
+            result.append(left.pop(0) if left[0]<=right[0] else right.pop(0))
+        return result + left + right
+    if len(myList) <= 1:
+        return myList
+    mid = len(myList) // 2
+    return merge(merge_sort(myList[:mid]), merge_sort(myList[mid:]))
+```
+
+
+
+## 基数排序（Radix Sort）*
+
+![基数排序](../../../images/cs_sort_radix_sort.gif)
+
+
+##### JavaScript 实现
+
+```javascript
+function radixSort(arr, RADIX){
+	if(RADIX === undefined || RADIX < 1){
+		RADIX = 10;
+	}
+
+	var maxLength = false;
+	var placement = 1;
+
+	while(!maxLength){
+		maxLength = true;
+		var buckets = [];
+
+		for(var i=0; i<RADIX; i++){
+			buckets.push([]);
+		}
+
+		for(var j=0; j<arr.length; j++){
+			var tmp = arr[j] / placement;
+			buckets[Math.floor(tmp % RADIX)].push(arr[j]);
+			if(maxLength && tmp>0){
+				maxLength = false;
+			}
+		}
+
+		var a = 0;
+		for(var b=0; b<RADIX; b++){
+			var buck = buckets[b];
+			for(var k=0; k<buck.length; k++){
+				arr[a] = buck[k];
+				a++;
+			}
+		}
+		placement *= RADIX;
+	}
+	return arr;
+}
+```
+
+##### Python 实现
+
+```python
+def radixSort(myList):
+    RADIX = 10
+    placement = 1
+
+    # get the maximum number
+    max_digit = max(myList)
+
+    while placement < max_digit:
+        # declare and initialize buckets
+        buckets = [list() for _ in range(RADIX)]
+
+        # split myList between lists
+        for i in myList:
+            tmp = int((i / placement) % RADIX)
+            buckets[tmp].append(i)
+
+        # empty lists into myList array
+        a = 0
+        for b in range( RADIX ):
+            buck = buckets[b]
+            for i in buck:
+                myList[a] = i
+                a += 1
+
+        # move to next
+        placement *= RADIX
+```
+
+
+
+## 计数排序（Counting Sort）
+
+![计数排序](../../../images/cs_sort_counting_sort.gif)
+
+
+##### JavaScript 实现
+
+```javascript
+
+```
+
+
+##### Python 实现
+
+```python
+def countingSort(myList):
+    if myList == []:
+        return []
+        
+    list_len = len(myList)
+    list_max = max(myList)
+    list_min = min(myList)
+
+    # create the counting array
+    counting_list_length = list_max + 1 - list_min
+    counting_list = [0] * counting_list_length
+
+    # count how much a number appears in the myList
+    for number in myList:
+        counting_list[number - list_min] += 1
+
+    # sum each position with it's predecessors. now, counting_list[i] tells
+    # us how many elements <= i has in the myList
+    for i in range(1, counting_list_length):
+        counting_list[i] = counting_list[i] + counting_list[i-1]
+
+    # create the output myList
+    ordered = [0] * list_len
+
+    # place the elements in the output, respecting the original order (stable
+    # sort) from end to begin, updating counting_list
+    for i in reversed(range(0, list_len)):
+        ordered[counting_list[myList[i] - list_min]-1] = myList[i]
+        counting_list[myList[i] - list_min] -= 1
+
+    return ordered
+```
+
+
+
+## 桶排序（Bucket Sort）
+
+![桶排序](../../../images/cs_sort_bucket_sort_1.png)
+![桶排序](../../../images/cs_sort_bucket_sort_2.png)
+
+##### JavaScript 实现
+
+```javascript
+
+```
+
+
+##### Python 实现
+
+```python
+
 ```
