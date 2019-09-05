@@ -3333,7 +3333,49 @@ element.attributes["id"].nodeValue = "someOtherId";
 var oldAttr = element.attributes.removeNamedItem("id");
 ```
 
+调用 removeNamedItem() 与调用 removeAttribute() 效果相同——删除具有给定名称的特性。但 removeNamedItem() 返回表示被删除特性的 Attr 节点：
 
+```javascript
+var oldAttr = element.attributes.removeNamedItem("id");
+```
+
+最后，setNamedItem() 是个很不常用的方法，可以为元素添加一个新特性，需要为它传入一个 Attr 节点：
+
+```javascript
+element.attributes.setNamedItem(newAttr);
+```
+
+一般来说，attributes 的方法不够方便，开发人员更多的会使用 getAttribute()、removeAttribute() 和 setAttribute()。不过，如果想要遍历元素的特性，attributes 属性倒可以派上用场：
+
+```javascript
+function outputAttributes(element){
+    var pairs = new Array(),
+        attrName,
+        attrValue,
+        i,
+        len;
+
+    for(i=0, len=element.attributes.length; i<len; i++){
+        attrName = element.attributes[i].nodeName;
+        attrValue = element.attributes[i].nodeValue;
+        pairs.push(attrName + "=\"" + attrValue + "\"");
+    }
+    return pairs.join(" ");
+}
+
+// attributes 对象中的特性，不同浏览器返回的顺序不同；
+// 特性在 XML 或 HTML 代码中出现的先后顺序，不一定与它们出现在 attributes 对象中的顺序一致。
+```
+
+5. 创建元素
+
+document.createElement() 可以创建新元素，接收一个参数，即要创建元素的标签名，标签名在 HTML 文档中不区分大小写，在 XML（包括 XHTML）文档中，区分大小写。
+
+使用 createElement() 方法创建新元素时，会为新元素设置 ownerDocuemnt 属性。
+
+新元素创建后尚未被添加到文档树中。要把新元素添加到文档树，可以使用 appendChild()、insertBefore()或 replaceChild()方法。下面的代码会把新创建的元素添加到文档的 &lt;body&gt; 元素中。
+
+<!-- Page 268 -->
 
 
 

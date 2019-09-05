@@ -30,3 +30,8 @@ https://material.io/tools/devices/
 http://www.loc.gov/standards/iso639-2/php/code_list.php
 
 https://www.figma.com/
+
+https://w3techs.com/sites/
+
+[雪碧图生成器](https://www.toptal.com/developers/css/sprite-generator)
+

@@ -79,7 +79,7 @@
 |p|paragraph|段落|
 |hr|horizontal rule|水平尺|
 |href|hypertext reference|超文本引用|
-|alt|alter|替用(一般是图片显示不出的提示)|
+|alt|alternative|替用（一般是图片显示不出的文本提示）|
 |src|source|源文件链接|
 |cell|cell|巢|
 |cellpadding|cellpadding|巢补白|

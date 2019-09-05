@@ -86,4 +86,6 @@
 * [市场营销](市场营销/README.md)
     * [EDM](市场营销/EDM/README.md)
 * [社交礼仪](社交礼仪/README.md)
+* [幽默](幽默/README.md)
+* [todos](todos/README.md)
 
