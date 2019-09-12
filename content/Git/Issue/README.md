@@ -1,5 +1,5 @@
 <div style="position: fixed; bottom: 20px; right: 39px; border-radius: 5px; background-color: #797979; z-index: 100;">
-    <a href="#目录" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
+    <a href="#issue" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
     <a style="cursor: pointer; color: white; border-right: 1px solid white; text-decoration: none; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;" onclick="(function(){document.querySelector('.btn.pull-left.js-toolbar-action').click()})()"><i class="fa fa-align-justify"></i></a>
 </div>
 
@@ -41,7 +41,6 @@ Issue（译"问题"或"事务"）指一项待完成的工作，通常与系统�
 
 
 # <p align="center">基本使用</p>
-###### [<p align="right">back to top ▲</p>](#issue)
 
 * 每个GitHub代码仓库都有一个Issues面板。
 
@@ -97,7 +96,6 @@ Milestone，"里程碑"，用作Issue的容器，相关Issue可以放在一个Mi
 
 
 # <p align="center">全局视图</p>
-###### [<p align="right">back to top ▲</p>](#issue)
 
 Issues面板只能查看和操作当前仓库，GitHub还提供全局视图，让用户查看和操作所有与自己相关的Issue。
 
@@ -119,7 +117,6 @@ Created和Assigned的含义显而易见，Mentioned是指他人在Issue里面@�
 
 
 # <p align="center">看板功能</p>
-###### [<p align="right">back to top ▲</p>](#issue)
 
 看板（Kanban）是敏捷开发的重要手段，主要用于项目的进度管理。所有需要完成的任务，都做成卡片，贴在一块白板上面，这就是看板。
 
