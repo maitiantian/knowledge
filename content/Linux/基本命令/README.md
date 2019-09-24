@@ -597,14 +597,14 @@ anaconda-ks.cfg: ASCII text
 |参数|作用|
 |:---|:---|
 |-L|level, Max display depth of the directory tree|
-|-I|pattern Do not list those files that match the wild-card pattern, tree -I '\*svn\|\*node_module\*'|
+|-I|pattern Do not list those files that match the wild-card pattern, tree -I '\*svn&brvbar;\*node_module\*'|
 |-a|显示所有文件和目录|
 |-A|使用ASNI绘图字符显示树状图而非以ASCII字符组合|
 |-C|在文件和目录清单加上色彩，便于区分各种类型|
 |-d|先是目录名称而非内容|
 |-D|列出文件或目录的更改时间|
 |-f|在每个文件或目录之前，显示完整的相对路径名称|
-|-F|在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"\|"号|
+|-F|在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"&brvbar;"号|
 |-g|列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码|
 |-i|不以阶梯状列出文件和目录名称|
 |-l|<范本样式> 不显示符号范本样式的文件或目录名称|
