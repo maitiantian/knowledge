@@ -1,5 +1,5 @@
 <div style="position: fixed; bottom: 20px; right: 39px; border-radius: 5px; background-color: #797979; z-index: 100;">
-    <a href="#目录" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
+    <a href="#基本命令" style="color: white; border-right: 1px solid white; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;">back to top ▲</a>
     <a style="cursor: pointer; color: white; border-right: 1px solid white; text-decoration: none; font-weight: bold; display: inline-block; padding: 5px 8px; line-height: 20px;" onclick="(function(){document.querySelector('.btn.pull-left.js-toolbar-action').click()})()"><i class="fa fa-align-justify"></i></a>
 </div>
 
@@ -369,7 +369,7 @@ drwxr-xr-x. 132 root root 8192 Jul 10 10:48 /etc
 * #### more
 用于查看纯文本文件（内容较多的）：**more [选项]文件**
 
-more命令会在最下面用百分比提示已经阅读了多少内容。还可以使用空格键或回车键向下翻页，按b键向上翻页。
+more 命令会在最下面用百分比提示已经阅读了多少内容。还可以使用空格键或回车键向下翻页，按b键向上翻页。
 
 |参数|作用|
 |:---|:---|
@@ -597,14 +597,14 @@ anaconda-ks.cfg: ASCII text
 |参数|作用|
 |:---|:---|
 |-L|level, Max display depth of the directory tree|
-|-I|pattern Do not list those files that match the wild-card pattern, tree -I '\*svn&brvbar;\*node_module\*'|
+|-I|pattern Do not list those files that match the wild-card pattern, tree -I '\*svn&#124;\*node_module\*'|
 |-a|显示所有文件和目录|
 |-A|使用ASNI绘图字符显示树状图而非以ASCII字符组合|
 |-C|在文件和目录清单加上色彩，便于区分各种类型|
 |-d|先是目录名称而非内容|
 |-D|列出文件或目录的更改时间|
 |-f|在每个文件或目录之前，显示完整的相对路径名称|
-|-F|在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"&brvbar;"号|
+|-F|在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"&#124;"号|
 |-g|列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码|
 |-i|不以阶梯状列出文件和目录名称|
 |-l|<范本样式> 不显示符号范本样式的文件或目录名称|
@@ -646,8 +646,9 @@ anaconda-ks.cfg: ASCII text
 
 一般使用“**tar -czvf 压缩包名称.tar.gz 要打包的目录**”对指定的文件进行打包压缩；相应的解压命令为“**tar -xzvf 压缩包名称.tar.gz**”。
 
-* #### grep (Global Regular Expression Print)
-用于在文本中执行关键词搜索，并显示匹配的结果：**grep [选项] [文件]**
+* #### grep (Global search Regular Expression and Print out the line)
+
+用于在文本中执行关键词搜索，并显示匹配的结果：**grep [选项] 关键字 文件**
 
 |参数|作用|
 |:---|:---|

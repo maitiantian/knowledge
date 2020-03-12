@@ -52,3 +52,16 @@ sans-serif： 无衬线字体，没有这些额外的装饰，笔画粗细差不
 设置->自定义字体
 
 ![Chrome浏览器中自定义字体](../../images/fe_css_font_family.jpg)
+
+
+
+##### px / em / rem
+
+* px：绝对的长度单位；
+    * 缺点：固定值，不够灵活
+* em：相对的长度单位，相对于父元素的 font-size 值，如果父元素没有设置，则向上层寻找；
+    * 缺点：一层一层的具有叠加效应
+* rem：相对的长度单位，相对于 html 的 font-size 值。
+    * 默认情况下，1rem = 16px
+    * 兼容性写法（IE8以下）：p {font-size:14px; font-size:.875rem;}
+
